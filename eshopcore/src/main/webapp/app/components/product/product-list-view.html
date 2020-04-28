@@ -10,7 +10,7 @@
     <div class="kt-section__content">
 
         <div class="kt-align-left">
-            <input ng-model="keyWord" class="kt-searchbar" type="text">
+            <input ng-model="keyWord"  ng-change="search()"  class="kt-searchbar" type="text">
             <button ng-click="search()" class="btn btn-primary">Search</button>
         </div>
         <table class="table">

@@ -26,7 +26,7 @@
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
                 }else   {
 
-                    notificationService.displaySuccess("Tìm thấy "+result.data.length+" bản ghi");
+                    notificationService.displaySuccess("Tìm thấy "+result.data.length+"bản ghi");
                 }
 
 
