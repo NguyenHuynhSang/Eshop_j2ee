@@ -345,7 +345,7 @@
                   <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
                   <li class="kt-menu__item " aria-haspopup="true"><a href="layout/general/fixed-content.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Fixed Content</span></a></li>
                   <li class="kt-menu__item " aria-haspopup="true"><a href="layout/general/minimized-aside.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Minimized Aside</span></a></li>
-                  <li class="kt-menu__item " aria-haspopup="true"><a href="layout/general/no-aside.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">No Aside</span></a></li>
+                  <li class="kt-menu__item " aria-haspopup="true"><a href="http://localhost:8080/eshopcore_war/#!/home" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">HOME TRIGGER</span></a></li>
                   <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a  ui-sref="home" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Empty Page</span></a></li>
                   <li class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a ui-sref="product-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Product</span></a></li>
                   <li class="kt-menu__item " aria-haspopup="true"><a href="layout/general/fixed-footer.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Fixed Footer</span></a></li>
@@ -2938,6 +2938,7 @@
 <!--end::Page Vendors -->
 <!--begin::Page Scripts(used by this page) -->
 @* <script src="${pageContext.request.contextPath }/Assets/admin/js/pages/dashboard.js" type="text/javascript"></script>*@
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Spa/activeMenuItem.js"></script>
 <!--Begin::embed angularJs-->
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular/angular.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-router/release/angular-ui-router.js"></script>
@@ -2952,6 +2953,9 @@
 <script src="${pageContext.request.contextPath }/app/components/product/product-edit-controller.js"></script>
 <!--end::embed angularJs-->
 <!--end::Page Scripts -->
+
+
+
 </body>
 
 <!-- end::Body -->

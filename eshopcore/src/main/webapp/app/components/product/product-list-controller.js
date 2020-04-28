@@ -1,17 +1,32 @@
 ﻿(function (app) {
     app.controller('product-list-controller', productListController)
-    productListController.$inject = ['$scope', 'api-service','notification-service'];
+    productListController.$inject = ['$scope', 'api-service', 'notification-service'];
 
-    function productListController($scope, apiService,notificationService) {
+    function productListController($scope, apiService, notificationService) {
         $scope.productList = [];
         $scope.getListProduct = getListProduct;
+        $scope.keyWord = '';
+
+        $scope.search = search;
+
+        function search(){
+
+            getListProduct();
+        }
 
         function getListProduct() {
-            apiService.get('/eshopcore_war/api/json', null, function (result) {
-                $scope.productList = result.data;
-                if (result.data.TotalCount==0){
-                    notificationService.displayWarning("Không tìm thấy bản ghi nào");
+            var config = {
+                params: $scope.keyWord
 
+            }
+
+            apiService.get('/eshopcore_war/api/json', config, function (result) {
+                $scope.productList = result.data;
+                if (result.data.length == 0) {
+                    notificationService.displayWarning("Không tìm thấy bản ghi nào");
+                }else   {
+
+                    notificationService.displaySuccess("Tìm thấy "+result.data.length+" bản ghi");
                 }
 
 
