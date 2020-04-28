@@ -7,7 +7,7 @@
         $scope.getListProduct = getListProduct;
 
         function getListProduct() {
-            apiService.get('/api/Product/GetAll', null, function (result) {
+            apiService.get('/eshopcore_war/api/json', null, function (result) {
                 $scope.productList = result.data;
                 if (result.data.TotalCount==0){
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

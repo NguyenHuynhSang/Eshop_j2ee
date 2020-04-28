@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "JSonAPI", urlPatterns = {"/JSonAPI"})
+@WebServlet(name = "JSonAPI", urlPatterns = {"/api/json"})
 public class JSonAPI extends HttpServlet {
 
 
