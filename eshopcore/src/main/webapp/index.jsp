@@ -26,6 +26,7 @@
 
   <!--begin::Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
+  <link href="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/toastr/toastr.scss" rel="stylesheet" type="text/css"  />
 
   <!--end::Fonts -->
   <!--begin::Page Vendors Styles(used by this page) -->
@@ -2939,13 +2940,13 @@
 @* <script src="${pageContext.request.contextPath }/Assets/admin/js/pages/dashboard.js" type="text/javascript"></script>*@
 <!--Begin::embed angularJs-->
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular/angular.js"></script>
-
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-router/release/angular-ui-router.js"></script>
-
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/toastr/toastr.js"></script>
 <script src="${pageContext.request.contextPath }/app/shared/modules/eshop-common.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/products-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/app.js"></script>
 <script src="${pageContext.request.contextPath }/app/shared/services/api-service.js"></script>
+<script src="${pageContext.request.contextPath }/app/shared/services/notification-service.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/home/home-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-edit-controller.js"></script>
