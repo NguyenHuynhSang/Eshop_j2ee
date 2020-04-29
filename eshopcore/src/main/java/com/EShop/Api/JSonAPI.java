@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 
 @WebServlet(urlPatterns = {"/API-JSon"})
 public class JSonAPI extends HttpServlet {
@@ -58,11 +60,50 @@ public class JSonAPI extends HttpServlet {
        String js = HttpUtil.of(request.getReader());
        JSon json=gson.fromJson(js, JSon.class);
         try {
+            jsonservice.InsertJson(json);
+        } catch (SQLException ex) {
+            Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Override
+    protected void doPut(HttpServletRequest request,HttpServletResponse response)
+            throws ServletException, IOException 
+    {
+       request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
+       response.setContentType("application/json"); 
+       
+       Gson gson=new Gson();
+       JSonService jsonservice = new JSonService();  
+       
+       String js = HttpUtil.of(request.getReader());
+       JSon json=gson.fromJson(js, JSon.class);
+        try {
             jsonservice.UpdateJson(json);
         } catch (SQLException ex) {
             Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
- 
+        
+    @Override
+    protected void doDelete(HttpServletRequest request,HttpServletResponse response)
+            throws ServletException,java.io.IOException
+    {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        
+        Gson gson=new Gson();
+        JSonService jsonservice=new JSonService();
+        
+        String js=HttpUtil.of(request.getReader());
+        
+        Type collectionType=new TypeToken<List<Integer>>(){}.getType();
+        List<Integer> ints=gson.fromJson(js, collectionType);
+        try {
+            jsonservice.DeleteJSon(ints);
+        } catch (SQLException ex) {
+            Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

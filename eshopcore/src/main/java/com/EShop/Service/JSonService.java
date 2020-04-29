@@ -46,7 +46,7 @@ public class JSonService {
         conn.close();
         return jsons;
     }  
-     public void UpdateJson(JSon json)throws SQLException
+     public void InsertJson(JSon json)throws SQLException
      {
         Statement statement = conn.createStatement();
         ResultSet rs= null;
@@ -59,10 +59,47 @@ public class JSonService {
         }
         else
         {
+            System.out.println("id da ton tai");
+        }
+        rs.close();
+        statement.close();
+        conn.close();
+     }
+     public void UpdateJson(JSon json)throws SQLException
+     {
+        Statement statement = conn.createStatement();
+        ResultSet rs= null;
+        String sqlQuery="SELECT * FROM JSon WHERE ID="+json.getId();
+        rs=statement.executeQuery(sqlQuery);
+        if (rs.next() == false)
+        {
+            System.out.println("khong tim thay doi tuong can sua");
+        }
+        else
+        {
           sqlQuery="UPDATE JSon SET Name = '"+json.getName()+"' WHERE ID = '"+json.getId()+"';";
           int rowCount=statement.executeUpdate(sqlQuery);
         }
+        rs.close();
+        statement.close();
         conn.close();
+     }
+     
+     public void DeleteJSon(List<Integer> id) throws SQLException
+     {
+         Statement statement = conn.createStatement();
+         ResultSet rs=null;
+         for(int i=0;i<id.size();i++)
+         {
+             String sqlQuery ="SELECT * FROM JSon Where ID="+id.get(i);
+             rs=statement.executeQuery(sqlQuery);
+             if(rs.next()!=false)
+             {
+                 sqlQuery="DELETE FROM JSon WHERE ID='"+rs.getInt("ID")+"';";
+                 int rowCount=statement.executeUpdate(sqlQuery);
+             }
+         }
+         c
      }
      
 }
