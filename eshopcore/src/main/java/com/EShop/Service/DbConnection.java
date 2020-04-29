@@ -1,5 +1,5 @@
 
-package Service;
+package com.EShop.Service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
