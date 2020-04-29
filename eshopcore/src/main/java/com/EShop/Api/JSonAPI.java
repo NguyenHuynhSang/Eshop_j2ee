@@ -61,7 +61,7 @@ public class JSonAPI extends HttpServlet {
             if (querryStr == "") {
                 json = jsonservice.GetAllJSon();
             } else {
-                json= jsonservice.GetAllJSonByKey(querryStr);
+                json = jsonservice.GetAllJSonByKey(querryStr);
 
             }
         } catch (SQLException ex) {
@@ -73,25 +73,23 @@ public class JSonAPI extends HttpServlet {
         printWriter.print(gson.toJson(json));
     }
     
-        @Override
-    protected void doPost(HttpServletRequest request,HttpServletResponse response)
-            throws ServletException, IOException 
-    {
-       request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
-       response.setContentType("application/json");
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
+        response.setContentType("application/json");
 
-       Gson gson=new Gson();
-       JSonService jsonservice = new JSonService();
+        Gson gson = new Gson();
+        JSonService jsonservice = new JSonService();
 
-       String js = HttpUtil.of(request.getReader());
-       JSon json=gson.fromJson(js, JSon.class);
+        String js = HttpUtil.of(request.getReader());
+        JSon json = gson.fromJson(js, JSon.class);
         try {
             jsonservice.UpdateJson(json);
         } catch (SQLException ex) {
             Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
- 
 
 
 }
