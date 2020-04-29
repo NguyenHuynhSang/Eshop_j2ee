@@ -5,8 +5,7 @@
  */
 package com.EShop.Api;
 
-import Model.JSon;
-import Service.JSonService;
+
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -79,11 +78,11 @@ public class JSonAPI extends HttpServlet {
             throws ServletException, IOException 
     {
        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
-       response.setContentType("application/json"); 
-       
+       response.setContentType("application/json");
+
        Gson gson=new Gson();
-       JSonService jsonservice = new JSonService();  
-       
+       JSonService jsonservice = new JSonService();
+
        String js = HttpUtil.of(request.getReader());
        JSon json=gson.fromJson(js, JSon.class);
         try {
@@ -94,10 +93,5 @@ public class JSonAPI extends HttpServlet {
     }
  
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
 
-
-    }
 }

@@ -9,14 +9,15 @@
 
         $scope.search = search;
 
-        function search(){
 
+        
+        function search(){
             getListProduct();
         }
 
         function getListProduct() {
             var config = {
-                params: $scope.keyWord
+                params: $scope.keyWord,
 
             }
 

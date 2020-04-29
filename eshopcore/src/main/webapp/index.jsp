@@ -18,7 +18,6 @@
 
 <!-- begin::Head -->
 <head>
-
   <meta charset="utf-8" />
   <title>EShop</title>
   <meta name="description" content="Page with empty content">
@@ -2951,6 +2950,9 @@
 <script src="${pageContext.request.contextPath }/app/components/home/home-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-edit-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/product/product-create-controller.js"></script>
+
+
 <!--end::embed angularJs-->
 <!--end::Page Scripts -->
 

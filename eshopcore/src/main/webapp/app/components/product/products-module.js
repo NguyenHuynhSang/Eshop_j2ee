@@ -12,7 +12,14 @@
             url: "/product-list",
             templateUrl: "./app/components/product/product-list-view.html",
             controller: "product-list-controller"
+        }).state('product-create', {
+            url: "/product-create",
+            templateUrl: "./app/components/product/product-create-view.html",
+            controller: "product-create-controller"
         });
+
+
+
     }
 
 })();
