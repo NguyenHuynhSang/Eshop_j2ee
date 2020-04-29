@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Api;
+package com.EShop.Api;
 
 import Model.JSon;
 import Service.JSonService;
@@ -17,6 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import com.EShop.Service.JSonService;
+import com.EShop.Model.JSon;
+import com.EShop.Utills.HttpUtil;
+import com.google.gson.Gson;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,6 +73,26 @@ public class JSonAPI extends HttpServlet {
 
         printWriter.print(gson.toJson(json));
     }
+    
+        @Override
+    protected void doPost(HttpServletRequest request,HttpServletResponse response)
+            throws ServletException, IOException 
+    {
+       request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
+       response.setContentType("application/json"); 
+       
+       Gson gson=new Gson();
+       JSonService jsonservice = new JSonService();  
+       
+       String js = HttpUtil.of(request.getReader());
+       JSon json=gson.fromJson(js, JSon.class);
+        try {
+            jsonservice.UpdateJson(json);
+        } catch (SQLException ex) {
+            Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+ 
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
