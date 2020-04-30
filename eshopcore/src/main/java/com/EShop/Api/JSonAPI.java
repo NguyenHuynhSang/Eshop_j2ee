@@ -16,6 +16,8 @@ import com.EShop.Service.JSonService;
 import com.EShop.Model.JSon;
 import com.EShop.Utills.HttpUtil;
 import com.google.gson.Gson;
+
+import java.lang.reflect.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ import java.lang.reflect.Type;
 @WebServlet(urlPatterns = {"/API-JSon"})
 public class JSonAPI extends HttpServlet {
 
-
+    long[] ints;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,12 +54,12 @@ public class JSonAPI extends HttpServlet {
             throws ServletException, IOException 
     {
        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
-       response.setContentType("application/json"); 
+       response.setContentType("application/json"); //set kiểu dữ liệu trả về từ server là chuỗi json
        
        Gson gson=new Gson();
        JSonService jsonservice = new JSonService();  
        
-       String js = HttpUtil.of(request.getReader());
+       String js = HttpUtil.of(request.getReader()); //request.getReader() dùng để lấy dữ liệu từ server
        JSon json=gson.fromJson(js, JSon.class);
         try {
             jsonservice.InsertJson(json);
@@ -84,26 +86,23 @@ public class JSonAPI extends HttpServlet {
             Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-        
+
     @Override
-    protected void doDelete(HttpServletRequest request,HttpServletResponse response)
-            throws ServletException,java.io.IOException
-    {
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        super.doDelete(request, response);
+        
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        
+
         Gson gson=new Gson();
         JSonService jsonservice=new JSonService();
         
         String js=HttpUtil.of(request.getReader());
-        
-        Type collectionType=new TypeToken<List<Integer>>(){}.getType();
-        List<Integer> ints=gson.fromJson(js, collectionType);
+        JSon[] json= gson.fromJson(js,JSon[].class);
         try {
-            jsonservice.DeleteJSon(ints);
+            jsonservice.DeleteJSon(json);
         } catch (SQLException ex) {
-            Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }
