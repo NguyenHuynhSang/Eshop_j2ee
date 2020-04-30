@@ -7,41 +7,34 @@ package com.EShop.Service;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import com.EShop.Model.JSon;
+import com.EShop.IService.IJSonService;
 
-import javax.json.Json;
 
 /**
  *
  * @author nhatminh
  */
-public class JSonService {
-    
-     DbConnection db = new DbConnection();
-     Connection conn = db.getJDBCConnection();
+public class JSonService implements IJSonService{
+     Connection conn = DbConnection.getJDBCConnection();
+     @Override
      public List<JSon> GetAllJSon() throws SQLException
     {
-        List<JSon> jsons= new ArrayList<JSon>();
-        
-        ResultSet rs = null;
+        List<JSon> jsons= new ArrayList<>();
         Statement stmt;
         stmt = conn.createStatement();
         String sqlQuery="SELECT * FROM JSon";
-        rs = stmt.executeQuery(sqlQuery);
-        JSon json = null;
+        ResultSet rs = stmt.executeQuery(sqlQuery);
         while(rs.next())
         {   
              int id=rs.getInt("ID");
              String name = rs.getString("Name");
-             json = new JSon(id,name);
+             JSon json = new JSon(id,name);
              jsons.add(json);
         }
         rs.close();
@@ -49,12 +42,14 @@ public class JSonService {
         conn.close();
         return jsons;
     }  
+     @Override
      public void InsertJson(JSon json)throws SQLException
      {
-        Statement statement = conn.createStatement();
-        ResultSet rs= null;
+        Statement statement;
+        statement = conn.createStatement();
         String sqlQuery="SELECT * FROM JSon WHERE ID="+json.getId();
-        rs=statement.executeQuery(sqlQuery);
+        ResultSet rs;
+        rs = statement.executeQuery(sqlQuery);
         if (rs.next() == false)
         {
           sqlQuery="INSERT INTO JSon (ID, Name) VALUES ('"+json.getId()+"','"+json.getName()+"');";
@@ -68,12 +63,14 @@ public class JSonService {
         statement.close();
         conn.close();
      }
+     @Override
      public void UpdateJson(JSon json)throws SQLException
      {
-        Statement statement = conn.createStatement();
-        ResultSet rs= null;
+        Statement statement;
+        statement = conn.createStatement();
         String sqlQuery="SELECT * FROM JSon WHERE ID="+json.getId();
-        rs=statement.executeQuery(sqlQuery);
+        ResultSet rs;
+        rs = statement.executeQuery(sqlQuery);
         if (rs.next() == false)
         {
             System.out.println("khong tim thay doi tuong can sua");
@@ -87,21 +84,19 @@ public class JSonService {
         statement.close();
         conn.close();
      }
-     
+     @Override
      public void DeleteJSon(JSon[] jsons) throws SQLException
      {
          Statement statement = conn.createStatement();
-         ResultSet rs=null;
-         for(int i=0;i<jsons.length;i++)
-            {
-                String sqlQuery ="SELECT * FROM JSon Where ID="+jsons[i].getId();
-                rs=statement.executeQuery(sqlQuery);
-                if(rs.next()!=false)
-                {
-                    sqlQuery="DELETE FROM JSon WHERE ID='"+rs.getInt("ID")+"';";
-                    int rowCount=statement.executeUpdate(sqlQuery);
-                }
-            }
+         for (JSon json : jsons) {
+             String sqlQuery = "SELECT * FROM JSon Where ID=" + json.getId();
+             ResultSet rs=statement.executeQuery(sqlQuery);
+             if(rs.next()!=false)
+             {
+                 sqlQuery="DELETE FROM JSon WHERE ID='"+rs.getInt("ID")+"';";
+                 int rowCount=statement.executeUpdate(sqlQuery);
+             }
+         }
          
      }
      
