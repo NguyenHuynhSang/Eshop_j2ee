@@ -131,7 +131,7 @@ public class JSonService {
                  int rowCount=statement.executeUpdate(sqlQuery);
              }
          }
-         c
+
      }
      
 }

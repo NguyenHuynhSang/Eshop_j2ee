@@ -6,7 +6,9 @@
     {
         return {
             get:get,
-            post:post
+            post:post,
+            put:put,
+
         }
 
         function get(url, params, success, failed) {
@@ -33,6 +35,22 @@
 
         }
 
+        function put(url, data, success, failed) {
+            $http.put(url, data).then(function (result) {
+
+                success(result);
+            },(function (error) {
+                if (error.status==='401'){
+
+                    notificationService.displayError('Yêu cầu đăng nhập');
+                }
+                notificationService.displayError(error);
+                failed(error);
+            }));
+
+        }
+
+        f
     }
 
 })(angular.module('eshop-common'));
