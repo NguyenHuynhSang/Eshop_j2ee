@@ -16,6 +16,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.EShop.Model.JSon;
+
+import javax.json.Json;
+
 /**
  * @author nhatminh
  */
@@ -117,21 +120,21 @@ public class JSonService {
         conn.close();
      }
      
-     public void DeleteJSon(List<Integer> id) throws SQLException
+     public void DeleteJSon(JSon[] jsons) throws SQLException
      {
          Statement statement = conn.createStatement();
          ResultSet rs=null;
-         for(int i=0;i<id.size();i++)
-         {
-             String sqlQuery ="SELECT * FROM JSon Where ID="+id.get(i);
-             rs=statement.executeQuery(sqlQuery);
-             if(rs.next()!=false)
-             {
-                 sqlQuery="DELETE FROM JSon WHERE ID='"+rs.getInt("ID")+"';";
-                 int rowCount=statement.executeUpdate(sqlQuery);
-             }
-         }
-
+         for(int i=0;i<jsons.length;i++)
+            {
+                String sqlQuery ="SELECT * FROM JSon Where ID="+jsons[i].getId();
+                rs=statement.executeQuery(sqlQuery);
+                if(rs.next()!=false)
+                {
+                    sqlQuery="DELETE FROM JSon WHERE ID='"+rs.getInt("ID")+"';";
+                    int rowCount=statement.executeUpdate(sqlQuery);
+                }
+            }
+         
      }
      
 }
