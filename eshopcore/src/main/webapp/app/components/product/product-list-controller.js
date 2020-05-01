@@ -10,24 +10,26 @@
         $scope.search = search;
 
 
-        
-        function search(){
+        function search() {
             getListProduct();
         }
 
         function getListProduct() {
             var config = {
-                params: $scope.keyWord,
-
+                params: {
+                    keyword: $scope.keyWord,
+                    page: 2,
+                    name: 3,
+                }
             }
 
             apiService.get('/eshopcore_war/api/json', config, function (result) {
                 $scope.productList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
-                }else   {
+                } else {
 
-                    notificationService.displaySuccess("Tìm thấy "+result.data.length+"bản ghi");
+                    notificationService.displaySuccess("Tìm thấy " + result.data.length + "bản ghi");
                 }
 
 
