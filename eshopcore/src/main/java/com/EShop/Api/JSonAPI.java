@@ -47,32 +47,44 @@ public class JSonAPI extends HttpServlet {
             throws ServletException, IOException {
 
 
-        String item = request.getContentType();
         JSonService jsonservice = new JSonService();
-        String querryStr = "";
 
         String keyword = request.getParameter("keyword");
-        String page = request.getParameter("page");
-
-
-        String js = HttpUtil.of(request.getReader());
+        String action = request.getParameter("action");
+        String ID= request.getParameter("ID");
         List<JSon> json = new ArrayList<JSon>();
         Gson gson = new Gson();
+        PrintWriter printWriter = response.getWriter();
+        JSon js=null;
+
         try {
-            if (keyword!= "") {
-                json = jsonservice.GetAllJSonByKey(keyword);
-            } else {
-                json = jsonservice.GetAllJSon();
+            switch (action){
+                case "getAll":
+                    if (keyword!= "") {
+                        json = jsonservice.GetAllJSonByKey(keyword);
+                    } else {
+                        json = jsonservice.GetAllJSon();
+                    }
+                    printWriter.print(gson.toJson(json));
+                    break;
+                case "getByID":
+                    if (ID!="" && ID!=null) js=jsonservice.GetJSONByID(Integer.parseInt(ID));
+                    printWriter.print(gson.toJson(js));
+                    break;
 
             }
+
         } catch (SQLException ex) {
 
         }
 
-        PrintWriter printWriter = response.getWriter();
 
-        printWriter.print(gson.toJson(json));
+
     }
+
+
+
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

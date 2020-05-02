@@ -46,6 +46,25 @@ public class JSonService {
     }
 
 
+    public JSon GetJSONByID(int ID) throws SQLException
+    {
+        JSon json=null;
+        List<JSon> jsons= new ArrayList<JSon>();
+
+        ResultSet rs = null;
+        Statement stmt;
+        stmt = conn.createStatement();
+        String sqlQuery = "SELECT * FROM JSon WHERE  ID="+ID;
+        rs = stmt.executeQuery(sqlQuery);
+
+        while (rs.next()) {
+            int id = rs.getInt("ID");
+            String name = rs.getString("Name");
+            json = new JSon(id, name);
+        }
+        return json;
+    }
+
     public List<JSon> GetAllJSonByKey(String key) throws SQLException {
         DbConnection db = new DbConnection();
         conn = db.getJDBCConnection();

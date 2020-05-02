@@ -2945,7 +2945,7 @@
 <script src="${pageContext.request.contextPath }/app/shared/modules/eshop-common.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/products-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/app.js"></script>
-<script src="${pageContext.request.contextPath }/app/shared/services/api-service.js"></script>
+<script  src="${pageContext.request.contextPath}/app/shared/services/api-service.js"></script>
 <script src="${pageContext.request.contextPath }/app/shared/services/notification-service.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/home/home-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-list-controller.js"></script>

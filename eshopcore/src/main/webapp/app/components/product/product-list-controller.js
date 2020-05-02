@@ -18,8 +18,7 @@
             var config = {
                 params: {
                     keyword: $scope.keyWord,
-                    page: 2,
-                    name: 3,
+                    action: "getAll",
                 }
             }
 
