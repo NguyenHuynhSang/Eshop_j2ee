@@ -37,7 +37,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 
-@WebServlet(name = "JSonAPI", urlPatterns = {"/api/json"})
+@WebServlet(name = "JSonAPI", urlPatterns = {"/api/json/*"})
 public class JSonAPI extends HttpServlet {
 
     long[] ints;
@@ -92,6 +92,7 @@ public class JSonAPI extends HttpServlet {
         request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
         response.setContentType("application/json"); //set kiểu dữ liệu trả về từ server là chuỗi json
 
+
         Gson gson = new Gson();
         JSonService jsonservice = new JSonService();
 
@@ -128,14 +129,10 @@ public class JSonAPI extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-
-        Gson gson = new Gson();
+        String ID= request.getParameter("ID");
         JSonService jsonservice = new JSonService();
-
-        String js = HttpUtil.of(request.getReader());
-        JSon[] json = gson.fromJson(js, JSon[].class);
         try {
-            jsonservice.DeleteJSon(json);
+            jsonservice.DeleteJSon(Integer.parseInt(ID));
         } catch (SQLException ex) {
             Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
         }

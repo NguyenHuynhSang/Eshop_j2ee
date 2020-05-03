@@ -139,21 +139,26 @@ public class JSonService {
         conn.close();
      }
      
-     public void DeleteJSon(JSon[] jsons) throws SQLException
+     public void DeleteJSon(int id) throws SQLException
      {
+
          Statement statement = conn.createStatement();
-         ResultSet rs=null;
-         for(int i=0;i<jsons.length;i++)
-            {
-                String sqlQuery ="SELECT * FROM JSon Where ID="+jsons[i].getId();
-                rs=statement.executeQuery(sqlQuery);
-                if(rs.next()!=false)
-                {
-                    sqlQuery="DELETE FROM JSon WHERE ID='"+rs.getInt("ID")+"';";
-                    int rowCount=statement.executeUpdate(sqlQuery);
-                }
-            }
-         
+         ResultSet rs= null;
+         String sqlQuery="SELECT * FROM JSon WHERE ID="+id;
+         rs=statement.executeQuery(sqlQuery);
+         if (rs.next() == false)
+         {
+             System.out.println("khong tim thay doi tuong can sua");
+         }
+         else
+         {
+             sqlQuery="DELETE FROM JSon WHERE ID=" +id;
+             int rowCount=statement.executeUpdate(sqlQuery);
+         }
+         rs.close();
+         statement.close();
+         conn.close();
+
      }
      
 }

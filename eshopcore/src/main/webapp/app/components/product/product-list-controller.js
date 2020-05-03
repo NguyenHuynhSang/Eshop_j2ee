@@ -1,20 +1,40 @@
 ﻿(function (app) {
     app.controller('product-list-controller', productListController)
-    productListController.$inject = ['$scope', 'api-service', 'notification-service'];
+    //inject các service cần dùng
+    productListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
 
-    function productListController($scope, apiService, notificationService) {
+//chú ý thứ tự
+    function productListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.productList = [];
         $scope.getListProduct = getListProduct;
         $scope.keyWord = '';
 
         $scope.search = search;
+        $scope.delProduct = delProduct;
 
 
         function search() {
             getListProduct();
         }
 
+        function delProduct(id) {
+            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
+                var config = {
+                    params: {
+                        ID: id,
+                    }
+                }
+                apiService.del('/eshopcore_war/api/json', config, function () {
+                    notificationService.displaySuccess("Xóa  thành công bản ghi");
+                    getListProduct();
+                }, function () {
+                    notificationService.displayError("Xóa không thành công");
+                });
+            });
+        }
+
         function getListProduct() {
+            /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
             var config = {
                 params: {
                     keyword: $scope.keyWord,
@@ -28,7 +48,7 @@
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
                 } else {
 
-                    notificationService.displaySuccess("Tìm thấy " + result.data.length + "bản ghi");
+                    notificationService.displaySuccess("Tìm thấy " + result.data.length + " bản ghi");
                 }
 
 
