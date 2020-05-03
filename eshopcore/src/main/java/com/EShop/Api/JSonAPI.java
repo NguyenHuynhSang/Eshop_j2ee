@@ -126,7 +126,6 @@ public class JSonAPI extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.doDelete(request, response);
-
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         String ID= request.getParameter("ID");
