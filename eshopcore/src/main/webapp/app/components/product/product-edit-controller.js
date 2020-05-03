@@ -33,8 +33,6 @@
 
 
         }
-
-
         function EditProduct() {
             apiService.put('/eshopcore_war/api/json',  JSON.stringify($scope.jsonEntity)  , function (result) {
                 notificationService.displaySuccess("Sửa bản ghi thành công");

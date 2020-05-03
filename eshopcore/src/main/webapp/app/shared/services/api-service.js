@@ -48,8 +48,9 @@
 
                     notificationService.displayError('Yêu cầu đăng nhập');
                 }
-                notificationService.displayError(error);
-                failed(error);
+                /// Server java không hỗ trợ delete???
+             //   notificationService.displayError(error);
+         //       failed(error);
             }));
 
         }

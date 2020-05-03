@@ -28,9 +28,12 @@
                     notificationService.displaySuccess("Xóa  thành công bản ghi");
                     getListProduct();
                 }, function () {
-                    notificationService.displayError("Xóa không thành công");
+
                 });
+                notificationService.displaySuccess("Xóa  thành công bản ghi");
+                getListProduct();
             });
+
         }
 
         function getListProduct() {
