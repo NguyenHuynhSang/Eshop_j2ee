@@ -1,49 +1,51 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.EShop.Service;
 
-
+import com.EShop.IService.ITagService;
+import com.EShop.Model.Tag;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import com.EShop.Model.JSon;
-import com.EShop.IService.IJSonService;
-
-public class JSonService implements IJSonService{
-     Connection conn = DbConnection.getJDBCConnection();
+public class TagService implements ITagService{
+    Connection conn = DbConnection.getJDBCConnection();
      @Override
-     public List<JSon> GetAllJSon() throws SQLException
+     public List<Tag> GetTag() throws SQLException
     {
-        List<JSon> jsons= new ArrayList<>();
+        List<Tag> tags= new ArrayList<>();
         Statement stmt;
         stmt = conn.createStatement();
-        String sqlQuery="SELECT * FROM JSon";
+        String sqlQuery="SELECT * FROM Tag";
         ResultSet rs = stmt.executeQuery(sqlQuery);
         while(rs.next())
         {   
-             int id=rs.getInt("ID");
-             String name = rs.getString("Name");
-             JSon json = new JSon(id,name);
-             jsons.add(json);
+             String id=rs.getString("TagID");
+             String name = rs.getString("TagName");
+             Tag tag = new Tag(id,name);
+             tags.add(tag);
         }
         rs.close();
         stmt.close();
         conn.close();
-        return jsons;
+        return tags;
     }  
      @Override
-     public void InsertJson(JSon json)throws SQLException
+     public void InsertTag(Tag tag)throws SQLException
      {
         Statement statement;
         statement = conn.createStatement();
-        String sqlQuery="SELECT * FROM JSon WHERE ID="+json.getId();
+        String sqlQuery="SELECT * FROM Tag WHERE TagID='"+tag.getID()+"'";
         ResultSet rs;
         rs = statement.executeQuery(sqlQuery);
         if (rs.next() == false)
         {
-          sqlQuery="INSERT INTO JSon (ID, Name) VALUES ('"+json.getId()+"','"+json.getName()+"');";
+          sqlQuery="INSERT INTO Tag (TagID, TagName) VALUES ('"+tag.getID()+"','"+tag.getName()+"');";
           int rowCount=statement.executeUpdate(sqlQuery);
         }
         else
@@ -55,11 +57,11 @@ public class JSonService implements IJSonService{
         conn.close();
      }
      @Override
-     public void UpdateJson(JSon json)throws SQLException
+     public void UpdateTag(Tag tag)throws SQLException
      {
         Statement statement;
         statement = conn.createStatement();
-        String sqlQuery="SELECT * FROM JSon WHERE ID="+json.getId();
+        String sqlQuery="SELECT * FROM Tag WHERE TagID="+tag.getID();
         ResultSet rs;
         rs = statement.executeQuery(sqlQuery);
         if (rs.next() == false)
@@ -68,27 +70,26 @@ public class JSonService implements IJSonService{
         }
         else
         {
-          sqlQuery="UPDATE JSon SET Name = '"+json.getName()+"' WHERE ID = '"+json.getId()+"';";
+          sqlQuery="UPDATE Tag SET TagName = '"+tag.getName()+"' WHERE TagID = '"+tag.getID()+"';";
           int rowCount=statement.executeUpdate(sqlQuery);
         }
         rs.close();
         statement.close();
         conn.close();
      }
-     @Override
-     public void DeleteJSon(JSon[] jsons) throws SQLException
+    @Override
+    public void DeleteTag(Tag[] tags) throws SQLException
      {
          Statement statement = conn.createStatement();
-         for (JSon json : jsons) {
-             String sqlQuery = "SELECT * FROM JSon Where ID=" + json.getId();
+         for (Tag tag : tags) {
+             String sqlQuery = "SELECT * FROM Tag Where TagID=" + tag.getID();
              ResultSet rs=statement.executeQuery(sqlQuery);
              if(rs.next()!=false)
              {
-                 sqlQuery="DELETE FROM JSon WHERE ID='"+rs.getInt("ID")+"';";
+                 sqlQuery="DELETE FROM Tag WHERE TagID='"+rs.getInt("TagID")+"';";
                  int rowCount=statement.executeUpdate(sqlQuery);
              }
          }
          
      }
-     
 }

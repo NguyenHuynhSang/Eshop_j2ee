@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class DbConnection {
     public static Connection getJDBCConnection()
     {
-        String url = "jdbc:jtds:sqlserver://DESKTOP-0B8181F:1433/TestJSon;instance=SQLEXPRESS";
+        String url = "jdbc:jtds:sqlserver://DESKTOP-0B8181F:1433/EShop;instance=SQLEXPRESS";
         String driver = "net.sourceforge.jtds.jdbc.Driver";
         String userName = "sa";
         String password = "123";
@@ -23,7 +23,7 @@ public class DbConnection {
         }
         catch(SQLException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         
         return null;
