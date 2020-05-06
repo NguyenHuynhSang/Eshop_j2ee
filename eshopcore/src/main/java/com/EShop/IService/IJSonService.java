@@ -11,8 +11,8 @@ import java.util.List;
 
 public interface IJSonService {
     public List<JSon> GetAllJSon() throws SQLException;
-    public void InsertJson(JSon json)throws SQLException;
-    public void UpdateJson(JSon json)throws SQLException;
-    public void DeleteJSon(JSon[] jsons) throws SQLException;
+    public void InsertJson(JSon json) throws SQLException;
+    public void UpdateJson(JSon json) throws SQLException;
+    public void DeleteJSon(int id) throws SQLException;
 
 }

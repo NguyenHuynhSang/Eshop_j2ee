@@ -16,7 +16,7 @@ import javax.json.Json;
 /**
  * @author nhatminh
  */
-public class JSonService {
+public class JSonService implements IJSonService{
     
      DbConnection db = new DbConnection();
      Connection conn = db.getJDBCConnection();
@@ -26,6 +26,7 @@ public class JSonService {
         Statement stmt;
         stmt = conn.createStatement();
         String sqlQuery = "SELECT * FROM JSon";
+        ResultSet rs = stmt.executeQuery(sqlQuery);
         rs = stmt.executeQuery(sqlQuery);
         JSon json = null;
         while (rs.next()) {
