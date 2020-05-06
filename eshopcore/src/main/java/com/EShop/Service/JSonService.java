@@ -1,21 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.EShop.Service;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import com.EShop.Model.JSon;
+import com.EShop.IService.IJSonService;
 
 import javax.json.Json;
 
@@ -28,9 +22,7 @@ public class JSonService {
      Connection conn = db.getJDBCConnection();
      public List<JSon> GetAllJSon() throws SQLException
     {
-        List<JSon> jsons= new ArrayList<JSon>();
-        
-        ResultSet rs = null;
+        List<JSon> jsons= new ArrayList<>();
         Statement stmt;
         stmt = conn.createStatement();
         String sqlQuery = "SELECT * FROM JSon";
@@ -100,12 +92,14 @@ public class JSonService {
         conn.close();
         return jsons;
     }  
+     @Override
      public void InsertJson(JSon json)throws SQLException
      {
-        Statement statement = conn.createStatement();
-        ResultSet rs= null;
+        Statement statement;
+        statement = conn.createStatement();
         String sqlQuery="SELECT * FROM JSon WHERE ID="+json.getId();
-        rs=statement.executeQuery(sqlQuery);
+        ResultSet rs;
+        rs = statement.executeQuery(sqlQuery);
         if (rs.next() == false)
         {
           sqlQuery="INSERT INTO JSon (ID, Name) VALUES ('"+json.getId()+"','"+json.getName()+"');";
@@ -119,12 +113,14 @@ public class JSonService {
         statement.close();
         conn.close();
      }
+     @Override
      public void UpdateJson(JSon json)throws SQLException
      {
-        Statement statement = conn.createStatement();
-        ResultSet rs= null;
+        Statement statement;
+        statement = conn.createStatement();
         String sqlQuery="SELECT * FROM JSon WHERE ID="+json.getId();
-        rs=statement.executeQuery(sqlQuery);
+        ResultSet rs;
+        rs = statement.executeQuery(sqlQuery);
         if (rs.next() == false)
         {
             System.out.println("khong tim thay doi tuong can sua");
