@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : index
     Created on : Apr 22, 2020, 1:18:39 PM
     Author     : Asus
@@ -92,7 +92,7 @@
             <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
                 <div class="kt-aside__brand-logo">
                     <a href="index.html">
-                        <img alt="Logo" src="~/Assets/admin/media/logos/logo-light.png" />
+                        <img alt="Logo" src="${pageContext.request.contextPath }/Assets/admin/media/logos/logo-light.png" />
                     </a>
                 </div>
                 <div class="kt-aside__brand-tools">
@@ -1040,7 +1040,7 @@
                                                     </div>
                                                 </div>
                                                 <a href="#" class="kt-mycart__pic">
-                                                    <img src="~/Assets/admin/media/products/product9.jpg" title="">
+                                                    <img src="${pageContext.request.contextPath }/Assets/admin/media/products/product9.jpg" title="">
                                                 </a>
                                             </div>
                                         </div>
@@ -1062,7 +1062,7 @@
                                                     </div>
                                                 </div>
                                                 <a href="#" class="kt-mycart__pic">
-                                                    <img src="~/Assets/admin/media/products/product13.jpg" title="">
+                                                    <img src="${pageContext.request.contextPath }/Assets/admin/media/products/product13.jpg" title="">
                                                 </a>
                                             </div>
                                         </div>
@@ -1084,7 +1084,7 @@
                                                     </div>
                                                 </div>
                                                 <a href="#" class="kt-mycart__pic">
-                                                    <img src="~/Assets/admin/media/products/product16.jpg" title="">
+                                                    <img src="${pageContext.request.contextPath }/Assets/admin/media/products/product16.jpg" title="">
                                                 </a>
                                             </div>
                                         </div>
@@ -1106,7 +1106,7 @@
                                                     </div>
                                                 </div>
                                                 <a href="#" class="kt-mycart__pic">
-                                                    <img src="~/Assets/admin/media/products/product15.jpg" title="" alt="">
+                                                    <img src="${pageContext.request.contextPath }/Assets/admin/media/products/product15.jpg" title="" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -1154,26 +1154,26 @@
                     <div class="kt-header__topbar-item kt-header__topbar-item--langs">
                         <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
                                 <span class="kt-header__topbar-icon">
-                                    <img class="" src="~/Assets/admin/media/flags/226-united-states.svg" alt="" />
+                                    <img class="" src="${pageContext.request.contextPath }/Assets/admin/media/flags/226-united-states.svg" alt="" />
                                 </span>
                         </div>
                         <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround">
                             <ul class="kt-nav kt-margin-t-10 kt-margin-b-10">
                                 <li class="kt-nav__item kt-nav__item--active">
                                     <a href="#" class="kt-nav__link">
-                                        <span class="kt-nav__link-icon"><img src="~/Assets/admin/media/flags/226-united-states.svg" alt="" /></span>
+                                        <span class="kt-nav__link-icon"><img src="${pageContext.request.contextPath }/Assets/admin/media/flags/226-united-states.svg" alt="" /></span>
                                         <span class="kt-nav__link-text">English</span>
                                     </a>
                                 </li>
                                 <li class="kt-nav__item">
                                     <a href="#" class="kt-nav__link">
-                                        <span class="kt-nav__link-icon"><img src="~/Assets/admin/media/flags/128-spain.svg" alt="" /></span>
+                                        <span class="kt-nav__link-icon"><img src="${pageContext.request.contextPath }/Assets/admin/media/flags/128-spain.svg" alt="" /></span>
                                         <span class="kt-nav__link-text">Spanish</span>
                                     </a>
                                 </li>
                                 <li class="kt-nav__item">
                                     <a href="#" class="kt-nav__link">
-                                        <span class="kt-nav__link-icon"><img src="~/Assets/admin/media/flags/162-germany.svg" alt="" /></span>
+                                        <span class="kt-nav__link-icon"><img src="${pageContext.request.contextPath }/Assets/admin/media/flags/162-germany.svg" alt="" /></span>
                                         <span class="kt-nav__link-text">German</span>
                                     </a>
                                 </li>
@@ -1188,7 +1188,7 @@
                             <div class="kt-header__topbar-user">
                                 <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
                                 <span class="kt-header__topbar-username kt-hidden-mobile">Sean</span>
-                                <img class="kt-hidden" alt="Pic" src="~/Assets/admin/media/users/300_25.jpg" />
+                                <img class="kt-hidden" alt="Pic" src="${pageContext.request.contextPath }/Assets/admin/media/users/300_25.jpg" />
 
                                 <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
                                 <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">S</span>
@@ -1199,7 +1199,7 @@
                             <!--begin: Head -->
                             <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(assets/media/misc/bg-1.jpg)">
                                 <div class="kt-user-card__avatar">
-                                    <img class="kt-hidden" alt="Pic" src="~/Assets/admin/media/users/300_25.jpg" />
+                                    <img class="kt-hidden" alt="Pic" src="${pageContext.request.contextPath }/Assets/admin/media/users/300_25.jpg" />
 
                                     <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
                                     <span class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">S</span>
@@ -2376,6 +2376,9 @@
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/toastr/toastr.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/bootbox/bootbox.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ngbootbox/dist/ngBootbox.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ckeditor/ckeditor.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ng-ckeditor/dist/ng-ckeditor.js"></script>
+
 
 <script src="${pageContext.request.contextPath }/app/shared/modules/eshop-common.js"></script>
 <%--
