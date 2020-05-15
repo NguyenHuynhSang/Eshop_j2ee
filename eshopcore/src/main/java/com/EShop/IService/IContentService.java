@@ -9,7 +9,7 @@ import com.EShop.Model.Content;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IContentService {
+public interface IContentService extends IDbConnection<Content> {
     public List<Content> GetContent() throws SQLException;
     public void InsertContent(Content content)throws SQLException;
     public void UpdateContent(Content content)throws SQLException;

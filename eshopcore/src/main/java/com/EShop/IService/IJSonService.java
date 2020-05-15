@@ -9,7 +9,7 @@ import com.EShop.Model.JSon;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IJSonService {
+public interface IJSonService extends IDbConnection<JSon> {
     public List<JSon> GetAllJSon() throws SQLException;
     public void InsertJson(JSon json) throws SQLException;
     public void UpdateJson(JSon json) throws SQLException;

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
 
-public class ContentCategoryService implements IContentCategoryService {
+public class ContentCategoryService extends DbConnection<ContentCategory>  implements IContentCategoryService {
         Connection conn = DbConnection.getJDBCConnection();
     @Override
     public List<ContentCategory> GetContentCategory() throws SQLException

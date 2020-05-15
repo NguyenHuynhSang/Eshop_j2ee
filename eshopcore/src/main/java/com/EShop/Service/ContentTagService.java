@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @author nhatminh
  */
-public class ContentTagService implements IContentTagService{
+public class ContentTagService extends DbConnection<ContentTag>  implements IContentTagService{
      Connection conn = DbConnection.getJDBCConnection();
     @Override
      public List<ContentTag> GetAllContentTag() throws SQLException

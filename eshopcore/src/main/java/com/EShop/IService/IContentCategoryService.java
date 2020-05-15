@@ -8,7 +8,7 @@ package com.EShop.IService;
 import com.EShop.Model.ContentCategory;
 import java.sql.SQLException;
 import java.util.List;
-public interface IContentCategoryService {
+public interface IContentCategoryService extends IDbConnection<ContentCategory> {
     public List<ContentCategory> GetContentCategory() throws SQLException;
     public void InsertContentCategory(ContentCategory tag)throws SQLException;
     public void UpdateContentCategory(ContentCategory tag)throws SQLException;

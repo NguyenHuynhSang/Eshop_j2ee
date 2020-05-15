@@ -17,7 +17,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContentService implements IContentService {
+public class ContentService extends DbConnection<Content>  implements IContentService {
       Connection conn = DbConnection.getJDBCConnection();
     @Override
     public List<Content> GetContent() throws SQLException
