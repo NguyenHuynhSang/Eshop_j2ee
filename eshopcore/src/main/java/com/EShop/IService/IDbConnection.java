@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface IDbConnection<T>{
     <T> List<T> query(String sql, RowMapper<T> rowMapper,Object... parameters);
+    void Update(String sql,Object... parameters);
 }
