@@ -18,6 +18,7 @@
 
 <!-- begin::Head -->
 <head>
+
     <meta charset="utf-8"/>
     <title>EShop</title>
     <meta name="description" content="Page with empty content">
@@ -51,7 +52,9 @@
           type="text/css"/>
     <link href="${pageContext.request.contextPath }/Assets/admin/css/skins/aside/dark.css" rel="stylesheet"
           type="text/css"/>
+    <link href="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-tree/dist/angular-ui-tree.css" rel="stylesheet" />
 
+    <link href="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-tree/examples/css/app.css" rel="stylesheet" />
     <!--end::Layout Skins -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath }/Assets/admin/media/logos/favicon.ico"/>
 </head>
@@ -134,14 +137,11 @@
                             <div class="kt-menu__submenu ">
                                 <span class="kt-menu__arrow"></span>
                                 <ul class="kt-menu__subnav">
-                                    <li  class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
-                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a href="layout/general/fixed-content.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Fixed Content</span></a></li>
-                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a href="layout/general/minimized-aside.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Minimized Aside</span></a></li>
-                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a href="layout/general/no-aside.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">No Aside</span></a></li>
+                                    <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  " aria-haspopup="true"><a ui-sref="home" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Trang chủ</span></a></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a ui-sref="product-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Sản Phẩm</span></a></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="order-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Hóa Đơn</span></a></li>
-                                    <li class="kt-menu__item " aria-haspopup="true"><a href="layout/general/no-header-menu.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">No Header Menu</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="catalog-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Danh mục sản phẩm</span></a></li>
                                 </ul>
                             </div>
                         </li>
@@ -2370,7 +2370,7 @@
 <script src="${pageContext.request.contextPath }/Assets/admin/js/pages/dashboard.js" type="text/javascript"></script>
 *@
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Spa/activeMenuItem.js"></script>
-<!--Begin::embed angularJs-->
+<!--Begin::embed angularJs and module-->
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular/angular.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/toastr/toastr.js"></script>
@@ -2378,34 +2378,34 @@
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ngbootbox/dist/ngBootbox.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ckeditor/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ng-ckeditor/dist/ng-ckeditor.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-tree/dist/angular-ui-tree.js"></script>
+<!--end::embed angularJs  and module-->
 
-
+<!--Begin::embed app module-->
 <script src="${pageContext.request.contextPath }/app/shared/modules/eshop-common.js"></script>
-<%--
-conponent module container
---%>
 <script src="${pageContext.request.contextPath }/app/components/product/products-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/order/orders-module.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/catalog/catalogs-module.js"></script>
+<!--end::embed app module-->
 
+<!--Begin::embed app service-->
 <script src="${pageContext.request.contextPath }/app/app.js"></script>
 <script src="${pageContext.request.contextPath}/app/shared/services/api-service.js"></script>
 <script src="${pageContext.request.contextPath }/app/shared/services/notification-service.js"></script>
+<!--end::embed app service-->
+
+
+<!--Begin::embed app controller-->
 <script src="${pageContext.request.contextPath }/app/components/home/home-controller.js"></script>
-<%--
-Product controller container
---%>
 <script src="${pageContext.request.contextPath }/app/components/product/product-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-edit-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-create-controller.js"></script>
-
-<%--
-order controller container
---%>
 <script src="${pageContext.request.contextPath }/app/components/order/order-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/catalog/catalog-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/catalog/catalog-create-controller.js"></script>
+<!--end::embed app controller-->
 
 
-
-<!--end::embed angularJs-->
 <!--end::Page Scripts -->
 
 

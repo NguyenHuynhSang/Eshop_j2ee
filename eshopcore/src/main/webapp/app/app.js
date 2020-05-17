@@ -1,7 +1,7 @@
 ﻿/// <reference path="../assets/admin/libs/plugins/angular/angular.js" />
 
 (function () {
-    angular.module('eshop', ['eshop-product','eshop-order', 'eshop-common']).config(config);
+    angular.module('eshop', ['eshop-product','eshop-order','eshop-catalog', 'eshop-common']).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
     function config($stateProvider, $urlRouterProvider) {
@@ -13,7 +13,7 @@
         });
 
         //bắt lỗi 404 điều hướng tại đây
-        $urlRouterProvider.otherwise('/home');
+       // $urlRouterProvider.otherwise('/home');
     }
 
 })();
