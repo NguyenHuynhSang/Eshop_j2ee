@@ -23,9 +23,6 @@
 
         $scope.treeOptions = {
             accept: function (sourceNodeScope, destNodesScope, destIndex) {
-
-
-                console.log("Des");
                 console.log(destNodesScope.$modelValue);
                 if (sourceNodeScope.$modelValue.hasOwnProperty("parent")==true) {
                     if (sourceNodeScope.$modelValue.parent.parentID == null) {
@@ -66,9 +63,15 @@
 
         function getListCatalog() {
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
+            var config = {
+                params: {
+                    keyword: $scope.keyWord,
+                    action: "getAll", //VỚI GET CONFIG LUÔN TRUYỀN ACTION VÀO ĐỂ HÀM DOGET XỬ LÝ TỪNG CASE
+                }
+            }
 
 
-            apiService.get('/api/Catalog/GetAll', null, function (result) {
+            apiService.get('/eshopcore_war/api/catalog', config, function (result) {
                 $scope.catalogList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

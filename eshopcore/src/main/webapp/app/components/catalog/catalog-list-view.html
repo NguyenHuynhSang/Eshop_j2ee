@@ -247,11 +247,12 @@
                                         </thead>
                                         <tbody>
                                             <tr ng-repeat="item in catalogList">
-                                                <td>{{item.catalog.id}}</td>
-                                                <td>{{item.catalog.name}}</td>
-                                                <td>{{item.parentName}}</td>
-                                                <td>{{item.catalog.createdBy}}</td>
-                                                <td>{{item.catalog.createdDate}}</td>
+                                                <td >{{item.Catalog.ID}}</td>
+                                                <td>{{item.Catalog.Name}}</td>
+                                                <td ng-if="item.ParentName!=null">{{item.ParentName}}</td>
+                                                <td ng-if="item.ParentName==null">GỐC</td>
+                                                <td>{{item.Catalog.CreatedBy}}</td>
+                                                <td>{{item.Catalog.CreatedDate}}</td>
                                                 <td>tool here</td>
                                             </tr>
                                         </tbody>
