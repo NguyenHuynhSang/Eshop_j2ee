@@ -284,16 +284,16 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="kt_tabs_1_3" role="tabpanel">
-                    <div ui-tree="treeOptions" data-max-depth="2" class="angular-ui-tree"">
+                    <div ui-tree="treeOptions" data-max-depth="2" class="angular-ui-tree">
                         <ol ui-tree-nodes ng-model="catalogTree" expand-on-hover="false" data-type="top-level" collapsed="false">
                             <li ng-repeat="item in catalogTree" ui-tree-node>
                                 <div ui-tree-handle>
-                                    {{item.parent.name}}
+                                    {{item.Parent.Name}}
                                 </div>
-                                <ol ui-tree-nodes ng-model="item.childs">
-                                    <li ng-repeat="subItem in item.childs" ui-tree-node>
+                                <ol ui-tree-nodes ng-model="item.Childs">
+                                    <li ng-repeat="subItem in item.Childs" ui-tree-node>
                                         <div ui-tree-handle>
-                                            {{subItem.name}}
+                                            {{subItem.Name}}
                                         </div>
                                     </li>
                                 </ol>

@@ -6,11 +6,7 @@
     //chú ý thứ tự
     function catalogListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.catalogList = [];
-        $scope.catalogTree = [
-            {parent:{id:1,name:"Điện thoại"},childs:[{id:3,name:"iphone"},{id:4,name:"samsung"}]},
-            {parent:{id:2,name:"Laptop "},childs:[{id:5,name:"macbook"},{id:6,name:"Asus"}]},
-            {parent:{id:3,name:"Phụ kiện "},childs:[]}
-        ];
+        $scope.catalogTree = []
 
 
         $scope.getListCatalog = getListCatalog;
@@ -84,9 +80,20 @@
             });
 
         }
-        function getCatalogTree() {
 
-            apiService.get('/api/Catalog/GetTree', null, function (result) {
+
+
+        function getCatalogTree() {
+            /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
+            var config = {
+                params: {
+                    keyword: $scope.keyWord,
+                    action: "getTree", //VỚI GET CONFIG LUÔN TRUYỀN ACTION VÀO ĐỂ HÀM DOGET XỬ LÝ TỪNG CASE
+                }
+            }
+
+
+            apiService.get('/eshopcore_war/api/catalog', config, function (result) {
                 $scope.catalogTree = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
@@ -101,6 +108,6 @@
 
 
         $scope.getListCatalog();
-       // $scope.getCatalogTree();
+        $scope.getCatalogTree();
     }
 })(angular.module('eshop-catalog'));

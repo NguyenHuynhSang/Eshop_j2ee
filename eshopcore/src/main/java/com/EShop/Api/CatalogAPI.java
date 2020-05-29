@@ -1,6 +1,7 @@
 package com.EShop.Api;
 
 import com.EShop.Model.JSon;
+import com.EShop.Model.ViewModel.CatalogTreeModel;
 import com.EShop.Model.ViewModel.CatalogViewModel;
 import com.EShop.Service.CatalogService;
 import com.EShop.Service.JSonService;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -25,13 +27,10 @@ public class CatalogAPI  extends HttpServlet {
         req.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-
         CatalogService catalogService = new CatalogService();
-
         String keyword = req.getParameter("keyword");
         String action = req.getParameter("action");
         String ID= req.getParameter("ID");
-
         Gson gson = new Gson();
         PrintWriter printWriter = resp.getWriter();
         JSon js=null;
@@ -42,13 +41,18 @@ public class CatalogAPI  extends HttpServlet {
                         catalogs = catalogService.GetCatalogs();
                     printWriter.print(gson.toJson(catalogs));
                     break;
+                case "getTree":
+                    List<CatalogTreeModel> catalogTree = new ArrayList<CatalogTreeModel>();
+                    catalogTree = catalogService.GetCatalogsTree();
+                    printWriter.print(gson.toJson(catalogTree));
+                    break;
                 case "getByID":
                     break;
 
             }
 
         } catch (SQLException ex) {
-
+                log(ex.toString());
         }
 
 
