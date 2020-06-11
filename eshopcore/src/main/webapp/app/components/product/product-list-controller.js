@@ -3,17 +3,31 @@
     //inject các service cần dùng
     productListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
 
-//chú ý thứ tự
+    //chú ý thứ tự
     function productListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.productList = [];
         $scope.getListProduct = getListProduct;
+
+        $scope.productFilter = {};
+
+
+
         $scope.keyWord = '';
 
+
+
+
         $scope.search = search;
+        $scope.reset = function () {
+            $scope.productFilter = {};
+            getListProduct();
+        }
+
         $scope.delProduct = delProduct;
 
 
         function search() {
+
             getListProduct();
         }
 
@@ -24,7 +38,7 @@
                         ID: id,
                     }
                 }
-                apiService.del('/eshopcore_war/api/json', config, function () {
+                apiService.del('/api/Product/GetAll', config, function () {
                     notificationService.displaySuccess("Xóa  thành công bản ghi");
                     getListProduct();
                 }, function () {
@@ -33,19 +47,19 @@
                 notificationService.displaySuccess("Xóa  thành công bản ghi");
                 getListProduct();
             });
-
+b
         }
 
         function getListProduct() {
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
+
             var config = {
                 params: {
-                    keyword: $scope.keyWord,
-                    action: "getAll",
+                    filterJson: angular.toJson($scope.productFilter)
                 }
             }
 
-            apiService.get('/eshopcore_war/api/json', config, function (result) {
+            apiService.get('/api/Product/GetAll', config, function (result) {
                 $scope.productList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
@@ -61,6 +75,11 @@
             });
 
         }
+
+
+
+
+
 
         $scope.getListProduct();
     }

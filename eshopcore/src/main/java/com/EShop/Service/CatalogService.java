@@ -70,13 +70,13 @@ public class CatalogService implements ICatalogService {
                     rs.getString("SEODescription"));
             catalogTree.Parent = parent;
 
-            Statement childStatement=conn.createStatement();
+            Statement childStatement = conn.createStatement();
             String sqlQueryChild = "select *\n" +
                     "from Catalog\n" +
-                    "where ParentID = "+parent.getID();
+                    "where ParentID = " + parent.getID();
             ResultSet rsChild = childStatement.executeQuery(sqlQueryChild);
 
-            catalogTree.Childs=new ArrayList<>();
+            catalogTree.Childs = new ArrayList<>();
             while (rsChild.next()) {
 
                 Catalog child = new Catalog(rsChild.getInt("ID"),
@@ -98,6 +98,34 @@ public class CatalogService implements ICatalogService {
             catalogs.add(catalogTree);
             childStatement.close();
             rsChild.close();
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+        return catalogs;
+    }
+
+    @Override
+    public List<Catalog> GetChildCatalogs() throws SQLException {
+        List<Catalog> catalogs = new ArrayList<>();
+        Statement stmt;
+        stmt = conn.createStatement();
+        String sqlQuery = "select *\n" +
+                "from Catalog\n" +
+                "where ParentID is not null";
+        ResultSet rs = stmt.executeQuery(sqlQuery);
+        while (rs.next()) {
+            Catalog catalog = new Catalog(rs.getInt("ID"),
+                    rs.getInt("ParentID"),
+                    rs.getString("Name"),
+                    rs.getDate("CreatedDate"),
+                    rs.getString("CreatedBy"),
+                    rs.getDate("ModifiedDate"),
+                    rs.getString("ModifiedBy"),
+                    rs.getString("SEOTitle"),
+                    rs.getString("SEOUrl"),
+                    rs.getString("SEODescription"));
+            catalogs.add(catalog);
         }
         rs.close();
         stmt.close();

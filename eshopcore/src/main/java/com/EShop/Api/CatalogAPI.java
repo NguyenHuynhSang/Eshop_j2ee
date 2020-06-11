@@ -1,5 +1,6 @@
 package com.EShop.Api;
 
+import com.EShop.Model.Catalog;
 import com.EShop.Model.JSon;
 import com.EShop.Model.ViewModel.CatalogTreeModel;
 import com.EShop.Model.ViewModel.CatalogViewModel;
@@ -20,7 +21,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "CatalogAPI", urlPatterns = {"/api/catalog"})
+@WebServlet(name = "CatalogAPI", urlPatterns = {"/api/Catalog"})
 public class CatalogAPI  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,8 +47,14 @@ public class CatalogAPI  extends HttpServlet {
                     catalogTree = catalogService.GetCatalogsTree();
                     printWriter.print(gson.toJson(catalogTree));
                     break;
+                case "getChild":
+                    List<Catalog> childCatalogs=new ArrayList<Catalog>();
+                    childCatalogs = catalogService.GetChildCatalogs();
+                    printWriter.print(gson.toJson(childCatalogs));
+                    break;
                 case "getByID":
                     break;
+
 
             }
 

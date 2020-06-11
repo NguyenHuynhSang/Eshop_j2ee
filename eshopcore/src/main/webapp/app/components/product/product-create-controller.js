@@ -1,7 +1,6 @@
 (function (app) {
     app.controller('product-create-controller', productCreateController)
     productCreateController.$inject = ['api-service', '$scope', 'notification-service', '$state'];
-
     function productCreateController(apiService, $scope, notificationService, $state) {
 
         ///**********************
@@ -16,6 +15,12 @@
         $scope.productInput = {
             name: '', description: '', version: [{ attribute: []}]
         };
+
+
+        //list catalog
+        $scope.childCagalogList = [];
+        $scope.getListChildCatalog = getListChildCatalog();
+
 
 
 
@@ -64,7 +69,7 @@
                     action: "getAll",
                 }
             }
-            apiService.get('/api/AttributeValue/GetAll', config, function (result) {
+            apiService.get('/eshopcore_war/api/AttributeValue', config, function (result) {
                 $scope.attributeValueListPerVersion[versionIndex].atributeValue[atributeIndex] = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
@@ -82,7 +87,7 @@
 
         function GetListAttribute() {
 
-            apiService.get('/api/Attribute/GetAll', null, function (result) {
+            apiService.get('/eshopcore_war/api/Attribute', null, function (result) {
                 $scope.listAttribute = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
@@ -98,10 +103,30 @@
 
 
 
+        function getListChildCatalog() {
+            var config = {
+                params: {
+                    action: "getChild",
+                }
+            }
+            apiService.get('/eshopcore_war/api/Catalog', config, function (result) {
+                $scope.childCagalogList = result.data;
+                if (result.data.length == 0) {
+                    notificationService.displayWarning("Không tìm thấy bản ghi nào");
+                } else {
+
+                    notificationService.displaySuccess("Tìm thấy " + result.data.length + " bản ghi");
+                }
+            }, function () {
+                notificationService.displayError("Không lấy được dữ liệu từ server");
+            });
+        }
+
+
 
         /// Chưa dùng đến
         function CreateProduct() {
-            apiService.post('/api/Product/CreateProductByProductInput', $scope.productInput, function (result) {
+            apiService.post('/eshopcore_war/api/Product', $scope.productInput, function (result) {
                 notificationService.displaySuccess("Thêm mới bản ghi thành công");
                 $state.go('product-list');
             }, function () {
@@ -109,8 +134,6 @@
                 notificationService.displayError("Thêm mới bản ghi KHÔNG thành công");
             });
         }
-
-
         GetListAttribute();
         //  GetListAttributeValue();
     }
