@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class DbConnection {
     public static Connection getJDBCConnection()
     {
-        String url = "jdbc:jtds:sqlserver://LAPTOP-6KVMDIF8:1433/EShop;instance=";
+        String url = "jdbc:jtds:sqlserver://LAPTOP-6KVMDIF8:1433/Bt2;instance=";
         String driver = "net.sourceforge.jtds.jdbc.Driver";
         String userName = "sa";
         String password = "123";

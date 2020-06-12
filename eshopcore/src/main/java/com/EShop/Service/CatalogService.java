@@ -6,12 +6,14 @@ import com.EShop.Model.Catalog;
 import com.EShop.Model.ViewModel.CatalogTreeModel;
 import com.EShop.Model.ViewModel.CatalogViewModel;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
+import static java.util.Calendar.DATE;
 
 public class CatalogService implements ICatalogService {
     Connection conn = DbConnection.getJDBCConnection();
@@ -134,8 +136,67 @@ public class CatalogService implements ICatalogService {
     }
 
     @Override
-    public void InsertCatalog(Catalog catalog) throws SQLException {
+    public List<Catalog> GetParentCatalogs() throws SQLException {
+        List<Catalog> catalogs = new ArrayList<>();
+        Statement stmt;
+        stmt = conn.createStatement();
+        String sqlQuery = "select *\n" +
+                "from Catalog\n" +
+                "where ParentID is null";
+        ResultSet rs = stmt.executeQuery(sqlQuery);
+        while (rs.next()) {
+            Catalog catalog = new Catalog(rs.getInt("ID"),
+                    rs.getInt("ParentID"),
+                    rs.getString("Name"),
+                    rs.getDate("CreatedDate"),
+                    rs.getString("CreatedBy"),
+                    rs.getDate("ModifiedDate"),
+                    rs.getString("ModifiedBy"),
+                    rs.getString("SEOTitle"),
+                    rs.getString("SEOUrl"),
+                    rs.getString("SEODescription"));
+            catalogs.add(catalog);
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+        return catalogs;
+    }
 
+    @Override
+    public void InsertCatalog(Catalog catalog) throws SQLException {
+        Statement statement;
+        String sqlQuery="SELECT * FROM Catalog WHERE ID="+catalog.getID(); // check trùng
+        ResultSet rs;
+        statement = conn.createStatement();
+
+
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
+        rs = statement.executeQuery(sqlQuery);
+        if (rs.next() == false)
+        {
+
+            sqlQuery="Insert into Catalog (ParentID,Name,SEOTitle,SEOUrl,SEODescription,CreatedDate,CreatedBy) \n" +
+                    "values (?, ?, ?, ?,?,?,?)";
+            PreparedStatement pStatement=conn.prepareStatement(sqlQuery);
+            //statement = conn.prepareStatement(sqlQuery);
+            pStatement.setObject(1, catalog.getParentID());
+            pStatement.setObject(2, catalog.getName());
+            pStatement.setObject(3, catalog.getSEOTitle());
+            pStatement.setObject(4, catalog.getSEOURL());
+            pStatement.setObject(5, catalog.getSEODescription());
+            pStatement.setObject(6, timeStamp);
+            pStatement.setObject(7, catalog.getCreatedBy());
+            int rowCount=pStatement.executeUpdate();
+            pStatement.close();
+        }
+        else
+        {
+            System.out.println("id da ton tai");
+        }
+        rs.close();
+        statement.close();
+        conn.close();
     }
 
     @Override

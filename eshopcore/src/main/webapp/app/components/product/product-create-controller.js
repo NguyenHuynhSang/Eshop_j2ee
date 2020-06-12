@@ -13,7 +13,7 @@
         $scope.attributeValueListPerVersion = [{ atributeValue: [] }]
 
         $scope.productInput = {
-            name: '', description: '', version: [{ attribute: []}]
+            Name: '', Description: '', Version: [{ Attribute: []}]
         };
 
 
@@ -27,21 +27,21 @@
 
         ///Thêm  phiên bản cho sản phẩm
         $scope.addNewVersion = function() {
-            $scope.productInput.version.push({ attribute: [] });
+            $scope.productInput.Version.push({ attribute: [] });
             $scope.attributeValueListPerVersion.push({ atributeValue: [] });
         }
 
 
         // Thêm  attributevalue dựa vào phiên bản
         $scope.addNewAttributeSet = function (verIndex) {
-            $scope.productInput.version[verIndex].attribute.push({});
+            $scope.productInput.Version[verIndex].attribute.push({});
 
 
         };
 
         // loại bỏ 1 attribute value
         $scope.removeAttributeValue = function (verIndex,element) {
-            $scope.productInput.version[verIndex].attribute.splice(element, 1);
+            $scope.productInput.Version[verIndex].attribute.splice(element, 1);
             $scope.attributeValueListPerVersion[verIndex].atributeValue.splice(element,1);
         };
 

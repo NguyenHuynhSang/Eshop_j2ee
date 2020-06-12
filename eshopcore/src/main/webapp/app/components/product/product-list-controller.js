@@ -38,7 +38,7 @@
                         ID: id,
                     }
                 }
-                apiService.del('/api/Product/GetAll', config, function () {
+                apiService.del('/eshopcore_war/api/Product/GetAll', config, function () {
                     notificationService.displaySuccess("Xóa  thành công bản ghi");
                     getListProduct();
                 }, function () {
@@ -59,7 +59,7 @@ b
                 }
             }
 
-            apiService.get('/api/Product/GetAll', config, function (result) {
+            apiService.get('/eshopcore_war/api/Product/GetAll', config, function (result) {
                 $scope.productList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

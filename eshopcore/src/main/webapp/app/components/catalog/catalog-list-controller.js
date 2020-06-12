@@ -15,8 +15,7 @@
         $scope.keyWord = '';
 
         $scope.search = search;
-        $scope.delProduct = delProduct;
-
+ 
         $scope.treeOptions = {
             accept: function (sourceNodeScope, destNodesScope, destIndex) {
                 console.log(destNodesScope.$modelValue);
@@ -38,25 +37,7 @@
             getListProduct();
         }
 
-        function delProduct(id) {
-            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
-                var config = {
-                    params: {
-                        ID: id,
-                    }
-                }
-                apiService.del('/api/Product/GetAll', config, function () {
-                    notificationService.displaySuccess("Xóa  thành công bản ghi");
-                    getListProduct();
-                }, function () {
-
-                });
-                notificationService.displaySuccess("Xóa  thành công bản ghi");
-                getListProduct();
-            });
-
-        }
-
+      
         function getListCatalog() {
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
             var config = {
@@ -67,7 +48,7 @@
             }
 
 
-            apiService.get('/eshopcore_war/api/catalog', config, function (result) {
+            apiService.get('/eshopcore_war/api/Catalog', config, function (result) {
                 $scope.catalogList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
@@ -93,7 +74,7 @@
             }
 
 
-            apiService.get('/eshopcore_war/api/catalog', config, function (result) {
+            apiService.get('/eshopcore_war/api/Catalog', config, function (result) {
                 $scope.catalogTree = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

@@ -166,9 +166,9 @@
                     </div>
                 </div>
                 &nbsp;
-                <a ui-sref="product-create" class="btn btn-brand btn-elevate btn-icon-sm">
+                <a ui-sref="catalog-create" class="btn btn-brand btn-elevate btn-icon-sm">
                     <i class="la la-plus"></i>
-                    Tạo sản phẩm mới
+                    Tạo danh mục mới
                 </a>
             </div>
         </div>
@@ -242,7 +242,7 @@
                                                 <th>Danh mục cha</th>
                                                 <th>Ngày tạo</th>
                                                 <th>Người tạo</th>
-                                                <th>.....</th>
+                                                <th>Tùy chọn</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -253,7 +253,28 @@
                                                 <td ng-if="item.ParentName==null">GỐC</td>
                                                 <td>{{item.Catalog.CreatedBy}}</td>
                                                 <td>{{item.Catalog.CreatedDate}}</td>
-                                                <td>tool here</td>
+                                                <td>
+                                                    <span class="dtr-data">
+                                                        <span class="dropdown">
+                                                            <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
+                                                                <i class="la la-edit"></i>
+                                                            </a>
+                                                            <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
+                                                                <i class="la la-eye"></i>
+                                                            </a>
+                                                            <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">
+                                                                <i class="la la-ellipsis-h"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit Details</a>
+                                                                <a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>
+                                                                <a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>
+                                                            </div>
+                                                        </span>
+            
+                                                    </span>
+
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
