@@ -95,12 +95,12 @@ public class ContentService extends DbConnection<ContentViewModel> implements IC
         rs = statement.executeQuery(sqlQuery);
         if (rs.next() == false)
         {
-          sqlQuery="INSERT INTO Content (ID, Name, MetaTitle, Description"
+          sqlQuery="INSERT INTO Content (Name, MetaTitle, Description"
                   + ",Image, CategoryID, Detail, Warranty, CreateDate, CreateBy"
                   + ", MetaKeywords, MetaDescriptions"
                   + ", Status, TopHot, ViewCount, Tags, Language)"
-                  + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-          Update(sqlQuery,content.getID(),content.getName(),content.getMetaTitle(),content.getDescription(),
+                  + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+          Update(sqlQuery,content.getName(),content.getMetaTitle(),content.getDescription(),
                  content.getImage(),content.getCategoryID(),content.getDetail(),content.getWarranty(),content.getCreateDate(),content.getCreateBy(),
                  content.getMetaKeywords(),content.getMetaDescriptions(),content.isStatus(),content.getTopHot(),content.getViewCount(),content.getTags(),content.getLanguage());
           if(content.getTags()!=null)

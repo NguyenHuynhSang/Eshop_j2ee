@@ -59,7 +59,7 @@ public class ContentAPI extends HttpServlet {
             try {
             switch (action){
                 case "getAll":
-                    if (keyword!= null || keyword=="") {
+                    if (keyword!="") {
                         json = jsonservice.GetAllContentByKey(keyword);
                     } else {
                         json = jsonservice.GetContent();

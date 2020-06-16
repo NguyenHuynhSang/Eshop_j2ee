@@ -60,7 +60,8 @@ public class ContentCategoryAPI extends HttpServlet {
             try {
                 switch (action){
                     case "getAll":
-                        if (keyword!= null || keyword=="") {
+                         if (keyword!= "")
+                        { 
                             json = jsonservice.GetAllContentCategoryByKey(keyword);
                         } else {
                             json = jsonservice.GetContentCategory();
@@ -79,8 +80,8 @@ public class ContentCategoryAPI extends HttpServlet {
             }
         }
     }
-    
-        @Override
+   
+    @Override
     protected void doPost(HttpServletRequest request,HttpServletResponse response)
             throws ServletException, IOException 
     {
@@ -110,7 +111,7 @@ public class ContentCategoryAPI extends HttpServlet {
        ContentCategoryService jsonservice = new ContentCategoryService();  
        
        String js = HttpUtil.of(request.getReader());
-       ContentCategory category=gson.fromJson(js, ContentCategory.class);
+       ContentCategoryViewModel category=gson.fromJson(js, ContentCategoryViewModel.class);
         try {
             jsonservice.UpdateContentCategory(category);
         } catch (SQLException ex) {
@@ -125,13 +126,11 @@ public class ContentCategoryAPI extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
 
-        Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
-        ContentCategoryService jsonservice=new ContentCategoryService();
+        ContentCategoryService jsonservice = new ContentCategoryService();  
         
-        String js=HttpUtil.of(request.getReader());
-        ContentCategory[] json= gson.fromJson(js,ContentCategory[].class);
+        String ID= request.getParameter("ID");
         try {
-            jsonservice.DeleteContentCategory(json);
+            jsonservice.DeleteContentCategory(Integer.parseInt(ID));
         } catch (SQLException ex) {
            Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
         }

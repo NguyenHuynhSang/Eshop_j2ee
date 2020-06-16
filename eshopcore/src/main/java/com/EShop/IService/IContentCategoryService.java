@@ -12,7 +12,7 @@ import java.util.List;
 public interface IContentCategoryService extends IDbConnection<ContentCategoryViewModel> {
     public List<ContentCategoryViewModel> GetContentCategory() throws SQLException;
     public void InsertContentCategory(ContentCategory tag)throws SQLException;
-    public void UpdateContentCategory(ContentCategory tag)throws SQLException;
-    public void DeleteContentCategory(ContentCategory[] tag) throws SQLException;
+    public void UpdateContentCategory(ContentCategoryViewModel tag)throws SQLException;
+    public void DeleteContentCategory(int id) throws SQLException;
 
 }
