@@ -1,19 +1,15 @@
 package com.EShop.Service;
 
 import com.EShop.IService.ICatalogService;
-import com.EShop.Model.Attribute;
-import com.EShop.Model.Catalog;
+import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.ViewModel.CatalogTreeModel;
 import com.EShop.Model.ViewModel.CatalogViewModel;
 
 import java.sql.*;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-import static java.util.Calendar.DATE;
 
 public class CatalogService implements ICatalogService {
     Connection conn = DbConnection.getJDBCConnection();
@@ -28,7 +24,7 @@ public class CatalogService implements ICatalogService {
                 "LEFT JOIN Catalog p ON c.ParentID = p.ID\n";
         ResultSet rs = stmt.executeQuery(sqlQuery);
         while (rs.next()) {
-            Catalog catalog = new Catalog(rs.getInt("ID"),
+            ProductCatalog catalog = new ProductCatalog(rs.getInt("ID"),
                     rs.getInt("ParentID"),
                     rs.getString("Name"),
                     rs.getDate("CreatedDate"),
@@ -60,7 +56,7 @@ public class CatalogService implements ICatalogService {
         ResultSet rs = stmt.executeQuery(sqlQuery);
         while (rs.next()) {
             CatalogTreeModel catalogTree = new CatalogTreeModel();
-            Catalog parent = new Catalog(rs.getInt("ID"),
+            ProductCatalog parent = new ProductCatalog(rs.getInt("ID"),
                     rs.getInt("ParentID"),
                     rs.getString("Name"),
                     rs.getDate("CreatedDate"),
@@ -81,7 +77,7 @@ public class CatalogService implements ICatalogService {
             catalogTree.Childs = new ArrayList<>();
             while (rsChild.next()) {
 
-                Catalog child = new Catalog(rsChild.getInt("ID"),
+                ProductCatalog child = new ProductCatalog(rsChild.getInt("ID"),
                         rsChild.getInt("ParentID"),
                         rsChild.getString("Name"),
                         rsChild.getDate("CreatedDate"),
@@ -108,8 +104,8 @@ public class CatalogService implements ICatalogService {
     }
 
     @Override
-    public List<Catalog> GetChildCatalogs() throws SQLException {
-        List<Catalog> catalogs = new ArrayList<>();
+    public List<ProductCatalog> GetChildCatalogs() throws SQLException {
+        List<ProductCatalog> catalogs = new ArrayList<>();
         Statement stmt;
         stmt = conn.createStatement();
         String sqlQuery = "select *\n" +
@@ -117,7 +113,7 @@ public class CatalogService implements ICatalogService {
                 "where ParentID is not null";
         ResultSet rs = stmt.executeQuery(sqlQuery);
         while (rs.next()) {
-            Catalog catalog = new Catalog(rs.getInt("ID"),
+            ProductCatalog catalog = new ProductCatalog(rs.getInt("ID"),
                     rs.getInt("ParentID"),
                     rs.getString("Name"),
                     rs.getDate("CreatedDate"),
@@ -136,8 +132,8 @@ public class CatalogService implements ICatalogService {
     }
 
     @Override
-    public List<Catalog> GetParentCatalogs() throws SQLException {
-        List<Catalog> catalogs = new ArrayList<>();
+    public List<ProductCatalog> GetParentCatalogs() throws SQLException {
+        List<ProductCatalog> catalogs = new ArrayList<>();
         Statement stmt;
         stmt = conn.createStatement();
         String sqlQuery = "select *\n" +
@@ -145,7 +141,7 @@ public class CatalogService implements ICatalogService {
                 "where ParentID is null";
         ResultSet rs = stmt.executeQuery(sqlQuery);
         while (rs.next()) {
-            Catalog catalog = new Catalog(rs.getInt("ID"),
+            ProductCatalog catalog = new ProductCatalog(rs.getInt("ID"),
                     rs.getInt("ParentID"),
                     rs.getString("Name"),
                     rs.getDate("CreatedDate"),
@@ -164,7 +160,7 @@ public class CatalogService implements ICatalogService {
     }
 
     @Override
-    public void InsertCatalog(Catalog catalog) throws SQLException {
+    public void InsertCatalog(ProductCatalog catalog) throws SQLException {
         Statement statement;
         String sqlQuery="SELECT * FROM Catalog WHERE ID="+catalog.getID(); // check trùng
         ResultSet rs;
@@ -200,12 +196,12 @@ public class CatalogService implements ICatalogService {
     }
 
     @Override
-    public void UpdateCatalog(Catalog catalog) throws SQLException {
+    public void UpdateCatalog(ProductCatalog catalog) throws SQLException {
 
     }
 
     @Override
-    public void DeleteCatalog(Catalog[] catalog) throws SQLException {
+    public void DeleteCatalog(ProductCatalog[] catalog) throws SQLException {
 
     }
 }

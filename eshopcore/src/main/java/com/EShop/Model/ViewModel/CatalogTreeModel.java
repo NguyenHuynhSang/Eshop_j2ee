@@ -1,10 +1,10 @@
 package com.EShop.Model.ViewModel;
 
-import com.EShop.Model.Catalog;
+import com.EShop.Model.ProductCatalog;
 
 import java.util.ArrayList;
 
 public class CatalogTreeModel {
-   public ArrayList<Catalog> Childs;
-   public  Catalog Parent;
+   public ArrayList<ProductCatalog> Childs;
+   public ProductCatalog Parent;
 }

@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface IProductService {
     public List<Product> GetProducts() throws SQLException;
+    public List<Product> GetProductAllVersionPaging() throws SQLException;
     public void InsertProduct(Product product)throws SQLException;
+
     public void UpdateProduct(Product product)throws SQLException;
     public void DeleteProduct(Product[] product) throws SQLException;
 }

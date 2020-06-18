@@ -8,6 +8,9 @@ import com.EShop.Utills.HttpUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
+import javax.ejb.Stateless;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,9 +23,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "AttributeApi", urlPatterns = {"/api/Attribute"})
+@DeclareRoles({"DEPT-ADMIN", "DIRECTOR"})
+
+@Stateless
 public class AttributeApi extends HttpServlet {
 
     @Override
+    @RolesAllowed("DEPT-ADMIN")
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet

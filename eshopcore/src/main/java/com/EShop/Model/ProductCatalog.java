@@ -6,7 +6,7 @@ import com.EShop.Model.Abstract.Seoable;
 
 import java.util.Date;
 
-public class Catalog {
+public class ProductCatalog {
 
     private int ID;
     private int ParentID;
@@ -15,7 +15,7 @@ public class Catalog {
     private String CreatedBy;
     private Date ModifiedDate;
 
-    public Catalog(int ID, int parentID, String name, Date createdDate, String createdBy, Date modifiedDate, String modifiedBy, String SEOTitle, String SEOURL, String SEODescription) {
+    public ProductCatalog(int ID, int parentID, String name, Date createdDate, String createdBy, Date modifiedDate, String modifiedBy, String SEOTitle, String SEOURL, String SEODescription) {
         this.ID = ID;
         ParentID = parentID;
         Name = name;

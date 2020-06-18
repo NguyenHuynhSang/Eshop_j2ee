@@ -1,22 +1,19 @@
 package com.EShop.Api;
 
-import com.EShop.Model.Catalog;
+import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.JSon;
 import com.EShop.Model.ViewModel.CatalogTreeModel;
 import com.EShop.Model.ViewModel.CatalogViewModel;
 import com.EShop.Service.CatalogService;
-import com.EShop.Service.JSonService;
 import com.EShop.Utills.HttpUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.sun.net.httpserver.HttpServer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -52,12 +49,12 @@ public class CatalogAPI extends HttpServlet {
                     printWriter.print(gson.toJson(catalogTree));
                     break;
                 case "getChild":
-                    List<Catalog> childCatalogs = new ArrayList<Catalog>();
+                    List<ProductCatalog> childCatalogs = new ArrayList<ProductCatalog>();
                     childCatalogs = catalogService.GetChildCatalogs();
                     printWriter.print(gson.toJson(childCatalogs));
                     break;
                 case "getParents":
-                    List<Catalog> parentCatalogs = new ArrayList<Catalog>();
+                    List<ProductCatalog> parentCatalogs = new ArrayList<ProductCatalog>();
                     parentCatalogs = catalogService.GetParentCatalogs();
                     printWriter.print(gson.toJson(parentCatalogs));
                     break;
@@ -83,7 +80,7 @@ public class CatalogAPI extends HttpServlet {
         CatalogService service = new CatalogService();
 
         String js = HttpUtil.of(req.getReader()); //request.getReader() dùng để lấy dữ liệu từ server
-        Catalog json = gson.fromJson(js, Catalog.class);
+        ProductCatalog json = gson.fromJson(js, ProductCatalog.class);
         try {
             service.InsertCatalog(json);
         } catch (SQLException ex) {

@@ -13,6 +13,11 @@ public class ProductService  implements IProductService {
     }
 
     @Override
+    public List<Product> GetProductAllVersionPaging() throws SQLException {
+        return null;
+    }
+
+    @Override
     public void InsertProduct(Product product) throws SQLException {
 
     }
