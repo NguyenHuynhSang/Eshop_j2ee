@@ -1,3 +1,26 @@
+
+    <script>
+        var count = 1;
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+           
+            finder.selectActionFunction = function (url) {
+
+                if (count > 1) {
+                    return;
+                }
+                $('#txtImage').val(url);
+                $('#divImage').append('<img class="abc" src="' + url + '" />');
+                count++;
+            };
+            finder.popup();
+
+        })
+    
+    </script>
+
+
 <div class="kt-subheader   kt-grid__item" id="kt_subheader">
     <div class="kt-container  kt-container--fluid ">
         <div class="kt-subheader__main">
@@ -145,13 +168,14 @@
             </div>
             <div class="form-group">
                 <label for="description">Mô tả</label>
-                <textarea ng-model="contentEntity.Description" type="text" class="form-control" id="seotitle"
-                       placeholder="Mô tả"></textarea>
+                <ng-ckeditor height="500px" ng-model="contentEntity.Description" remove-buttons="Image"
+                remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
             </div>
             <div class="form-group">
                 <label for="image">Hình ảnh</label>
-                <input ng-model="contentEntity.Image" type="text" class="form-control" id="displayorder"
+                <input ng-model="contentEntity.Image" type="text" class="form-control" id="txtImage"
                        placeholder="Hình ảnh">
+                 <a id="btnSelectImage" href="#">Chọn ảnh</a>
             </div>
             <div class="form-group">
                 <label for="metakeyword">Meta Keywords</label>

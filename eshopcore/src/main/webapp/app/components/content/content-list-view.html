@@ -277,7 +277,7 @@
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="item in contentList">
-                                    <th scope="row">{{item.Content.ID}}</th>
+                                    <th scope="row">{{item.content.ID}}</th>
                                     <td>{{item.content.Name}}</td>
                                     <td>{{item.content.MetaTitle}}</td>
                                     <td>{{item.content.Description}}</td>
@@ -297,8 +297,8 @@
                                     <td>{{item.content.Tags}}</td>
                                     <td>{{item.content.Language}}</td>
                                     <td>
-                                        <button ui-sref="contentcategory-edit({id:item.Category.ID})" class="btn btn-primary"><i class="fa fa-edit">edit</i></button>
-                                        <button ng-click="delContentCategory(item.Category.ID)" class="btn btn-primary"><i class="fa fa-trash">delete</i></button>
+                                        <button ui-sref="content-edit({id:item.content.ID})" class="btn btn-primary"><i class="fa fa-edit">edit</i></button>
+                                        <button ng-click="delContent(item.content.ID)" class="btn btn-primary"><i class="fa fa-trash">delete</i></button>
                                     </td>
                                 </tr>
                                 </tfoot>

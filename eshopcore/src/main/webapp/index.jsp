@@ -2379,6 +2379,13 @@
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/toastr/toastr.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/bootbox/bootbox.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ngbootbox/dist/ngBootbox.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ckeditor/ckeditor.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ng-ckeditor/dist/ng-ckeditor.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ckfinder/ckfinder/ckfinder.js"></script>
+
+
+
+
 
 <script src="${pageContext.request.contextPath }/app/shared/modules/eshop-common.js"></script>
 <%--

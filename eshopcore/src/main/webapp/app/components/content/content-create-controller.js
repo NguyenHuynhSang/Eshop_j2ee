@@ -14,10 +14,12 @@
                 notificationService.displaySuccess("Thêm mới bản ghi thành công");
                 $state.go('content-list');
             }, function () {
-                console.log('Load content  api failed.');
+                console.log('Load content api failed.');
                 notificationService.displayError("Thêm mới bản ghi KHÔNG thành công");
             });
         }
+        
+
 
         function getListContentCategory() {
             var config = {
@@ -36,5 +38,15 @@
         }
 
         $scope.getListcontentcategory();  
+
+        $scope.ChooseImage = function()
+        {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function(fileUrl)
+            {
+                $scope.contentEntity.Image = fileUrl;
+            }
+            finder.popup();
+        }
     }
 })(angular.module('eshop-content'));

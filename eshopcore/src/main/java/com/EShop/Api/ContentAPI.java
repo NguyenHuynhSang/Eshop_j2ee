@@ -128,11 +128,11 @@ public class ContentAPI extends HttpServlet {
         ContentService jsonservice=new ContentService();
         
         String js=HttpUtil.of(request.getReader());
-        Content[] json= gson.fromJson(js,Content[].class);
+            String ID= request.getParameter("ID");
         try {
-            jsonservice.DeleteContent(json);
+            jsonservice.DeleteContent(Integer.parseInt(ID));
         } catch (SQLException ex) {
-           Logger.getLogger(ContentAPI.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

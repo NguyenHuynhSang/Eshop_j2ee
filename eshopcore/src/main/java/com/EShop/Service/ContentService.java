@@ -173,20 +173,9 @@ public class ContentService extends DbConnection<ContentViewModel> implements IC
         }
      }
      @Override
-    public void DeleteContent(Content[] categories) throws SQLException
+    public void DeleteContent(int categories) throws SQLException
      {
-         Statement statement = conn.createStatement();
-         for (Content content : categories) {
-             String sqlQuery = "SELECT * FROM Content Where ID=" + content.getID();
-             ResultSet rs=statement.executeQuery(sqlQuery);
-             if(rs.next()!=false)
-             {
-                 sqlQuery="DELETE FROM Content WHERE ID='"+rs.getInt("ID")+"';";
-                 int rowCount=statement.executeUpdate(sqlQuery);
-                 ContentTagService contenttagsv = new ContentTagService();
-                 contenttagsv.DeleteContentTag(content);
-             }
-         }
-         
+        String sqlQuery = "Delete from Content Where ID = ?";
+        Update(sqlQuery, categories);   
      }
 }
