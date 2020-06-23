@@ -10,7 +10,7 @@
                 if (count > 1) {
                     return;
                 }
-                $('#txtImage').val(url);
+                $('#txtImage').val(url).trigger('input');
                 $('#divImage').append('<img class="abc" src="' + url + '" />');
 
                 count++;
