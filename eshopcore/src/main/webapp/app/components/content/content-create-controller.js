@@ -10,6 +10,8 @@
         $scope.keyWord = '';
 
         function CreateContent() {
+            var urlReturn=$('#txtImage').val();
+            $scope.contentEntity.Image=urlReturn;
             apiService.post('/eshopcore/API-Content', JSON.stringify($scope.contentEntity)  , function (result) {
                 notificationService.displaySuccess("Thêm mới bản ghi thành công");
                 $state.go('content-list');
