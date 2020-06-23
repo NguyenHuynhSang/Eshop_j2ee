@@ -18,7 +18,11 @@
                 notificationService.displayError("Thêm mới bản ghi KHÔNG thành công");
             });
         }
-        
+      
+        $scope.imageInputChange=imageInputChange;
+        function imageInputChange(){
+            var value =  $('#txtImage').val(url);
+        }
 
 
         function getListContentCategory() {
