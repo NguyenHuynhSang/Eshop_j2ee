@@ -10,7 +10,7 @@ import com.EShop.Model.ContentTag;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IContentTagService {
+public interface IContentTagService extends IDbConnection<ContentTag> {
     public List<ContentTag> GetAllContentTag() throws SQLException;
     public void InsertContentTag(ContentTag json)throws SQLException;
     public void DeleteContentTag(Content jsons) throws SQLException;

@@ -8,6 +8,7 @@ package com.EShop.Api;
 import com.EShop.Model.ContentCategory;
 import com.EShop.Service.ContentCategoryService;
 import com.EShop.Utills.HttpUtil;
+import com.EShop.ViewModel.ContentCategoryViewModel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
@@ -27,30 +28,60 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nhatminh
  */
-@WebServlet(name = "ContentCategoryAPI", urlPatterns = {"/ContentCategoryAPI"})
+@WebServlet(name = "ContentCategoryAPI", urlPatterns = {"/API-ContentCategory"})
 public class ContentCategoryAPI extends HttpServlet {
 
     long[] ints;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-               response.setContentType("application/json");
-        ContentCategoryService jsonservice = new ContentCategoryService();       
-        List<ContentCategory> category= new ArrayList<>();
-        Gson gson=new Gson();
-        
-        try {
-            category = jsonservice.GetContentCategory();
-        } catch (SQLException ex) {
-            Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
+
+
+        ContentCategoryService jsonservice = new ContentCategoryService();
+
+        String keyword = request.getParameter("keyword");
+        String action = request.getParameter("action");
+        String ID= request.getParameter("ID");
+        List<ContentCategoryViewModel> json = new ArrayList<ContentCategoryViewModel>();
+        Gson gson = new Gson();
+        PrintWriter printWriter = response.getWriter();
+        ContentCategoryViewModel js=null;
+        if(action==null)
+        {
+            try {
+                json=jsonservice.GetContentCategory();
+                printWriter.print(gson.toJson(json));
+            } catch (SQLException ex) {
+                Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
- 
-       PrintWriter printWriter=response.getWriter();
-       
-       printWriter.print(gson.toJson(category));
+        else
+        {
+            try {
+                switch (action){
+                    case "getAll":
+                         if (keyword!= "")
+                        { 
+                            json = jsonservice.GetAllContentCategoryByKey(keyword);
+                        } else {
+                            json = jsonservice.GetContentCategory();
+                        }
+                        printWriter.print(gson.toJson(json));
+                        break;
+                    case "getByID":
+                        if (ID!="" && ID!=null) json=jsonservice.GetContentCategoryByID(Integer.parseInt(ID));
+                        printWriter.print(gson.toJson(json));
+                        break;
+
+                }
+
+            } catch (SQLException ex) {
+
+            }
+        }
     }
-    
-        @Override
+   
+    @Override
     protected void doPost(HttpServletRequest request,HttpServletResponse response)
             throws ServletException, IOException 
     {
@@ -80,7 +111,7 @@ public class ContentCategoryAPI extends HttpServlet {
        ContentCategoryService jsonservice = new ContentCategoryService();  
        
        String js = HttpUtil.of(request.getReader());
-       ContentCategory category=gson.fromJson(js, ContentCategory.class);
+       ContentCategoryViewModel category=gson.fromJson(js, ContentCategoryViewModel.class);
         try {
             jsonservice.UpdateContentCategory(category);
         } catch (SQLException ex) {
@@ -95,13 +126,11 @@ public class ContentCategoryAPI extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
 
-        Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
-        ContentCategoryService jsonservice=new ContentCategoryService();
+        ContentCategoryService jsonservice = new ContentCategoryService();  
         
-        String js=HttpUtil.of(request.getReader());
-        ContentCategory[] json= gson.fromJson(js,ContentCategory[].class);
+        String ID= request.getParameter("ID");
         try {
-            jsonservice.DeleteContentCategory(json);
+            jsonservice.DeleteContentCategory(Integer.parseInt(ID));
         } catch (SQLException ex) {
            Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
         }

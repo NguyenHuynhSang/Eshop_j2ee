@@ -16,7 +16,7 @@ import javax.json.Json;
 /**
  * @author nhatminh
  */
-public class JSonService implements IJSonService{
+public class JSonService extends DbConnection<JSon> implements IJSonService{
     
      DbConnection db = new DbConnection();
      Connection conn = db.getJDBCConnection();

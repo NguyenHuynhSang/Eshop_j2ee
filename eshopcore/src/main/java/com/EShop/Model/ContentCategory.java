@@ -24,6 +24,9 @@ public class ContentCategory {
     boolean Status;
     boolean ShowOnHome;
     String Language;
+
+    public ContentCategory() {
+    }
     
     public int getID() {
         return ID;

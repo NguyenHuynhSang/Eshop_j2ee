@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa danh mục tin tức</title>
+
+</head>
+<body>
+<h1>Sửa danh mục tin tức</h1>
+<form class="kt-form"  name="frmEditContent" ng-submit="EditContent()" novalidate>
+    <div class="kt-portlet__body">
+        <div class="form-group form-group-last">
+            <div class="alert alert-secondary" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
+                <div class="alert-text">
+                    The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Tên danh mục tin tức</label>
+            <input ng-model="jsonEntity.Category.Name" value = "{{jsonEntity.Category.Name}}" type="text" class="form-control"  placeholder="Tên danh mục">
+
+        </div>
+        <div class="form-group">
+            <label for="CategoryID">Danh mục cha</label>
+            <select class="form-control" ng-model="jsonEntity.Category.ParentID" >
+                <option value="" disabled selected hidden>Danh mục cha</option>
+                <option ng-repeat="category in contentcategoryList" value="{{category.Category.ID}}">
+                    {{category.Category.Name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Metatitle">Meta title</label>
+            <input ng-model="jsonEntity.Category.MetaTitle" value="{{jsonEntity.Category.Metatitle}}" type="text" class="form-control" id="Metatitle" placeholder="MetaTitle">
+        </div>
+        <div class="form-group">
+            <label for="SeoTitle">Seo title</label>
+            <input ng-model="jsonEntity.Category.SeoTitle" value ="{{jsonEntity.Category.SeoTitle}}" type="text" class="form-control" id="SeoTitle" placeholder="Seo Title">
+        </div>
+        <div class="form-group">
+            <label for="MetaKeyWords">Meta Keywords</label>
+            <input ng-model="jsonEntity.Category.MetaKeyWords" value="{{jsonEntity.Category.MetaKeyWords}}" type="text" class="form-control" id="Metadescriptions" placeholder="Meta description">
+        </div>
+        <div class="form-group">
+            <label for="Metadescriptions">Meta description</label>
+            <input ng-model="jsonEntity.Category.MetaDescriptions" value="{{jsonEntity.Category.MetaDescriptions}}" type="text" class="form-control" id="Metadescriptions" placeholder="Meta description">
+        </div>
+        <div class="form-group">
+            <label for="status">Trạng thái</label>
+            <input ng-model="jsonEntity.Category.Status" value="{{jsonEntity.Category.Status}}" type="checkbox" id="status" placeholder="Trạng thái">
+        </div>
+        <div class="form-group">
+            <label for="ShowOnHome">Hiển thị trên trang chủ</label>
+            <input ng-model="jsonEntity.Category.ShowOnHome" value={{jsonEntity.Category.ShowOnHome}} type="checkbox" id="ShowOnHome" placeholder="Hiện trên trang chủ">
+        </div>
+        <div class="form-group">
+            <label for="Language">Ngôn ngữ</label>
+            <input ng-model="jsonEntity.Category.Language" value="{{jsonEntity.Category.Language}}" type="text" id="Language" placeholder="Ngôn ngữ">
+        </div>
+    </div>
+    <div class="kt-portlet__foot">
+        <div class="form-group">
+            <button type="submit" ng-click="EditContentCategory()"  class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+</form>
+
+
+</body>
+</html>

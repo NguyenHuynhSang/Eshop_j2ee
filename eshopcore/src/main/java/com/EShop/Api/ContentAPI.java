@@ -8,6 +8,7 @@ package com.EShop.Api;
 import com.EShop.Model.Content;
 import com.EShop.Service.ContentService;
 import com.EShop.Utills.HttpUtil;
+import com.EShop.ViewModel.ContentViewModel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
@@ -27,25 +28,56 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nhatminh
  */
-@WebServlet(name = "ContentAPI", urlPatterns = {"/ContentAPI"})
+@WebServlet(name = "api-Content", urlPatterns = {"/API-Content"})
 public class ContentAPI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/json");
-        ContentService jsonservice = new ContentService();       
-        List<Content> content= new ArrayList<>();
-        Gson gson=new Gson();       
-        try {
-            content = jsonservice.GetContent();
-        } catch (SQLException ex) {
-           System.out.print(ex.getMessage());
+
+
+        ContentService jsonservice = new ContentService();
+
+        String keyword = request.getParameter("keyword");
+        String action = request.getParameter("action");
+        String ID= request.getParameter("ID");
+        List<ContentViewModel> json = new ArrayList<ContentViewModel>();
+        Gson gson = new Gson();
+        PrintWriter printWriter = response.getWriter();
+        ContentViewModel js=null;
+        
+        if(action==null)
+        {
+            try {
+                json=jsonservice.GetContent();
+                printWriter.print(gson.toJson(json));
+            } catch (SQLException ex) {
+                Logger.getLogger(ContentAPI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
- 
-       PrintWriter printWriter=response.getWriter();
-       
-       printWriter.print(gson.toJson(content));
+        else
+        {
+            try {
+            switch (action){
+                case "getAll":
+                    if (keyword!="") {
+                        json = jsonservice.GetAllContentByKey(keyword);
+                    } else {
+                        json = jsonservice.GetContent();
+                    }
+                    printWriter.print(gson.toJson(json));
+                    break;
+                case "getByID":
+                    if (ID!="" && ID!=null) json=jsonservice.GetContentByID(Integer.parseInt(ID));
+                    printWriter.print(gson.toJson(json));
+                    break;
+
+            }
+            } catch (SQLException ex) {
+
+            }
+        }
     }
+    
     
         @Override
     protected void doPost(HttpServletRequest request,HttpServletResponse response)
@@ -96,11 +128,11 @@ public class ContentAPI extends HttpServlet {
         ContentService jsonservice=new ContentService();
         
         String js=HttpUtil.of(request.getReader());
-        Content[] json= gson.fromJson(js,Content[].class);
+            String ID= request.getParameter("ID");
         try {
-            jsonservice.DeleteContent(json);
+            jsonservice.DeleteContent(Integer.parseInt(ID));
         } catch (SQLException ex) {
-           Logger.getLogger(ContentAPI.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

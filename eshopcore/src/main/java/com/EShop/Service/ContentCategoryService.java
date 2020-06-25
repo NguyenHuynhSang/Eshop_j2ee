@@ -6,163 +6,103 @@
 package com.EShop.Service;
 
 import com.EShop.IService.IContentCategoryService;
+import com.EShop.Mapper.ContentCategoryViewModelMapper;
 import com.EShop.Model.ContentCategory;
+import com.EShop.ViewModel.ContentCategoryViewModel;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
 
-public class ContentCategoryService implements IContentCategoryService {
-        Connection conn = DbConnection.getJDBCConnection();
+public class ContentCategoryService extends DbConnection<ContentCategoryViewModel> implements IContentCategoryService {
+    Connection conn = DbConnection.getJDBCConnection();
+
     @Override
-    public List<ContentCategory> GetContentCategory() throws SQLException
-    {
-        List<ContentCategory> ContentCategories= new ArrayList<>();
-        Statement stmt;
-        stmt = conn.createStatement();
-        String sqlQuery="SELECT * FROM ContentCategory";
-        ResultSet rs = stmt.executeQuery(sqlQuery);
-        while(rs.next())
-        {   
-             int id=rs.getInt("ID");
-             String name = rs.getString("Name");
-             int ParentID=rs.getInt("ParentID");
-             String MetaTitle=rs.getString("MetaTitle");
-             String SeoTitle=rs.getString("SeoTitle");
-             int DisplayOrder=rs.getInt("DisplayOrder");
-             Date CreateDate=rs.getDate("CreateDate");
-             String CreateBy=rs.getString("CreateBy");
-             Date ModifiedDate=rs.getDate("ModifiedDate");
-             String ModifiedBy=rs.getString("ModifiedBy");
-             String MetaKeyWords=rs.getString("MetaKeyWords");
-             String MetaDescription=rs.getString("MetaDescriptions");
-             boolean Status= rs.getBoolean("Status");
-             boolean ShowOnHome =rs.getBoolean("ShowOnHome");
-             String Language=rs.getString("Language");
-             ContentCategory contentcategory = new ContentCategory(id,name,ParentID,MetaTitle,SeoTitle,DisplayOrder,CreateDate,CreateBy
-                                                                  ,ModifiedDate,ModifiedBy,MetaKeyWords,MetaDescription,Status,ShowOnHome,Language);
-             ContentCategories.add(contentcategory);
+    public List<ContentCategoryViewModel> GetContentCategory() throws SQLException {
+        String sqlQuery = "select b.ID,b.Name,b.ParentID,b.MetaTitle,b.SeoTitle,b.DisplayOrder,\n" +
+                "	b.CreateDate,b.CreateBy,b.ModifiedDate,b.ModifiedBy,b.MetaDescriptions\n" +
+                "	,b.MetaKeyWords,b.Status,b.ShowOnHome,b.Language\n" +
+                "	,c.ID as sParentID,c.ParentID as cParentID,c.Name as ParentName,c.MetaTitle as ParentMetaTitle\n" +
+                "	,c.SeoTitle as ParentSeoTitle, c.DisplayOrder as ParentDisplayOrder\n" +
+                "	,c.CreateDate as ParentCreateDate,c.CreateBy as ParentCreateBy\n" +
+                "	,c.ModifiedDate as ParentModifiedDate,c.ModifiedBy as ParentModifiedBy\n" +
+                "	,c.MetaKeyWords as ParentMetaKeyWords,c.MetaDescriptions as ParentMetaDescription\n" +
+                "	,c.Status as ParentStatus, c.ShowOnHome as ParentShowOnHome\n" +
+                "	,c.Language as ParentLanguage  from ContentCategory b\n" +
+                "left join ContentCategory c on b.ParentID = c.ID";
+
+        return query(sqlQuery, new ContentCategoryViewModelMapper());
+    }
+
+    public List<ContentCategoryViewModel> GetContentCategoryByID(int ID) throws SQLException {
+        String sqlQuery = "select b.ID,b.Name,b.ParentID,b.MetaTitle,b.SeoTitle,b.DisplayOrder,\n" +
+                "	b.CreateDate,b.CreateBy,b.ModifiedDate,b.ModifiedBy,b.MetaDescriptions\n" +
+                "	,b.MetaKeyWords,b.Status,b.ShowOnHome,b.Language\n" +
+                "	,c.ID as sParentID,c.ParentID as cParentID,c.Name as ParentName,c.MetaTitle as ParentMetaTitle\n" +
+                "	,c.SeoTitle as ParentSeoTitle, c.DisplayOrder as ParentDisplayOrder\n" +
+                "	,c.CreateDate as ParentCreateDate,c.CreateBy as ParentCreateBy\n" +
+                "	,c.ModifiedDate as ParentModifiedDate,c.ModifiedBy as ParentModifiedBy\n" +
+                "	,c.MetaKeyWords as ParentMetaKeyWords,c.MetaDescriptions as ParentMetaDescription\n" +
+                "	,c.Status as ParentStatus, c.ShowOnHome as ParentShowOnHome\n" +
+                "	,c.Language as ParentLanguage  from ContentCategory b\n" +
+                "left join ContentCategory c on b.ParentID = c.ID where b.ID = ?";
+
+        return query(sqlQuery, new ContentCategoryViewModelMapper(), ID);
+    }
+
+    public List<ContentCategoryViewModel> GetAllContentCategoryByKey(String key) throws SQLException {
+        String sqlQuery = "select b.ID,b.Name,b.ParentID,b.MetaTitle,b.SeoTitle,b.DisplayOrder,\n" +
+                "	b.CreateDate,b.CreateBy,b.ModifiedDate,b.ModifiedBy,b.MetaDescriptions\n" +
+                "	,b.MetaKeyWords,b.Status,b.ShowOnHome,b.Language\n" +
+                "	,c.ID as sParentID,c.ParentID as cParentID,c.Name as ParentName,c.MetaTitle as ParentMetaTitle\n" +
+                "	,c.SeoTitle as ParentSeoTitle, c.DisplayOrder as ParentDisplayOrder\n" +
+                "	,c.CreateDate as ParentCreateDate,c.CreateBy as ParentCreateBy\n" +
+                "	,c.ModifiedDate as ParentModifiedDate,c.ModifiedBy as ParentModifiedBy\n" +
+                "	,c.MetaKeyWords as ParentMetaKeyWords,c.MetaDescriptions as ParentMetaDescription\n" +
+                "	,c.Status as ParentStatus, c.ShowOnHome as ParentShowOnHome\n" +
+                "	,c.Language as ParentLanguage  from ContentCategory b\n" +
+                "left join ContentCategory c on b.ParentID = c.ID";
+        if (key != "") {
+            try {
+                int intValue = Integer.parseInt(key);
+                sqlQuery += " where b.ID= ? OR b.Name LIKE ?";
+                return query(sqlQuery, new ContentCategoryViewModelMapper(), intValue, "%" + key + "%");
+            } catch (NumberFormatException e) {
+                sqlQuery += " where  b.Name LIKE ?";
+                return query(sqlQuery, new ContentCategoryViewModelMapper(), "%" + key + "%");
+            }
         }
-        rs.close();
-        stmt.close();
-        conn.close();
-        return ContentCategories;
-    }  
-    
+        return null;
+    }
+
     @Override
-     public void InsertContentCategory(ContentCategory category)throws SQLException
-     {
-        Statement statement;
-        statement = conn.createStatement();
-        String sqlQuery="SELECT * FROM ContentCategory WHERE ID="+category.getID();
-        ResultSet rs;
-        rs = statement.executeQuery(sqlQuery);
-        if (rs.next() == false)
-        {
-          sqlQuery="INSERT INTO ContentCategory (ID, Name, ParentID, MetaTitle, SeoTitle, DisPlayOrder, CreateDate, CreateBy, MetaKeyWords, MetaDescriptions, Status, ShowOnHome,Language)"
-                  + " VALUES ('"+category.getID()+"'";
-          if(category.getName()!=null)
-              sqlQuery+=",'"+category.getName()+"'";
-          else sqlQuery+=",null";
-          sqlQuery+=","+category.getParentID();
-          if(category.getMetatitle()!=null)
-              sqlQuery+=",'"+category.getMetatitle()+"'";
-          else sqlQuery+=",null";
-          if(category.getSeoTitle()!=null)
-              sqlQuery+=",'"+category.getSeoTitle()+"'";
-          else sqlQuery+=",null";
-          sqlQuery+=","+category.getDisplayOrder();
-          if(category.getCreateDate()!=null)   
-              sqlQuery+=",'"+category.getCreateDate().toString()+"'";
-          else sqlQuery+=",null";
-          if(category.getCreateBy()!=null)
-              sqlQuery+=",'"+category.getCreateBy()+"'";
-          else sqlQuery+=",null";
-          if(category.getMetaKeyWords()!=null)
-              sqlQuery+=",'"+category.getMetaKeyWords()+"'";
-          else sqlQuery+=",null";
-          if(category.getMetaDesciptions()!=null)
-              sqlQuery+=",'"+category.getMetaDesciptions()+"'";
-          else sqlQuery+=",null";
-          sqlQuery = sqlQuery +",'"+category.isStatus()+"','"+category.isShowOnHome()+"'";
-          if(category.getLanguage()!=null)
-              sqlQuery+=",'"+category.getLanguage()+"'";
-          else sqlQuery+=",null";
-          sqlQuery+=");";
-          int rowCount=statement.executeUpdate(sqlQuery);
-        }
-        else
-        {
-            System.out.println("id da ton tai");
-        }
-        rs.close();
-        statement.close();
-        conn.close();
-     }
+    public void InsertContentCategory(ContentCategory category) throws SQLException {
+        String sqlQuery = "INSERT INTO ContentCategory (Name, ParentID, MetaTitle, SeoTitle, DisPlayOrder, CreateDate, CreateBy, MetaKeyWords, MetaDescriptions, Status, ShowOnHome,Language)"
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Update(sqlQuery, category.getName(), category.getParentID(), category.getMetatitle(), category.getSeoTitle(),
+                category.getDisplayOrder(), null, null, category.getMetaKeyWords(), category.getMetaDesciptions(),
+                category.isStatus(), category.isShowOnHome(), category.getLanguage());
+
+
+    }
+
     @Override
-     public void UpdateContentCategory(ContentCategory category)throws SQLException
-     {
-        Statement statement;
-        statement = conn.createStatement();
-        String sqlQuery="SELECT * FROM ContentCategory WHERE ID="+category.getID();
-        ResultSet rs;
-        rs = statement.executeQuery(sqlQuery);
-        if (rs.next() == false)
-        {
-            System.out.println("khong tim thay doi tuong can sua");
-        }
-        else
-        {
-          sqlQuery="UPDATE ContentCategory SET ";                         
-          if(category.getName()!=null)
-              sqlQuery+="Name='"+category.getName()+"'";
-          else sqlQuery+="Name=null";
-          sqlQuery+=",ParentID="+category.getParentID();
-          if(category.getMetatitle()!=null)
-              sqlQuery+=",MetaTitle='"+category.getMetatitle()+"'";
-          else sqlQuery+=",MetaTitle=null";
-          if(category.getSeoTitle()!=null)
-              sqlQuery+=",SeoTitle='"+category.getSeoTitle()+"'";
-          else sqlQuery+=",SeoTitle=null";
-          sqlQuery+=",DisplayOrder="+category.getDisplayOrder();
-          if(category.getModifiedDate()!=null)
-              sqlQuery+=",ModifiedDate='"+category.getModifiedDate().toString()+"'";
-          else sqlQuery+=",ModifiedDate=null";
-          if(category.getModifiedBy()!=null)
-              sqlQuery+=",ModifiedBy='"+category.getModifiedBy()+"'";
-          else sqlQuery+=",ModifiedBy=null";
-          if(category.getMetaKeyWords()!=null)
-              sqlQuery+=",MetaKeyWords='"+category.getMetaKeyWords()+"'";
-          else sqlQuery+=",MetaKeyWords=null";
-          if(category.getMetaDesciptions()!=null)
-              sqlQuery+=",MetaDescriptions='"+category.getMetaDesciptions()+"'";
-          sqlQuery+=",Status='"+category.isStatus()+"',ShowOnHome='"+category.isShowOnHome()+"'";
-          if(category.getLanguage()!=null)
-              sqlQuery+=",Language='"+category.getLanguage()+"' ";
-          else sqlQuery+=",Language=null ";
-          sqlQuery+=" WHERE ID ='"+category.getID()+"';";
-          int rowCount=statement.executeUpdate(sqlQuery);
-        }
-        rs.close();
-        statement.close();
-        conn.close();
-     }
+    public void UpdateContentCategory(ContentCategoryViewModel contentcategory) throws SQLException {
+        String sqlQuery = "UPDATE ContentCategory SET Name = ?, ParentID = ?, MetaTitle = ?, SeoTitle = ?, DisplayOrder = ?, "
+                + "ModifiedDate = ?, ModifiedBy = ?, MetaKeyWords = ?, MetaDescriptions = ?, Status = ?, ShowOnHome = ?, Language = ? "
+                + "Where ID = ?";
+        ContentCategory category = new ContentCategory();
+        category = contentcategory.getCategory();
+        Update(sqlQuery, category.getName(), category.getParentID(), category.getMetatitle(), category.getSeoTitle(),
+                category.getDisplayOrder(), null, null, category.getMetaKeyWords(),
+                category.getMetaDesciptions(), category.isStatus(), category.isShowOnHome(), category.getLanguage(), category.getID());
+    }
+
     @Override
-    public void DeleteContentCategory(ContentCategory[] categories) throws SQLException
-     {
-         Statement statement = conn.createStatement();
-         for (ContentCategory category : categories) {
-             String sqlQuery = "SELECT * FROM ContentCategory Where ID=" + category.getID();
-             ResultSet rs=statement.executeQuery(sqlQuery);
-             if(rs.next()!=false)
-             {
-                 sqlQuery="DELETE FROM ContentCategory WHERE ID='"+rs.getInt("ID")+"';";
-                 int rowCount=statement.executeUpdate(sqlQuery);
-             }
-         }
-         
-     }
+    public void DeleteContentCategory(int id) throws SQLException {
+        String sqlQuery = "Delete from ContentCategory Where ID = ?";
+        Update(sqlQuery, id);
+    }
 }
