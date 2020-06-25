@@ -2455,6 +2455,7 @@
 <script src="${pageContext.request.contextPath }/app/app.js"></script>
 <script src="${pageContext.request.contextPath}/app/shared/services/api-service.js"></script>
 <script src="${pageContext.request.contextPath }/app/shared/services/notification-service.js"></script>
+<script src="${pageContext.request.contextPath }/app/shared/services/common-service.js"></script>
 <!--end::embed app service-->
 
 
