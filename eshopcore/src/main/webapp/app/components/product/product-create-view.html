@@ -1,3 +1,27 @@
+
+<!--<script>-->
+<!--    var count = 1;-->
+<!--    $('#btnSelectImage').on('click', function (e) {-->
+<!--        e.preventDefault();-->
+<!--        var finder = new CKFinder();-->
+
+<!--        finder.selectActionFunction = function (url) {-->
+
+<!--            if (count > 1) {-->
+<!--                return;-->
+<!--            }-->
+<!--            // $('#txtImage').val(url).trigger('input');-->
+<!--            // $('#divImage').append('<img class="abc" src="' + url + '" />');-->
+
+<!--            count++;-->
+<!--        };-->
+<!--        finder.popup();-->
+
+<!--    })-->
+
+<!--</script>-->
+
+
 <div class="kt-subheader   kt-grid__item" id="kt_subheader">
     <div class="kt-container  kt-container--fluid ">
         <div class="kt-subheader__main">
@@ -114,7 +138,7 @@
     </div>
 </div>
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-    <form novalidate name="frmInputProduct" role="form" ng-submit="submit()">
+    <form novalidate name="frmInputProduct"  ng-submit="submit()">
 
 
         <div class="row">
@@ -136,7 +160,7 @@
                         <div class="form-group">
 
                             <label>Tên sản phẩm</label>
-                            <input name="productName" type="text" class="form-control"  ng-model="productInput.Name"
+                            <input ng-change="getSeoTitle()" name="productName" type="text" class="form-control"  ng-model="productInput.Name"
                                    placeholder="Nhập tên sản phẩm" required>
                             <span ng-show="frmInputProduct.productName.$invalid" class="form-text text-muted">Tên sản phẩm không được để trống</span>
 
@@ -278,8 +302,8 @@
                             <div class="col-lg-12">
                                 <label>SEO title</label>
                                 <div class="input-group">
-                                    <input ng-model="productInput.sEOTitle" type="number" class="form-control"
-                                           placeholder="Chọn loại sản phẩm" min="0" value="0" required>
+                                    <input ng-model="productInput.sEOTitle" type="text" class="form-control"
+                                           placeholder="Chọn loại sản phẩm"  required>
 
                                 </div>
                             </div>
@@ -292,8 +316,8 @@
                             <div class="col-lg-12">
                                 <label>SEO Url</label>
                                 <div class="input-group">
-                                    <input ng-model="productInput.sEOUrl" type="number" class="form-control"
-                                           placeholder="Chọn loại sản phẩm" min="0" value="0" required>
+                                    <input ng-model="productInput.SEOUrl" type="text" class="form-control"
+                                           placeholder="Chọn loại sản phẩm"  required>
 
                                 </div>
                             </div>
@@ -304,7 +328,7 @@
                             <div class="col-lg-12">
                                 <label>SEO Descroption</label>
                                 <div class="input-group">
-                                    <textarea rows="4" ng-model="productInput.sEODescription" type="number"
+                                    <textarea rows="4" ng-model="productInput.SEODescription" type="number"
                                               class="form-control" placeholder="Chọn loại sản phẩm" min="0" value="0"
                                               required></textarea>
 
@@ -457,9 +481,10 @@
                                                 <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
                                                 <span class="dropzone-msg-desc">Upload up to 10 files</span>
                                             </div>
-                                            <button name="btnSelectImage" class="btnSelectImage"  type="button">Select IMgae</button>
                                         </div>
+                                        <a id="btnSelectImagei" ng-click="ckFinderSelectImage()"  href="#">Chọn ảnh</a>
                                     </div>
+
                                 </div>
 
                                 <div class="form-group ">
@@ -469,8 +494,7 @@
                                                 <div class="col-lg-3">
                                                     <label>Thuộc tính</label>
                                                     <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"
-                                                                                               id="basic-addon2"><i>VNĐ</i></span>
+                                                        <div class="input-group-prepend"><span class="input-group-text" id="basic-addon22"><i>VNĐ</i></span>
                                                         </div>
                                                         <select ng-change="selectAttributeName(versionIndex,childIndex,attr.selectedAttributeID)"
                                                                 class="form-control" ng-model="attr.selectedAttributeID"
@@ -534,8 +558,13 @@
         <div class="row">
             <button class="btn btn-primary" ng-disabled="frmInputProduct.$invalid" type="submit">Lưu lại</button>
         </div>
+
+
     </form>
 </div>
-<script src="./Assets/admin/plugins/custom/CkFinder/Ckfinder.js"></script>
-<script src="./Assets/admin/plugins/custom/CkFinder/selectImage.js"></script>
+
+
+
+
+
 </div>

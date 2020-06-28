@@ -2482,6 +2482,9 @@ content controller container
 <script src="${pageContext.request.contextPath }/app/components/content/content-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-create-controller.js"></script>
 
+
+
+
 <!--end::embed angularJs-->
 <!--end::Page Scripts -->
 

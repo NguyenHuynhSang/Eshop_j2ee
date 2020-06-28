@@ -7,16 +7,8 @@
     function productListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.productList = [];
         $scope.getListProduct = getListProduct;
-
         $scope.productFilter = {};
-
-
-
         $scope.keyWord = '';
-
-
-
-
         $scope.search = search;
         $scope.reset = function () {
             $scope.productFilter = {};

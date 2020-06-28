@@ -1,7 +1,7 @@
 (function (app) {
     app.controller('product-create-controller', productCreateController)
-    productCreateController.$inject = ['api-service', '$scope', 'notification-service', '$state'];
-    function productCreateController(apiService, $scope, notificationService, $state) {
+    productCreateController.$inject = ['api-service', '$scope', 'notification-service', '$state','common-service'];
+    function productCreateController(apiService, $scope, notificationService, $state,commonService) {
 
         ///**********************
         /// 1 product có nhiều phiên bản
@@ -17,11 +17,18 @@
         };
 
 
+      $scope.getSeoTitle=getSeoTitle;
+
         //list catalog
         $scope.childCagalogList = [];
         $scope.getListChildCatalog = getListChildCatalog();
 
+        function getSeoTitle(){
 
+            $scope.productInput.SEOUrl=commonService.getSeoTitle($scope.productInput.Name);
+
+
+        }
 
 
 
@@ -58,6 +65,28 @@
         $scope.CreateProduct = CreateProduct;
         // danh sách các tên attribute
         $scope.listAttribute = [];
+
+        $scope.ckFinderSelectImage=ckFinderSelectImage;
+        function ckFinderSelectImage(){
+            var count = 1;
+            //e.preventDefault();
+            var finder = new CKFinder();
+
+            finder.selectActionFunction = function (url) {
+
+                if (count > 1) {
+                    return;
+                }
+                 $('#txtImage').val(url).trigger('input');
+                $('#kt_dropzone_2').empty();
+                 $('#kt_dropzone_2').append('<img width="50" height="50" class="abc" src="' + url + '" />');
+
+                count++;
+            };
+            finder.popup();
+
+        }
+
 
 
         // lấy lên các attributevalue dựa vào attribute name đã chọn
