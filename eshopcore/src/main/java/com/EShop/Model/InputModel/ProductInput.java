@@ -26,7 +26,7 @@ public class ProductInput {
     public int Weight ;
 
 
-    public Number OriginalPrice;
+    public int OriginalPrice;
 
     public String Deliver ;
 
@@ -47,8 +47,8 @@ public class ProductInput {
 
         public String Description ;
 
-        public Number Price ;
-
+        public int Price ;
+        public int PromotionPrice;
         public int Quantum ;
 
         public int RemainingAmount ;    
