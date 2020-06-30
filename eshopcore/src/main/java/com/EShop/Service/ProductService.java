@@ -29,6 +29,7 @@ public class ProductService  implements IProductService {
                 "from Product\n" +
                 "where Name='"+product.Name+ "'"; // check trùng
         ResultSet rs;
+        conn.setAutoCommit(false);
         statement = conn.createStatement();
 
 
@@ -39,7 +40,9 @@ public class ProductService  implements IProductService {
 
             sqlQuery="Insert into Product (CatalogID,Url,Name,Description,Content,CreatedDate,CreatedBy,Weight,OriginalPrice,Deliver,SEOTitle,SEOUrl,SEODescription,ApplyPromotion) \n" +
                     "values (?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement pStatement=conn.prepareStatement(sqlQuery);
+            String columnNames[] = new String[] { "ID" };
+
+            PreparedStatement pStatement=conn.prepareStatement(sqlQuery,Statement.RETURN_GENERATED_KEYS);
             //statement = conn.prepareStatement(sqlQuery);
             pStatement.setObject(1,product.CatalogID);
             pStatement.setObject(2, product.Url);
@@ -56,8 +59,12 @@ public class ProductService  implements IProductService {
             pStatement.setObject(13, product.SEODescription);
             pStatement.setObject(14, product.ApplyPromotion);
             int rowCount=pStatement.executeUpdate();
-            rs=pStatement.getGeneratedKeys();
-
+            ResultSet rss=pStatement.getGeneratedKeys();
+            int  last_inserted_id=0;
+            if (rss.next())
+            {
+               int productID = Integer.parseInt(rss.getObject(1).toString()) ;
+            }
             pStatement.close();
         }
         else
@@ -66,6 +73,7 @@ public class ProductService  implements IProductService {
         }
         rs.close();
         statement.close();
+        conn.commit();
         conn.close();
     }
 
