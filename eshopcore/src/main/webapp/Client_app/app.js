@@ -8,7 +8,7 @@
         $stateProvider.state('home', {
             url: "/home",
             //missing a fucking dot
-            templateUrl: "/Client_app/components/home/home-view.html",
+            templateUrl: "./Client_app/components/home/home-view.html",
             controller: "home-controller"
         });
 
