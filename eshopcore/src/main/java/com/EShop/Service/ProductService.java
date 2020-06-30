@@ -1,6 +1,7 @@
 package com.EShop.Service;
 
 import com.EShop.IService.IProductService;
+import com.EShop.Model.InputModel.ProductInput;
 import com.EShop.Model.Product;
 
 import java.sql.SQLException;
@@ -18,7 +19,7 @@ public class ProductService  implements IProductService {
     }
 
     @Override
-    public void InsertProduct(Product product) throws SQLException {
+    public void InsertProduct(ProductInput product) throws SQLException {
 
     }
 

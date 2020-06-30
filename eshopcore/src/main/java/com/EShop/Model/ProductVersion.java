@@ -10,6 +10,29 @@ public class ProductVersion {
 
     private Number Price ;
 
+    public ProductVersion(int ID, int productID, int wareHouseID, String description, Number price, Number promotionPrice, int quantum, int remainingAmount, String SKU, String barcode) {
+        this.ID = ID;
+        ProductID = productID;
+        WareHouseID = wareHouseID;
+        Description = description;
+        Price = price;
+        PromotionPrice = promotionPrice;
+        Quantum = quantum;
+        RemainingAmount = remainingAmount;
+        this.SKU = SKU;
+        Barcode = barcode;
+    }
+
+    public Number getPromotionPrice() {
+        return PromotionPrice;
+    }
+
+    public void setPromotionPrice(Number promotionPrice) {
+        PromotionPrice = promotionPrice;
+    }
+
+    private Number PromotionPrice;
+
     private int Quantum ;
 
     private int RemainingAmount ;

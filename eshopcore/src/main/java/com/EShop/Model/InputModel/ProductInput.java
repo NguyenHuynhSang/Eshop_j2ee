@@ -51,7 +51,7 @@ public class ProductInput {
 
         public int Quantum ;
 
-        public int RemainingAmount ;
+        public int RemainingAmount ;    
 
         public String SKU ;
         public String Barcode ;

@@ -2469,6 +2469,7 @@
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalog-create-controller.js"></script>
 <!--end::embed app controller-->
 
+
 <%--
 contentcategory controller container
 --%>

@@ -1,5 +1,6 @@
 package com.EShop.Api;
 
+import com.EShop.Model.InputModel.ProductInput;
 import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.JSon;
 import com.EShop.Model.Product;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.channels.ScatteringByteChannel;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -83,7 +85,8 @@ public class ProductApi extends HttpServlet {
         ProductService service = new ProductService();
 
         String js = HttpUtil.of(req.getReader());
-        Product product=gson.fromJson(js, Product.class);
+
+        ProductInput product=gson.fromJson(js, ProductInput.class);
 
         try {
             service.InsertProduct(product);

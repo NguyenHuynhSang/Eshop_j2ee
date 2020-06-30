@@ -8,12 +8,11 @@
         // mỗi phiên bản có nhiều attributevalue khác nhau
 
 
-
         //ds attributevalue của từng attribute của từng version
-        $scope.attributeValueListPerVersion = [{ atributeValue: [] }]
+        $scope.attributeValueListPerVersion = [{ AtributeValue: [] }]
 
         $scope.productInput = {
-            Name: '', Description: '', Version: [{ attribute: []}]
+            Name: '', Description: '', Versions: [{ Attributes: []}]
         };
 
 
@@ -34,21 +33,21 @@
 
         ///Thêm  phiên bản cho sản phẩm
         $scope.addNewVersion = function() {
-            $scope.productInput.Version.push({ attribute: [] });
+            $scope.productInput.Versions.push({ Attributes: [] });
             $scope.attributeValueListPerVersion.push({ atributeValue: [] });
         }
 
 
         // Thêm  attributevalue dựa vào phiên bản
         $scope.addNewAttributeSet = function (verIndex) {
-            $scope.productInput.Version[verIndex].attribute.push({});
+            $scope.productInput.Versions[verIndex].Attributes.push({});
 
 
         };
 
         // loại bỏ 1 attribute value
         $scope.removeAttributeValue = function (verIndex,element) {
-            $scope.productInput.Version[verIndex].attribute.splice(element, 1);
+            $scope.productInput.Versions[verIndex].Attributes.splice(element, 1);
             $scope.attributeValueListPerVersion[verIndex].atributeValue.splice(element,1);
         };
 
@@ -79,7 +78,7 @@
                 }
                  $('#txtImage').val(url).trigger('input');
                 $('#kt_dropzone_2').empty();
-                 $('#kt_dropzone_2').append('<img width="50" height="50" class="abc" src="' + url + '" />');
+                $('#kt_dropzone_2').append('<img width="150" height="150" class="abc" src="' + url + '" />');
 
                 count++;
             };
@@ -99,7 +98,7 @@
                 }
             }
             apiService.get('/eshopcore_war/api/AttributeValue', config, function (result) {
-                $scope.attributeValueListPerVersion[versionIndex].atributeValue[atributeIndex] = result.data;
+                $scope.attributeValueListPerVersion[versionIndex].AtributeValue[atributeIndex] = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
                 } else {
