@@ -420,8 +420,7 @@
                                     <div class="col-lg-6">
                                         <label>Giá bán</label>
                                         <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"
-                                                                                   id="basic-addon2"><i>VNĐ</i></span>
+                                            <div class="input-group-prepend"><span class="input-group-text" ><i>VNĐ</i></span>
                                             </div>
                                             <input ng-model="ver.price[versionIndex]" type="number" class="form-control"
                                                    placeholder="Chọn loại sản phẩm" min="0" value="0" required>
@@ -432,7 +431,7 @@
                                         <label>Giá khuyến mãi</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"
-                                                                                   id="basic-addon2"><i>VNĐ</i></span>
+                                                                                   ><i>VNĐ</i></span>
                                             </div>
                                             <input ng-model="ver.price[versionIndex]" type="number" class="form-control"
                                                    placeholder="Chọn loại sản phẩm" min="0" value="0" required>
@@ -457,7 +456,7 @@
                                         <label>SKU</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"
-                                                                                   id="basic-addon2"><i>VNĐ</i></span>
+                                                                                   ><i>VNĐ</i></span>
                                             </div>
                                             <input ng-model="ver.sKU[versionIndex]" type="text" class="form-control"
                                                    placeholder="Chọn loại sản phẩm" required>
@@ -523,7 +522,7 @@
 
                                     </div>
 
-                                    <button ng-click="addNewAttributeSet(versionIndex)" class="btn btn-facebook">Thêm
+                                    <button ng-click="addNewAttributeSet(versionIndex)" type="button" class="btn btn-facebook">Thêm
                                         thuộc tính
                                     </button>
                                 </div>
@@ -558,7 +557,6 @@
         <div class="row">
             <button class="btn btn-primary" ng-disabled="frmInputProduct.$invalid" type="submit">Lưu lại</button>
         </div>
-
 
     </form>
 </div>
