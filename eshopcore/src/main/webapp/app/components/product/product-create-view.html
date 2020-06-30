@@ -266,11 +266,13 @@
                                                 <div class="input-group-prepend"><span class="input-group-text"
                                                                                        id="basic-addon2"><i
                                                         class="la la-search"></i></span></div>
-                                                <select class="form-control" ng-model="productInput.CatalogID"
+                                                <select name="selectCategory" required class="form-control" ng-model="productInput.CatalogID"
                                                         ng-options="x.ID as x.Name for x in childCagalogList">
                                                     <option selected disabled value="">---Chọn loại sản phẩm----
                                                     </option>
                                                 </select>
+                                                <span ng-show="frmInputProduct.selectCategory.$invalid" class="form-text text-muted">Tên sản phẩm không được để trống</span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -423,7 +425,7 @@
                                             <div class="input-group-prepend"><span class="input-group-text" ><i>VNĐ</i></span>
                                             </div>
                                             <input ng-model="ver.Price" type="number" class="form-control"
-                                                   placeholder="Nhập giá bán sản phẩm" min="0"  required>
+                                                   placeholder="Nhập giá bán sản phẩm" value="0" min="0"  required>
 
                                         </div>
                                     </div>
@@ -433,7 +435,7 @@
                                             <div class="input-group-prepend"><span class="input-group-text"
                                                                                    ><i>VNĐ</i></span>
                                             </div>
-                                            <input ng-model="ver.PromotionPrice" type="number" class="form-control"
+                                            <input ng-show="productInput.ApplyPromotion==true" ng-model="ver.PromotionPrice" max="{{ver.Price}}" type="number" class="form-control"
                                                    placeholder="Nhập giá khuyến mãi" min="0" value="0" required>
 
                                         </div>
@@ -444,8 +446,8 @@
                                     <div class="col-lg-6">
                                         <label>Số lượng</label>
                                         <div class="input-group">
-                                            <input ng-model="ver.RemainingAmount" type="number"
-                                                   class="form-control" placeholder="Nhập số lượng sản phẩm" min="0"
+                                            <input ng-model="ver.Quantum" type="number"
+                                                   class="form-control" placeholder="Nhập số lượng sản phẩm"
                                                     >
 
                                         </div>
@@ -481,7 +483,7 @@
                                                 <span class="dropzone-msg-desc">Upload up to 10 files</span>
                                             </div>
                                         </div>
-                                        <a id="btnSelectImagei" ng-click="ckFinderSelectImage()"  href=".">Chọn ảnh</a>
+                                        <a id="btnSelectImagei" ng-click="ckFinderSelectImage()"  href="">Chọn ảnh</a>
                                     </div>
 
                                 </div>
@@ -495,7 +497,7 @@
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text" id="basic-addon22"><i>VNĐ</i></span>
                                                         </div>
-                                                        <select ng-change="selectAttributeName(versionIndex,childIndex,attr.selectedAttributeID)"
+                                                        <select required ng-change="selectAttributeName(versionIndex,childIndex,attr.selectedAttributeID)"
                                                                 class="form-control" ng-model="attr.selectedAttributeID"
                                                                 ng-options="x.ID as x.Name for x in listAttribute" >
                                                             <option selected disabled value="">---Chọn thuộc tính----
@@ -507,7 +509,7 @@
                                                 <div class="col-lg-6">
                                                     <label>Giá trị thuộc tính</label>
                                                     <div class="input-group">
-                                                        <select class="form-control" ng-model="attr.attributeValueID"
+                                                        <select required class="form-control" ng-model="attr.attributeValueID"
                                                                 ng-options="x.ID as x.Name for x in attributeValueListPerVersion[versionIndex].AtributeValue[childIndex]" >
                                                             <option selected disabled value="" >---Chọn giá trị thuộc tính----
                                                             </option>
@@ -540,7 +542,7 @@
 
                             <div class="form-group">
                                 <label>Mô tả phiên bản</label>
-                                <ng-ckeditor height="500px" remove-buttons="Image" remove-plugins="iframe,flash,smiley"
+                                <ng-ckeditor ng-model="ver.Description" height="500px" remove-buttons="Image" remove-plugins="iframe,flash,smiley"
                                              style="height:500px"></ng-ckeditor>
                             </div>
                         </div>

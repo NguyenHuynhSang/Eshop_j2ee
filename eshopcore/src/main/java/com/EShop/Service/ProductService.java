@@ -2,6 +2,7 @@ package com.EShop.Service;
 
 import com.EShop.IService.IProductService;
 import com.EShop.Model.InputModel.ProductInput;
+import com.EShop.Model.InputModel.ProductVersionInput;
 import com.EShop.Model.Product;
 
 import java.sql.*;
@@ -62,9 +63,33 @@ public class ProductService implements IProductService {
             int last_inserted_id = 0;
             if (rss.next()) {
                 int productID = Integer.parseInt(rss.getObject(1).toString());
-                sqlQuery = "Insert into Product (CatalogID,Url,Name,Description,Content,CreatedDate,CreatedBy,Weight,OriginalPrice,Deliver,SEOTitle,SEOUrl,SEODescription,ApplyPromotion) \n" +
-                        "values (?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?)";
-                PreparedStatement verStatement = conn.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
+
+                if (product.Versions!=null)
+                {
+                    for (ProductVersionInput ver:
+                            product.Versions) {
+
+                        sqlQuery = "Insert into ProductVersions(ProductID,WareHouseID,Description,Price,PromotionPrice,Quantum,RemainingAmount,SKU,Barcode) \n" +
+                                "values (?, ?, ?, ?,?,?,?,?,?)";
+                        PreparedStatement verStatement = conn.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
+                        ver.ProductID=productID;
+                        verStatement.setObject(1, ver.ProductID);
+                        verStatement.setObject(2, 0);
+                        verStatement.setObject(3, ver.Description);
+                        verStatement.setObject(4, ver.Price);
+                        verStatement.setObject(5, ver.PromotionPrice);
+                        verStatement.setObject(6, ver.Quantum);
+                        verStatement.setObject(7, ver.RemainingAmount);
+                        verStatement.setObject(8, ver.SKU);
+                        verStatement.setObject(9, ver.Barcode);
+                        rowCount = verStatement.executeUpdate();
+
+                    }
+
+
+                }
+
+
 
 
             }

@@ -12,7 +12,7 @@
         $scope.attributeValueListPerVersion = [{ AtributeValue: [] }]
 
         $scope.productInput = {
-            Name: '', Description: '', Versions: [{ Attributes: []}]
+            Name: '', Description: '',ApplyPromotion:true,Deliver:true, Versions: [{ Attributes: []}]
         };
 
 
