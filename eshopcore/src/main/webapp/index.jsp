@@ -143,6 +143,8 @@
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="order-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Hóa Đơn</span></a></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="contentcategory-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Danh mục tin tức</span></a></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="content-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Tin tức</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="footer-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Footer</span></a></li>
+
 
 
                                 </ul>
@@ -2395,6 +2397,7 @@ conponent module container
 <script src="${pageContext.request.contextPath }/app/components/order/orders-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/contentcategory/contentcategory-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-module.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/footer/footer-module.js"></script>
 
 <script src="${pageContext.request.contextPath }/app/app.js"></script>
 <script src="${pageContext.request.contextPath}/app/shared/services/api-service.js"></script>
@@ -2424,6 +2427,13 @@ content controller container
 --%>
 <script src="${pageContext.request.contextPath }/app/components/content/content-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-create-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/content/content-edit-controller.js"></script>
+
+contentcategory controller container
+--%>
+<script src="${pageContext.request.contextPath }/app/components/footer/footer-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/footer/footer-create-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/footer/footer-edit-controller.js"></script>
 
 <!--end::embed angularJs-->
 <!--end::Page Scripts -->

@@ -14,10 +14,10 @@ public class Footer {
     public Footer() {
     }
 
-    public Footer(int ID, String Content, boolean Status) {
+    public Footer(int ID, String Content, boolean IsShow) {
         this.ID = ID;
         this.Content = Content;
-        this.Status = Status;
+        this.IsShow = IsShow;
     }
 
     public int getID() {
@@ -36,14 +36,14 @@ public class Footer {
         this.Content = Content;
     }
 
-    public boolean isStatus() {
-        return Status;
+    public boolean isIsShow() {
+        return IsShow;
     }
 
-    public void setStatus(boolean Status) {
-        this.Status = Status;
+    public void setIsShow(boolean IsShow) {
+        this.IsShow = IsShow;
     }
     int ID;
     String Content;
-    boolean Status;
+    boolean IsShow;
 }

@@ -39,7 +39,7 @@ public class FooterServlet extends HttpServlet {
        } catch (SQLException ex) {
            Logger.getLogger(FooterServlet.class.getName()).log(Level.SEVERE, null, ex);
        }
-        printWriter.print(gson.toJson(json));
+        printWriter.print(json.getContent());
     }
 
 }

@@ -46,23 +46,23 @@ public class FooterService extends DbConnection<Footer> implements IFooterServic
       public Footer GetFooterActive() throws SQLException
       {
           String sqlQuery;
-          sqlQuery = "select * from Footer Where Status = true";
+          sqlQuery = "select * from Footer Where IsShow = 'true'";
           return query(sqlQuery,new FooterMapper()).get(0);
       }
 
      @Override
      public void InsertFooter(Footer footer)throws SQLException
      {
-          String sqlQuery="INSERT INTO Footer (ID, Content,Status) VALUES (?,?,?)";
-          Update(sqlQuery,footer.getID(),footer.getContent(),footer.isStatus());
+          String sqlQuery="INSERT INTO Footer (Content,IsShow) VALUES (?,?)";
+          Update(sqlQuery,footer.getID(),footer.getContent(),footer.isIsShow());
      }
      
    
      @Override
      public void UpdateFooter(Footer tag)throws SQLException
      {
-        String sqlQuery="UPDATE Footer SET Content = ? , Status = ? WHERE FooterID = ?";
-        Update(sqlQuery,tag.getContent(),tag.isStatus(),tag.getID());
+        String sqlQuery="UPDATE Footer SET Content = ? , IsShow = ? WHERE ID = ?";
+        Update(sqlQuery,tag.getContent(),tag.isIsShow(),tag.getID());
      }
     @Override
     public void DeleteFooter(int id) throws SQLException
@@ -71,4 +71,12 @@ public class FooterService extends DbConnection<Footer> implements IFooterServic
         Update(sqlQuery, id);
          
      }
+    
+    public void SetActiveFooter(int id) throws SQLException
+    {
+        String sqlQuery = "Update Footer Set IsShow = 'false'";
+        Update(sqlQuery);
+        sqlQuery ="Update Footer Set IsShow ='true' where ID = ?";
+        Update(sqlQuery,id);
+    }
 }

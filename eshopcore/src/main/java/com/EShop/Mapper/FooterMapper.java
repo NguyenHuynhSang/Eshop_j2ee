@@ -24,7 +24,7 @@ public class FooterMapper implements RowMapper<Footer>{
         try {
             id = rs.getInt("ID");
             String name = rs.getString("Content");
-            boolean status = rs.getBoolean("Status");
+            boolean status = rs.getBoolean("IsShow");
             Footer footer = new Footer(id,name,status);
             return footer;
         } catch (SQLException ex) {
