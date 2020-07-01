@@ -4,9 +4,12 @@
  * and open the template in the editor.
  */
 package com.EShop.ClientServlet;
+import com.EShop.Api.ContentCategoryAPI;
 import com.EShop.Model.Footer;
 import com.EShop.Service.FooterService;
+import com.EShop.Utills.HttpUtil;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -41,5 +44,24 @@ public class FooterServlet extends HttpServlet {
        }
         printWriter.print(json.getContent());
     }
+    
+     
+    @Override
+    protected void doPut(HttpServletRequest request,HttpServletResponse response)
+            throws ServletException, IOException 
+    {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
 
+        Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
+        FooterService jsonservice=new FooterService();
+        
+        String js = HttpUtil.of(request.getReader());
+        int tag=gson.fromJson(js, Integer.class);
+        try {   
+            jsonservice.SetActiveFooter(tag);
+        } catch (SQLException ex) {
+           Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

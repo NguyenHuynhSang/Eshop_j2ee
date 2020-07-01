@@ -12,6 +12,7 @@
         $scope.search = search;
         $scope.delFooter = delFooter;
 
+        $scope.SetActive = setActive;
         function search() {
             getListFooter();
         }
@@ -33,6 +34,22 @@
                 getListFooter();
             });
 
+        }
+
+        function setActive(id)
+        {
+            $ngBootbox.confirm('Bạn có muốn hiển thị footer này?').then(function()
+            {
+                apiService.put('/eshopcore/FooterServlet',JSON.stringify(id),function()
+                    {
+                        notificationService.displaySuccess("Thành công");
+                        getListFooter();
+                    },function(){
+
+                    });
+                    notificationService.displaySuccess("Thành công");
+                    getListFooter();
+            });
         }
 
         function getListFooter() {

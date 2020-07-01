@@ -138,7 +138,7 @@
     </div>
 </div>
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-    <form class="kt-form" name="frmCreateFooter" ng-submit="CreateFooter()" novalidate>
+    <form class="kt-form" name="frmCreateFooter" novalidate>
         <div class="kt-portlet__body">
             <div class="form-group form-group-last">
                 <div class="alert alert-secondary" role="alert">
@@ -162,7 +162,7 @@
         </div>
         <div class="kt-portlet__foot">
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" ng-click="CreateFooter()" class="btn btn-primary">Submit</button>
                 <button type="reset" ui-sref="footer-list" class="btn btn-secondary">Cancel</button>
             </div>
         </div>
