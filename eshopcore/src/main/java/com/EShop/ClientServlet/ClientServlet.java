@@ -1,28 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package com.EShop.ClientServlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.faces.annotation.RequestMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-/**
- *
- * @author Asus
- */
-
-@WebServlet(name="adminServlet",urlPatterns = {"/quan-tri","/admin"})
-
-
-public class adminServlet extends HttpServlet {
+import java.io.IOException;
+@WebServlet(name = "ClientServlet",urlPatterns = {"/trang-chu","/homepage","/"})
+public class ClientServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,8 +21,8 @@ public class adminServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-     
+
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,8 +38,8 @@ public class adminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
-        RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
+
+        RequestDispatcher dispatcher=request.getRequestDispatcher("home.jsp");
         dispatcher.forward(request, response);
     }
 

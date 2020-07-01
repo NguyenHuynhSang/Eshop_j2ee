@@ -22,7 +22,7 @@
 <body ng-app="eshop" class="single-product full-width">
     <div id="page" class="hfeed site">
         P<%@ include file = "Header.jsp"%>
-        @* Content goes here *@
+
         <div ui-view>
 
         </div>
