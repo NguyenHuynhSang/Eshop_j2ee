@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "AttributeApi", urlPatterns = {"/api/Attribute"})
-@DeclareRoles({"DEPT-ADMIN", "DIRECTOR"})
 
 @Stateless
 public class AttributeApi extends HttpServlet {

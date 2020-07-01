@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "CatalogAPI", urlPatterns = {"/api/Catalog"})
+    @WebServlet(name = "CatalogAPI", urlPatterns = {"/api/Catalog"})
 public class CatalogAPI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,7 +35,7 @@ public class CatalogAPI extends HttpServlet {
         String ID = req.getParameter("ID");
         Gson gson = new Gson();
         PrintWriter printWriter = resp.getWriter();
-        JSon js = null;
+
         try {
             switch (action) {
                 case "getAll":

@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-public class ProductService implements IProductService {
+public class ProductService implements IProductService{
     Connection conn = DbConnection.getJDBCConnection();
 
     @Override
