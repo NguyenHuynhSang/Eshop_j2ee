@@ -7,7 +7,8 @@
         $scope.slides = [];
         $scope.GetListSlides = GetListSlides;
 
-        jQuery(document).ready(function () {
+
+        angular.element(document).ready(function () {
 
             jQuery("#owl-example").owlCarousel({
                 items : 1,
@@ -20,21 +21,24 @@
                 margin:0,
                 touchDrag:true
             });
-            jQuery("#owl-main-slider").owlCarousel({
-                items : 3,
-                itemsCustom : false,
-                itemsDesktop : [1199,2],
-                itemsDesktopSmall : [980,2],
-                itemsTablet: [768,2],
-                itemsTabletSmall: [767,1],
-                itemsMobile : [479,1],
-                singleItem : false,
-                itemsScaleUp : false,
-                navigation : true,
-                navigationText : ["nav","nav"],
-                pagination : false
-            });
+
         });
+
+            // jQuery("#product-add-carousel").owlCarousel({
+            //     items : 1,
+            //     nav:false,
+            //     slideSpeed:300,
+            //     dots:true,
+            //     rtl:false,
+            //     paginationSpeed:400,
+            //     navText:["",""],
+            //     margin:0,
+            //     touchDrag:true
+            // });
+
+
+
+
 
         function GetListSlides() {
             var config = {
@@ -60,4 +64,42 @@
 
         $scope.GetListSlides();
     }
+
+
+
+    app.directive("owlCarousel", function() {
+        return {
+            restrict: 'E',
+            transclude: false,
+            link: function (scope) {
+                scope.initCarousel = function(element) {
+                    // provide any default options you want
+                    var defaultOptions = {
+                    };
+                    var customOptions = scope.$eval(jQuery(element).attr('data-options'));
+                    // combine the two options objects
+                    for(var key in customOptions) {
+                        defaultOptions[key] = customOptions[key];
+                    }
+                    // init carousel
+                    jQuery(element).owlCarousel(defaultOptions);
+                };
+            }
+        };
+    })
+    app.directive('owlCarouselItem', [function() {
+            return {
+                restrict: 'A',
+                transclude: false,
+                link: function(scope, element) {
+                    // wait for the last item in the ng-repeat then call init
+                    if(scope.$last) {
+                        scope.initCarousel(element.parent());
+                    }
+                }
+            };
+        }]);
+
+
 })(angular.module('eshop'));
+
