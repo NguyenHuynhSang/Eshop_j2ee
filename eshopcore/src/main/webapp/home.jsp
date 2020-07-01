@@ -252,7 +252,7 @@
             </div>
         </section>
 
-        P<%@ include file = "Footer.jsp"%>
+
     </div><!-- #page -->
 
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/jquery.min.js"></script>
@@ -264,7 +264,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/wow.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/jquery.waypoints.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/electro.js"></script>
+<%--    <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/electro.js"></script>--%>
     <!--Begin::embed angularJs-->
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/angular/angular.js"></script>
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/angular-ui-router/release/angular-ui-router.js"></script>

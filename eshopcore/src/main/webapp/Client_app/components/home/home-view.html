@@ -6,31 +6,31 @@
                 <div class="home-v1-slider">
                     <!-- ========================================== SECTION – HERO : END========================================= -->
 
-                    <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm"  ng-repeat="slide in slides">
+                    <div id="owl-main-slider" class="owl-carousel owl-inner-nav owl-ui-sm"  >
+                        <div ng-repeat="slide in slides">
+                            <div class="item" style="background-image: url({{slide.Image}});">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-5">
+                                            <div class="caption vertical-center text-left">
+                                                <div class="hero-1 fadeInDown-1">
+                                                    {{slide.Title}}
+                                                </div>
 
+                                                <div class="hero-subtitle fadeInDown-2">
+                                                    {{slide.Content}}
+                                                </div>
 
-
-                        <div class="item" style="background-image: url({{slide.Image}});">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-offset-3 col-md-5">
-                                        <div class="caption vertical-center text-left">
-                                            <div class="hero-1 fadeInDown-1">
-                                                {{slide.Title}}
-                                            </div>
-
-                                            <div class="hero-subtitle fadeInDown-2">
-                                                {{slide.Content}}
-                                            </div>
-
-                                            <div class="hero-action-btn fadeInDown-4">
-                                                <a ui-sref="{{slide.Url}}" class="big le-button ">Xem ngay</a>
-                                            </div>
-                                        </div><!-- /.caption -->
+                                                <div class="hero-action-btn fadeInDown-4">
+                                                    <a ui-sref="{{slide.Url}}" class="big le-button ">Xem ngay</a>
+                                                </div>
+                                            </div><!-- /.caption -->
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- /.container -->
-                        </div><!-- /.item -->
+                                </div><!-- /.container -->
+                            </div><!-- /.item -->
+                        </div>
+
 
 
 
@@ -199,7 +199,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Audio Speakers</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Wireless Audio System Multiroom 360</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/1.jpg" class="img-responsive" alt="">
@@ -214,7 +214,7 @@
                                                                     <span class="amount"> </span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -234,7 +234,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Laptops</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Tablet Red EliteBook  Revolve 810 G2</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/2.jpg" class="img-responsive" alt="">
@@ -249,7 +249,7 @@
                                                                     <span class="amount"> </span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -269,7 +269,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Headphones</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>White Solo 2 Wireless</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/3.jpg" class="img-responsive" alt="">
@@ -283,7 +283,7 @@
                                                                     <span class="amount"> $1,999.00</span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -303,7 +303,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Smartphone 6S 32GB LTE</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/4.jpg" class="img-responsive" alt="">
@@ -318,7 +318,7 @@
                                                                     <span class="amount"> </span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -338,7 +338,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Cameras</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Purple NX Mini F1 aparat  SMART NX</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/5.jpg" class="img-responsive" alt="">
@@ -352,7 +352,7 @@
                                                                     <span class="amount"> $1,999.00</span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -372,7 +372,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Printers</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Full Color LaserJet Pro  M452dn</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/6.jpg" class="img-responsive" alt="">
@@ -386,7 +386,7 @@
                                                                     <span class="amount"> $1,999.00</span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -412,7 +412,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                             <div class="product-thumbnail">
 
@@ -428,7 +428,7 @@
                                                                     <del><span class="amount">&#036;2,299.00</span></del>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -449,7 +449,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                             <div class="product-thumbnail">
 
@@ -465,7 +465,7 @@
                                                                     <del><span class="amount">&#036;2,299.00</span></del>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -486,7 +486,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                             <div class="product-thumbnail">
 
@@ -502,7 +502,7 @@
                                                                     <del><span class="amount">&#036;2,299.00</span></del>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -523,7 +523,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                             <div class="product-thumbnail">
 
@@ -539,7 +539,7 @@
                                                                     <del><span class="amount">&#036;2,299.00</span></del>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -560,7 +560,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                             <div class="product-thumbnail">
 
@@ -576,7 +576,7 @@
                                                                     <del><span class="amount">&#036;2,299.00</span></del>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -597,7 +597,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                             <div class="product-thumbnail">
 
@@ -613,7 +613,7 @@
                                                                     <del><span class="amount">&#036;2,299.00</span></del>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -643,7 +643,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Audio Speakers</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Wireless Audio System Multiroom 360</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/1.jpg" class="img-responsive" alt="">
@@ -658,7 +658,7 @@
                                                                     <span class="amount"> </span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -678,7 +678,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Laptops</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Tablet Red EliteBook  Revolve 810 G2</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/2.jpg" class="img-responsive" alt="">
@@ -693,7 +693,7 @@
                                                                     <span class="amount"> </span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -713,7 +713,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Headphones</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>White Solo 2 Wireless</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/3.jpg" class="img-responsive" alt="">
@@ -727,7 +727,7 @@
                                                                     <span class="amount"> $1,999.00</span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -747,7 +747,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Smartphone 6S 32GB LTE</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/4.jpg" class="img-responsive" alt="">
@@ -762,7 +762,7 @@
                                                                     <span class="amount"> </span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -782,7 +782,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Cameras</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Purple NX Mini F1 aparat  SMART NX</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/5.jpg" class="img-responsive" alt="">
@@ -796,7 +796,7 @@
                                                                     <span class="amount"> $1,999.00</span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -816,7 +816,7 @@
                                                 <div class="product-outer">
                                                     <div class="product-inner">
                                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Printers</a></span>
-                                                        <a ui-sref="product-single">
+                                                        <a ui-sref="product-single({meta:'s',id:'a'})">
                                                             <h3>Full Color LaserJet Pro  M452dn</h3>
                                                             <div class="product-thumbnail">
                                                                 <img src="assets/images/blank.gif" data-echo="assets/images/products/6.jpg" class="img-responsive" alt="">
@@ -830,7 +830,7 @@
                                                                     <span class="amount"> $1,999.00</span>
                                                                 </span>
                                                             </span>
-                                                            <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
@@ -877,7 +877,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                 <div class="product-thumbnail">
 
@@ -893,7 +893,7 @@
                                                         <del><span class="amount">&#036;2,299.00</span></del>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -913,7 +913,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                 <div class="product-thumbnail">
 
@@ -929,7 +929,7 @@
                                                         <del><span class="amount">&#036;2,299.00</span></del>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -952,7 +952,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                 <div class="product-thumbnail">
                                                     <img class="wp-post-image" data-echo="assets/images/product-2-1-2/main.jpg" src="assets/images/blank.gif" alt="">
@@ -967,7 +967,7 @@
                                                         <del><span class="amount">&#036;2,299.00</span></del>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -990,7 +990,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                 <div class="product-thumbnail">
 
@@ -1007,7 +1007,7 @@
                                                         <del><span class="amount">&#036;2,299.00</span></del>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -1027,7 +1027,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                 <div class="product-thumbnail">
 
@@ -1044,7 +1044,7 @@
                                                         <del><span class="amount">&#036;2,299.00</span></del>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -1085,7 +1085,7 @@
                     </header>
 
                     <div id="home-v1-product-cards-careousel">
-                        <div class="woocommerce columns-3 home-v1-product-cards-carousel product-cards-carousel owl-carousel">
+                        <div id="owl-example" class="woocommerce columns-3 home-v1-product-cards-carousel product-cards-carousel owl-carousel">
 
                             <ul class="products columns-3">
                                 <li class="product product-card first">
@@ -1093,7 +1093,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="media-object wp-post-image img-responsive" src="assets/images/blank.gif" data-echo="assets/images/product-cards/4.jpg" alt="">
                                             </a>
 
@@ -1102,7 +1102,7 @@
                                                     <a href="product-category.html" rel="tag">TVs</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>Widescreen 4K SUHD TV</h3>
                                                 </a>
 
@@ -1134,7 +1134,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="media-object wp-post-image img-responsive" src="assets/images/blank.gif" data-echo="assets/images/product-cards/6.jpg" alt="">
                                             </a>
 
@@ -1143,7 +1143,7 @@
                                                     <a href="product-category.html" rel="tag">Peripherals</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>External SSD USB 3.1  750 GB</h3>
                                                 </a>
 
@@ -1175,7 +1175,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="media-object wp-post-image img-responsive" src="assets/images/blank.gif" data-echo="assets/images/product-cards/5.jpg" alt="">
                                             </a>
 
@@ -1184,7 +1184,7 @@
                                                     <a href="product-category.html" rel="tag">Printers</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>Full Color LaserJet Pro  M452dn</h3>
                                                 </a>
 
@@ -1217,7 +1217,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="img-responsive media-object wp-post-image" src="assets/images/blank.gif" data-echo="assets/images/product-cards/1.jpg" alt="">
 
                                             </a>
@@ -1227,7 +1227,7 @@
                                                     <a href="product-category.html" rel="tag">Smartphones</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>Notebook Purple G752VT-T7008T</h3>
                                                 </a>
 
@@ -1260,7 +1260,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="img-responsive media-object wp-post-image" src="assets/images/blank.gif" data-echo="assets/images/product-cards/3.jpg" alt="">
                                             </a>
 
@@ -1269,7 +1269,7 @@
                                                     <a href="product-category.html" rel="tag">Headphone Cases</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>Universal Headphones Case in Black</h3>
                                                 </a>
 
@@ -1302,7 +1302,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="img-responsive media-object wp-post-image" src="assets/images/blank.gif" data-echo="assets/images/product-cards/2.jpg" alt="">
                                             </a>
 
@@ -1311,7 +1311,7 @@
                                                     <a href="product-category.html" rel="tag">Smartphones</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>Tablet Thin EliteBook  Revolve 810 G6</h3>
                                                 </a>
 
@@ -1345,7 +1345,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="img-responsive media-object wp-post-image" src="assets/images/blank.gif" data-echo="assets/images/product-cards/2.jpg" alt="">
                                             </a>
 
@@ -1354,7 +1354,7 @@
                                                     <a href="product-category.html" rel="tag">Headphone Cases</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>Universal Headphones Case in Black</h3>
                                                 </a>
 
@@ -1386,7 +1386,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="img-responsive media-object wp-post-image" src="assets/images/blank.gif" data-echo="assets/images/product-cards/5.jpg" alt="">
                                             </a>
 
@@ -1395,7 +1395,7 @@
                                                     <a href="product-category.html" rel="tag">Printers</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>Full Color LaserJet Pro  M452dn</h3>
                                                 </a>
 
@@ -1427,7 +1427,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="img-responsive media-object wp-post-image" src="assets/images/blank.gif" data-echo="assets/images/product-cards/4.jpg" alt="">
                                             </a>
 
@@ -1436,7 +1436,7 @@
                                                     <a href="product-category.html" rel="tag">TVs</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>Widescreen 4K SUHD TV</h3>
                                                 </a>
 
@@ -1468,7 +1468,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="img-responsive media-object wp-post-image" src="assets/images/blank.gif" data-echo="assets/images/product-cards/3.jpg" alt="">
                                             </a>
 
@@ -1477,7 +1477,7 @@
                                                     <a href="product-category.html" rel="tag">Smartphones</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>Notebook Purple G752VT-T7008T</h3>
                                                 </a>
 
@@ -1510,7 +1510,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="img-responsive media-object wp-post-image" src="assets/images/blank.gif" data-echo="assets/images/product-cards/6.jpg" alt="">
                                             </a>
 
@@ -1519,7 +1519,7 @@
                                                     <a href="product-category.html" rel="tag">Peripherals</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>External SSD USB 3.1  750 GB</h3>
                                                 </a>
 
@@ -1552,7 +1552,7 @@
                                     <div class="product-outer">
                                         <div class="media product-inner">
 
-                                            <a class="media-left" ui-sref="product-single" title="Pendrive USB 3.0 Flash 64 GB">
+                                            <a class="media-left" ui-sref="product-single({meta:'s',id:'a'})" title="Pendrive USB 3.0 Flash 64 GB">
                                                 <img class="img-responsive media-object wp-post-image" src="assets/images/blank.gif" data-echo="assets/images/product-cards/1.jpg" alt="">
                                             </a>
 
@@ -1561,7 +1561,7 @@
                                                     <a href="product-category.html" rel="tag">Smartphones</a>
                                                 </span>
 
-                                                <a ui-sref="product-single">
+                                                <a ui-sref="product-single({meta:'s',id:'a'})">
                                                     <h3>Tablet Thin EliteBook  Revolve 810 G6</h3>
                                                 </a>
 
@@ -1621,7 +1621,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Tablet Thin EliteBook  Revolve 810 G6</h3>
                                                 <div class="product-thumbnail">
                                                     <img src="assets/images/blank.gif" data-echo="assets/images/product-category/2.jpg" class="img-responsive" alt="">
@@ -1636,7 +1636,7 @@
                                                         <span class="amount"> </span>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -1657,7 +1657,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Notebook Purple G952VX-T7008T</h3>
                                                 <div class="product-thumbnail">
                                                     <img src="assets/images/blank.gif" data-echo="assets/images/product-category/3.jpg" class="img-responsive" alt="">
@@ -1671,7 +1671,7 @@
                                                         <span class="amount"> $1,999.00</span>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -1692,7 +1692,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
                                                 <div class="product-thumbnail">
                                                     <img src="assets/images/blank.gif" data-echo="assets/images/product-category/1.jpg" class="img-responsive" alt="">
@@ -1706,7 +1706,7 @@
                                                         <span class="amount"> $1,999.00</span>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -1727,7 +1727,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Tablet Thin EliteBook  Revolve 810 G6</h3>
                                                 <div class="product-thumbnail">
                                                     <img src="assets/images/blank.gif" data-echo="assets/images/product-category/2.jpg" class="img-responsive" alt="">
@@ -1741,7 +1741,7 @@
                                                         <span class="amount"> $1,999.00</span>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -1762,7 +1762,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Laptop Yoga 21 80JH0035GE  W8.1 (Copy)</h3>
                                                 <div class="product-thumbnail">
                                                     <img src="assets/images/blank.gif" data-echo="assets/images/product-category/5.jpg" class="img-responsive" alt="">
@@ -1776,7 +1776,7 @@
                                                         <span class="amount"> $1,999.00</span>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -1797,7 +1797,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Notebook Purple G952VX-T7008T</h3>
                                                 <div class="product-thumbnail">
                                                     <img src="assets/images/blank.gif" data-echo="assets/images/product-category/4.jpg" class="img-responsive" alt="">
@@ -1811,7 +1811,7 @@
                                                         <span class="amount"> $1,999.00</span>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -1832,7 +1832,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Smartphone 6S 128GB LTE</h3>
                                                 <div class="product-thumbnail">
                                                     <img src="assets/images/blank.gif" data-echo="assets/images/product-category/6.jpg" class="img-responsive" alt="">
@@ -1846,7 +1846,7 @@
                                                         <span class="amount"> $200.00</span>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">
@@ -1867,7 +1867,7 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a ui-sref="product-single">
+                                            <a ui-sref="product-single({meta:'s',id:'a'})">
                                                 <h3>Notebook Widescreen Z51-70  40K6013UPB</h3>
                                                 <div class="product-thumbnail">
                                                     <img src="assets/images/blank.gif" data-echo="assets/images/product-category/3.jpg" class="img-responsive" alt="">
@@ -1882,7 +1882,7 @@
                                                         <span class="amount"> </span>
                                                     </span>
                                                 </span>
-                                                <a rel="nofollow" ui-sref="product-single" class="button add_to_cart_button">Add to cart</a>
+                                                <a rel="nofollow" ui-sref="product-single({meta:'s',id:'a'})" class="button add_to_cart_button">Add to cart</a>
                                             </div><!-- /.price-add-to-cart -->
 
                                             <div class="hover-area">

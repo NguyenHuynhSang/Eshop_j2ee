@@ -13,7 +13,7 @@
             templateUrl: "./Client_app/components/product/product-list-view.html",
             controller: "product-list-controller"
         }).state('product-single', {
-            url: "/product-single",
+            url: "/product-single/:meta-:id",
             templateUrl: "./Client_app/components/product/product-single-view.html",
             controller: "product-create-controller"
         });
