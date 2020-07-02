@@ -14,7 +14,7 @@ public class ProductCatalog {
     private Date CreatedDate;
     private String CreatedBy;
     private Date ModifiedDate;
-
+    public  ProductCatalog(){};
     public ProductCatalog(int ID, int parentID, String name, Date createdDate, String createdBy, Date modifiedDate, String modifiedBy, String SEOTitle, String SEOURL, String SEODescription) {
         this.ID = ID;
         ParentID = parentID;

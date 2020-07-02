@@ -10,7 +10,7 @@ public class ProductVersion {
     private String SEOTitle;
     private String SEOUrl;
     private String Image;
-
+    public ProductVersion(){};
     public ProductVersion(int ID, int productID, int wareHouseID, String description, Number price, String SEODescription, String SEOTitle, String SEOUrl, String image, Number promotionPrice, int quantum, int remainingAmount, String SKU, String barcode) {
         this.ID = ID;
         ProductID = productID;

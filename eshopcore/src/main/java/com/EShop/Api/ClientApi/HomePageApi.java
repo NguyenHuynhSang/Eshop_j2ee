@@ -5,6 +5,7 @@ import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.Slide;
 import com.EShop.Model.ViewModel.CatalogTreeModel;
 import com.EShop.Model.ViewModel.CatalogViewModel;
+import com.EShop.Model.ViewModel.ProductDetailViewModel;
 import com.EShop.Model.ViewModel.ProductViewModel;
 import com.EShop.Service.CatalogService;
 import com.EShop.Service.ClientService.HomeService;
@@ -44,7 +45,7 @@ public class HomePageApi extends HttpServlet {
                     break;
 
                 case "getNewProduct": {
-                    List<ProductViewModel> productViewModels = new ArrayList<ProductViewModel>();
+                    List<ProductDetailViewModel> productViewModels = new ArrayList<ProductDetailViewModel>();
                     productViewModels = homeService.GetNewProducts();
                     printWriter.print(gson.toJson(productViewModels));
                     break;

@@ -21,7 +21,7 @@ public class Product {
     private String SEOUrl;
     private String Url;
     private int Weight;
-
+    public  Product(){};
     public Product(int ID, boolean applyPromotion, int catalogID, String content, boolean deliver, String createdBy, Date createDate, String description, String modifiedBy, Date modifiedDate, String name, double originalPrice, String SEODescription, String SEOTitle, String SEOUrl, String url, int weight) {
         this.ID = ID;
         ApplyPromotion = applyPromotion;
