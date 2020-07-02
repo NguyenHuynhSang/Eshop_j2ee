@@ -23,7 +23,7 @@
     <div id="page" class="hfeed site">
         P<%@ include file = "Header.jsp"%>
 
-        <div ui-view>
+        <div ui-view="content">
 
         </div>
         <section class="brands-carousel">
