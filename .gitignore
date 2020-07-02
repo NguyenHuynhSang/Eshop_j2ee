@@ -3,6 +3,10 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+
+# ignore deploy_project_on_server
+Server/apache-tomcat-8.5.54/webapps/eshopcore_war/
+
 # Package Files #
 *.war
 *.ear
