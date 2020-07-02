@@ -11,7 +11,11 @@
                 views: {
                     'content': {
                         template: "<div ui-view></div>",
-                    }
+                    },
+                    'header': {
+                        templateUrl: "./Client_app/shared/layout/header-view.html",
+                        controller:'header-controller'
+                    },
                 }
 
             }).state('app.home', {
