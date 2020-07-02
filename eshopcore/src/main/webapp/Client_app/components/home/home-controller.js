@@ -7,6 +7,11 @@
         $scope.slides = [];
         $scope.GetListSlides = GetListSlides;
 
+        $scope.newProducts=[];
+        $scope.GetListNewProducts = GetListNewProducts;
+
+
+
 
         angular.element(document).ready(function () {
 
@@ -23,18 +28,6 @@
             });
 
         });
-
-            // jQuery("#product-add-carousel").owlCarousel({
-            //     items : 1,
-            //     nav:false,
-            //     slideSpeed:300,
-            //     dots:true,
-            //     rtl:false,
-            //     paginationSpeed:400,
-            //     navText:["",""],
-            //     margin:0,
-            //     touchDrag:true
-            // });
 
 
 
@@ -62,6 +55,28 @@
 
         }
 
+        function GetListNewProducts() {
+            var config = {
+                params: {
+                    action: "getNewProduct", //VỚI GET CONFIG LUÔN TRUYỀN ACTION VÀO ĐỂ HÀM DOGET XỬ LÝ TỪNG CASE
+                }
+            }
+            /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
+            apiService.get('/eshopcore_war/api/homePage', config, function (result) {
+                $scope.newProducts = result.data;
+
+                if (result.data.length == 0) {
+                    notificationService.displayWarning("Không tìm thấy slides nào");
+                } else {
+                    notificationService.displaySuccess("[DEV]Tìm đước slides");
+                }
+            }, function () {
+                notificationService.displayError("Không lấy được dữ liệu từ server");
+            });
+
+
+        }
+        $scope.GetListNewProducts();
         $scope.GetListSlides();
     }
 

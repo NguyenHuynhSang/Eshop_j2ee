@@ -2,26 +2,32 @@ package com.EShop.Model;
 
 public class ProductVersion {
     private int ID ;
-
     private int ProductID ;
-
     private int WareHouseID ;
     private String Description ;
-
     private Number Price ;
+    private String SEODescription;
+    private String SEOTitle;
+    private String SEOUrl;
+    private String Image;
 
-    public ProductVersion(int ID, int productID, int wareHouseID, String description, Number price, Number promotionPrice, int quantum, int remainingAmount, String SKU, String barcode) {
+    public ProductVersion(int ID, int productID, int wareHouseID, String description, Number price, String SEODescription, String SEOTitle, String SEOUrl, String image, Number promotionPrice, int quantum, int remainingAmount, String SKU, String barcode) {
         this.ID = ID;
         ProductID = productID;
         WareHouseID = wareHouseID;
         Description = description;
         Price = price;
+        this.SEODescription = SEODescription;
+        this.SEOTitle = SEOTitle;
+        this.SEOUrl = SEOUrl;
+        Image = image;
         PromotionPrice = promotionPrice;
         Quantum = quantum;
         RemainingAmount = remainingAmount;
         this.SKU = SKU;
         Barcode = barcode;
     }
+
 
     public Number getPromotionPrice() {
         return PromotionPrice;
@@ -113,5 +119,37 @@ public class ProductVersion {
 
     public void setBarcode(String barcode) {
         Barcode = barcode;
+    }
+
+    public String getSEODescription() {
+        return SEODescription;
+    }
+
+    public void setSEODescription(String SEODescription) {
+        this.SEODescription = SEODescription;
+    }
+
+    public String getSEOTitle() {
+        return SEOTitle;
+    }
+
+    public void setSEOTitle(String SEOTitle) {
+        this.SEOTitle = SEOTitle;
+    }
+
+    public String getSEOUrl() {
+        return SEOUrl;
+    }
+
+    public void setSEOUrl(String SEOUrl) {
+        this.SEOUrl = SEOUrl;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
     }
 }

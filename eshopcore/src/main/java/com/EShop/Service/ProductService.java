@@ -1,16 +1,22 @@
 package com.EShop.Service;
 
+import com.EShop.IService.IClientService.ICProductService;
 import com.EShop.IService.IProductService;
 import com.EShop.Model.InputModel.ProductInput;
 import com.EShop.Model.InputModel.ProductVersionInput;
 import com.EShop.Model.Product;
+import com.EShop.Model.ProductAttribute;
+import com.EShop.Model.ProductCatalog;
+import com.EShop.Model.ViewModel.CatalogViewModel;
+import com.EShop.Model.ViewModel.ProductViewModel;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class ProductService implements IProductService{
+public class ProductService implements IProductService, ICProductService {
     Connection conn = DbConnection.getJDBCConnection();
 
     @Override
@@ -64,13 +70,14 @@ public class ProductService implements IProductService{
             if (rss.next()) {
                 int productID = Integer.parseInt(rss.getObject(1).toString());
 
+
                 if (product.Versions!=null)
                 {
                     for (ProductVersionInput ver:
                             product.Versions) {
 
-                        sqlQuery = "Insert into ProductVersions(ProductID,WareHouseID,Description,Price,PromotionPrice,Quantum,RemainingAmount,SKU,Barcode) \n" +
-                                "values (?, ?, ?, ?,?,?,?,?,?)";
+                        sqlQuery = "Insert into ProductVersions(ProductID,WareHouseID,Description,Price,PromotionPrice,Quantum,RemainingAmount,SKU,Barcode,Image) \n" +
+                                "values (?, ?, ?, ?,?,?,?,?,?,?)";
                         PreparedStatement verStatement = conn.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
                         ver.ProductID=productID;
                         verStatement.setObject(1, ver.ProductID);
@@ -82,8 +89,34 @@ public class ProductService implements IProductService{
                         verStatement.setObject(7, ver.RemainingAmount);
                         verStatement.setObject(8, ver.SKU);
                         verStatement.setObject(9, ver.Barcode);
+                        verStatement.setObject(10, ver.Image);
                         rowCount = verStatement.executeUpdate();
+                        ResultSet rs_ver = verStatement .getGeneratedKeys();
+                       if (rs_ver.next())
+                       {
+                           int verId = Integer.parseInt(rs_ver.getObject(1).toString());
+                           for (ProductAttribute attribute:
+                                   ver.Attributes)
+                           {
 
+                               sqlQuery = "Insert into ProductAttribute(AttributeValueID,ProductVersionID) \n" +
+                                       "values (?, ?)";
+                               PreparedStatement attStament = conn.prepareStatement(sqlQuery);
+
+                               int attID=attribute.getAttributeValueID();
+                               attStament.setObject(1, attID);
+                               attStament.setObject(2, verId);
+                               int count = attStament.executeUpdate();
+                               attStament.close();
+                           }
+
+
+
+
+                       }
+
+                        verStatement.close();
+                       rs_ver.close();
                     }
 
 
@@ -94,6 +127,7 @@ public class ProductService implements IProductService{
 
             }
             pStatement.close();
+            rss.close();
         } else {
             System.out.println("Đã tồn tại sản phẩm");
         }
@@ -111,5 +145,36 @@ public class ProductService implements IProductService{
     @Override
     public void DeleteProduct(Product[] product) throws SQLException {
 
+    }
+
+    @Override
+    public ProductViewModel GetProductByID(int id) throws SQLException {
+        ProductViewModel productViewModels = new ProductViewModel();
+        Statement stmt;
+        stmt = conn.createStatement();
+        String sqlQuery = "SELECT c.ID,c.Name,c.ParentID,c.CreatedDate,c.CreatedBy,c.ModifiedDate,c.ModifiedBy,c.SEOTitle,c.SEOUrl,c.SEODescription,p.Name as Parent\n" +
+                "FROM Catalog c\n" +
+                "LEFT JOIN Catalog p ON c.ParentID = p.ID\n";
+        ResultSet rs = stmt.executeQuery(sqlQuery);
+        while (rs.next()) {
+            ProductCatalog catalog = new ProductCatalog(rs.getInt("ID"),
+                    rs.getInt("ParentID"),
+                    rs.getString("Name"),
+                    rs.getDate("CreatedDate"),
+                    rs.getString("CreatedBy"),
+                    rs.getDate("ModifiedDate"),
+                    rs.getString("ModifiedBy"),
+                    rs.getString("SEOTitle"),
+                    rs.getString("SEOUrl"),
+                    rs.getString("SEODescription"));
+//            CatalogViewModel catalogView = new CatalogViewModel();
+//            catalogView.ParentName = rs.getString("Parent");
+//            catalogView.Catalog = catalog;
+//            catalogs.add(catalogView);
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+        return productViewModels;
     }
 }

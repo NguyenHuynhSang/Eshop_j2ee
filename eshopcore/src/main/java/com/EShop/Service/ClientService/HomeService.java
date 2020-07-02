@@ -6,6 +6,7 @@ import com.EShop.Model.Product;
 import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.Slide;
 import com.EShop.Model.ViewModel.CatalogViewModel;
+import com.EShop.Model.ViewModel.ProductViewModel;
 import com.EShop.Service.DbConnection;
 
 import java.sql.Connection;
@@ -24,8 +25,35 @@ public class HomeService implements ICHomePageService {
     }
 
     @Override
-    public List<Product> GetNewProducts() throws SQLException {
-        return null;
+    public List<ProductViewModel> GetNewProducts() throws SQLException {
+        List<ProductViewModel> productViewModels = new ArrayList<>();
+        Statement stmt;
+        stmt = conn.createStatement();
+        String sqlQuery = "select p.Name,p.SEOUrl,p.OriginalPrice,p.Content,p.Description\n" +
+                ",p.Deliver,p.ApplyPromotion,c.Name as CatalogName,c.ID as CatalogId\n" +
+                ",ver.ID as VerID,ver.Quantum as VerQuanTum,ver.Price as VerPrice,ver.PromotionPrice as VerPromotionPrice\n" +
+                "from ProductVersions ver\n" +
+                "join Product p\n" +
+                "on p.ID= ver.ProductID\n" +
+                "join Catalog c\n" +
+                "on c.ID=p.CatalogID\n" +
+                "\n";
+        ResultSet rs = stmt.executeQuery(sqlQuery);
+        while (rs.next()) {
+            ProductViewModel productViewModel  = new ProductViewModel();
+            productViewModel.Catalog.setName(rs.getString("CatalogName"));
+            productViewModel.Product.setSEOUrl(rs.getString("Name"));
+            productViewModel.Product.setOriginalPrice(rs.getInt("Name"));
+            productViewModel.Product.setContent(rs.getString("Name"));
+            productViewModel.Product.setDescription(rs.getString("Name"));
+            productViewModel.Product.setName(rs.getString("Name"));
+
+            productViewModels.add(productViewModel);
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+        return productViewModels;
     }
 
     @Override

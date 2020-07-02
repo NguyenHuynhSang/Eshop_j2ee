@@ -5,6 +5,7 @@ import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.Slide;
 import com.EShop.Model.ViewModel.CatalogTreeModel;
 import com.EShop.Model.ViewModel.CatalogViewModel;
+import com.EShop.Model.ViewModel.ProductViewModel;
 import com.EShop.Service.CatalogService;
 import com.EShop.Service.ClientService.HomeService;
 import com.google.gson.Gson;
@@ -30,23 +31,31 @@ public class HomePageApi extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         HomeService homeService = new HomeService();
         String action = req.getParameter("action");
-        PrintWriter printWriter=resp.getWriter();
-        Gson gson=new Gson();
+        PrintWriter printWriter = resp.getWriter();
+        String cover = "";
+        Gson gson = new Gson();
         try {
             switch (action) {
                 case "getSlide":
                     List<Slide> slides = new ArrayList<Slide>();
                     slides = homeService.GetSlide();
-                    String cover=gson.toJson(slides);
+
                     printWriter.print(gson.toJson(slides));
                     break;
+
+                case "getNewProduct": {
+                    List<ProductViewModel> productViewModels = new ArrayList<ProductViewModel>();
+                    productViewModels = homeService.GetNewProducts();
+                    printWriter.print(gson.toJson(productViewModels));
+                    break;
+                }
+
 
             }
 
         } catch (SQLException ex) {
             log(ex.toString());
         }
-
 
 
     }

@@ -27,8 +27,25 @@ public class AttributeValueApi extends HttpServlet {
         AttributeValueService attributeValueService = new AttributeValueService();
         List<AttributeValue> attributeValues= new ArrayList<>();
         Gson gson=new Gson();
+        String action = request.getParameter("action");
+
         try {
-            attributeValues = attributeValueService.GetAttributeValue();
+            switch (action)
+            {
+                case "getAll":
+                    {
+                        attributeValues = attributeValueService.GetAttributeValue();
+                    }
+                    break;
+                case "getByAtributeID":
+                {
+                    int ID = Integer.parseInt(request.getParameter("atributeId")) ;
+                    attributeValues = attributeValueService.GetAttributeValueByAtributeID(ID);
+                }
+                default:
+                    attributeValues = attributeValueService.GetAttributeValue();
+            }
+
         } catch (SQLException ex) {
             System.out.print(ex.getMessage());
         }

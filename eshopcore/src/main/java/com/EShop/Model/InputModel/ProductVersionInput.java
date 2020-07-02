@@ -23,5 +23,5 @@ public class ProductVersionInput
     public String SKU ;
     public String Barcode ;
     public List<ProductAttribute> Attributes ;
-    public List<ProductVersionImage> Images ;
+    public  String Image;
 }

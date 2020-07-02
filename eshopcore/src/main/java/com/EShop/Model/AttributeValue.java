@@ -3,12 +3,12 @@ package com.EShop.Model;
 public class AttributeValue {
     private  int ID;
     private  int AttributeID;
-    private  String name;
+    private  String Name;
 
     public AttributeValue(int ID, int attributeID, String name) {
         this.ID = ID;
         AttributeID = attributeID;
-        this.name = name;
+        this.Name = name;
     }
 
     public int getID() {
@@ -28,10 +28,10 @@ public class AttributeValue {
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 }

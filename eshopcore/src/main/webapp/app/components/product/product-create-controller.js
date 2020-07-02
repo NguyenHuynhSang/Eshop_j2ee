@@ -23,9 +23,12 @@
         $scope.getListChildCatalog = getListChildCatalog();
 
         function getSeoTitle(){
-
             $scope.productInput.SEOUrl=commonService.getSeoTitle($scope.productInput.Name);
+        }
 
+        function getProductVersionSeoTitle(index)
+        {
+            $scope.productInput.Versions[index].SEOUrl=$scope.productInput.SEOUrl+commonService.getSeoTitle(  $scope.productInput.Versions[index].SKU);
 
         }
 
@@ -94,7 +97,7 @@
             var config = {
                 params: {
                     atributeId: selectedAtribute,
-                    action: "getAll",
+                    action: "getByAtributeID",
                 }
             }
             apiService.get('/eshopcore_war/api/AttributeValue', config, function (result) {
