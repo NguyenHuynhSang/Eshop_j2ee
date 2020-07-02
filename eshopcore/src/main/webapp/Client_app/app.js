@@ -9,6 +9,7 @@
         $stateProvider.state('app',
             {
                 views: {
+
                     'content': {
                         template: "<div ui-view></div>",
                     },
@@ -18,7 +19,8 @@
                     },
                 }
 
-            }).state('app.home', {
+            }).state('home', {
+            parent: 'app',
             url: "/home",
             //missing a fucking dot
             templateUrl: "./Client_app/components/home/home-view.html",
