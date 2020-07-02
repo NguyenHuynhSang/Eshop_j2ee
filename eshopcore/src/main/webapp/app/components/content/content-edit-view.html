@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa tin tức</title>
+
+</head>
+<body>
+<h1>Sửa danh mục tin tức</h1>
+<form class="kt-form"  name="frmEditContent" ng-submit="EditContent()" novalidate>
+    <div class="kt-portlet__body">
+        <div class="form-group form-group-last">
+            <div class="alert alert-secondary" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
+                <div class="alert-text">
+                    The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Tên tin tức</label>
+            <input ng-model="jsonEntity.content.Name" value = "{{jsonEntity.content.Name}}" type="text" class="form-control"  placeholder="Tên danh mục">
+
+        </div>
+        <div class="form-group">
+            <label for="CategoryID">Danh mục tin tức</label>
+            <select class="form-control" ng-model="jsonEntity.content.CategoryID" >
+                <option value="" disabled selected hidden>Danh mục cha</option>
+                <option ng-repeat="category in contentcategoryList" value="{{category.Category.ID}}">
+                    {{category.Category.Name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Metatitle">Meta title</label>
+            <input ng-model="jsonEntity.content.MetaTitle" value="{{jsonEntity.content.Metatitle}}" type="text" class="form-control" id="Metatitle" placeholder="MetaTitle">
+        </div>
+        <div class="form-group">
+            <label for="Description">Mô tả</label>
+            <textarea ng-model="jsonEntity.content.Description" value ="{{jsonEntity.content.Description}}" type="text" class="form-control" id="SeoTitle" placeholder="Seo Title">
+        </div>
+        <div class="form-group">
+            <label for="Image">Hình ảnh</label>
+            <input ng-model="jsonEntity.content.Image" value="{{jsonEntity.content.Image}}" type="number" class="form-control" id="DisplayOrder" placeholder="Thứ tự">
+        </div>
+        <div class="form-group">
+            <label for="Detail">Chi tiết</label>
+            <input ng-model="jsonEntity.content.Detail" value="{{jsonEntity.content.Detail}}" type="text" class="form-control" id="Metakeywords" placeholder="Meta keyword">
+        </div>
+        <div class="form-group">
+            <label for="MetaKeyWords">Meta description</label>
+            <input ng-model="jsonEntity.content.MetaKeyWords" value="{{jsonEntity.content.MetaKeyWords}}" type="text" class="form-control" id="Metadescriptions" placeholder="Meta description">
+        </div>
+        <div class="form-group">
+            <label for="Metadescriptions">Meta description</label>
+            <input ng-model="jsonEntity.content.MetaDescriptions" value="{{jsonEntity.content.MetaDescriptions}}" type="text" class="form-control" id="Metadescriptions" placeholder="Meta description">
+        </div>
+        <div class="form-group">
+            <label for="status">Trạng thái</label>
+            <input ng-model="jsonEntity.content.Status" value="{{jsonEntity.content.Status}}" type="checkbox" id="status" placeholder="Trạng thái">
+        </div>
+        <div class="form-group">
+            <label for="TopHot">Tin tức hot</label>
+            <input ng-model="jsonEntity.content.TopHot" value={{jsonEntity.content.TopHot}} type="checkbox" id="ShowOnHome" placeholder="Hiện trên trang chủ">
+        </div>
+        <div class="form-group">
+            <label for="Language">Ngôn ngữ</label>
+            <input ng-model="jsonEntity.content.Language" value="{{jsonEntity.content.Language}}" type="text" id="Language" placeholder="Ngôn ngữ">
+        </div>
+    </div>
+    <div class="kt-portlet__foot">
+        <div class="form-group">
+            <button type="submit"  class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+</form>
+
+
+</body>
+</html>

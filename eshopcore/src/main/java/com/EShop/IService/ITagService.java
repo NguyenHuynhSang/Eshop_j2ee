@@ -9,7 +9,7 @@ package com.EShop.IService;
 import com.EShop.Model.Tag;
 import java.sql.SQLException;
 import java.util.List;
-public interface ITagService {
+public interface ITagService extends IDbConnection<Tag> {
     public List<Tag> GetTag() throws SQLException;
     public void InsertTag(Tag tag)throws SQLException;
     public void UpdateTag(Tag tag)throws SQLException;

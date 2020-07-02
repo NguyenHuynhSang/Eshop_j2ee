@@ -6,6 +6,7 @@
 package com.EShop.Service;
 
 import com.EShop.IService.IContentTagService;
+import com.EShop.Mapper.ContentTagMapper;
 import com.EShop.Model.Content;
 import com.EShop.Model.ContentTag;
 import java.sql.Connection;
@@ -19,37 +20,19 @@ import java.util.List;
  *
  * @author nhatminh
  */
-public class ContentTagService implements IContentTagService{
+public class ContentTagService extends DbConnection<ContentTag> implements IContentTagService{
      Connection conn = DbConnection.getJDBCConnection();
     @Override
      public List<ContentTag> GetAllContentTag() throws SQLException
     {
-        List<ContentTag> jsons= new ArrayList<>();
-        Statement stmt;
-        stmt = conn.createStatement();
         String sqlQuery="SELECT * FROM ContentTag";
-        ResultSet rs = stmt.executeQuery(sqlQuery);
-        while(rs.next())
-        {   
-             String TagId=rs.getString("TagID");
-             int ContentId = rs.getInt("ContentID");
-             ContentTag json = new ContentTag(TagId,ContentId);
-             jsons.add(json);
-        }
-        rs.close();
-        stmt.close();
-        conn.close();
-        return jsons;
+        return query(sqlQuery,new ContentTagMapper());
     }  
      @Override
      public void InsertContentTag(ContentTag json)throws SQLException
      {
-        Statement statement;
-        statement = conn.createStatement();
-        String sqlQuery="INSERT INTO ContentTag (TagID, ContentID) VALUES ('"+json.getTagID()+"','"+json.getContentID()+"');";
-        int rowCount=statement.executeUpdate(sqlQuery);
-        statement.close();
-        conn.close();
+        String sqlQuery="INSERT INTO ContentTag (TagID, ContentID) VALUES (?,?)";
+        Update(sqlQuery,json.getTagID(),json.getContentID());
      }
   
      @Override

@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : index
     Created on : Apr 22, 2020, 1:18:39 PM
     Author     : Asus
@@ -18,6 +18,7 @@
 
 <!-- begin::Head -->
 <head>
+
     <meta charset="utf-8"/>
     <title>EShop</title>
     <meta name="description" content="Page with empty content">
@@ -51,7 +52,9 @@
           type="text/css"/>
     <link href="${pageContext.request.contextPath }/Assets/admin/css/skins/aside/dark.css" rel="stylesheet"
           type="text/css"/>
+    <link href="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-tree/dist/angular-ui-tree.css" rel="stylesheet" />
 
+    <link href="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-tree/examples/css/app.css" rel="stylesheet" />
     <!--end::Layout Skins -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath }/Assets/admin/media/logos/favicon.ico"/>
 </head>
@@ -92,7 +95,7 @@
             <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
                 <div class="kt-aside__brand-logo">
                     <a href="index.html">
-                        <img alt="Logo" src="~/Assets/admin/media/logos/logo-light.png" />
+                        <img alt="Logo" src="${pageContext.request.contextPath }/Assets/admin/media/logos/logo-light.png" />
                     </a>
                 </div>
                 <div class="kt-aside__brand-tools">
@@ -130,18 +133,73 @@
                     <ul class="kt-menu__nav ">
 
                         <li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--open kt-menu__item--here" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon-interface-8"></i><span class="kt-menu__link-text">Nghiệp vụ chính</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon-interface-8"></i><span class="kt-menu__link-text">Sản phẩm</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                             <div class="kt-menu__submenu ">
                                 <span class="kt-menu__arrow"></span>
                                 <ul class="kt-menu__subnav">
-                                    <li  class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
-                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a href="layout/general/fixed-content.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Fixed Content</span></a></li>
-                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a href="layout/general/minimized-aside.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Minimized Aside</span></a></li>
-                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a href="layout/general/no-aside.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">No Aside</span></a></li>
+                                    <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  " aria-haspopup="true"><a ui-sref="home" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Trang chủ</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a ui-sref="product-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Sản Phẩm</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="catalog-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Danh mục sản phẩm</span></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--open kt-menu__item--here" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon-interface-8"></i><span class="kt-menu__link-text">Quản trị</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                            <div class="kt-menu__submenu ">
+                                <span class="kt-menu__arrow"></span>
+                                <ul class="kt-menu__subnav">
+                                    <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  " aria-haspopup="true"><a ui-sref="home" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Trang chủ</span></a></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a ui-sref="product-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Sản Phẩm</span></a></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="order-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Hóa Đơn</span></a></li>
-                                    <li class="kt-menu__item " aria-haspopup="true"><a href="layout/general/no-header-menu.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">No Header Menu</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="catalog-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Danh mục sản phẩm</span></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--open kt-menu__item--here" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon-interface-8"></i><span class="kt-menu__link-text">Quản lý đơn đạt hàng</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                            <div class="kt-menu__submenu ">
+                                <span class="kt-menu__arrow"></span>
+                                <ul class="kt-menu__subnav">
+                                    <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  " aria-haspopup="true"><a ui-sref="home" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Trang chủ</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a ui-sref="product-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Sản Phẩm</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="order-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Hóa Đơn</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="catalog-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Danh mục sản phẩm</span></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--open kt-menu__item--here" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon-interface-8"></i><span class="kt-menu__link-text">Thống kê báo cáo</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                            <div class="kt-menu__submenu ">
+                                <span class="kt-menu__arrow"></span>
+                                <ul class="kt-menu__subnav">
+                                    <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  " aria-haspopup="true"><a ui-sref="home" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Trang chủ</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a ui-sref="product-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Sản Phẩm</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="order-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Hóa Đơn</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="catalog-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Danh mục sản phẩm</span></a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--open kt-menu__item--here" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon-interface-8"></i><span class="kt-menu__link-text">Quản lý trang</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                            <div class="kt-menu__submenu ">
+                                <span class="kt-menu__arrow"></span>
+                                <ul class="kt-menu__subnav">
+                                    <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  " aria-haspopup="true"><a ui-sref="home" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Trang chủ</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a ui-sref="product-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Sản Phẩm</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="order-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Hóa Đơn</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="catalog-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Danh mục sản phẩm</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="contentcategory-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Danh mục tin tức</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="content-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Tin tức</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="footer-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Footer</span></a></li>
+
+
+
                                 </ul>
                             </div>
                         </li>
@@ -1018,7 +1076,7 @@
                                             <h3 class="kt-mycart__title">My Cart</h3>
                                         </div>
                                         <div class="kt-mycart__button">
-                                            <button type="button" class="btn btn-success btn-sm" style=" ">2 Items</button>
+                                            <button type="button" class="btn btn-success btn-sm" style="">2 Items</button>
                                         </div>
                                     </div>
                                     <div class="kt-mycart__body kt-scroll" data-scroll="true" data-height="245" data-mobile-height="200">
@@ -1040,7 +1098,7 @@
                                                     </div>
                                                 </div>
                                                 <a href="#" class="kt-mycart__pic">
-                                                    <img src="~/Assets/admin/media/products/product9.jpg" title="">
+                                                    <img src="${pageContext.request.contextPath }/Assets/admin/media/products/product9.jpg" title="">
                                                 </a>
                                             </div>
                                         </div>
@@ -1062,7 +1120,7 @@
                                                     </div>
                                                 </div>
                                                 <a href="#" class="kt-mycart__pic">
-                                                    <img src="~/Assets/admin/media/products/product13.jpg" title="">
+                                                    <img src="${pageContext.request.contextPath }/Assets/admin/media/products/product13.jpg" title="">
                                                 </a>
                                             </div>
                                         </div>
@@ -1084,7 +1142,7 @@
                                                     </div>
                                                 </div>
                                                 <a href="#" class="kt-mycart__pic">
-                                                    <img src="~/Assets/admin/media/products/product16.jpg" title="">
+                                                    <img src="${pageContext.request.contextPath }/Assets/admin/media/products/product16.jpg" title="">
                                                 </a>
                                             </div>
                                         </div>
@@ -1106,7 +1164,7 @@
                                                     </div>
                                                 </div>
                                                 <a href="#" class="kt-mycart__pic">
-                                                    <img src="~/Assets/admin/media/products/product15.jpg" title="" alt="">
+                                                    <img src="${pageContext.request.contextPath }/Assets/admin/media/products/product15.jpg" title="" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -1154,26 +1212,26 @@
                     <div class="kt-header__topbar-item kt-header__topbar-item--langs">
                         <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
                                 <span class="kt-header__topbar-icon">
-                                    <img class="" src="~/Assets/admin/media/flags/226-united-states.svg" alt="" />
+                                    <img class="" src="${pageContext.request.contextPath }/Assets/admin/media/flags/226-united-states.svg" alt="" />
                                 </span>
                         </div>
                         <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround">
                             <ul class="kt-nav kt-margin-t-10 kt-margin-b-10">
                                 <li class="kt-nav__item kt-nav__item--active">
                                     <a href="#" class="kt-nav__link">
-                                        <span class="kt-nav__link-icon"><img src="~/Assets/admin/media/flags/226-united-states.svg" alt="" /></span>
+                                        <span class="kt-nav__link-icon"><img src="${pageContext.request.contextPath }/Assets/admin/media/flags/226-united-states.svg" alt="" /></span>
                                         <span class="kt-nav__link-text">English</span>
                                     </a>
                                 </li>
                                 <li class="kt-nav__item">
                                     <a href="#" class="kt-nav__link">
-                                        <span class="kt-nav__link-icon"><img src="~/Assets/admin/media/flags/128-spain.svg" alt="" /></span>
+                                        <span class="kt-nav__link-icon"><img src="${pageContext.request.contextPath }/Assets/admin/media/flags/128-spain.svg" alt="" /></span>
                                         <span class="kt-nav__link-text">Spanish</span>
                                     </a>
                                 </li>
                                 <li class="kt-nav__item">
                                     <a href="#" class="kt-nav__link">
-                                        <span class="kt-nav__link-icon"><img src="~/Assets/admin/media/flags/162-germany.svg" alt="" /></span>
+                                        <span class="kt-nav__link-icon"><img src="${pageContext.request.contextPath }/Assets/admin/media/flags/162-germany.svg" alt="" /></span>
                                         <span class="kt-nav__link-text">German</span>
                                     </a>
                                 </li>
@@ -1188,7 +1246,7 @@
                             <div class="kt-header__topbar-user">
                                 <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
                                 <span class="kt-header__topbar-username kt-hidden-mobile">Sean</span>
-                                <img class="kt-hidden" alt="Pic" src="~/Assets/admin/media/users/300_25.jpg" />
+                                <img class="kt-hidden" alt="Pic" src="${pageContext.request.contextPath }/Assets/admin/media/users/300_25.jpg" />
 
                                 <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
                                 <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">S</span>
@@ -1199,7 +1257,7 @@
                             <!--begin: Head -->
                             <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(assets/media/misc/bg-1.jpg)">
                                 <div class="kt-user-card__avatar">
-                                    <img class="kt-hidden" alt="Pic" src="~/Assets/admin/media/users/300_25.jpg" />
+                                    <img class="kt-hidden" alt="Pic" src="${pageContext.request.contextPath }/Assets/admin/media/users/300_25.jpg" />
 
                                     <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
                                     <span class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">S</span>
@@ -2370,35 +2428,71 @@
 <script src="${pageContext.request.contextPath }/Assets/admin/js/pages/dashboard.js" type="text/javascript"></script>
 *@
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Spa/activeMenuItem.js"></script>
-<!--Begin::embed angularJs-->
+<!--Begin::embed angularJs and module-->
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular/angular.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/toastr/toastr.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/bootbox/bootbox.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ngbootbox/dist/ngBootbox.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ckeditor/ckeditor.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ng-ckeditor/dist/ng-ckeditor.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-tree/dist/angular-ui-tree.js"></script>
+<!--end::embed angularJs  and module-->
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ckfinder/ckfinder/ckfinder.js"></script>
 
+
+
+
+
+<!--Begin::embed app module-->
 <script src="${pageContext.request.contextPath }/app/shared/modules/eshop-common.js"></script>
-<%--
-conponent module container
---%>
 <script src="${pageContext.request.contextPath }/app/components/product/products-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/order/orders-module.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/catalog/catalogs-module.js"></script>
+<!--end::embed app module-->
+<script src="${pageContext.request.contextPath }/app/components/contentcategory/contentcategory-module.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/content/content-module.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/footer/footer-module.js"></script>
 
+<!--Begin::embed app service-->
 <script src="${pageContext.request.contextPath }/app/app.js"></script>
 <script src="${pageContext.request.contextPath}/app/shared/services/api-service.js"></script>
 <script src="${pageContext.request.contextPath }/app/shared/services/notification-service.js"></script>
+<script src="${pageContext.request.contextPath }/app/shared/services/common-service.js"></script>
+<!--end::embed app service-->
+
+
+<!--Begin::embed app controller-->
 <script src="${pageContext.request.contextPath }/app/components/home/home-controller.js"></script>
-<%--
-Product controller container
---%>
 <script src="${pageContext.request.contextPath }/app/components/product/product-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-edit-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-create-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/order/order-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/catalog/catalog-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/catalog/catalog-create-controller.js"></script>
+<!--end::embed app controller-->
+
 
 <%--
-order controller container
+contentcategory controller container
 --%>
-<script src="${pageContext.request.contextPath }/app/components/order/order-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/contentcategory/contentcategory-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/contentcategory/contentcategory-create-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/contentcategory/contentcategory-edit-controller.js"></script>
+
+<%--
+content controller container
+--%>
+<script src="${pageContext.request.contextPath }/app/components/content/content-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/content/content-create-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/content/content-edit-controller.js"></script>
+
+contentcategory controller container
+--%>
+<script src="${pageContext.request.contextPath }/app/components/footer/footer-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/footer/footer-create-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/footer/footer-edit-controller.js"></script>
+
 
 
 

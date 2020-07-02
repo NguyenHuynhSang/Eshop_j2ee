@@ -26,26 +26,54 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nhatminh
  */
-@WebServlet(name = "TagAPI", urlPatterns = {"/TagAPI"})
+@WebServlet(name = "TagAPI", urlPatterns = {"/API-Tag"})
 public class TagAPI extends HttpServlet {
-
-   @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-               response.setContentType("application/json");
-        TagService tagservice = new TagService();       
-        List<Tag> tag= new ArrayList<Tag>();
-        Gson gson=new Gson();
-        
-        try {
-            tag = tagservice.GetTag();
-        } catch (SQLException ex) {
-            Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
+
+
+        TagService jsonservice = new TagService();
+
+        String keyword = request.getParameter("keyword");
+        String action = request.getParameter("action");
+        String ID= request.getParameter("ID");
+        List<Tag> json = new ArrayList<Tag>();
+        Gson gson = new Gson();
+        PrintWriter printWriter = response.getWriter();
+        Tag js=null;
+        if(action==null)
+        {
+            try {
+                json=jsonservice.GetTag();
+                printWriter.print(gson.toJson(json));
+            } catch (SQLException ex) {
+                Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
- 
-       PrintWriter printWriter=response.getWriter();
-       
-       printWriter.print(gson.toJson(tag));
+        try {
+            switch (action){
+                case "getAll":
+                    if (keyword!= "") {
+                        json = jsonservice.GetAllTagByKey(keyword);
+                    } else {
+                        json = jsonservice.GetTag();
+                    }
+                    printWriter.print(gson.toJson(json));
+                    break;
+                case "getByID":
+                    if (ID!="" && ID!=null) json=jsonservice.GetJSONByID(ID);
+                    printWriter.print(gson.toJson(json));
+                    break;
+
+            }
+
+        } catch (SQLException ex) {
+
+        }
+
+
+
     }
     
         @Override
@@ -63,7 +91,7 @@ public class TagAPI extends HttpServlet {
         try {
             jsonservice.InsertTag(tag);
         } catch (SQLException ex) {
-            Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TagAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -82,7 +110,7 @@ public class TagAPI extends HttpServlet {
         try {
             tagservice.UpdateTag(tag);
         } catch (SQLException ex) {
-            Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TagAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -101,7 +129,7 @@ public class TagAPI extends HttpServlet {
         try {
             tagservice.DeleteTag(tags);
         } catch (SQLException ex) {
-           Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(TagAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

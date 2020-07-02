@@ -2,7 +2,8 @@
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
 
     <welcome-file-list>
-        <welcome-file>admin</welcome-file>
+<!--        <welcome-file>admin</welcome-file>-->
+        <welcome-file>home.jsp</welcome-file>
     </welcome-file-list>
 
     <servlet>
@@ -13,14 +14,49 @@
         <servlet-name>adminServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ClientServlet</servlet-name>
+        <servlet-class>com.EShop.ClientServlet.ClientServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
-        <servlet-name>adminServlet</servlet-name>
-        <url-pattern>*.htm</url-pattern>
+        <servlet-name>ClientServlet</servlet-name>
+        <url-pattern>/trang-chu</url-pattern>
     </servlet-mapping>
+
+
+
+
 
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
+    <servlet>
+    	<servlet-name>ConnectorServlet</servlet-name>
+    	<servlet-class>com.ckfinder.connector.ConnectorServlet</servlet-class>
+    	<init-param>
+    		<description>
+    			Path to configuration file can be relative path inside application,
+    			absolute path on local file system or UNC path.
+    		</description>
+    		<param-name>XMLConfig</param-name>
+    		<param-value>/WEB-INF/config.xml</param-value>
+    	</init-param>
+    	<init-param>
+    		<param-name>debug</param-name>
+    		<param-value>false</param-value>
+    	</init-param>
+    	<load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+	<servlet-name>ConnectorServlet</servlet-name>
+	<url-pattern>
+		/Assets/admin/libs/Plugins/ckfinder/ckfinder/core/connector/java/connector.java
+	</url-pattern>
+    </servlet-mapping>
 </web-app>
