@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa Slide</title>
+
+</head>
+<body>
+<h1>Sửa Slide</h1>
+<form class="kt-form"  name="frmEditFooter" ng-submit="EditFooter()" novalidate>
+    <div class="kt-portlet__body">
+        <div class="form-group form-group-last">
+            <div class="alert alert-secondary" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
+                <div class="alert-text">
+                    The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Tiêu đề</label>
+            <input ng-model="slideEntity.Title" type="text" class="form-control" id="name"
+                   placeholder="Tiêu đề">
+        </div>
+        <div class="form-group">
+            <label for="description">Nội dung</label>
+            <ng-ckeditor height="500px" ng-model="slideEntity.Content" remove-buttons="Image"
+            remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
+        </div>
+        <div class="form-group">
+            <label for="image">Hình ảnh</label>
+            <input ng-change="imageInputChange()" ng-model="slideEntity.Image" ng-change="imageInputChange()" type="text" class="form-control" id="txtImage"
+                   placeholder="Hình ảnh">
+             <a id="btnSelectImage"  href="#">Chọn ảnh</a>
+        </div>
+        <div class="form-group">
+            <label for="name">Url</label>
+            <input ng-model="slideEntity.Url" type="text" class="form-control" id="name"
+                   placeholder="Url">
+        </div>
+        <div class="form-group">
+            <label for="status">Trạng thái</label>
+            <input class="checkbox" ng-model="slideEntity.IsShow" type="checkbox" class="checkbox" id="status" >
+        </div>
+    </div>
+    <div class="kt-portlet__foot">
+        <div class="form-group">
+            <button type="submit"  class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+</form>
+
+
+</body>
+</html>

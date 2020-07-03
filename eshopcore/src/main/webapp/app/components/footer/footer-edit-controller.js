@@ -41,4 +41,4 @@
         LoadFooterByID();
 
     }
-})(angular.module('eshop-contentcategory'));
+})(angular.module('eshop-slide'));

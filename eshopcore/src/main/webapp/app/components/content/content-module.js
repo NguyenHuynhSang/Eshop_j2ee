@@ -12,7 +12,12 @@
             url: "/content-create",
             templateUrl: "./app/components/content/content-create-view.html",
             controller: "content-create-controller"
+        }).state('content-edit', {
+            url: "/content-edit/:id",
+            templateUrl: "./app/components/content/content-edit-view.html",
+            controller: "content-edit-controller"
         });
+        
         
 
     }

@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+
+<script>
+    var count = 1;
+    $('#btnSelectImage').on('click', function (e) {
+        e.preventDefault();
+        var finder = new CKFinder();
+       
+        finder.selectActionFunction = function (url) {
+
+            if (count > 1) {
+                return;
+            }
+            $('#txtImage').val(url).trigger('input');
+            $('#divImage').append('<img class="abc" src="' + url + '" />');
+
+            count++;
+        };
+        finder.popup();
+
+    })
+
+</script>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,8 +62,10 @@
             <textarea ng-model="jsonEntity.content.Description" value ="{{jsonEntity.content.Description}}" type="text" class="form-control" id="SeoTitle" placeholder="Seo Title">
         </div>
         <div class="form-group">
-            <label for="Image">Hình ảnh</label>
-            <input ng-model="jsonEntity.content.Image" value="{{jsonEntity.content.Image}}" type="number" class="form-control" id="DisplayOrder" placeholder="Thứ tự">
+            <label for="image">Hình ảnh</label>
+            <input ng-change="imageInputChange()" ng-model="jsonEntity.content.Image" ng-change="imageInputChange()" type="text" class="form-control" id="txtImage"
+                   placeholder="Hình ảnh">
+             <a id="btnSelectImage"  href="#">Chọn ảnh</a>
         </div>
         <div class="form-group">
             <label for="Detail">Chi tiết</label>
