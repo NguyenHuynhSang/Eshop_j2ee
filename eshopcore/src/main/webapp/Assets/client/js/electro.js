@@ -188,7 +188,7 @@
             dots: true,
             nav:false,
             //navText: ["<i class='icon fa fa-angle-left'></i>", "<i class='icon fa fa-angle-right'></i>"],
-            lazyLoad: true,
+            lazyLoad: false,
             stagePadding: 0,
             responsive : {
                 0 : {

@@ -22,7 +22,7 @@
       
         $scope.imageInputChange=imageInputChange;
         function imageInputChange(){
-            var value =  $('#txtImage').val(url);
+            var value =  $('#txtImage').val();
         }
 
 

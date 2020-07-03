@@ -1,32 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.EShop.Model;
 
-import java.sql.Date;
+import java.util.Date;
 
-/**
- *
- * @author nhatminh
- */
 public class Slide {
+    private  int ID;
+    private  String Image;
+    private String Url;
+    private boolean isShow;
+    private String CreatedBy;
+    private Date CreateDate;
 
-    public Slide(int ID, String Image, boolean IsShow, Date CreateDate, String CreateBy, Date ModifiedDate, String ModifiedBy,String Url,String Title,String Content) {
+    private String ModifiedBy;
+    private Date ModifiedDate;
+    private String Title;
+    private String Content;
+
+    public Slide(int ID, String image, String url, boolean isShow, String createdBy, Date createDate, String modifiedBy, Date modifiedDate, String title, String content) {
         this.ID = ID;
-        this.Image = Image;
-        this.IsShow = IsShow;
-        this.CreateDate = CreateDate;
-        this.CreateBy = CreateBy;
-        this.ModifiedDate = ModifiedDate;
-        this.ModifiedBy = ModifiedBy;
-        this.Url = Url;
-        this.Title = Title;
-        this.Content= Content;
-    }
-
-    public Slide() {
+        Image = image;
+        Url = url;
+        this.isShow = isShow;
+        CreatedBy = createdBy;
+        CreateDate = createDate;
+        ModifiedBy = modifiedBy;
+        ModifiedDate = modifiedDate;
+        Title = title;
+        Content = content;
     }
 
     public int getID() {
@@ -41,82 +41,71 @@ public class Slide {
         return Image;
     }
 
-    public void setImage(String Image) {
-        this.Image = Image;
+    public void setImage(String image) {
+        Image = image;
     }
 
-    public boolean isIsShow() {
-        return IsShow;
+    public String getUrl() {
+        return Url;
     }
 
-    public void setIsShow(boolean IsShow) {
-        this.IsShow = IsShow;
+    public void setUrl(String url) {
+        Url = url;
+    }
+
+    public boolean isShow() {
+        return isShow;
+    }
+
+    public void setShow(boolean show) {
+        isShow = show;
+    }
+
+    public String getCreatedBy() {
+        return CreatedBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        CreatedBy = createdBy;
     }
 
     public Date getCreateDate() {
         return CreateDate;
     }
 
-    public void setCreateDate(Date CreateDate) {
-        this.CreateDate = CreateDate;
-    }
-
-    public String getCreateBy() {
-        return CreateBy;
-    }
-
-    public void setCreateBy(String CreateBy) {
-        this.CreateBy = CreateBy;
-    }
-
-    public Date getModifiedDate() {
-        return ModifiedDate;
-    }
-
-    public void setModifiedDate(Date ModifiedDate) {
-        this.ModifiedDate = ModifiedDate;
+    public void setCreateDate(Date createDate) {
+        CreateDate = createDate;
     }
 
     public String getModifiedBy() {
         return ModifiedBy;
     }
 
-    public void setModifiedBy(String ModifiedBy) {
-        this.ModifiedBy = ModifiedBy;
-    }
-    
-        public String getUrl() {
-        return Url;
+    public void setModifiedBy(String modifiedBy) {
+        ModifiedBy = modifiedBy;
     }
 
-    public void setUrl(String Url) {
-        this.Url = Url;
+    public Date getModifiedDate() {
+        return ModifiedDate;
     }
-    
-        public String getTitle() {
+
+    public void setModifiedDate(Date modifiedDate) {
+        ModifiedDate = modifiedDate;
+    }
+
+    public String getTitle() {
         return Title;
     }
 
-    public void setTitle(String Title) {
-        this.Title = Title;
+    public void setTitle(String title) {
+        Title = title;
     }
 
     public String getContent() {
         return Content;
     }
-
-    public void setContent(String Content) {
-        this.Content = Content;
-    }
     
-    int ID;
-    String Image;
-    boolean IsShow;
-    Date CreateDate;
-    String CreateBy;
-    Date ModifiedDate;
-    String ModifiedBy;
-    String Url;
-    String Title;
-    String Content;
+    public void setContent(String content) {
+        Content = content;
+    }
 }

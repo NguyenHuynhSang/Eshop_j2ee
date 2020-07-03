@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.EShop.Service;
 
 import com.EShop.IService.ISlideService;
@@ -77,4 +73,5 @@ public class SlideService extends DbConnection<Slide> implements ISlideService{
         sqlQuery ="Update Slide Set IsShow ='true' where ID = ?";
         Update(sqlQuery,id);
     }
+
 }

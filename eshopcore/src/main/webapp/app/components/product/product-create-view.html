@@ -1,19 +1,43 @@
+
+<!--<script>-->
+<!--    var count = 1;-->
+<!--    $('#btnSelectImage').on('click', function (e) {-->
+<!--        e.preventDefault();-->
+<!--        var finder = new CKFinder();-->
+
+<!--        finder.selectActionFunction = function (url) {-->
+
+<!--            if (count > 1) {-->
+<!--                return;-->
+<!--            }-->
+<!--            // $('#txtImage').val(url).trigger('input');-->
+<!--            // $('#divImage').append('<img class="abc" src="' + url + '" />');-->
+
+<!--            count++;-->
+<!--        };-->
+<!--        finder.popup();-->
+
+<!--    })-->
+
+<!--</script>-->
+
+
 <div class="kt-subheader   kt-grid__item" id="kt_subheader">
     <div class="kt-container  kt-container--fluid ">
         <div class="kt-subheader__main">
             <h3 class="kt-subheader__title">
-                Product
+                Sản phẩm
             </h3>
             <span class="kt-subheader__separator kt-hidden"></span>
             <div class="kt-subheader__breadcrumbs">
-                <a  class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                <a class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a ui-sref="product-list" class="kt-subheader__breadcrumbs-link">
-                    Product list
+                    Quản lý Sản phẩm
                 </a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a class="kt-subheader__breadcrumbs-link">
-                    Product create
+                    Tạo sản phẩm mới
                 </a>
 
                 <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
@@ -23,8 +47,8 @@
             <div class="kt-subheader__wrapper">
                 <a href="#" class="btn kt-subheader__btn-daterange" id="kt_dashboard_daterangepicker"
                    data-toggle="kt-tooltip" title="Select dashboard daterange" data-placement="left">
-                                    <span class="kt-subheader__btn-daterange-title"
-                                          id="kt_dashboard_daterangepicker_title">Today</span>&nbsp;
+                    <span class="kt-subheader__btn-daterange-title"
+                          id="kt_dashboard_daterangepicker_title">Today</span>&nbsp;
                     <span class="kt-subheader__btn-daterange-date"
                           id="kt_dashboard_daterangepicker_date">Aug 16</span>
 
@@ -93,8 +117,8 @@
                                     <i class="kt-nav__link-icon flaticon2-new-email"></i>
                                     <span class="kt-nav__link-text">Support Case</span>
                                     <span class="kt-nav__link-badge">
-                                                            <span class="kt-badge kt-badge--success">5</span>
-                                                        </span>
+                                        <span class="kt-badge kt-badge--success">5</span>
+                                    </span>
                                 </a>
                             </li>
                             <li class="kt-nav__separator"></li>
@@ -114,34 +138,446 @@
     </div>
 </div>
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-    <form class="kt-form" name="frmCeateProduct" ng-submit="CreateProduct()" novalidate>
-        <div class="kt-portlet__body">
-            <div class="form-group form-group-last">
-                <div class="alert alert-secondary" role="alert">
-                    <div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
-                    <div class="alert-text">
-                        The example form below demonstrates common HTML form elements that receive updated styles from
-                        Bootstrap with additional classes.
+    <form novalidate name="frmInputProduct"  ng-submit="submit()">
+
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="kt-portlet kt-portlet--mobile">
+
+                    <div class="kt-portlet__head kt-portlet__head--lg">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                Thông tin Sản phẩm
+                            </h3>
+                        </div>
+
+                    </div>
+
+                    <div class="kt-portlet__body">
+
+
+                        <div class="form-group">
+
+                            <label>Tên sản phẩm</label>
+                            <input ng-change="getSeoTitle()" name="productName" type="text" class="form-control"  ng-model="productInput.Name"
+                                   placeholder="Nhập tên sản phẩm" required>
+                            <span ng-show="frmInputProduct.productName.$invalid" class="form-text text-muted">Tên sản phẩm không được để trống</span>
+
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-lg-6">
+                                <label>Giá gốc</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                           id="basic-addon2"><i>VNĐ</i></span></div>
+                                    <input ng-model="productInput.OriginalPrice" type="number" class="form-control"
+                                           placeholder="Nhập giá sản phẩm" min="0"  required>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Có khuyến mãi</label>
+                                <div class="col-3">
+                                <span class="kt-switch kt-switch--lg">
+                                    <label>
+                                        <input type="checkbox" ng-model="productInput.ApplyPromotion" checked="checked"
+                                               name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Mô tả sản phẩm</label>
+                            <ng-ckeditor height="150px" ng-model="productInput.Description" remove-buttons="Image"
+                                         remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
+
+
+                            <span class="form-text text-muted">Mô tả ngắn về sản phẩm</span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Bài giới thiệu</label>
+                            <ng-ckeditor height="500px" ng-model="productInput.Content" remove-buttons="Image"
+                                         remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
+
+
+                            <span class="form-text text-muted">Bài viết giới thiệu sản phẩm</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label>ID</label>
-                <input ng-model="jsonEntity.id" type="number" class="form-control" aria-describedby="emailHelp"
-                       placeholder="Enter email">
-                <span class="form-text text-muted">We'll never share your email with anyone else.</span>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Name</label>
-                <input ng-model="jsonEntity.name" type="text" class="form-control" id="exampleInputPassword1"
-                       placeholder="Name">
+            <!--begin: kênh bán hàng -->
+            <div class="col-md-3">
+                <div class="col-md-12">
+                    <div class="kt-portlet ">
+                        <div class="kt-portlet__head">
+                            <div class="kt-portlet__head-label">
+                                <h3 class="kt-portlet__head-title">
+                                    Kênh Bán Hàng
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="kt-form kt-form--label-right">
+                            <div class="kt-portlet__body" style="padding: 22px; padding-bottom: 5px;">
+                                <div class="form-group row" style="margin-bottom: 0;">
+                                    <div class="col-lg-12 col-md-9 col-sm-12" style="margin: 0 auto;">
+                                        <select class="form-control">
+                                            <option value="1">Chọn kênh bán hàng</option>
+                                            <option value="2">Web</option>
+                                            <option value="3">Điện Thoại</option>
+                                            <option value="4">App</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end: kênh bán hàng -->
+                <!--begin: khách hàng -->
+                <div class="col-md-12">
+                    <div class="kt-portlet">
+                        <div class="kt-portlet__head">
+                            <div class="kt-portlet__head-label">
+                                <h3 class="kt-portlet__head-title">
+                                    Loại sản phẩm
+                                </h3>
+                            </div>
+                        </div>
+
+
+                        <div class="kt-form kt-form--label-right">
+                            <div class="kt-portlet__body">
+                                <div class="form-group row" style="margin-bottom: 0;">
+
+                                    <div class="col-lg-12 col-md-9 col-sm-12" style="margin: 0 auto;">
+                                        <div class="kt-input-icon kt-input-icon--left">
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text"
+                                                                                       id="basic-addon2"><i
+                                                        class="la la-search"></i></span></div>
+                                                <select name="selectCategory" required class="form-control" ng-model="productInput.CatalogID"
+                                                        ng-options="x.ID as x.Name for x in childCagalogList">
+                                                    <option selected disabled value="">---Chọn loại sản phẩm----
+                                                    </option>
+                                                </select>
+                                                <span ng-show="frmInputProduct.selectCategory.$invalid" class="form-text text-muted">Tên sản phẩm không được để trống</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end: khách hàng -->
             </div>
         </div>
-        <div class="kt-portlet__foot">
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-secondary">Cancel</button>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="kt-portlet kt-portlet--mobile">
+
+                    <div class="kt-portlet__head kt-portlet__head--lg">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                Tối ưu SEO
+                            </h3>
+                        </div>
+
+                    </div>
+
+                    <div class="kt-portlet__body">
+
+                        <div class="form-group row">
+                            <div class="col-lg-12">
+                                <label>SEO title</label>
+                                <div class="input-group">
+                                    <input ng-model="productInput.SEOTitle" type="text" class="form-control"
+                                           placeholder="Nhập Seo title"  required>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-lg-12">
+                                <label>SEO Url</label>
+                                <div class="input-group">
+                                    <input ng-model="productInput.SEOUrl" type="text" class="form-control"
+                                           required>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-lg-12">
+                                <label>SEO Descroption</label>
+                                <div class="input-group">
+                                    <textarea rows="4" ng-model="productInput.SEODescription" 
+                                              class="form-control" placeholder="Nhập Seo Description"
+                                              required></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
+
+
         </div>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="kt-portlet kt-portlet--mobile">
+
+                    <div class="kt-portlet__head kt-portlet__head--lg">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                Vận chuyển
+                            </h3>
+                        </div>
+
+                    </div>
+
+                    <div class="kt-portlet__body">
+                        <div class="form-group row">
+                            <div class="col-lg-6">
+                                <label>Trọng lượng</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"
+                                                                           id="basic-addon2"><i>gram</i></span></div>
+                                    <input type="number" class="form-control" ng-model="productInput.Weight"
+                                           placeholder="Nhập trọng lượng" value="0" required>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Có giao hàng</label>
+                                <div class="col-3">
+                                <span class="kt-switch kt-switch--lg">
+                                    <label>
+                                        <input type="checkbox" ng-model="productInput.Deliver" checked="checked"
+                                               name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-9">
+                <div class="kt-portlet kt-portlet--mobile">
+
+                    <div class="kt-portlet__head kt-portlet__head--lg">
+                        <div class="kt-portlet__head-label">
+
+                            <h3 class="kt-portlet__head-title ">
+                                Quản lý phiên bản
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <div class="kt-portlet__body" ng-repeat="ver in productInput.Versions  track by $index"
+                         ng-init="versionIndex=$index">
+                        <div class="kt-portlet kt-portlet--mobile" style="border-style: solid; border-color: #92a8d1;"
+                             id="productVersions">
+
+                            <h5 class="kt-portlet__head-title ">
+                                Phiên bản
+                            </h5>
+                            <div class="kt-portlet__body">
+                                <div class="form-group row">
+                                    <div class="col-lg-6">
+                                        <label>Giá bán</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" ><i>VNĐ</i></span>
+                                            </div>
+                                            <input ng-model="ver.Price" type="number" class="form-control"
+                                                   placeholder="Nhập giá bán sản phẩm" value="0" min="0"  required>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>Giá khuyến mãi</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"
+                                                                                   ><i>VNĐ</i></span>
+                                            </div>
+                                            <input ng-show="productInput.ApplyPromotion==true" ng-model="ver.PromotionPrice" max="{{ver.Price}}" type="number" class="form-control"
+                                                   placeholder="Nhập giá khuyến mãi" min="0" value="0" >
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-6">
+                                        <label>Số lượng</label>
+                                        <div class="input-group">
+                                            <input ng-model="ver.Quantum" type="number"
+                                                   class="form-control" placeholder="Nhập số lượng sản phẩm"
+                                                    >
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-6">
+                                        <label>SKU</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"
+                                                                                   ><i>VNĐ</i></span>
+                                            </div>
+                                            <input ng-change="getProductVersionSeoTitle(index)" ng-model="ver.SKU" type="text" class="form-control"
+                                                   placeholder="Nhập mã SKU" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>BarCode</label>
+                                        <div class="input-group">
+                                            <input ng-model="ver.Barcode" type="text" class="form-control"
+                                                   placeholder="Nhập barcode" required>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-3 col-sm-12">Ảnh sản phẩm</label>
+                                    <div class="col-lg-4 col-md-9 col-sm-12">
+                                        <div class="dropzone dropzone-default dropzone-brand" id="kt_dropzone_2">
+                                            <div class="dropzone-msg dz-message needsclick">
+                                                <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
+                                                <span class="dropzone-msg-desc">Upload up to 10 files</span>
+                                            </div>
+
+                                        </div>
+                                        <input id="txtImage" ng-model="ver.Image" >
+                                        <a id="btnSelectImagei" ng-click="ckFinderSelectImage()"  href="">Chọn ảnh</a>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group ">
+                                    <div ng-repeat="attr in ver.Attributes track by $index" ng-init="childIndex=$index">
+                                        <div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-3">
+                                                    <label>Thuộc tính</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text" id="basic-addon22"><i>VNĐ</i></span>
+                                                        </div>
+                                                        <select required ng-change="selectAttributeName(versionIndex,childIndex,attr.selectedAttributeID)"
+                                                                class="form-control" ng-model="attr.selectedAttributeID"
+                                                                ng-options="x.ID as x.Name for x in listAttribute" >
+                                                            <option selected disabled value="">---Chọn thuộc tính----
+                                                            </option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label>Giá trị thuộc tính</label>
+                                                    <div class="input-group">
+                                                        <select required class="form-control" ng-model="attr.AttributeValueID"
+                                                                ng-options="x.ID as x.Name for x in attributeValueListPerVersion[versionIndex].AtributeValue[childIndex]" >
+                                                            <option selected disabled value="" >---Chọn giá trị thuộc tính----
+                                                            </option>
+
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label>Tùy chọn</label>
+                                                    <div class="input-group align-content-center center-block">
+                                                        <button ng-click="removeAttributeValue(versionIndex,childIndex)" type="button">
+                                                            <i class="la flaticon-delete"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <button ng-click="addNewAttributeSet(versionIndex)" type="button" class="btn btn-facebook">Thêm
+                                        thuộc tính
+                                    </button>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Mô tả phiên bản</label>
+                                <ng-ckeditor ng-model="ver.Description" height="500px" remove-buttons="Image" remove-plugins="iframe,flash,smiley"
+                                             style="height:500px"></ng-ckeditor>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-control">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="button" ng-click="addNewVersion()">Thêm phiên bản</button>
+
+                        </div>
+                    </div>
+                    <br/>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <button class="btn btn-primary"  type="submit">Lưu lại</button>
+        </div>
+
     </form>
+</div>
+
+
+
+
+
 </div>

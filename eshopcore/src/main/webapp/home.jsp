@@ -21,9 +21,10 @@
 
 <body ng-app="eshop" class="single-product full-width">
     <div id="page" class="hfeed site">
-        P<%@ include file = "Header.jsp"%>
-        @* Content goes here *@
-        <div ui-view>
+        <div ui-view="header">
+
+        </div>
+        <div ui-view="content">
 
         </div>
         <section class="brands-carousel">
@@ -252,7 +253,7 @@
             </div>
         </section>
 
-        P<%@ include file = "Footer.jsp"%>
+
     </div><!-- #page -->
 
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/jquery.min.js"></script>
@@ -264,7 +265,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/wow.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/jquery.waypoints.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/electro.js"></script>
+<%--    <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/electro.js"></script>--%>
     <!--Begin::embed angularJs-->
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/angular/angular.js"></script>
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/angular-ui-router/release/angular-ui-router.js"></script>
@@ -287,6 +288,9 @@
     <script src="${pageContext.request.contextPath }/Client_app/shared/services/notification-service.js"></script>
     <!--end::embed service-->
     <!--Begin::embed controller-->
+    <script src="${pageContext.request.contextPath }/Client_app/shared/layout/header-controller.js"></script>
+    <script src="${pageContext.request.contextPath }/Client_app/shared/layout/footer-controller.js"></script>
+    <script src="${pageContext.request.contextPath }/Client_app/components/catalog/catalog-create-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/home/home-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/product/product-list-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/product/product-edit-controller.js"></script>

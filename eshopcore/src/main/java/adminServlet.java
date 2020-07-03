@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Asus
  */
 
-@WebServlet(urlPatterns = {"/quan-tri","/admin","/"})
+@WebServlet(name="adminServlet",urlPatterns = {"/quan-tri","/admin"})
 
 
 public class adminServlet extends HttpServlet {

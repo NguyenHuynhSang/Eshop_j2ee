@@ -5,6 +5,8 @@
 
     //chú ý thứ tự
     function productListController($scope, apiService, notificationService, $ngBootbox) {
+
+
        
     }
 })(angular.module('eshop-product'));
