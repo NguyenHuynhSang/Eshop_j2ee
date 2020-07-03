@@ -117,7 +117,7 @@
                 <li class="nav-item dropdown">
                     <a href="cart.html" class="nav-link" data-toggle="dropdown">
                         <i class="ec ec-shopping-bag"></i>
-                        <span class="cart-items-count count">4</span>
+                        <span class="cart-items-count count">{{shareOrder.OrderDetails.length}}</span>
                         <span class="cart-items-total-price total-price"><span class="amount">&#36;1,215.00</span></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-mini-cart">
@@ -127,34 +127,17 @@
                                 <ul class="cart_list product_list_widget ">
 
 
-                                    <li class="mini_cart_item">
-                                        <a title="Remove this item" class="remove" href="#">�</a>
+                                    <li class="mini_cart_item" ng-repeat="item in shareOrder.OrderDetails">
+                                        <a title="Xóa" class="remove" href="#">�</a>
                                         <a href="single-product.html">
-                                            <img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="${pageContext.request.contextPath }/Assets/client/images/products/mini-cart1.jpg" alt="">White lumia 9001&nbsp;
+                                            <img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="{{item.ProductVerion.ProductVersion.Image}}" alt="">{{item.ProductVerion.Product.Name}}
                                         </a>
 
-                                        <span class="quantity">2 � <span class="amount">�150.00</span></span>
+                                        <span class="quantity">{{item.Quantity}}  X<span class="amount">{{item.ProductVerion.ProductVersion.Price|currency}}</span></span>
                                     </li>
 
 
-                                    <li class="mini_cart_item">
-                                        <a title="Remove this item" class="remove" href="#">�</a>
-                                        <a href="single-product.html">
-                                            <img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="${pageContext.request.contextPath }/Assets/client/images/products/mini-cart2.jpg" alt="">PlayStation 4&nbsp;
-                                        </a>
 
-                                        <span class="quantity">1 � <span class="amount">�399.99</span></span>
-                                    </li>
-
-                                    <li class="mini_cart_item">
-                                        <a data-product_sku="" data-product_id="34" title="Remove this item" class="remove" href="#">�</a>
-                                        <a href="single-product.html">
-                                            <img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="${pageContext.request.contextPath }/Assets/client/images/products/mini-cart3.jpg" alt="">POV Action Cam HDR-AS100V&nbsp;
-
-                                        </a>
-
-                                        <span class="quantity">1 � <span class="amount">�269.99</span></span>
-                                    </li>
 
 
                                 </ul><!-- end product list -->

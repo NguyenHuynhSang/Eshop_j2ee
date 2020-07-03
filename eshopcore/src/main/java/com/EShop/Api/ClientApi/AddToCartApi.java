@@ -5,6 +5,7 @@ import com.EShop.Model.UserModel.Order;
 import com.EShop.Model.UserModel.OrderDetail;
 import com.EShop.Model.ViewModel.ProductDetailViewModel;
 import com.EShop.Service.ProductService;
+import com.google.gson.Gson;
 
 
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +79,12 @@ public class AddToCartApi extends HttpServlet {
                 }
 
             }
+            PrintWriter printWriter = resp.getWriter();
+            HttpSession session = req.getSession();
+            Gson gson = new Gson();
+            Order order = (Order) session.getAttribute("order");
 
+            printWriter.print(gson.toJson(order));
         } catch (SQLException ex) {
 
 

@@ -6,10 +6,9 @@ import java.util.List;
 
 public class Order implements Serializable {
     private int ID;
-    private List<OrderDetail> orderDetails;
+    private List<OrderDetail> OrderDetails;
     private  int Status;
 
-    private boolean Deliver;
     private String CreatedBy;
     private Date CreateDate;
     private String ModifiedBy;
@@ -28,11 +27,11 @@ public class Order implements Serializable {
     }
 
     public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
+        return OrderDetails;
     }
 
     public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
+        this.OrderDetails = orderDetails;
     }
 
     public int getStatus() {
@@ -43,13 +42,6 @@ public class Order implements Serializable {
         Status = status;
     }
 
-    public boolean isDeliver() {
-        return Deliver;
-    }
-
-    public void setDeliver(boolean deliver) {
-        Deliver = deliver;
-    }
 
     public String getCreatedBy() {
         return CreatedBy;

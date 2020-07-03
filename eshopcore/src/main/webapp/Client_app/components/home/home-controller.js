@@ -1,9 +1,9 @@
 ﻿(function (app) {
 
     app.controller('home-controller', homeController);
-    homeController.$inject = ['$scope', 'api-service', 'notification-service'];
+    homeController.$inject = ['$scope', 'api-service', 'notification-service','$rootScope'];
 
-    function homeController($scope, apiService, notificationService) {
+    function homeController($scope, apiService, notificationService,$rootScope) {
         $scope.slides = [];
         $scope.GetListSlides = GetListSlides;
 
@@ -11,7 +11,32 @@
         $scope.GetListNewProducts = GetListNewProducts;
 
 
+        $scope.addToCart=addToCart;
 
+
+
+        function addToCart(id)
+        {
+            var config = {
+                params: {
+                    quantity: 1, //VỚI GET CONFIG LUÔN TRUYỀN ACTION VÀO ĐỂ HÀM DOGET XỬ LÝ TỪNG CASE
+                    productVerID:id,
+
+                }
+            }
+            /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
+            apiService.get('/eshopcore_war/api/AddToCart', config, function (result) {
+                $rootScope.shareGetCart();
+
+                if (result.data.length == 0) {
+                    notificationService.displayWarning("Không tìm thấy slides nào");
+                } else {
+                    notificationService.displaySuccess("[DEV]Tìm đước slides");
+                }
+            }, function () {
+                notificationService.displayError("Không lấy được dữ liệu từ server");
+            });
+        }
 
         angular.element(document).ready(function () {
 
