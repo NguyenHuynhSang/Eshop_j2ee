@@ -8,6 +8,38 @@
         $rootScope.shareGetCart=getCart;
 
         $scope.liveSearchProduct=liveSearchProduct;
+
+        $scope.menus=[];
+        $scope.getMenu=getMenu;
+
+
+        $scope.getTotalMoneyInCart=getTotalMoneyInCart;
+
+        function getTotalMoneyInCart() {
+            if ( $rootScope.shareOrder!=null)
+            {
+                var totalMoney=0;
+                for(x in $rootScope.shareOrder.OrderDetail)
+                {
+
+                }
+            }
+        }
+
+        function getMenu() {
+            apiService.get('/eshopcore_war/api/GetListMenus', null, function (result) {
+                $scope.menus = result.data;
+                if (result.data.length == 0) {
+                    notificationService.displayWarning("Không tìm thấy slides nào");
+                } else {
+                    notificationService.displaySuccess("[DEV]Tìm đước slides");
+                }
+            }, function () {
+                notificationService.displayError("Không lấy được dữ liệu từ server");
+            });
+
+        }
+
         function liveSearchProduct() {
         var a= $scope.keyword;
 
@@ -30,6 +62,7 @@
 
         }
         $rootScope.shareGetCart();
+        $scope.getMenu();
     }
 
 })(angular.module('eshop'));
