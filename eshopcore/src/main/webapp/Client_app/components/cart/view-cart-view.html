@@ -7,7 +7,7 @@
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
                 <article class="page type-page status-publish hentry">
-                    <header class="entry-header"><h1 itemprop="name" class="entry-title">Cart</h1></header><!-- .entry-header -->
+                    <header class="entry-header"><h1 itemprop="name" class="entry-title">Giỏ hàng</h1></header><!-- .entry-header -->
 
                     <form>
 
@@ -16,74 +16,46 @@
                             <tr>
                                 <th class="product-remove">&nbsp;</th>
                                 <th class="product-thumbnail">&nbsp;</th>
-                                <th class="product-name">Product</th>
-                                <th class="product-price">Price</th>
-                                <th class="product-quantity">Quantity</th>
-                                <th class="product-subtotal">Total</th>
+                                <th class="product-name">Sản phẩm</th>
+                                <th class="product-price">Giá</th>
+                                <th class="product-quantity">Số lượng</th>
+                                <th class="product-subtotal">Thành tiền</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <tr class="cart_item">
+                            <tr class="cart_item" ng-repeat="item in cart.OrderDetails">
 
                                 <td class="product-remove">
                                     <a class="remove" href="#">×</a>
                                 </td>
 
                                 <td class="product-thumbnail">
-                                    <a href="single-product.html"><img width="180" height="180" src="assets/images/products/2.jpg" alt=""></a>
+                                    <a href="single-product.html"><img width="180" height="180" src="{{item.ProductVerion.ProductVersion.Image}}" alt=""></a>
                                 </td>
 
                                 <td data-title="Product" class="product-name">
-                                    <a href="single-product.html">Wireless Audio System Multiroom 360</a>
+                                    <a href="single-product.html">{{item.ProductVerion.Product.Name}}</a>
                                 </td>
 
                                 <td data-title="Price" class="product-price">
-                                    <span class="amount">$1,999.00</span>
+                                    <span ng-show="item.ProductVerion.ProductVersion.PromotionPrice==0" class="amount">{{item.ProductVerion.ProductVersion.Price | currency:"":0}}</span>
+                                    <span ng-show="item.ProductVerion.ProductVersion.PromotionPrice>0" class="amount">{{item.ProductVerion.ProductVersion.PromotionPrice | currency:"":0}}</span>
                                 </td>
 
                                 <td data-title="Quantity" class="product-quantity">
                                     <div class="quantity buttons_added"><input type="button" class="minus" value="-">
                                         <label>Quantity:</label>
-                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="cart[92f54963fc39a9d87c2253186808ea61][qty]" max="29" min="0" step="1">
+                                        <input type="number"  size="4" class="input-text qty text" title="Qty" value="{{item.Quantity}}" name="cart[92f54963fc39a9d87c2253186808ea61][qty]" max="29" min="0" step="1">
                                         <input type="button" class="plus" value="+">
                                     </div>
                                 </td>
 
                                 <td data-title="Total" class="product-subtotal">
-                                    <span class="amount">$1,999.00</span>
+                                    <span class="amount">{{item.Quantity*item.ProductVerion.ProductVersion.PromotionPrice}}</span>
                                 </td>
                             </tr>
-                            <tr class="cart_item">
 
-                                <td class="product-remove">
-                                    <a data-product_sku="5487FB8/26" data-product_id="2606" title="Remove this item" class="remove" href="#">×</a>
-                                </td>
-
-                                <td class="product-thumbnail">
-                                    <a href="single-product.html"><img width="180" height="180" alt="LaptopYoga" class="wp-post-image" src="assets/images/products/1.jpg"></a>
-                                </td>
-
-                                <td data-title="Product" class="product-name">
-                                    <a href="single-product.html">Tablet White EliteBook  Revolve 810 G2</a>
-                                </td>
-
-                                <td data-title="Price" class="product-price">
-                                    <span class="amount">$1,300.00</span>
-                                </td>
-
-                                <td data-title="Quantity" class="product-quantity">
-                                    <div class="quantity buttons_added"><input type="button" class="minus" value="-">
-                                        <label>Quantity:</label>
-                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="cart[a431d70133ef6cf688bc4f6093922b48][qty]" max="30" min="0" step="1">
-                                        <input type="button" class="plus" value="+">
-                                    </div>
-                                </td>
-
-                                <td data-title="Total" class="product-subtotal">
-                                    <span class="amount">$1,300.00</span>
-                                </td>
-                            </tr>
                             <tr>
                                 <td class="actions" colspan="6">
 
@@ -110,19 +82,19 @@
 
                         <div class="cart_totals ">
 
-                            <h2>Cart Totals</h2>
+                            <h2>Tổng giỏ hàng</h2>
 
                             <table class="shop_table shop_table_responsive">
 
                                 <tbody>
                                 <tr class="cart-subtotal">
-                                    <th>Subtotal</th>
+                                    <th>Tổng tiền</th>
                                     <td data-title="Subtotal"><span class="amount">$3,299.00</span></td>
                                 </tr>
 
 
                                 <tr class="shipping">
-                                    <th>Shipping</th>
+                                    <th>Phí ship</th>
                                     <td data-title="Shipping">Flat Rate: <span class="amount">$300.00</span> <input type="hidden" class="shipping_method" value="international_delivery" id="shipping_method_0" data-index="0" name="shipping_method[0]">
 
                                         <form method="post" action="cart.html" class="woocommerce-shipping-calculator">
@@ -156,7 +128,7 @@
                                 </tr>
 
                                 <tr class="order-total">
-                                    <th>Total</th>
+                                    <th>Tổng đơn</th>
                                     <td data-title="Total"><strong><span class="amount">$3,599.00</span></strong> </td>
                                 </tr>
                                 </tbody>
