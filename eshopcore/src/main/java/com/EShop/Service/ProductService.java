@@ -7,7 +7,9 @@ import com.EShop.Model.InputModel.ProductVersionInput;
 import com.EShop.Model.Product;
 import com.EShop.Model.ProductAttribute;
 import com.EShop.Model.ProductCatalog;
+import com.EShop.Model.ProductVersion;
 import com.EShop.Model.ViewModel.CatalogViewModel;
+import com.EShop.Model.ViewModel.ProductDetailViewModel;
 import com.EShop.Model.ViewModel.ProductViewModel;
 
 import java.sql.*;
@@ -176,5 +178,47 @@ public class ProductService implements IProductService, ICProductService {
         stmt.close();
         conn.close();
         return productViewModels;
+    }
+
+    @Override
+    public ProductDetailViewModel GetProductVertionDetailByID(int Id) throws SQLException {
+        ProductDetailViewModel productViewModel= new ProductDetailViewModel();
+        Statement stmt;
+        stmt = conn.createStatement();
+        String sqlQuery = "select p.Name,p.SEOUrl,p.OriginalPrice,p.Content,p.Description\n" +
+                "                ,p.Deliver,p.ApplyPromotion,c.Name as CatalogName,c.ID as CatalogId\n" +
+                "                ,ver.ID as VerID,ver.Quantum as VerQuanTum,ver.Price as VerPrice\n" +
+                "                ,ver.PromotionPrice as VerPromotionPrice\n" +
+                "                ,ver.Image as VerImage\n" +
+                "                from ProductVersions ver\n" +
+                "                join Product p\n" +
+                "on p.ID= ver.ProductID\n" +
+                "join Catalog c\n" +
+                "on c.ID=p.CatalogID\n" +
+                "where ver.ID="+Id;
+        ResultSet rs = stmt.executeQuery(sqlQuery);
+        while (rs.next()) {
+            productViewModel.Catalog=new ProductCatalog();
+            productViewModel.Catalog.setName(rs.getString("CatalogName"));
+            productViewModel.Product=new Product();
+            productViewModel.Product.setSEOUrl(rs.getString("SEOUrl"));
+            productViewModel.Product.setOriginalPrice(rs.getInt("OriginalPrice"));
+            productViewModel.Product.setContent(rs.getString("Content"));
+            productViewModel.Product.setDescription(rs.getString("Description"));
+            productViewModel.Product.setName(rs.getString("Name"));
+
+            productViewModel.ProductVersion=new ProductVersion();
+            productViewModel.ProductVersion.setID(rs.getInt("VerID"));
+            productViewModel.ProductVersion.setImage(rs.getString("VerImage"));
+            productViewModel.ProductVersion.setQuantum(rs.getInt("VerQuanTum"));
+            productViewModel.ProductVersion.setPrice(rs.getInt("VerPrice"));
+            productViewModel.ProductVersion.setPromotionPrice(rs.getInt("VerPromotionPrice"));
+
+
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+        return productViewModel;
     }
 }

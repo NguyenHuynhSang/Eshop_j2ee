@@ -278,6 +278,7 @@
     <!--end::embed angularJs-->
     <!--Begin::embed app module-->
     <script src="${pageContext.request.contextPath }/Client_app/shared/modules/eshop-common.js"></script>
+    <script src="${pageContext.request.contextPath }/Client_app/components/cart/cart-module.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/product/products-module.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/order/orders-module.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/catalog/catalogs-module.js"></script>
@@ -292,6 +293,8 @@
     <script src="${pageContext.request.contextPath }/Client_app/shared/layout/footer-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/catalog/catalog-create-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/home/home-controller.js"></script>
+    <script src="${pageContext.request.contextPath }/Client_app/components/cart/view-cart-controller.js"></script>
+    <script src="${pageContext.request.contextPath }/Client_app/components/cart/check-out-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/product/product-list-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/product/product-edit-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/product/product-create-controller.js"></script>
