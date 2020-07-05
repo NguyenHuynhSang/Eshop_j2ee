@@ -24,7 +24,7 @@
                         ID: id,
                     }
                 }
-                apiService.del('/eshopcore/API-Footer', config, function () {
+                apiService.del('/eshopcore_war/API-Footer', config, function () {
                     notificationService.displaySuccess("Xóa thành công bản ghi");
                     getListFooter();
                 }, function () {
@@ -40,7 +40,7 @@
         {
             $ngBootbox.confirm('Bạn có muốn hiển thị footer này?').then(function()
             {
-                apiService.put('/eshopcore/FooterServlet',JSON.stringify(id),function()
+                apiService.put('/eshopcore_war/FooterServlet',JSON.stringify(id),function()
                     {
                         notificationService.displaySuccess("Thành công");
                         getListFooter();
@@ -61,7 +61,7 @@
                 }
             }
 
-            apiService.get('/eshopcore/API-Footer', config, function (result) {
+            apiService.get('/eshopcore_war/API-Footer', config, function (result) {
                 $scope.footerList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

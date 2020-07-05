@@ -17,7 +17,7 @@
                 }
             }
 
-            apiService.get('/eshopcore/API-Slide', config, function (result) {
+            apiService.get('/eshopcore_war/API-Slide', config, function (result) {
                 $scope.jsonEntity = result.data[0];
             }, function () {
                 console.log('Load slide category api failed.');
@@ -30,7 +30,7 @@
         
 
         function EditSlide() {
-            apiService.put('/eshopcore/API-Slide',  JSON.stringify($scope.jsonEntity)  , function (result) {
+            apiService.put('/eshopcore_war/API-Slide',  JSON.stringify($scope.jsonEntity)  , function (result) {
                 notificationService.displaySuccess("Sửa bản ghi thành công");
                 $state.go('slide-list');
             }, function () {

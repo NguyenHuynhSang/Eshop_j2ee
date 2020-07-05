@@ -24,7 +24,7 @@
                         ID: id,
                     }
                 }
-                apiService.del('/eshopcore/API-Slide', config, function () {
+                apiService.del('/eshopcore_war/API-Slide', config, function () {
                     notificationService.displaySuccess("Xóa thành công bản ghi");
                     getListSlide();
                 }, function () {
@@ -40,7 +40,7 @@
         {
             $ngBootbox.confirm('Bạn có muốn hiển thị slide này?').then(function()
             {
-                apiService.put('/eshopcore/SlideServlet',JSON.stringify(id),function()
+                apiService.put('/eshopcore_war/SlideServlet',JSON.stringify(id),function()
                     {
                         notificationService.displaySuccess("Thành công");
                         getListSlide();
@@ -61,7 +61,7 @@
                 }
             }
 
-            apiService.get('/eshopcore/API-Slide', config, function (result) {
+            apiService.get('/eshopcore_war/API-Slide', config, function (result) {
                 $scope.slideList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

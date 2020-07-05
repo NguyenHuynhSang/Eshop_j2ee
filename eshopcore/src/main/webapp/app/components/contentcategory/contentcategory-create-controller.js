@@ -10,7 +10,7 @@
         $scope.keyWord = '';
 
         function CreateContentCategory() {
-            apiService.post('/eshopcore/API-ContentCategory', JSON.stringify($scope.contentcategoryEntity)  , function (result) {
+            apiService.post('/eshopcore_war/API-ContentCategory', JSON.stringify($scope.contentcategoryEntity)  , function (result) {
                 notificationService.displaySuccess("Thêm mới bản ghi thành công");
                 $state.go('contentcategory-list');
             }, function () {
@@ -26,7 +26,7 @@
                     action: "getAll",
                 }
             }
-            apiService.get('/eshopcore/API-ContentCategory', config, function (result) {
+            apiService.get('/eshopcore_war/API-ContentCategory', config, function (result) {
                 $scope.contentcategoryList = result.data;   
             }, function () {
                 console.log('Load content category api failed.');

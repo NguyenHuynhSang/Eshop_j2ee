@@ -2453,6 +2453,7 @@
 <script src="${pageContext.request.contextPath }/app/components/contentcategory/contentcategory-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/footer/footer-module.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/slide/slide-module.js"></script>
 
 <!--Begin::embed app service-->
 <script src="${pageContext.request.contextPath }/app/app.js"></script>
@@ -2486,13 +2487,19 @@ content controller container
 <script src="${pageContext.request.contextPath }/app/components/content/content-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-create-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-edit-controller.js"></script>
-
-contentcategory controller container
+<%--
+footer controller container
 --%>
 <script src="${pageContext.request.contextPath }/app/components/footer/footer-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/footer/footer-create-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/footer/footer-edit-controller.js"></script>
 
+<%--
+slide controller container
+--%>
+<script src="${pageContext.request.contextPath }/app/components/slide/slide-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/slide/slide-create-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/slide/slide-edit-controller.js"></script>
 
 
 

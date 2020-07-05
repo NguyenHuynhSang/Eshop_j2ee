@@ -17,7 +17,7 @@
                 }
             }
 
-            apiService.get('/eshopcore/API-Footer', config, function (result) {
+            apiService.get('/eshopcore_war/API-Footer', config, function (result) {
                 $scope.jsonEntity = result.data[0];
             }, function () {
                 console.log('Load footer category api failed.');
@@ -30,7 +30,7 @@
         
 
         function EditFooter() {
-            apiService.put('/eshopcore/API-Footer',  JSON.stringify($scope.jsonEntity)  , function (result) {
+            apiService.put('/eshopcore_war/API-Footer',  JSON.stringify($scope.jsonEntity)  , function (result) {
                 notificationService.displaySuccess("Sửa bản ghi thành công");
                 $state.go('footer-list');
             }, function () {

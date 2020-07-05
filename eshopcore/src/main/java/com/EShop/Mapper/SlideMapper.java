@@ -33,7 +33,7 @@ public class SlideMapper implements RowMapper<Slide>{
             String Url=rs.getString("Url");
             String Title = rs.getString("Title");
             String Content = rs.getString("Content");
-            Slide tag = new Slide(id,Image,IsShow,CreateDate,CreateBy,ModifiedDate,ModifiedBy,Url,Title,Content);
+            Slide tag = new Slide(id,Image,Url,IsShow,CreateBy,CreateDate,ModifiedBy,ModifiedDate,Title,Content);
             return tag;
         } catch (SQLException ex) {
             Logger.getLogger(SlideMapper.class.getName()).log(Level.SEVERE, null, ex);

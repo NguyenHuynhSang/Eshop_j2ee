@@ -9,7 +9,7 @@
 
         function CreateSlide() {
        
-            apiService.post('/eshopcore/API-Slide', JSON.stringify($scope.slideEntity)  , function (result) {
+            apiService.post('/eshopcore_war/API-Slide', JSON.stringify($scope.slideEntity)  , function (result) {
                 notificationService.displaySuccess("Thêm mới bản ghi thành công");
                 $state.go('slide-list');
             }, function () {

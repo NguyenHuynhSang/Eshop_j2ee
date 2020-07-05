@@ -49,7 +49,7 @@ public class SlideService extends DbConnection<Slide> implements ISlideService{
      public void InsertSlide(Slide slide)throws SQLException
      {
           String sqlQuery="INSERT INTO Slide (Title,Content,Image,IsShow,Url) VALUES (?,?,?,?,?)";
-          Update(sqlQuery,slide.getTitle(),slide.getContent(),slide.getImage(),slide.isIsShow(),slide.getUrl());
+          Update(sqlQuery,slide.getTitle(),slide.getContent(),slide.getImage(),slide.isShow(),slide.getUrl());
      }
      
    
@@ -57,7 +57,7 @@ public class SlideService extends DbConnection<Slide> implements ISlideService{
      public void UpdateSlide(Slide slide)throws SQLException
      {
         String sqlQuery="UPDATE Slide SET Title = ?,Content = ?, Image = ? , IsShow = ? , Url=? WHERE ID = ?";
-          Update(sqlQuery,slide.getTitle(),slide.getContent(),slide.getImage(),slide.isIsShow(),slide.getUrl());
+          Update(sqlQuery,slide.getTitle(),slide.getContent(),slide.getImage(),slide.isShow(),slide.getUrl());
      }
     @Override
     public void DeleteSlide(int id) throws SQLException
