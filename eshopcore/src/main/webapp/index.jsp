@@ -197,6 +197,7 @@
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="contentcategory-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Danh mục tin tức</span></a></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="content-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Tin tức</span></a></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="footer-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Footer</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="slide-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Slide</span></a></li>
 
 
 

@@ -35,7 +35,9 @@ public class ContentCategoryAPI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
 
         ContentCategoryService jsonservice = new ContentCategoryService();
 

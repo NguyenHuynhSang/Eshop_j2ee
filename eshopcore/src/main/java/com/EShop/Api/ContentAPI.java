@@ -34,6 +34,10 @@ public class ContentAPI extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
 
         ContentService jsonservice = new ContentService();
 
@@ -85,7 +89,7 @@ public class ContentAPI extends HttpServlet {
     {
        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
        response.setContentType("application/json"); //set kiểu dữ liệu trả về từ server là chuỗi json
-       
+
        Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
        ContentService jsonservice = new ContentService();  
        
@@ -102,10 +106,10 @@ public class ContentAPI extends HttpServlet {
     protected void doPut(HttpServletRequest request,HttpServletResponse response)
             throws ServletException, IOException 
     {
-       request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
-       response.setContentType("application/json"); 
-       
-       Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
+        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
+        response.setContentType("application/json");
+
+        Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
        ContentService jsonservice = new ContentService();  
        
        String js = HttpUtil.of(request.getReader());
