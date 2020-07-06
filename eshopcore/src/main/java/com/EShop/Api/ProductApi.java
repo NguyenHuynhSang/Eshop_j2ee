@@ -77,11 +77,11 @@ public class ProductApi extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
         req.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
         resp.setContentType("application/json"); //set kiểu dữ liệu trả về từ server là chuỗi json
 
         Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
+        PrintWriter printWriter = resp.getWriter();
         ProductService service = new ProductService();
 
         String js = HttpUtil.of(req.getReader());
@@ -90,6 +90,7 @@ public class ProductApi extends HttpServlet {
 
         try {
             service.InsertProduct(product);
+            printWriter.print(js);
         } catch (SQLException ex) {
             System.out.print(ex.getMessage());
         }

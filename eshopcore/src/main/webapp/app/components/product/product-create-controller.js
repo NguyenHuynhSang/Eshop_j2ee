@@ -157,7 +157,7 @@
 
         /// Chưa dùng đến
         function CreateProduct() {
-            apiService.post('/eshopcore_war/api/Product', $scope.productInput, function (result) {
+            apiService.post('/eshopcore_war/api/Product',JSON.stringify($scope.productInput), function (result) {
                 notificationService.displaySuccess("Thêm mới bản ghi thành công");
                 $state.go('product-list');
             }, function () {
