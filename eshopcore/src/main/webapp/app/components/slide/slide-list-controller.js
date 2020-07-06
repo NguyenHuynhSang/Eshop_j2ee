@@ -1,58 +1,58 @@
 (function (app) {
-    app.controller('footer-list-controller', footerListController)
+    app.controller('slide-list-controller', slideListController)
     //inject các service cần dùng
-    footerListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
+    slideListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
 
 //chú ý thứ tự
-    function footerListController($scope, apiService, notificationService, $ngBootbox) {
-        $scope.footerList = [];
-        $scope.getListfooter = getListFooter;
+    function slideListController($scope, apiService, notificationService, $ngBootbox) {
+        $scope.slideList = [];
+        $scope.getListslide = getListSlide;
         $scope.keyWord = '';
 
         $scope.search = search;
-        $scope.delFooter = delFooter;
-
+        $scope.delSlide = delSlide;
         $scope.SetActive = setActive;
+
         function search() {
-            getListFooter();
+            getListSlide();
         }
 
-        function delFooter(id) {
+        function delSlide(id) {
             $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
                 var config = {
                     params: {
                         ID: id,
                     }
                 }
-                apiService.del('/eshopcore_war/API-Footer', config, function () {
+                apiService.del('/eshopcore_war/API-Slide', config, function () {
                     notificationService.displaySuccess("Xóa thành công bản ghi");
-                    getListFooter();
+                    getListSlide();
                 }, function () {
 
                 });
                 notificationService.displaySuccess("Xóa  thành công bản ghi");
-                getListFooter();
+                getListSlide();
             });
 
         }
 
         function setActive(id)
         {
-            $ngBootbox.confirm('Bạn có muốn hiển thị footer này?').then(function()
+            $ngBootbox.confirm('Bạn có muốn hiển thị slide này?').then(function()
             {
-                apiService.put('/eshopcore_war/FooterServlet',JSON.stringify(id),function()
+                apiService.put('/eshopcore_war/SlideServlet',JSON.stringify(id),function()
                     {
                         notificationService.displaySuccess("Thành công");
-                        getListFooter();
+                        getListSlide();
                     },function(){
 
                     });
                     notificationService.displaySuccess("Thành công");
-                    getListFooter();
+                    getListSlide();
             });
         }
 
-        function getListFooter() {
+        function getListSlide() {
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
             var config = {
                 params: {
@@ -61,8 +61,8 @@
                 }
             }
 
-            apiService.get('/eshopcore_war/API-Footer', config, function (result) {
-                $scope.footerList = result.data;
+            apiService.get('/eshopcore_war/API-Slide', config, function (result) {
+                $scope.slideList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
                 } else {
@@ -72,11 +72,12 @@
 
 
             }, function () {
-                console.log('Load content category api failed.');
+                console.log('Load slide api failed.');
                 notificationService.displayError("Không lấy được dữ liệu từ server");
             });
 
         }
-        $scope.getListfooter();
+
+        $scope.getListslide();
     }
-})(angular.module('eshop-footer'));
+})(angular.module('eshop-slide'));

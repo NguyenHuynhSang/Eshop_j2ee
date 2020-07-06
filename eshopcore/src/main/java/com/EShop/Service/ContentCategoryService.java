@@ -22,11 +22,11 @@ public class ContentCategoryService extends DbConnection<ContentCategoryViewMode
     @Override
     public List<ContentCategoryViewModel> GetContentCategory() throws SQLException {
         String sqlQuery = "select b.ID,b.Name,b.ParentID,b.MetaTitle,b.SeoTitle,b.DisplayOrder,\n" +
-                "	b.CreateDate,b.CreateBy,b.ModifiedDate,b.ModifiedBy,b.MetaDescriptions\n" +
+                "	b.CreatedDate,b.CreatedBy,b.ModifiedDate,b.ModifiedBy,b.MetaDescriptions\n" +
                 "	,b.MetaKeyWords,b.Status,b.ShowOnHome,b.Language\n" +
                 "	,c.ID as sParentID,c.ParentID as cParentID,c.Name as ParentName,c.MetaTitle as ParentMetaTitle\n" +
                 "	,c.SeoTitle as ParentSeoTitle, c.DisplayOrder as ParentDisplayOrder\n" +
-                "	,c.CreateDate as ParentCreateDate,c.CreateBy as ParentCreateBy\n" +
+                "	,c.CreatedDate as ParentCreateDate,c.CreatedBy as ParentCreateBy\n" +
                 "	,c.ModifiedDate as ParentModifiedDate,c.ModifiedBy as ParentModifiedBy\n" +
                 "	,c.MetaKeyWords as ParentMetaKeyWords,c.MetaDescriptions as ParentMetaDescription\n" +
                 "	,c.Status as ParentStatus, c.ShowOnHome as ParentShowOnHome\n" +
@@ -38,11 +38,11 @@ public class ContentCategoryService extends DbConnection<ContentCategoryViewMode
 
     public List<ContentCategoryViewModel> GetContentCategoryByID(int ID) throws SQLException {
         String sqlQuery = "select b.ID,b.Name,b.ParentID,b.MetaTitle,b.SeoTitle,b.DisplayOrder,\n" +
-                "	b.CreateDate,b.CreateBy,b.ModifiedDate,b.ModifiedBy,b.MetaDescriptions\n" +
+                "	b.CreatedDate,b.CreatedBy,b.ModifiedDate,b.ModifiedBy,b.MetaDescriptions\n" +
                 "	,b.MetaKeyWords,b.Status,b.ShowOnHome,b.Language\n" +
                 "	,c.ID as sParentID,c.ParentID as cParentID,c.Name as ParentName,c.MetaTitle as ParentMetaTitle\n" +
                 "	,c.SeoTitle as ParentSeoTitle, c.DisplayOrder as ParentDisplayOrder\n" +
-                "	,c.CreateDate as ParentCreateDate,c.CreateBy as ParentCreateBy\n" +
+                "	,c.CreatedDate as ParentCreateDate,c.CreatedBy as ParentCreateBy\n" +
                 "	,c.ModifiedDate as ParentModifiedDate,c.ModifiedBy as ParentModifiedBy\n" +
                 "	,c.MetaKeyWords as ParentMetaKeyWords,c.MetaDescriptions as ParentMetaDescription\n" +
                 "	,c.Status as ParentStatus, c.ShowOnHome as ParentShowOnHome\n" +
@@ -54,11 +54,11 @@ public class ContentCategoryService extends DbConnection<ContentCategoryViewMode
 
     public List<ContentCategoryViewModel> GetAllContentCategoryByKey(String key) throws SQLException {
         String sqlQuery = "select b.ID,b.Name,b.ParentID,b.MetaTitle,b.SeoTitle,b.DisplayOrder,\n" +
-                "	b.CreateDate,b.CreateBy,b.ModifiedDate,b.ModifiedBy,b.MetaDescriptions\n" +
+                "	b.CreatedDate,b.CreatedBy,b.ModifiedDate,b.ModifiedBy,b.MetaDescriptions\n" +
                 "	,b.MetaKeyWords,b.Status,b.ShowOnHome,b.Language\n" +
                 "	,c.ID as sParentID,c.ParentID as cParentID,c.Name as ParentName,c.MetaTitle as ParentMetaTitle\n" +
                 "	,c.SeoTitle as ParentSeoTitle, c.DisplayOrder as ParentDisplayOrder\n" +
-                "	,c.CreateDate as ParentCreateDate,c.CreateBy as ParentCreateBy\n" +
+                "	,c.CreatedDate as ParentCreateDate,c.CreatedBy as ParentCreateBy\n" +
                 "	,c.ModifiedDate as ParentModifiedDate,c.ModifiedBy as ParentModifiedBy\n" +
                 "	,c.MetaKeyWords as ParentMetaKeyWords,c.MetaDescriptions as ParentMetaDescription\n" +
                 "	,c.Status as ParentStatus, c.ShowOnHome as ParentShowOnHome\n" +
@@ -79,7 +79,7 @@ public class ContentCategoryService extends DbConnection<ContentCategoryViewMode
 
     @Override
     public void InsertContentCategory(ContentCategory category) throws SQLException {
-        String sqlQuery = "INSERT INTO ContentCategory (Name, ParentID, MetaTitle, SeoTitle, DisPlayOrder, CreateDate, CreateBy, MetaKeyWords, MetaDescriptions, Status, ShowOnHome,Language)"
+        String sqlQuery = "INSERT INTO ContentCategory (Name, ParentID, MetaTitle, SeoTitle, DisPlayOrder, CreatedDate, CreatedBy, MetaKeyWords, MetaDescriptions, Status, ShowOnHome,Language)"
                 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Update(sqlQuery, category.getName(), category.getParentID(), category.getMetatitle(), category.getSeoTitle(),
                 category.getDisplayOrder(), null, null, category.getMetaKeyWords(), category.getMetaDesciptions(),

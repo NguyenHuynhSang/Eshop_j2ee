@@ -23,7 +23,7 @@
                         ID: id,
                     }
                 }
-                apiService.del('/eshopcore/API-Content', config, function () {
+                apiService.del('/eshopcore_war/API-Content', config, function () {
                     notificationService.displaySuccess("Xóa thành công bản ghi");
                     getListContent();
                 }, function () {
@@ -44,7 +44,7 @@
                 }
             }
 
-            apiService.get('/eshopcore/API-Content', config, function (result) {
+            apiService.get('/eshopcore_war/API-Content', config, function (result) {
                 $scope.contentList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

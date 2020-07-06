@@ -5,8 +5,8 @@
  */
 package com.EShop.ClientServlet;
 import com.EShop.Api.ContentCategoryAPI;
-import com.EShop.Model.Footer;
-import com.EShop.Service.FooterService;
+import com.EShop.Model.Slide;
+import com.EShop.Service.SlideService;
 import com.EShop.Utills.HttpUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -25,24 +25,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nhatminh
  */
-@WebServlet(name = "FooterServlet", urlPatterns = {"/FooterServlet"})
-public class FooterServlet extends HttpServlet {
+@WebServlet(name = "SlideServlet", urlPatterns = {"/SlideServlet"})
+public class SlideServlet extends HttpServlet {
 
    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-       FooterService jsonservice = new FooterService();
+    /*   SlideService jsonservice = new SlideService();
         
-       Footer json = new Footer();
+       Slide json = new Slide();
        Gson gson = new Gson();
        PrintWriter printWriter = response.getWriter();
        try {
-           json = jsonservice.GetFooterActive();
+           /*json = jsonservice.GetSlideActive();
        } catch (SQLException ex) {
-           Logger.getLogger(FooterServlet.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(SlideServlet.class.getName()).log(Level.SEVERE, null, ex);
        }
-        printWriter.print(json.getContent());
+        printWriter.print(json.getContent()); */
     }
     
      
@@ -54,12 +54,12 @@ public class FooterServlet extends HttpServlet {
         response.setContentType("application/json");
 
         Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
-        FooterService jsonservice=new FooterService();
+        SlideService jsonservice=new SlideService();
         
         String js = HttpUtil.of(request.getReader());
         int tag=gson.fromJson(js, Integer.class);
         try {   
-            jsonservice.SetActiveFooter(tag);
+            jsonservice.SetActiveSlide(tag);
         } catch (SQLException ex) {
            Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
         }

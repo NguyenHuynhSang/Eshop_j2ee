@@ -1,0 +1,80 @@
+05-Jul-2020 18:34:39.138 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.54
+05-Jul-2020 18:34:39.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 14:06:10 UTC
+05-Jul-2020 18:34:39.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.54.0
+05-Jul-2020 18:34:39.148 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+05-Jul-2020 18:34:39.148 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\conf\logging.properties
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|DESKTOP-0B8181F
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\temp
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+05-Jul-2020 18:34:39.158 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+05-Jul-2020 18:34:39.179 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+05-Jul-2020 18:34:39.511 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8088"]
+05-Jul-2020 18:34:40.105 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+05-Jul-2020 18:34:40.123 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1961 ms
+05-Jul-2020 18:34:40.173 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+05-Jul-2020 18:34:40.173 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.54
+05-Jul-2020 18:34:40.558 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war]
+05-Jul-2020 18:34:40.659 WARNING [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.WebXml.setVersion Unknown version string [4.0]. Default version will be used.
+05-Jul-2020 18:34:42.722 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Jul-2020 18:34:42.892 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war] has finished in [2,333] ms
+05-Jul-2020 18:34:42.892 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT]
+05-Jul-2020 18:34:42.961 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT] has finished in [69] ms
+05-Jul-2020 18:34:42.971 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8088"]
+05-Jul-2020 18:34:42.994 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 2871 ms
+05-Jul-2020 18:47:55.321 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [] received
+05-Jul-2020 18:51:18.867 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [] received
+05-Jul-2020 18:51:43.932 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/eshopcore_war]
+05-Jul-2020 18:54:18.558 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [] received
+05-Jul-2020 18:54:34.125 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war]
+05-Jul-2020 18:54:34.173 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war] has finished in [49] ms
+05-Jul-2020 18:56:44.301 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/eshopcore_war]
+05-Jul-2020 18:56:44.341 INFO [localhost-startStop-3] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war]
+05-Jul-2020 18:56:44.483 WARNING [localhost-startStop-3] org.apache.tomcat.util.descriptor.web.WebXml.setVersion Unknown version string [4.0]. Default version will be used.
+05-Jul-2020 18:56:47.093 INFO [localhost-startStop-3] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Jul-2020 18:56:47.262 INFO [localhost-startStop-3] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war] has finished in [2,921] ms
+05-Jul-2020 19:00:47.071 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [] received
+05-Jul-2020 19:01:16.890 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/eshopcore_war]
+05-Jul-2020 19:02:57.723 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [] received
+05-Jul-2020 19:03:07.044 INFO [localhost-startStop-4] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war]
+05-Jul-2020 19:03:07.130 INFO [localhost-startStop-4] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war] has finished in [86] ms
+05-Jul-2020 19:05:17.246 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/eshopcore_war]
+05-Jul-2020 19:05:17.285 INFO [localhost-startStop-5] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war]
+05-Jul-2020 19:05:17.455 WARNING [localhost-startStop-5] org.apache.tomcat.util.descriptor.web.WebXml.setVersion Unknown version string [4.0]. Default version will be used.
+05-Jul-2020 19:05:20.216 INFO [localhost-startStop-5] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Jul-2020 19:05:20.456 INFO [localhost-startStop-5] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war] has finished in [3,171] ms
+05-Jul-2020 19:11:45.495 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [] received
+05-Jul-2020 19:12:19.127 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/eshopcore_war]
+05-Jul-2020 19:12:19.162 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [eshopcore_war] registered the JDBC driver [net.sourceforge.jtds.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+05-Jul-2020 19:15:13.253 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [] received
+05-Jul-2020 19:15:29.351 INFO [localhost-startStop-6] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war]
+05-Jul-2020 19:15:29.467 INFO [localhost-startStop-6] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war] has finished in [116] ms
+05-Jul-2020 19:17:29.571 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/eshopcore_war]
+05-Jul-2020 19:17:29.603 INFO [localhost-startStop-7] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war]
+05-Jul-2020 19:17:29.742 WARNING [localhost-startStop-7] org.apache.tomcat.util.descriptor.web.WebXml.setVersion Unknown version string [4.0]. Default version will be used.
+05-Jul-2020 19:17:32.449 INFO [localhost-startStop-7] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Jul-2020 19:17:32.600 INFO [localhost-startStop-7] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war] has finished in [2,997] ms
+05-Jul-2020 19:22:01.385 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [] received
+05-Jul-2020 19:22:34.627 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/eshopcore_war]
+05-Jul-2020 19:22:34.653 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [eshopcore_war] registered the JDBC driver [net.sourceforge.jtds.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+05-Jul-2020 19:27:51.691 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [] received
+05-Jul-2020 19:28:05.054 INFO [localhost-startStop-8] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war]
+05-Jul-2020 19:28:05.109 INFO [localhost-startStop-8] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war] has finished in [55] ms
+05-Jul-2020 19:30:15.240 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/eshopcore_war]
+05-Jul-2020 19:30:15.290 INFO [localhost-startStop-9] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war]
+05-Jul-2020 19:30:15.542 WARNING [localhost-startStop-9] org.apache.tomcat.util.descriptor.web.WebXml.setVersion Unknown version string [4.0]. Default version will be used.
+05-Jul-2020 19:30:18.056 INFO [localhost-startStop-9] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Jul-2020 19:30:18.240 INFO [localhost-startStop-9] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\eshopcore_war] has finished in [2,951] ms

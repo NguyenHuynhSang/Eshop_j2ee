@@ -6,7 +6,9 @@
         $scope.jsonEntity = {};
         $scope.EditFooter = EditFooter;
 
+
         function LoadFooterByID() {
+
             var config = {
                 params: {
                     keyword: "",
@@ -14,32 +16,29 @@
                     action: "getByID",
                 }
             }
-            apiService.get('/eshopcore/API-Footer', config, function (result) {
-                $scope.jsonEntity = result.data;
-                if (result.data.length == 0) {
-                    //notificationService.displayWarning("Không tìm thấy bản ghi nào");
-                } else {
 
-                    //notificationService.displaySuccess("Tìm thấy " + result.data.length + "bản ghi");
-                }
+            apiService.get('/eshopcore_war/API-Footer', config, function (result) {
+                $scope.jsonEntity = result.data[0];
             }, function () {
-                console.log('Load footer api failed.');
+                console.log('Load footer category api failed.');
                 notificationService.displayError("Không lấy được dữ liệu từ server");
             });
 
 
         }
 
+        
 
         function EditFooter() {
-            apiService.put('/eshopcore/API-Footer',  JSON.stringify($scope.jsonEntity)  , function (result) {
+            apiService.put('/eshopcore_war/API-Footer',  JSON.stringify($scope.jsonEntity)  , function (result) {
                 notificationService.displaySuccess("Sửa bản ghi thành công");
                 $state.go('footer-list');
             }, function () {
-                console.log('Load footer api failed.');
-                notificationService.displayError("Sửa bản ghi KHÔNG thành công");
+                console.log('Load footer category api failed.');
+                notificationService.displayError("Thêm mới bản ghi KHÔNG thành công");
             });
         }
         LoadFooterByID();
+
     }
-})(angular.module('eshop-footer'));
+})(angular.module('eshop-slide'));

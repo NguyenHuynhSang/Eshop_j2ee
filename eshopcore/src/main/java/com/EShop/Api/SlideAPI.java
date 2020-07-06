@@ -5,10 +5,9 @@
  */
 package com.EShop.Api;
 
-import com.EShop.Model.Content;
-import com.EShop.Service.ContentService;
+import com.EShop.Model.Slide;
+import com.EShop.Service.SlideService;
 import com.EShop.Utills.HttpUtil;
-import com.EShop.ViewModel.ContentViewModel;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
@@ -28,60 +27,52 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nhatminh
  */
-@WebServlet(name = "api-Content", urlPatterns = {"/API-Content"})
-public class ContentAPI extends HttpServlet {
+@WebServlet(name = "SlideAPI", urlPatterns = {"/API-Slide"})
+public class SlideAPI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
 
-
-        ContentService jsonservice = new ContentService();
+        SlideService jsonservice = new SlideService();
 
         String keyword = request.getParameter("keyword");
         String action = request.getParameter("action");
         String ID= request.getParameter("ID");
-        List<ContentViewModel> json = new ArrayList<ContentViewModel>();
+        List<Slide> json = new ArrayList<Slide>();
         Gson gson = new Gson();
         PrintWriter printWriter = response.getWriter();
-        ContentViewModel js=null;
-        
+        Slide js=null;
         if(action==null)
         {
             try {
-                json=jsonservice.GetContent();
+                json=jsonservice.GetSlide();
                 printWriter.print(gson.toJson(json));
             } catch (SQLException ex) {
-                Logger.getLogger(ContentAPI.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        else
-        {
-            try {
+        try {
             switch (action){
                 case "getAll":
-                    if (keyword!="") {
-                        json = jsonservice.GetAllContentByKey(keyword);
+                    if (keyword!= "") {
+                        json = jsonservice.GetAllSlideByKey(keyword);
                     } else {
-                        json = jsonservice.GetContent();
+                        json = jsonservice.GetSlide();
                     }
                     printWriter.print(gson.toJson(json));
                     break;
                 case "getByID":
-                    if (ID!="" && ID!=null) json=jsonservice.GetContentByID(Integer.parseInt(ID));
+                    if (ID!="" && ID!=null) json=jsonservice.GetJSONByID(ID);
                     printWriter.print(gson.toJson(json));
                     break;
 
             }
-            } catch (SQLException ex) {
 
-            }
+        } catch (SQLException ex) {
+
         }
     }
-    
     
         @Override
     protected void doPost(HttpServletRequest request,HttpServletResponse response)
@@ -89,16 +80,16 @@ public class ContentAPI extends HttpServlet {
     {
        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
        response.setContentType("application/json"); //set kiểu dữ liệu trả về từ server là chuỗi json
-
-       Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
-       ContentService jsonservice = new ContentService();  
        
-       String js = HttpUtil.of(request.getReader()); 
-       Content content=gson.fromJson(js, Content.class);
+       Gson gson=new Gson();
+       SlideService jsonservice = new SlideService();  
+       
+       String js = HttpUtil.of(request.getReader()); //request.getReader() dùng để lấy dữ liệu từ server
+       Slide tag=gson.fromJson(js, Slide.class);
         try {
-            jsonservice.InsertContent(content);
+            jsonservice.InsertSlide(tag);
         } catch (SQLException ex) {
-            System.out.print(ex.getMessage());
+            Logger.getLogger(SlideAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -106,18 +97,18 @@ public class ContentAPI extends HttpServlet {
     protected void doPut(HttpServletRequest request,HttpServletResponse response)
             throws ServletException, IOException 
     {
-        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
-        response.setContentType("application/json");
-
-        Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
-       ContentService jsonservice = new ContentService();  
+       request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
+       response.setContentType("application/json"); 
+       
+       Gson gson=new Gson();
+       SlideService tagservice = new SlideService();  
        
        String js = HttpUtil.of(request.getReader());
-       Content content=gson.fromJson(js, Content.class);
+       Slide tag=gson.fromJson(js, Slide.class);
         try {
-            jsonservice.UpdateContent(content);
+            tagservice.UpdateSlide(tag);
         } catch (SQLException ex) {
-            System.out.print(ex.getMessage());
+            Logger.getLogger(SlideAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -129,12 +120,12 @@ public class ContentAPI extends HttpServlet {
         response.setContentType("application/json");
 
         Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
-        ContentService jsonservice=new ContentService();
+        SlideService jsonservice=new SlideService();
         
         String js=HttpUtil.of(request.getReader());
-            String ID= request.getParameter("ID");
+        String ID= request.getParameter("ID");
         try {
-            jsonservice.DeleteContent(Integer.parseInt(ID));
+            jsonservice.DeleteSlide(Integer.parseInt(ID));
         } catch (SQLException ex) {
            Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
         }

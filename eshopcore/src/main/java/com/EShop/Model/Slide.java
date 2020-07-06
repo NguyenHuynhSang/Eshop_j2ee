@@ -1,3 +1,4 @@
+
 package com.EShop.Model;
 
 import java.util.Date;
@@ -76,7 +77,6 @@ public class Slide {
         CreateDate = createDate;
     }
 
-
     public String getModifiedBy() {
         return ModifiedBy;
     }
@@ -104,7 +104,7 @@ public class Slide {
     public String getContent() {
         return Content;
     }
-
+    
     public void setContent(String content) {
         Content = content;
     }

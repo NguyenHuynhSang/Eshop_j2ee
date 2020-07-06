@@ -11,7 +11,7 @@
 
         function CreateContent() {
        
-            apiService.post('/eshopcore/API-Content', JSON.stringify($scope.contentEntity)  , function (result) {
+            apiService.post('/eshopcore_war/API-Content', JSON.stringify($scope.contentEntity)  , function (result) {
                 notificationService.displaySuccess("Thêm mới bản ghi thành công");
                 $state.go('content-list');
             }, function () {
@@ -33,7 +33,7 @@
                     action: "getAll",
                 }
             }
-            apiService.get('/eshopcore/API-ContentCategory', config, function (result) {
+            apiService.get('/eshopcore_war/API-ContentCategory', config, function (result) {
                 $scope.contentcategoryList = result.data;   
             }, function () {
                 console.log('Load content category api failed.');
