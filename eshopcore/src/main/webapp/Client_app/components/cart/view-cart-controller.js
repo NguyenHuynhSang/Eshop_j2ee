@@ -1,10 +1,10 @@
 (function (app) {
     app.controller('view-cart-controller', viewCartController)
     //inject các service cần dùng
-    viewCartController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
+    viewCartController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox','$rootScope'];
 
     //chú ý thứ tự
-    function viewCartController($scope, apiService, notificationService, $ngBootbox) {
+    function viewCartController($scope, apiService, notificationService, $ngBootbox,$rootScope) {
 
 
         $scope.removeProduct=removeProduct;
@@ -24,7 +24,7 @@
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
             apiService.get('/eshopcore_war/api/RemoveProductInCart', config, function (result) {
                 $rootScope.shareGetCart();
-
+                $scope.cart=result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy slides nào");
                 } else {

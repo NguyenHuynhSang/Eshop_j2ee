@@ -42,9 +42,14 @@ public class RemoveProductInCartApi extends HttpServlet {
             session.setAttribute("order", order);
         }
 
-        Gson gson = new GsonBuilder().serializeNulls().create();
+        if (order.getOrderDetails().size()==0)
+        {
+            session.removeAttribute("order");
+        }
+        Order orderReturn = (Order) session.getAttribute("order");
+        Gson gson = new GsonBuilder().create();
         PrintWriter printWriter = resp.getWriter();
-        printWriter.print(gson.toJson(order));
+        printWriter.print(gson.toJson(orderReturn));
     }
 
     @Override
