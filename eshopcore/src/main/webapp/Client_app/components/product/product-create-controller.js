@@ -9,6 +9,10 @@
 
 
 
+
+
+
+
         //ds attributevalue của từng attribute của từng version
         $scope.attributeValueListPerVersion = [{ atributeValue: [] }]
 

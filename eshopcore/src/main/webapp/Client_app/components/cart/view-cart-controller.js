@@ -7,9 +7,35 @@
     function viewCartController($scope, apiService, notificationService, $ngBootbox) {
 
 
+        $scope.removeProduct=removeProduct;
+
+
         $scope.cart={};
 
         $scope.getCart=getCart;
+
+        function removeProduct(id) {
+            var config = {
+                params: {
+                    productVerID:id,
+
+                }
+            }
+            /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
+            apiService.get('/eshopcore_war/api/RemoveProductInCart', config, function (result) {
+                $rootScope.shareGetCart();
+
+                if (result.data.length == 0) {
+                    notificationService.displayWarning("Không tìm thấy slides nào");
+                } else {
+                    notificationService.displaySuccess("[DEV]Tìm đước slides");
+                }
+            }, function () {
+                notificationService.displayError("Không lấy được dữ liệu từ server");
+            });
+
+
+        }
 
 
         function getCart() {
