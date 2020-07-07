@@ -5,8 +5,8 @@
  */
 package com.EShop.Api;
 
-import com.EShop.Model.Slide;
-import com.EShop.Service.SlideService;
+import com.EShop.Model.Menu;
+import com.EShop.Service.MenuService;
 import com.EShop.Utills.HttpUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -27,8 +27,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nhatminh
  */
-@WebServlet(name = "SlideAPI", urlPatterns = {"/API-Slide"})
-public class SlideAPI extends HttpServlet {
+@WebServlet(name = "MenuAPI", urlPatterns = {"/API-Menu"})
+public class MenuAdminAPI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -37,19 +37,19 @@ public class SlideAPI extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        SlideService jsonservice = new SlideService();
+        MenuService jsonservice = new MenuService();
 
         String keyword = request.getParameter("keyword");
         String action = request.getParameter("action");
         String ID= request.getParameter("ID");
-        List<Slide> json = new ArrayList<Slide>();
+        List<Menu> json = new ArrayList<Menu>();
         Gson gson = new Gson();
         PrintWriter printWriter = response.getWriter();
-        Slide js=null;
+        Menu js=null;
         if(action==null)
         {
             try {
-                json=jsonservice.GetSlide();
+                json=jsonservice.GetMenu();
                 printWriter.print(gson.toJson(json));
             } catch (SQLException ex) {
                 Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,9 +59,9 @@ public class SlideAPI extends HttpServlet {
             switch (action){
                 case "getAll":
                     if (keyword!= "") {
-                        json = jsonservice.GetAllSlideByKey(keyword);
+                        json = jsonservice.GetAllMenuByKey(keyword);
                     } else {
-                        json = jsonservice.GetSlide();
+                        json = jsonservice.GetMenu();
                     }
                     printWriter.print(gson.toJson(json));
                     break;
@@ -76,40 +76,40 @@ public class SlideAPI extends HttpServlet {
 
         }
     }
-    
-        @Override
+
+    @Override
     protected void doPost(HttpServletRequest request,HttpServletResponse response)
-            throws ServletException, IOException 
+            throws ServletException, IOException
     {
-       request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
-       response.setContentType("application/json"); //set kiểu dữ liệu trả về từ server là chuỗi json
-       
-       Gson gson=new Gson();
-       SlideService jsonservice = new SlideService();  
-       
-       String js = HttpUtil.of(request.getReader()); //request.getReader() dùng để lấy dữ liệu từ server
-       Slide tag=gson.fromJson(js, Slide.class);
+        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
+        response.setContentType("application/json"); //set kiểu dữ liệu trả về từ server là chuỗi json
+
+        Gson gson=new Gson();
+        MenuService jsonservice = new MenuService();
+
+        String js = HttpUtil.of(request.getReader()); //request.getReader() dùng để lấy dữ liệu từ server
+        Menu tag=gson.fromJson(js, Menu.class);
         try {
-            jsonservice.InsertSlide(tag);
+            jsonservice.InsertMenu(tag);
         } catch (SQLException ex) {
             Logger.getLogger(SlideAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     protected void doPut(HttpServletRequest request,HttpServletResponse response)
-            throws ServletException, IOException 
+            throws ServletException, IOException
     {
-       request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
-       response.setContentType("application/json"); 
-       
-       Gson gson=new Gson();
-       SlideService tagservice = new SlideService();  
-       
-       String js = HttpUtil.of(request.getReader());
-       Slide tag=gson.fromJson(js, Slide.class);
+        request.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
+        response.setContentType("application/json");
+
+        Gson gson=new Gson();
+        MenuService tagservice = new MenuService();
+
+        String js = HttpUtil.of(request.getReader());
+        Menu tag=gson.fromJson(js, Menu.class);
         try {
-            tagservice.UpdateSlide(tag);
+            tagservice.UpdateMenu(tag);
         } catch (SQLException ex) {
             Logger.getLogger(SlideAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -117,20 +117,19 @@ public class SlideAPI extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.doDelete(request, response);
-        
+
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
 
         Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
-        SlideService jsonservice=new SlideService();
-        
+        MenuService jsonservice=new MenuService();
+
         String js=HttpUtil.of(request.getReader());
         String ID= request.getParameter("ID");
         try {
-            jsonservice.DeleteSlide(Integer.parseInt(ID));
+            jsonservice.DeleteMenu(Integer.parseInt(ID));
         } catch (SQLException ex) {
-           Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ContentCategoryAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

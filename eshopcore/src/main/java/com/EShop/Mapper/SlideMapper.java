@@ -26,8 +26,8 @@ public class SlideMapper implements RowMapper<Slide>{
             id = rs.getInt("ID");
             String Image = rs.getString("Image");
             boolean IsShow=rs.getBoolean("IsShow");
-            Date CreateDate=rs.getDate("CreateDate");
-            String CreateBy=rs.getString("CreateBy");
+            Date CreateDate=rs.getDate("CreatedDate");
+            String CreateBy=rs.getString("CreatedBy");
             Date ModifiedDate=rs.getDate("ModifiedDate");
             String ModifiedBy = rs.getString("ModifiedBy");
             String Url=rs.getString("Url");

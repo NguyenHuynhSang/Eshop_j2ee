@@ -282,6 +282,7 @@
     <script src="${pageContext.request.contextPath }/Client_app/components/product/products-module.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/order/orders-module.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/catalog/catalogs-module.js"></script>
+    <script src="${pageContext.request.contextPath }/Client_app/components/content/contents-module.js"></script>
     <!--end::embed app module-->
     <!--Begin::embed service-->
     <script src="${pageContext.request.contextPath }/Client_app/app.js"></script>
@@ -302,6 +303,8 @@
     <script src="${pageContext.request.contextPath }/Client_app/components/order/order-list-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/catalog/catalog-list-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/catalog/catalog-create-controller.js"></script>
+    <script src="${pageContext.request.contextPath }/Client_app/components/content/content-list-controller.js"></script>
+    <script src="${pageContext.request.contextPath }/Client_app/components/content/content-single-controller.js"></script>
     <!--end::embed controller-->
 </body>
 </html>

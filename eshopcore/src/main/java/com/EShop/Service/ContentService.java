@@ -144,11 +144,10 @@ public class ContentService extends DbConnection<ContentViewModel> implements IC
         }
         else
         {
-          sqlQuery="UPDATE Content SET Name=?, MetaTitle=?,Description=?,Image=?,CategoryID=?,Detail=?,Warranty=?,ModifiedDate=?"
-                  + ",ModifiedBy=?,MetaKeywords=?,MetaDescriptions=?,Status=?,Tags=?,Language=? WHERE ID = ?";                         
+          sqlQuery="UPDATE Content SET Name=?, MetaTitle=?,Description=?,Image=?,CategoryID=?,Detail=?,Warranty=?"
+                  + ",MetaKeywords=?,MetaDescriptions=?,Status=?,Tags=?,Language=? WHERE ID = ?";
           Update(sqlQuery,content.getName(),content.getMetaTitle(),content.getDescription(),content.getImage(),
-                  content.getCategoryID(),content.getDetail(),content.getWarranty(),content.getModifiedDate(),
-                  content.getModifiedBy(),content.getMetaKeywords(),content.getMetaDescriptions(),content.isStatus(),
+                  content.getCategoryID(),content.getDetail(),content.getWarranty(),content.getMetaKeywords(),content.getMetaDescriptions(),content.isStatus(),
                   content.getTags(),content.getLanguage(),content.getID());
           
           ContentTagService contenttagsv = new ContentTagService();
