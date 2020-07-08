@@ -100,10 +100,24 @@ public class MenuService extends DbConnection<Menu>  implements IMenuService {
 
     }
 
+    public Menu GetMenuByID(String ID) throws SQLException
+    {
+        int id = Integer.parseInt(ID);
+        String sqlQuery = "SELECT * FROM Menu WHERE ID = ?";
+        List<Menu> menu = query(sqlQuery,new MenuMapper(), id);
+        return menu.get(0);
+    }
+
     public void SetActiveMenu(int id) throws SQLException
     {
         String sqlQuery;
-        sqlQuery ="Update Menu Set IsShow ='true' where ID = ?";
+        Menu menu = GetMenuByID(Integer.toString(id));
+        if(!menu.isShow()) {
+            sqlQuery = "Update Menu Set IsShow ='true' where ID = ?";
+        }else
+        {
+            sqlQuery = "Update Menu Set IsShow ='false' where ID = ?";
+        }
         Update(sqlQuery,id);
     }
 
