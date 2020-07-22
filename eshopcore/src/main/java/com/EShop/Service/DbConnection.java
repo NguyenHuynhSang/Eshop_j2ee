@@ -2,6 +2,8 @@ package com.EShop.Service;
 
 import com.EShop.IService.IDbConnection;
 import com.EShop.Mapper.RowMapper;
+
+import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -17,17 +19,17 @@ import java.util.logging.Logger;
 public class DbConnection<T> implements IDbConnection<T>{
     public static Connection getJDBCConnection()
     {
-        String url = "jdbc:jtds:sqlserver://DESKTOP-0B8181F:1433/Bt2;instance=SQLEXPRESS";
-        String driver = "net.sourceforge.jtds.jdbc.Driver";
-        String userName = "sa";
-        String password = "123";
+        File dbfile=new File("");
+        String url = "jdbc:sqlite:"+dbfile.getAbsolutePath()+"\\EShop.db";
+        String driver = "org.sqlite.JDBC";
+
         try{
             try {
                 Class.forName(driver);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(DbConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
-            return DriverManager.getConnection(url,userName,password);
+            return DriverManager.getConnection(url);
         }
         catch(SQLException e)
         {

@@ -72,7 +72,7 @@ public class HomeService implements ICHomePageService {
         stmt = conn.createStatement();
         String sqlQuery = "select *\n" +
                 "from Slide\n" +
-                "where IsShow='true'";
+                "where IsShow='1'";
         ResultSet rs = stmt.executeQuery(sqlQuery);
         List<Slide> slides=new ArrayList<>();
         while (rs.next()) {
