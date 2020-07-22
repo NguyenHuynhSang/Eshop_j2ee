@@ -2469,7 +2469,8 @@
 <!--Begin::embed app controller-->
 <script src="${pageContext.request.contextPath }/app/components/home/home-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-list-controller.js"></script>
-
+<script src="${pageContext.request.contextPath }/app/components/product/product-edit-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/product/product-create-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/order/order-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalog-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalog-create-controller.js"></script>

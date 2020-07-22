@@ -6,6 +6,7 @@
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider.state('product-list', {
             url: "/san-pham",
+            parent: 'app',
             templateUrl: "./Client_app/components/product/product-list-view.html",
             controller: "product-list-controller"
         }).state('product-single', {

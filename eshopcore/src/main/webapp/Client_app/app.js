@@ -6,6 +6,7 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function config($stateProvider, $urlRouterProvider) {
+
         $stateProvider.state('app',
             {
                 views: {
@@ -16,6 +17,10 @@
                     'header': {
                         templateUrl: "./Client_app/shared/layout/header-view.html",
                         controller:'header-controller'
+                    },
+                    'footer': {
+                        templateUrl: "./Client_app/shared/layout/footer-view.html",
+                        controller:'footer-controller'
                     },
                 }
 
