@@ -6,6 +6,7 @@
     //chú ý thứ tự
     function productListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.productList = [];
+        $scope.advanceSearch=false;
         $scope.getListProduct = getListProduct;
         $scope.productFilter = {};
         $scope.keyWord = '';
@@ -16,6 +17,7 @@
         }
 
         $scope.delProduct = delProduct;
+
 
 
         function search() {
