@@ -1,0 +1,300 @@
+03-Jul-2020 17:23:34.809 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.54
+03-Jul-2020 17:23:34.813 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 14:06:10 UTC
+03-Jul-2020 17:23:34.813 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.54.0
+03-Jul-2020 17:23:34.813 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Jul-2020 17:23:34.813 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Jul-2020 17:23:34.813 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Jul-2020 17:23:34.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+03-Jul-2020 17:23:34.821 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+03-Jul-2020 17:23:34.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Jul-2020 17:23:34.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:23:34.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:23:34.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\conf\logging.properties
+03-Jul-2020 17:23:34.823 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jul-2020 17:23:34.823 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|DESKTOP-0B8181F
+03-Jul-2020 17:23:34.823 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Jul-2020 17:23:34.823 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Jul-2020 17:23:34.823 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Jul-2020 17:23:34.824 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:23:34.824 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:23:34.824 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\temp
+03-Jul-2020 17:23:34.824 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+03-Jul-2020 17:23:34.824 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+03-Jul-2020 17:23:34.824 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+03-Jul-2020 17:23:34.859 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+03-Jul-2020 17:23:35.101 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+03-Jul-2020 17:23:35.725 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Jul-2020 17:23:35.745 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1954 ms
+03-Jul-2020 17:23:35.803 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Jul-2020 17:23:35.803 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.54
+03-Jul-2020 17:23:36.380 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT]
+03-Jul-2020 17:23:36.477 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT] has finished in [95] ms
+03-Jul-2020 17:23:36.484 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+03-Jul-2020 17:23:36.507 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 762 ms
+03-Jul-2020 17:33:22.675 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.54
+03-Jul-2020 17:33:22.681 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 14:06:10 UTC
+03-Jul-2020 17:33:22.681 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.54.0
+03-Jul-2020 17:33:22.681 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Jul-2020 17:33:22.681 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Jul-2020 17:33:22.682 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Jul-2020 17:33:22.682 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+03-Jul-2020 17:33:22.682 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+03-Jul-2020 17:33:22.696 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Jul-2020 17:33:22.696 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:33:22.696 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:33:22.697 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\conf\logging.properties
+03-Jul-2020 17:33:22.698 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jul-2020 17:33:22.699 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|DESKTOP-0B8181F
+03-Jul-2020 17:33:22.700 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Jul-2020 17:33:22.700 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Jul-2020 17:33:22.701 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Jul-2020 17:33:22.701 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:33:22.701 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:33:22.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\temp
+03-Jul-2020 17:33:22.702 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+03-Jul-2020 17:33:22.702 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+03-Jul-2020 17:33:22.703 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+03-Jul-2020 17:33:22.774 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+03-Jul-2020 17:33:23.341 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8086"]
+03-Jul-2020 17:33:24.213 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Jul-2020 17:33:24.245 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 3239 ms
+03-Jul-2020 17:33:24.334 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Jul-2020 17:33:24.335 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.54
+03-Jul-2020 17:33:24.955 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT]
+03-Jul-2020 17:33:25.058 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT] has finished in [102] ms
+03-Jul-2020 17:33:25.071 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8086"]
+03-Jul-2020 17:33:25.103 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 857 ms
+03-Jul-2020 17:46:20.052 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.54
+03-Jul-2020 17:46:20.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 14:06:10 UTC
+03-Jul-2020 17:46:20.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.54.0
+03-Jul-2020 17:46:20.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Jul-2020 17:46:20.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Jul-2020 17:46:20.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Jul-2020 17:46:20.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+03-Jul-2020 17:46:20.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+03-Jul-2020 17:46:20.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Jul-2020 17:46:20.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:46:20.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:46:20.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\conf\logging.properties
+03-Jul-2020 17:46:20.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jul-2020 17:46:20.062 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|DESKTOP-0B8181F
+03-Jul-2020 17:46:20.062 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Jul-2020 17:46:20.062 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Jul-2020 17:46:20.062 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Jul-2020 17:46:20.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:46:20.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:46:20.070 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\temp
+03-Jul-2020 17:46:20.070 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+03-Jul-2020 17:46:20.070 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+03-Jul-2020 17:46:20.070 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+03-Jul-2020 17:46:20.089 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+03-Jul-2020 17:46:20.329 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9000"]
+03-Jul-2020 17:46:20.989 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Jul-2020 17:46:21.033 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2879 ms
+03-Jul-2020 17:46:21.182 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Jul-2020 17:46:21.183 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.54
+03-Jul-2020 17:46:22.504 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT]
+03-Jul-2020 17:46:22.597 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT] has finished in [92] ms
+03-Jul-2020 17:46:22.607 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9000"]
+03-Jul-2020 17:46:22.642 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1608 ms
+03-Jul-2020 17:58:39.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.54
+03-Jul-2020 17:58:39.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 14:06:10 UTC
+03-Jul-2020 17:58:39.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.54.0
+03-Jul-2020 17:58:39.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Jul-2020 17:58:39.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Jul-2020 17:58:39.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Jul-2020 17:58:39.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+03-Jul-2020 17:58:39.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\conf\logging.properties
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|DESKTOP-0B8181F
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\temp
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+03-Jul-2020 17:58:39.873 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+03-Jul-2020 17:58:39.989 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+03-Jul-2020 17:58:40.459 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8088"]
+03-Jul-2020 17:58:41.261 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Jul-2020 17:58:41.323 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2936 ms
+03-Jul-2020 17:58:41.461 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Jul-2020 17:58:41.461 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.54
+03-Jul-2020 17:58:42.216 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT]
+03-Jul-2020 17:58:42.347 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT] has finished in [131] ms
+03-Jul-2020 17:58:42.355 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8088"]
+03-Jul-2020 17:58:42.381 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1061 ms
+03-Jul-2020 18:13:01.095 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.54
+03-Jul-2020 18:13:01.179 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 14:06:10 UTC
+03-Jul-2020 18:13:01.180 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.54.0
+03-Jul-2020 18:13:01.180 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Jul-2020 18:13:01.180 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Jul-2020 18:13:01.180 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Jul-2020 18:13:01.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+03-Jul-2020 18:13:01.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+03-Jul-2020 18:13:01.198 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Jul-2020 18:13:01.198 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:13:01.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:13:01.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\conf\logging.properties
+03-Jul-2020 18:13:01.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jul-2020 18:13:01.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|DESKTOP-0B8181F
+03-Jul-2020 18:13:01.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Jul-2020 18:13:01.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Jul-2020 18:13:01.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Jul-2020 18:13:01.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:13:01.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:13:01.204 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\temp
+03-Jul-2020 18:13:01.204 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+03-Jul-2020 18:13:01.204 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+03-Jul-2020 18:13:01.207 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+03-Jul-2020 18:13:01.231 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+03-Jul-2020 18:13:02.630 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+03-Jul-2020 18:13:04.113 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Jul-2020 18:13:04.158 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 4924 ms
+03-Jul-2020 18:13:04.289 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Jul-2020 18:13:04.290 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.54
+03-Jul-2020 18:13:05.740 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT]
+03-Jul-2020 18:13:05.913 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT] has finished in [174] ms
+03-Jul-2020 18:13:05.930 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8090"]
+03-Jul-2020 18:13:05.979 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1821 ms
+03-Jul-2020 18:16:29.311 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.54
+03-Jul-2020 18:16:29.323 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 14:06:10 UTC
+03-Jul-2020 18:16:29.323 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.54.0
+03-Jul-2020 18:16:29.323 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Jul-2020 18:16:29.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Jul-2020 18:16:29.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Jul-2020 18:16:29.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+03-Jul-2020 18:16:29.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+03-Jul-2020 18:16:29.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Jul-2020 18:16:29.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:16:29.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:16:29.326 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\conf\logging.properties
+03-Jul-2020 18:16:29.326 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jul-2020 18:16:29.326 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|DESKTOP-0B8181F
+03-Jul-2020 18:16:29.326 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Jul-2020 18:16:29.327 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Jul-2020 18:16:29.327 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Jul-2020 18:16:29.336 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:16:29.336 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:16:29.336 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\temp
+03-Jul-2020 18:16:29.337 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+03-Jul-2020 18:16:29.337 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+03-Jul-2020 18:16:29.337 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+03-Jul-2020 18:16:29.359 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+03-Jul-2020 18:16:29.673 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8096"]
+03-Jul-2020 18:16:30.779 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Jul-2020 18:16:30.933 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 3231 ms
+03-Jul-2020 18:16:31.195 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Jul-2020 18:16:31.196 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.54
+03-Jul-2020 18:16:32.122 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT]
+03-Jul-2020 18:16:32.223 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT] has finished in [99] ms
+03-Jul-2020 18:16:32.228 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8096"]
+03-Jul-2020 18:16:32.260 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1325 ms
+03-Jul-2020 18:22:32.571 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.users.MemoryUserDatabase.backgroundProcess Reloading memory user database [UserDatabase] from updated source [file:/D:/hoc/java/Eshop_j2ee/Server/apache-tomcat-8.5.54/conf/tomcat-users.xml]
+03-Jul-2020 18:22:33.694 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.users.MemoryUserDatabase.backgroundProcess Reloading memory user database [UserDatabase] from updated source [file:/D:/hoc/java/Eshop_j2ee/Server/apache-tomcat-8.5.54/conf/tomcat-users.xml]
+03-Jul-2020 18:22:36.438 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.users.MemoryUserDatabase.backgroundProcess Reloading memory user database [UserDatabase] from updated source [file:/D:/hoc/java/Eshop_j2ee/Server/apache-tomcat-8.5.54/conf/tomcat-users.xml]
+03-Jul-2020 18:51:52.672 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.54
+03-Jul-2020 18:51:52.681 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 14:06:10 UTC
+03-Jul-2020 18:51:52.681 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.54.0
+03-Jul-2020 18:51:52.682 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Jul-2020 18:51:52.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Jul-2020 18:51:52.683 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Jul-2020 18:51:52.684 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+03-Jul-2020 18:51:52.684 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+03-Jul-2020 18:51:52.696 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Jul-2020 18:51:52.696 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:51:52.696 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:51:52.697 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\conf\logging.properties
+03-Jul-2020 18:51:52.697 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jul-2020 18:51:52.698 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|DESKTOP-0B8181F
+03-Jul-2020 18:51:52.698 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Jul-2020 18:51:52.698 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Jul-2020 18:51:52.698 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Jul-2020 18:51:52.698 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:51:52.699 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:51:52.699 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\temp
+03-Jul-2020 18:51:52.699 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+03-Jul-2020 18:51:52.699 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+03-Jul-2020 18:51:52.700 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+03-Jul-2020 18:51:52.931 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+03-Jul-2020 18:51:53.356 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8088"]
+03-Jul-2020 18:51:54.215 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Jul-2020 18:51:54.242 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 4163 ms
+03-Jul-2020 18:51:54.478 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Jul-2020 18:51:54.479 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.54
+03-Jul-2020 18:51:55.589 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT]
+03-Jul-2020 18:51:55.661 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT] has finished in [71] ms
+03-Jul-2020 18:51:55.666 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8088"]
+03-Jul-2020 18:51:55.717 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1474 ms
+03-Jul-2020 18:59:43.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.54
+03-Jul-2020 18:59:43.821 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 14:06:10 UTC
+03-Jul-2020 18:59:43.821 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.54.0
+03-Jul-2020 18:59:43.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Jul-2020 18:59:43.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Jul-2020 18:59:43.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Jul-2020 18:59:43.823 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+03-Jul-2020 18:59:43.823 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+03-Jul-2020 18:59:43.824 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Jul-2020 18:59:43.824 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:59:43.824 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:59:43.825 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\conf\logging.properties
+03-Jul-2020 18:59:43.825 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jul-2020 18:59:43.826 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|DESKTOP-0B8181F
+03-Jul-2020 18:59:43.826 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Jul-2020 18:59:43.826 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Jul-2020 18:59:43.826 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Jul-2020 18:59:43.834 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:59:43.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 18:59:43.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\temp
+03-Jul-2020 18:59:43.835 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+03-Jul-2020 18:59:43.835 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+03-Jul-2020 18:59:43.836 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+03-Jul-2020 18:59:43.857 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+03-Jul-2020 18:59:44.166 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8888"]
+03-Jul-2020 18:59:44.899 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Jul-2020 18:59:44.928 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2713 ms
+03-Jul-2020 18:59:45.018 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Jul-2020 18:59:45.018 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.54
+03-Jul-2020 18:59:45.779 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT]
+03-Jul-2020 18:59:45.889 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT] has finished in [108] ms
+03-Jul-2020 18:59:45.897 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8888"]
+03-Jul-2020 18:59:45.941 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1012 ms
+03-Jul-2020 19:21:18.211 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.54
+03-Jul-2020 19:21:18.218 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 14:06:10 UTC
+03-Jul-2020 19:21:18.219 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.54.0
+03-Jul-2020 19:21:18.219 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Jul-2020 19:21:18.219 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Jul-2020 19:21:18.220 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Jul-2020 19:21:18.220 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+03-Jul-2020 19:21:18.221 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+03-Jul-2020 19:21:18.221 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Jul-2020 19:21:18.221 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 19:21:18.222 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 19:21:18.222 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\conf\logging.properties
+03-Jul-2020 19:21:18.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jul-2020 19:21:18.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|DESKTOP-0B8181F
+03-Jul-2020 19:21:18.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Jul-2020 19:21:18.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Jul-2020 19:21:18.224 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Jul-2020 19:21:18.233 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 19:21:18.233 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54
+03-Jul-2020 19:21:18.233 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\temp
+03-Jul-2020 19:21:18.234 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+03-Jul-2020 19:21:18.234 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+03-Jul-2020 19:21:18.234 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+03-Jul-2020 19:21:18.260 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+03-Jul-2020 19:21:18.585 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8092"]
+03-Jul-2020 19:21:19.773 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Jul-2020 19:21:19.848 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 3370 ms
+03-Jul-2020 19:21:19.975 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Jul-2020 19:21:19.975 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.54
+03-Jul-2020 19:21:21.154 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT]
+03-Jul-2020 19:21:21.393 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\hoc\java\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ROOT] has finished in [237] ms
+03-Jul-2020 19:21:21.402 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8092"]
+03-Jul-2020 19:21:21.486 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1635 ms

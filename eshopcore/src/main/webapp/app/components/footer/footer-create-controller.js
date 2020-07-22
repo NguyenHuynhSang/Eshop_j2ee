@@ -10,7 +10,7 @@
 
         function CreateFooter() {
        
-            apiService.post('/eshopcore/API-Footer', JSON.stringify($scope.footerEntity)  , function (result) {
+            apiService.post('/eshopcore_war/API-Footer', JSON.stringify($scope.footerEntity)  , function (result) {
                 notificationService.displaySuccess("Thêm mới bản ghi thành công");
                 $state.go('footer-list');
             }, function () {

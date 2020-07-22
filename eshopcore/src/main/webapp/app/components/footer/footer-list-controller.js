@@ -12,6 +12,7 @@
         $scope.search = search;
         $scope.delFooter = delFooter;
 
+        $scope.SetActive = setActive;
         function search() {
             getListFooter();
         }
@@ -23,7 +24,7 @@
                         ID: id,
                     }
                 }
-                apiService.del('/eshopcore/API-Footer', config, function () {
+                apiService.del('/eshopcore_war/API-Footer', config, function () {
                     notificationService.displaySuccess("Xóa thành công bản ghi");
                     getListFooter();
                 }, function () {
@@ -35,6 +36,22 @@
 
         }
 
+        function setActive(id)
+        {
+            $ngBootbox.confirm('Bạn có muốn hiển thị footer này?').then(function()
+            {
+                apiService.put('/eshopcore_war/FooterServlet',JSON.stringify(id),function()
+                    {
+                        notificationService.displaySuccess("Thành công");
+                        getListFooter();
+                    },function(){
+
+                    });
+                    notificationService.displaySuccess("Thành công");
+                    getListFooter();
+            });
+        }
+
         function getListFooter() {
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
             var config = {
@@ -44,7 +61,7 @@
                 }
             }
 
-            apiService.get('/eshopcore/API-Footer', config, function (result) {
+            apiService.get('/eshopcore_war/API-Footer', config, function (result) {
                 $scope.footerList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

@@ -25,12 +25,12 @@ public class ContentService extends DbConnection<ContentViewModel> implements IC
     @Override
     public List<ContentViewModel> GetContent() throws SQLException
     {
-        String sqlQuery="select b.ID,b.Name,b.MetaTitle,b.Description,b.Image,b.CategoryID,b.Detail,b.Warranty,b.CreateDate\n" +
-"	,b.CreateBy,b.ModifiedDate,b.ModifiedBy,b.MetaKeywords,b.MetaDescriptions,b.Status\n" +
+        String sqlQuery="select b.ID,b.Name,b.MetaTitle,b.Description,b.Image,b.CategoryID,b.Detail,b.Warranty,b.CreatedDate\n" +
+"	,b.CreatedBy,b.ModifiedDate,b.ModifiedBy,b.MetaKeywords,b.MetaDescriptions,b.Status\n" +
 "	,b.TopHot,b.ViewCount,b.Tags,b.Language\n" +
 "	,c.ID as cCategoryID,c.ParentID as CategoryParentID,c.Name as CategoryName,c.MetaTitle as CategoryMetaTitle\n" +
 "	,c.SeoTitle as CategorySeoTitle, c.DisplayOrder as CategoryDisplayOrder\n" +
-"	,c.CreateDate as CategoryCreateDate,c.CreateBy as CategoryCreateBy\n" +
+"	,c.CreatedDate as CategoryCreateDate,c.CreatedBy as CategoryCreateBy\n" +
 "	,c.ModifiedDate as CategoryModifiedDate,c.ModifiedBy as CategoryModifiedBy\n" +
 "	,c.MetaKeyWords as CategoryMetaKeyWords,c.MetaDescriptions as CategoryMetaDescription\n" +
 "	,c.Status as CategoryStatus, c.ShowOnHome as CategoryShowOnHome\n" +
@@ -42,12 +42,12 @@ public class ContentService extends DbConnection<ContentViewModel> implements IC
     }  
     
      public List<ContentViewModel> GetAllContentByKey(String key) throws SQLException {
-        String sqlQuery ="select b.ID,b.Name,b.MetaTitle,b.Description,b.Image,b.CategoryID,b.Detail,b.Warranty,b.CreateDate\n" +
-"	,b.CreateBy,b.ModifiedDate,b.ModifiedBy,b.MetaKeywords,b.MetaDescriptions,b.Status\n" +
+        String sqlQuery ="select b.ID,b.Name,b.MetaTitle,b.Description,b.Image,b.CategoryID,b.Detail,b.Warranty,b.CreatedDate\n" +
+"	,b.CreatedBy,b.ModifiedDate,b.ModifiedBy,b.MetaKeywords,b.MetaDescriptions,b.Status\n" +
 "	,b.TopHot,b.ViewCount,b.Tags,b.Language\n" +
 "	,c.ID as cCategoryID,c.ParentID as CategoryParentID,c.Name as CategoryName,c.MetaTitle as CategoryMetaTitle\n" +
 "	,c.SeoTitle as CategorySeoTitle, c.DisplayOrder as CategoryDisplayOrder\n" +
-"	,c.CreateDate as CategoryCreateDate,c.CreateBy as CategoryCreateBy\n" +
+"	,c.CreatedDate as CategoryCreateDate,c.CreatedBy as CategoryCreateBy\n" +
 "	,c.ModifiedDate as CategoryModifiedDate,c.ModifiedBy as CategoryModifiedBy\n" +
 "	,c.MetaKeyWords as CategoryMetaKeyWords,c.MetaDescriptions as CategoryMetaDescription\n" +
 "	,c.Status as CategoryStatus, c.ShowOnHome as CategoryShowOnHome\n" +
@@ -69,12 +69,12 @@ public class ContentService extends DbConnection<ContentViewModel> implements IC
      
        public List<ContentViewModel> GetContentByID(int ID) throws SQLException
     {
-         String sqlQuery ="select b.ID,b.Name,b.MetaTitle,b.Description,b.Image,b.CategoryID,b.Detail,b.Warranty,b.CreateDate\n" +
-"	,b.CreateBy,b.ModifiedDate,b.ModifiedBy,b.MetaKeywords,b.MetaDescriptions,b.Status\n" +
+         String sqlQuery ="select b.ID,b.Name,b.MetaTitle,b.Description,b.Image,b.CategoryID,b.Detail,b.Warranty,b.CreatedDate\n" +
+"	,b.CreatedBy,b.ModifiedDate,b.ModifiedBy,b.MetaKeywords,b.MetaDescriptions,b.Status\n" +
 "	,b.TopHot,b.ViewCount,b.Tags,b.Language\n" +
 "	,c.ID as cCategoryID,c.ParentID as CategoryParentID,c.Name as CategoryName,c.MetaTitle as CategoryMetaTitle\n" +
 "	,c.SeoTitle as CategorySeoTitle, c.DisplayOrder as CategoryDisplayOrder\n" +
-"	,c.CreateDate as CategoryCreateDate,c.CreateBy as CategoryCreateBy\n" +
+"	,c.CreatedDate as CategoryCreateDate,c.CreatedBy as CategoryCreateBy\n" +
 "	,c.ModifiedDate as CategoryModifiedDate,c.ModifiedBy as CategoryModifiedBy\n" +
 "	,c.MetaKeyWords as CategoryMetaKeyWords,c.MetaDescriptions as CategoryMetaDescription\n" +
 "	,c.Status as CategoryStatus, c.ShowOnHome as CategoryShowOnHome\n" +
@@ -96,12 +96,12 @@ public class ContentService extends DbConnection<ContentViewModel> implements IC
         if (rs.next() == false)
         {
           sqlQuery="INSERT INTO Content (Name, MetaTitle, Description"
-                  + ",Image, CategoryID, Detail, Warranty, CreateDate, CreateBy"
+                  + ",Image, CategoryID, Detail, Warranty"
                   + ", MetaKeywords, MetaDescriptions"
                   + ", Status, TopHot, ViewCount, Tags, Language)"
-                  + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                  + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
           Update(sqlQuery,content.getName(),content.getMetaTitle(),content.getDescription(),
-                 content.getImage(),content.getCategoryID(),content.getDetail(),content.getWarranty(),content.getCreateDate(),content.getCreateBy(),
+                 content.getImage(),content.getCategoryID(),content.getDetail(),content.getWarranty(),
                  content.getMetaKeywords(),content.getMetaDescriptions(),content.isStatus(),content.getTopHot(),content.getViewCount(),content.getTags(),content.getLanguage());
           if(content.getTags()!=null)
           {
@@ -144,11 +144,10 @@ public class ContentService extends DbConnection<ContentViewModel> implements IC
         }
         else
         {
-          sqlQuery="UPDATE Content SET Name=?, MetaTitle=?,Description=?,Image=?,CategoryID=?,Detail=?,Warranty=?,ModifiedDate=?"
-                  + ",ModifiedBy=?,MetaKeywords=?,MetaDescriptions=?,Status=?,Tags=?,Language=? WHERE ID = ?";                         
+          sqlQuery="UPDATE Content SET Name=?, MetaTitle=?,Description=?,Image=?,CategoryID=?,Detail=?,Warranty=?"
+                  + ",MetaKeywords=?,MetaDescriptions=?,Status=?,Tags=?,Language=? WHERE ID = ?";
           Update(sqlQuery,content.getName(),content.getMetaTitle(),content.getDescription(),content.getImage(),
-                  content.getCategoryID(),content.getDetail(),content.getWarranty(),content.getModifiedDate(),
-                  content.getModifiedBy(),content.getMetaKeywords(),content.getMetaDescriptions(),content.isStatus(),
+                  content.getCategoryID(),content.getDetail(),content.getWarranty(),content.getMetaKeywords(),content.getMetaDescriptions(),content.isStatus(),
                   content.getTags(),content.getLanguage(),content.getID());
           
           ContentTagService contenttagsv = new ContentTagService();

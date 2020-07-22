@@ -18,7 +18,7 @@
                 }
             }
 
-            apiService.get('/eshopcore/API-Content', config, function (result) {
+            apiService.get('/eshopcore_war/API-Content', config, function (result) {
                 $scope.jsonEntity = result.data[0];
             }, function () {
                 console.log('Load content api failed.');
@@ -36,7 +36,7 @@
                     action: "getAll",
                 }
             }
-            apiService.get('/eshopcore/API-ContentCategory', config, function (result) {
+            apiService.get('/eshopcore_war/API-ContentCategory', config, function (result) {
                 $scope.contentcategoryList = result.data;   
             }, function () {
                 console.log('Load content category api failed.');
@@ -47,7 +47,7 @@
         $scope.getListcontentcategory();  
 
         function EditContent() {
-            apiService.put('/eshopcore/API-Content',  JSON.stringify($scope.jsonEntity)  , function (result) {
+            apiService.put('/eshopcore_war/API-Content',  JSON.stringify($scope.jsonEntity.content)  , function (result) {
                 notificationService.displaySuccess("Sửa bản ghi thành công");
                 $state.go('content-list');
             }, function () {

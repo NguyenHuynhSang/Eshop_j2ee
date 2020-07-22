@@ -126,7 +126,7 @@ public class FooterAPI extends HttpServlet {
         FooterService jsonservice=new FooterService();
         
         String js=HttpUtil.of(request.getReader());
-            String ID= request.getParameter("ID");
+        String ID= request.getParameter("ID");
         try {
             jsonservice.DeleteFooter(Integer.parseInt(ID));
         } catch (SQLException ex) {

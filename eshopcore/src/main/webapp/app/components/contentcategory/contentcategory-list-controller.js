@@ -25,7 +25,7 @@
                         ID: id,
                     }
                 }
-                apiService.del('/eshopcore/API-ContentCategory', config, function () {
+                apiService.del('/eshopcore_war/API-ContentCategory', config, function () {
                     notificationService.displaySuccess("Xóa thành công bản ghi");
                     getListContentCategory();
                 }, function () {
@@ -46,7 +46,7 @@
                 }
             }
 
-            apiService.get('/eshopcore/API-ContentCategory', config, function (result) {
+            apiService.get('/eshopcore_war/API-ContentCategory', config, function (result) {
                 $scope.contentcategoryList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

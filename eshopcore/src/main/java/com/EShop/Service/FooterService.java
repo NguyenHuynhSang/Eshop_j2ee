@@ -54,7 +54,7 @@ public class FooterService extends DbConnection<Footer> implements IFooterServic
      public void InsertFooter(Footer footer)throws SQLException
      {
           String sqlQuery="INSERT INTO Footer (Content,IsShow) VALUES (?,?)";
-          Update(sqlQuery,footer.getID(),footer.getContent(),footer.isIsShow());
+          Update(sqlQuery,footer.getContent(),footer.isIsShow());
      }
      
    

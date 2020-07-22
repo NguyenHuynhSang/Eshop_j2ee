@@ -3,14 +3,14 @@
     <div class="kt-container  kt-container--fluid ">
         <div class="kt-subheader__main">
             <h3 class="kt-subheader__title">
-                Danh mục tin tức
+                Danh sách footer
             </h3>
             <span class="kt-subheader__separator kt-hidden"></span>
             <div class="kt-subheader__breadcrumbs">
                 <a ui-sref="home" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
                 <a ui-sref="order-list" class="kt-subheader__breadcrumbs-link">
-                    Danh sách danh mục
+                    Danh sách footer
                 </a>
                 <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
             </div>
@@ -266,7 +266,7 @@
                                     <td>
                                         <button ui-sref="footer-edit({id:item.ID})" class="btn btn-primary"><i class="fa fa-edit">edit</i></button>
                                         <button ng-click="delFooter(item.ID)" class="btn btn-primary"><i class="fa fa-trash">delete</i></button>
-                                        <button ng-click="" class="btn btn-primary"><i class="fa fa-create">Kích hoạt</i></button>
+                                        <button ng-click="SetActive(item.ID)" class="btn btn-primary"><i class="fa fa-create">Kích hoạt</i></button>
                                     </td>
                                 </tr>
                                 </tfoot>

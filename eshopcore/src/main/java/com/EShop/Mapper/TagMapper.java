@@ -22,8 +22,8 @@ public class TagMapper implements RowMapper<Tag>{
     {
         String id;
         try {
-            id = rs.getString("TagID");
-            String name = rs.getString("TagName");
+            id = rs.getString("ID");
+            String name = rs.getString("TagtName");
             Tag tag = new Tag(id,name);
             return tag;
         } catch (SQLException ex) {

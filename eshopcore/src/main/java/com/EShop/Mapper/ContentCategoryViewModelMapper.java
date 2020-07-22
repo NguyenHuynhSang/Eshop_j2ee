@@ -30,8 +30,8 @@ public class ContentCategoryViewModelMapper implements RowMapper<ContentCategory
              child.setMetatitle(rs.getString("MetaTitle"));
              child.setSeoTitle(rs.getString("SeoTitle"));
              child.setDisplayOrder(rs.getInt("DisplayOrder"));
-             child.setCreateDate(rs.getDate("CreateDate"));
-             child.setCreateBy(rs.getString("CreateBy"));
+             child.setCreateDate(rs.getDate("CreatedDate"));
+             child.setCreateBy(rs.getString("CreatedBy"));
              child.setModifiedDate(rs.getDate("ModifiedDate"));
              child.setModifiedBy(rs.getString("ModifiedBy"));
              child.setMetaKeyWords(rs.getString("MetaKeyWords"));

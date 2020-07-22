@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+
+<script>
+    var count = 1;
+    $('#btnSelectImage').on('click', function (e) {
+        e.preventDefault();
+        var finder = new CKFinder();
+       
+        finder.selectActionFunction = function (url) {
+
+            if (count > 1) {
+                return;
+            }
+            $('#txtImage').val(url).trigger('input');
+            $('#divImage').append('<img class="abc" src="' + url + '" />');
+
+            count++;
+        };
+        finder.popup();
+
+    })
+
+</script>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +30,7 @@
 </head>
 <body>
 <h1>Sửa danh mục tin tức</h1>
-<form class="kt-form"  name="frmEditContent" ng-submit="EditContent()" novalidate>
+<form class="kt-form"  name="frmEditContent" novalidate>
     <div class="kt-portlet__body">
         <div class="form-group form-group-last">
             <div class="alert alert-secondary" role="alert">
@@ -24,9 +47,9 @@
         </div>
         <div class="form-group">
             <label for="CategoryID">Danh mục tin tức</label>
-            <select class="form-control" ng-model="jsonEntity.content.CategoryID" >
+            <select class="form-control" id="CategoryID" ng-model="jsonEntity.content.CategoryID" >
                 <option value="" disabled selected hidden>Danh mục cha</option>
-                <option ng-repeat="category in contentcategoryList" value="{{category.Category.ID}}">
+                <option ng-repeat="category in contentcategoryList" ng-value="jsonEntity.content.CategoryID" value="{{category.Category.ID}}">
                     {{category.Category.Name}}</option>
             </select>
         </div>
@@ -35,19 +58,22 @@
             <input ng-model="jsonEntity.content.MetaTitle" value="{{jsonEntity.content.Metatitle}}" type="text" class="form-control" id="Metatitle" placeholder="MetaTitle">
         </div>
         <div class="form-group">
-            <label for="Description">Mô tả</label>
-            <textarea ng-model="jsonEntity.content.Description" value ="{{jsonEntity.content.Description}}" type="text" class="form-control" id="SeoTitle" placeholder="Seo Title">
+            <label for="description">Mô tả</label>
+            <ng-ckeditor height="500px" ng-model="jsonEntity.content.Description" remove-buttons="Image"
+                         value="{{jsonEntity.content.Description}} "remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
         </div>
         <div class="form-group">
-            <label for="Image">Hình ảnh</label>
-            <input ng-model="jsonEntity.content.Image" value="{{jsonEntity.content.Image}}" type="number" class="form-control" id="DisplayOrder" placeholder="Thứ tự">
+            <label for="txtImage">Hình ảnh</label>
+            <input ng-change="imageInputChange()" ng-model="jsonEntity.content.Image" ng-change="imageInputChange()" type="text" class="form-control" id="txtImage"
+                   placeholder="Hình ảnh">
+             <a id="btnSelectImage"  href="#">Chọn ảnh</a>
         </div>
         <div class="form-group">
             <label for="Detail">Chi tiết</label>
-            <input ng-model="jsonEntity.content.Detail" value="{{jsonEntity.content.Detail}}" type="text" class="form-control" id="Metakeywords" placeholder="Meta keyword">
+            <input ng-model="jsonEntity.content.Detail" value="{{jsonEntity.content.Detail}}" type="text" class="form-control" id="Detail" placeholder="Meta keyword">
         </div>
         <div class="form-group">
-            <label for="MetaKeyWords">Meta description</label>
+            <label for="MetaKeyWords">Meta keyword</label>
             <input ng-model="jsonEntity.content.MetaKeyWords" value="{{jsonEntity.content.MetaKeyWords}}" type="text" class="form-control" id="Metadescriptions" placeholder="Meta description">
         </div>
         <div class="form-group">
@@ -55,12 +81,16 @@
             <input ng-model="jsonEntity.content.MetaDescriptions" value="{{jsonEntity.content.MetaDescriptions}}" type="text" class="form-control" id="Metadescriptions" placeholder="Meta description">
         </div>
         <div class="form-group">
+            <label for="Tag">Tag</label>
+            <input ng-model="jsonEntity.content.Tags" value={{jsonEntity.content.Tags}} type="text" id="Tag" placeholder="Tag">
+        </div>
+        <div class="form-group">
             <label for="status">Trạng thái</label>
             <input ng-model="jsonEntity.content.Status" value="{{jsonEntity.content.Status}}" type="checkbox" id="status" placeholder="Trạng thái">
         </div>
         <div class="form-group">
-            <label for="TopHot">Tin tức hot</label>
-            <input ng-model="jsonEntity.content.TopHot" value={{jsonEntity.content.TopHot}} type="checkbox" id="ShowOnHome" placeholder="Hiện trên trang chủ">
+            <label for="tophot">Tin tức hot</label>
+            <input ng-model="jsonEntity.content.TopHot" value={{jsonEntity.content.TopHot}} type="checkbox" id="tophot" placeholder="Hiện trên trang chủ">
         </div>
         <div class="form-group">
             <label for="Language">Ngôn ngữ</label>
@@ -69,7 +99,7 @@
     </div>
     <div class="kt-portlet__foot">
         <div class="form-group">
-            <button type="submit"  class="btn btn-primary">Submit</button>
+            <button type="submit" ng-click="EditContent()" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-secondary">Cancel</button>
         </div>
     </div>

@@ -197,6 +197,8 @@
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="contentcategory-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Danh mục tin tức</span></a></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="content-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Tin tức</span></a></li>
                                     <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="footer-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Footer</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="slide-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Slide</span></a></li>
+                                    <li ui-sref-active="kt-menu__item--active" class="kt-menu__item " aria-haspopup="true"><a ui-sref="menu-list" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Menu</span></a></li>
 
 
 
@@ -2453,6 +2455,8 @@
 <script src="${pageContext.request.contextPath }/app/components/contentcategory/contentcategory-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/footer/footer-module.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/slide/slide-module.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/menu/menu-module.js"></script>
 
 <!--Begin::embed app service-->
 <script src="${pageContext.request.contextPath }/app/app.js"></script>
@@ -2485,15 +2489,26 @@ content controller container
 <script src="${pageContext.request.contextPath }/app/components/content/content-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-create-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-edit-controller.js"></script>
-
-contentcategory controller container
+<%--
+footer controller container
 --%>
 <script src="${pageContext.request.contextPath }/app/components/footer/footer-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/footer/footer-create-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/footer/footer-edit-controller.js"></script>
 
+<%--
+slide controller container
+--%>
+<script src="${pageContext.request.contextPath }/app/components/slide/slide-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/slide/slide-create-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/slide/slide-edit-controller.js"></script>
 
-
+<%--
+menu controller container
+--%>
+<script src="${pageContext.request.contextPath }/app/components/menu/menu-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/menu/menu-create-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/menu/menu-edit-controller.js"></script>
 
 <!--end::embed angularJs-->
 <!--end::Page Scripts -->

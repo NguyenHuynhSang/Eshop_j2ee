@@ -32,8 +32,8 @@ public class ContentViewModelMapper implements RowMapper<ContentViewModel>{
              int CategoryID=rs.getInt("CategoryID");
              String Detail=rs.getString("Detail");
              int Warranty=rs.getInt("Warranty");
-             Date CreateDate=rs.getDate("CreateDate");
-             String CreateBy=rs.getString("CreateBy");
+             Date CreateDate=rs.getDate("CreatedDate");
+             String CreateBy=rs.getString("CreatedBy");
              Date ModifiedDate=rs.getDate("ModifiedDate");
              String ModifiedBy=rs.getString("ModifiedBy");
              String MetaKeyWords=rs.getString("MetaKeywords");
