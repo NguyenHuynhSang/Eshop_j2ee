@@ -1,7 +1,7 @@
 ﻿/// <reference path="../assets/admin/libs/plugins/angular/angular.js" />
 
 (function () {
-    angular.module('eshop', ['eshop-product','eshop-order','eshop-catalog', 'eshop-common','eshop-contentcategory','eshop-content','eshop-footer','eshop-slide']).config(config);
+    angular.module('eshop', ['eshop-product','eshop-order','eshop-catalog', 'eshop-common','eshop-contentcategory','eshop-content','eshop-footer','eshop-slide','eshop-menu']).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider','$locationProvider'];
     function config($stateProvider, $urlRouterProvider,$locationProvider) {

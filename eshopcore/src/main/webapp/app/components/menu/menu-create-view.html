@@ -1,27 +1,4 @@
 
-    <script>
-        var count = 1;
-        $('#btnSelectImage').on('click', function (e) {
-            e.preventDefault();
-            var finder = new CKFinder();
-           
-            finder.selectActionFunction = function (url) {
-
-                if (count > 1) {
-                    return;
-                }
-                $('#txtImage').val(url).trigger('input');
-                $('#divImage').append('<img class="abc" src="' + url + '" />');
-
-                count++;
-            };
-            finder.popup();
-
-        })
-    
-    </script>
-
-
 <div class="kt-subheader   kt-grid__item" id="kt_subheader">
     <div class="kt-container  kt-container--fluid ">
         <div class="kt-subheader__main">
@@ -47,8 +24,8 @@
             <div class="kt-subheader__wrapper">
                 <a href="#" class="btn kt-subheader__btn-daterange" id="kt_dashboard_daterangepicker"
                    data-toggle="kt-tooltip" title="Select dashboard daterange" data-placement="left">
-                                    <span class="kt-subheader__btn-daterange-title"
-                                          id="kt_dashboard_daterangepicker_title">Today</span>&nbsp;
+                    <span class="kt-subheader__btn-daterange-title"
+                          id="kt_dashboard_daterangepicker_title">Today</span>&nbsp;
                     <span class="kt-subheader__btn-daterange-date"
                           id="kt_dashboard_daterangepicker_date">Aug 16</span>
 
@@ -117,8 +94,8 @@
                                     <i class="kt-nav__link-icon flaticon2-new-email"></i>
                                     <span class="kt-nav__link-text">Support Case</span>
                                     <span class="kt-nav__link-badge">
-                                                            <span class="kt-badge kt-badge--success">5</span>
-                                                        </span>
+                                        <span class="kt-badge kt-badge--success">5</span>
+                                    </span>
                                 </a>
                             </li>
                             <li class="kt-nav__separator"></li>
@@ -150,35 +127,44 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="name">Tiêu đề</label>
-                <input ng-model="slideEntity.Title" type="text" class="form-control" id="name"
-                       placeholder="Tiêu đề">
+                <label for="link">Đường dẫn</label>
+                <input ng-model="menuEntity.Link" type="text" class="form-control" id="link"
+                       placeholder="Link">
             </div>
             <div class="form-group">
-                <label for="description">Nội dung</label>
-                <ng-ckeditor height="500px" ng-model="slideEntity.Content" remove-buttons="Image"
-                remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
+                <label for="text">Nội dung hiển thị</label>
+                <input ng-model="menuEntity.Text" type="text" class="form-control" id="text"
+                       placeholder="Text">
             </div>
             <div class="form-group">
-                <label for="image">Hình ảnh</label>
-                <input ng-change="imageInputChange()" ng-model="slideEntity.Image" ng-change="imageInputChange()" type="text" class="form-control" id="txtImage"
-                       placeholder="Hình ảnh">
-                 <a id="btnSelectImage"  href="#">Chọn ảnh</a>
+                <label for="displayorder">Thứ tự sắp xếp</label>
+                <input ng-model="menuEntity.DisplayOrder" type="number" class="form-control" id="displayorder"
+                       placeholder="Display Order">
             </div>
             <div class="form-group">
-                <label for="name">Url</label>
-                <input ng-model="slideEntity.Url" type="text" class="form-control" id="name"
-                       placeholder="Url">
+                <label for="target">Target</label>
+                <input ng-model="menuEntity.Target" type="text" class="form-control" id="target"
+                       placeholder="Target">
             </div>
+
+            <div class="form-group">
+                <label for="groupId">Nhóm Menu</label>
+                <select class="form-control" ng-model="menuEntity.MenuGroupID">
+                    <option value="" disabled selected hidden>Group Menu</option>
+                    <option ng-repeat="menugroup in MenuGroup" value="{{menugroup.ID}}">
+                        {{menugroup.Name}}</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="status">Trạng thái</label>
-                <input class="checkbox" ng-model="slideEntity.IsShow" type="checkbox" class="checkbox" id="status" >
+                <input class="checkbox" ng-model="menuEntity.IsShow" type="checkbox" class="checkbox" id="status" >
             </div>
         </div>
         <div class="kt-portlet__foot">
             <div class="form-group">
-                <button type="submit" ng-click="CreateSlide()" class="btn btn-primary">Submit</button>
-                <button type="reset" ui-sref="slide-list" class="btn btn-secondary">Cancel</button>
+                <button type="submit" ng-click="CreateMenu()" class="btn btn-primary">Submit</button>
+                <button type="reset" ui-sref="menu-list" class="btn btn-secondary">Cancel</button>
             </div>
         </div>
     </form>

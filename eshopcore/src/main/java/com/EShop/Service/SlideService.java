@@ -66,11 +66,26 @@ public class SlideService extends DbConnection<Slide> implements ISlideService{
         Update(sqlQuery, id);
          
      }
-    
+
+
+    public Slide GetSlideByID(String ID) throws SQLException
+    {
+        int id = Integer.parseInt(ID);
+        String sqlQuery = "SELECT * FROM Slide WHERE ID = ?";
+        List<Slide> slide = query(sqlQuery,new SlideMapper(), id);
+        return slide.get(0);
+    }
+
     public void SetActiveSlide(int id) throws SQLException
     {
         String sqlQuery;
-        sqlQuery ="Update Slide Set IsShow ='true' where ID = ?";
+        Slide slide = GetSlideByID(Integer.toString(id));
+        if(!slide.isShow()) {
+            sqlQuery = "Update Slide Set IsShow ='true' where ID = ?";
+        } else
+        {
+            sqlQuery = "Update Slide Set IsShow ='false' where ID = ?";
+        }
         Update(sqlQuery,id);
     }
 

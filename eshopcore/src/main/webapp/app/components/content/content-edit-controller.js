@@ -47,7 +47,7 @@
         $scope.getListcontentcategory();  
 
         function EditContent() {
-            apiService.put('/eshopcore_war/API-Content',  JSON.stringify($scope.jsonEntity)  , function (result) {
+            apiService.put('/eshopcore_war/API-Content',  JSON.stringify($scope.jsonEntity.content)  , function (result) {
                 notificationService.displaySuccess("Sửa bản ghi thành công");
                 $state.go('content-list');
             }, function () {

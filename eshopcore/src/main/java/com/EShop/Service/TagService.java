@@ -24,7 +24,7 @@ public class TagService extends DbConnection<Tag> implements ITagService{
      
     public List<Tag> GetJSONByID(String ID) throws SQLException
     {
-       String sqlQuery = "SELECT * FROM Tag WHERE TagID = ?";
+       String sqlQuery = "SELECT * FROM Tag WHERE ID = ?";
        return query(sqlQuery,new TagMapper(), ID);
     }
      
@@ -33,10 +33,10 @@ public class TagService extends DbConnection<Tag> implements ITagService{
         String sqlQuery;
         if (key != "") {
             try {
-                sqlQuery = "select * from Tag  where TagID= ? OR TagName LIKE %?%";
+                sqlQuery = "select * from Tag  where ID= ? OR TagtName LIKE %?%";
                 return query(sqlQuery,new TagMapper(),key,key);
             } catch (NumberFormatException e) {
-                sqlQuery = "select * from Tag where  TagName LIKE ?";
+                sqlQuery = "select * from Tag where  TagtName LIKE ?";
                 return query(sqlQuery, new TagMapper(),key);
             }
         }  
@@ -46,7 +46,7 @@ public class TagService extends DbConnection<Tag> implements ITagService{
      @Override
      public void InsertTag(Tag tag)throws SQLException
      {
-          String sqlQuery="INSERT INTO Tag (TagID, TagName) VALUES (?,?)";
+          String sqlQuery="INSERT INTO Tag (ID, TagtName) VALUES (?,?)";
           Update(sqlQuery,tag.getID(),tag.getName());
      }
      
@@ -54,7 +54,7 @@ public class TagService extends DbConnection<Tag> implements ITagService{
      @Override
      public void UpdateTag(Tag tag)throws SQLException
      {
-        String sqlQuery="UPDATE Tag SET TagName = ? WHERE TagID = ?";
+        String sqlQuery="UPDATE Tag SET TagtName = ? WHERE ID = ?";
         Update(sqlQuery,tag.getName(),tag.getID());
      }
     @Override
@@ -66,7 +66,7 @@ public class TagService extends DbConnection<Tag> implements ITagService{
              ResultSet rs=statement.executeQuery(sqlQuery);
              if(rs.next()!=false)
              {
-                 sqlQuery="DELETE FROM Tag WHERE TagID='"+rs.getInt("TagID")+"';";
+                 sqlQuery="DELETE FROM Tag WHERE TagID='"+rs.getInt("ID")+"';";
                  int rowCount=statement.executeUpdate(sqlQuery);
              }
          }
