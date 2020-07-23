@@ -289,25 +289,54 @@
                     <div class="col-lg-4" style="border-left: 1px solid #e2e5ec;">
                         <div class="kt-margin-b-10-tablet-and-mobile ">
                             <label>Tùy chọn</label>
-                            <div class="row">
-                                <div class="form-check-label">
-                                    <label class="kt-checkbox kt-checkbox--tick kt-checkbox--brand">
-                                        <input type="checkbox" ng-model="advanceSearch" checked="false">Tìm kiếm nâng
-                                        cao
-                                        <span></span>
-                                    </label>
+                            <form class="kt-form">
+                                <div class="form-group row">
+                                    <div class="col-2">
+														<span class="kt-switch kt-switch--info">
+															<label>
+																<input ng-model="advanceSearch" type="checkbox" checked="checked" name="">
+																<span></span>
+															</label>
+														</span>
+                                    </div>
+                                    <label class="col-4 col-form-label">Tìm nâng cao</label>
 
+                                    <div class="col-2">
+														<span class="kt-switch kt-switch--info">
+															<label>
+																<input ng-model="advanceSearch" type="checkbox" checked="checked" name="">
+																<span></span>
+															</label>
+														</span>
+                                    </div>
+                                    <label class="col-4 col-form-label">Gom cột giá</label>
                                 </div>
 
-                                <div class="form-check-label">
-                                    <label class="kt-checkbox kt-checkbox--tick kt-checkbox--brand">
-                                        <input type="checkbox" ng-model="advanceSearch" checked="false">Tìm kiếm nâng
-                                        cao
-                                        <span></span>
-                                    </label>
-
+                                <div class="form-group row">
+                                    <div class="col-2">
+														<span class="kt-switch kt-switch--info">
+															<label>
+																<input ng-model="advanceSearch" type="checkbox" checked="checked" name="">
+																<span></span>
+															</label>
+														</span>
+                                    </div>
+                                    <label class="col-10 col-form-label">Hiện biểu đồ sản phẩm bán chạy</label>
                                 </div>
-                            </div>
+
+                                <div class="form-group row">
+                                    <div class="col-2">
+														<span class="kt-switch kt-switch--info">
+															<label>
+																<input ng-model="advanceSearch" type="checkbox" checked="checked" name="">
+																<span></span>
+															</label>
+														</span>
+                                    </div>
+                                    <label class="col-10 col-form-label">Hiển thị sản phẩm bị ẩn đi</label>
+                                </div>
+                            </form>
+
 
 
                         </div>
@@ -328,8 +357,8 @@
                             <thead>
                             <tr>
                                 <th>Mã sản phẩm</th>
+                                <th>Ảnh sản phẩm</th>
                                 <th>Tên sản phẩm</th>
-                                <th>Loại sản phẩm</th>
                                 <th>Số phiên bản</th>
                                 <th>Giá sản phẩm</th>
                                 <th>Số lượng</th>
@@ -340,78 +369,43 @@
                             <tbody>
 
 
-                            <tr>
-                                <td>1</td>
-                                <td>Iphone XLLL</td>
-                                <td>Iphone</td>
-                                <td>Hiện có 4 phiên bản</td>
+                            <tr ng-repeat="item in productList">
+                                <td>{{item.ID}}</td>
+                                <td>
+                                    <img src="{{item.Image}}" width="100px" height="100px"/>
+
+                                </td>
+                                <td>{{item.Product.Name}}</td>
                                 <td>
                                     <ul>
                                         <li>
-                                            Giá gốc:{{item.originalPrice}} 20.000.000
+                                            Giá gốc: <span class="kt-widget20__number kt-font-success">{{item.Product.OriginalPrice| currency:"":0}}</span>
                                         </li>
                                         <li>
-                                            Giá bán:{{item.originalPrice}} 26.000.000
+                                            Giá bán: <span class="kt-widget20__number kt-font-hover-success">{{item.Price| currency:"":0}}</span>
                                         </li>
                                         <li>
-                                            Giá khuyến mãi:{{item.originalPrice}} 23.000.000
+                                            Giá khuyến mãi:
+                                            <span ng-show="item.PromotionPrice==0 ||item.PromotionPrice==null"
+                                                  class="kt-widget20__number kt-font-danger">Sản phẩm không khuyến mãi</span>
+                                            <span ng-show="item.PromotionPrice!=0"
+                                                  class="kt-widget20__number kt-font-danger">{{item.PromotionPrice| currency:"":0}}</span>
                                         </li>
                                     </ul>
                                 </td>
-                                <td>Tồn kho: 100</td>
+                                <td>
+                                    Tồn kho:
+                                    <span ng-show="item.RemainingAmount>0" class="kt-widget20__number kt-font-success"> {{item.RemainingAmount}}</span>
+                                    <span ng-show="item.RemainingAmount==0" class="kt-widget20__number kt-font-danger">HẾT HÀNG</span>
+                                    <span ng-show="item.RemainingAmount<0" class="kt-widget20__number kt-font-danger">SẢN PHẨM ÂM</span>
+                                    </td>
                                 <td class="text-success">Đang hiển thị</td>
+                                <td>Có</td>
                                 <td>
                                         <span class="dtr-data">
                                             <span class="dropdown">
                                                 <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md"
                                                    title="Edit">
-                                                    <i class="la la-edit"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md"
-                                                   title="View">
-                                                    <i class="la la-eye"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md"
-                                                   data-toggle="dropdown" aria-expanded="true">
-                                                    <i class="la la-ellipsis-h"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit Details</a>
-                                                    <a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>
-                                                    <a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>
-                                                </div>
-                                            </span>
-
-                                        </span>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td>2</td>
-                                <td>Samsung galaxy X</td>
-                                <td>Samsung</td>
-                                <td>Hiện có 2 phiên bản</td>
-                                <td>
-                                    <ul>
-                                        <li>
-                                            Giá gốc:{{item.originalPrice}} 20.000.000
-                                        </li>
-                                        <li>
-                                            Giá bán:{{item.originalPrice}} 26.000.000
-                                        </li>
-                                        <li>
-                                            Giá khuyến mãi:{{item.originalPrice}} 23.000.000
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td class="text-danger">HẾT HÀNG</td>
-                                <td class="text-danger">Đã ẩn</tdclass="text-danger">
-                                <td>
-                                        <span class="dtr-data">
-                                            <span class="dropdown">
-                                                <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md"
-                                                   title="View">
                                                     <i class="la la-edit"></i>
                                                 </a>
                                                 <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md"

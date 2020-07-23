@@ -53,7 +53,7 @@ b
                 }
             }
 
-            apiService.get('/eshopcore_war/api/Product/GetAll', config, function (result) {
+            apiService.get('/eshopcore_war/api/Product', null, function (result) {
                 $scope.productList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

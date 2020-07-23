@@ -1,6 +1,6 @@
 package com.EShop.Service;
 
-import com.EShop.IService.IDbConnection;
+import com.EShop.Service.IService.IDbConnection;
 import com.EShop.Mapper.RowMapper;
 import java.sql.Connection;
 import java.sql.Date;

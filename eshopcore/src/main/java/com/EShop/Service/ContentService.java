@@ -5,19 +5,16 @@
  */
 package com.EShop.Service;
 
-import com.EShop.IService.IContentService;
+import com.EShop.Service.IService.IContentService;
 import com.EShop.Mapper.ContentViewModelMapper;
 import com.EShop.Model.Content;
-import com.EShop.Model.ContentCategory;
 import com.EShop.Model.ContentTag;
 import com.EShop.Model.Tag;
 import com.EShop.ViewModel.ContentViewModel;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContentService extends DbConnection<ContentViewModel> implements IContentService {

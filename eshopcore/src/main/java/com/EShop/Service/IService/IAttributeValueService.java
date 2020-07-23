@@ -1,4 +1,4 @@
-package com.EShop.IService;
+package com.EShop.Service.IService;
 
 import com.EShop.Model.AttributeValue;
 
