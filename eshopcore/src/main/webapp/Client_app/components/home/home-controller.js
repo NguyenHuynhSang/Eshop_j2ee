@@ -10,7 +10,7 @@
         $scope.newProducts=[];
         $scope.GetListNewProducts = GetListNewProducts;
 
-
+        $rootScope.bodyClass='single-product full-width';
         $scope.addToCart=addToCart;
 
 
