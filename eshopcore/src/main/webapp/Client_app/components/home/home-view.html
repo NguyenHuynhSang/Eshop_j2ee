@@ -221,13 +221,21 @@
                                                         <div class="price-add-to-cart">
                                                             <span class="price">
                                                                 <span class="electro-price">
-                                                                    <ins><span class="amount"> {{newProduct.ProductVersion.PromotionPrice | currency}}</span></ins>
-                                                                    <del><span class="amount">{{newProduct.ProductVersion.Price | currency}}</span></del>
-                                                                    <span class="amount"> </span>
+<!--                                                                    <ins><span class="amount"> {{newProduct.ProductVersion.PromotionPrice | currency}}</span></ins>-->
+<!--                                                                    <del><span class="amount">{{newProduct.ProductVersion.Price | currency}}</span></del>-->
+<!--                                                                    <span class="amount"> </span>-->
                                                                 </span>
                                                             </span>
                                                             <a rel="nofollow" href="" target="_self" ng-click="addToCart(newProduct.ProductVersion.ID)"
                                                                class="button add_to_cart_button">Thêm </a>
+                                                            <span class="price">
+                                                                <span class="electro-price">
+                                                                    <ins><span class="amount"> {{newProduct.ProductVersion.PromotionPrice | currency:"":0}}</span></ins>
+                                                                    <del><span class="amount">{{newProduct.ProductVersion.Price | currency:"":0}}</span></del>
+                                                                    <span class="amount"> </span>
+                                                                </span>
+                                                            </span>
+                                                            <add-to-cart-button target="_self" ng-click="addToCart(newProduct.ProductVersion.ID)">Thêm vào giỏ hàng</add-to-cart-button>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
