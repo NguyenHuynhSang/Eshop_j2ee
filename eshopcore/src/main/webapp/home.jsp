@@ -279,6 +279,7 @@
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/ckeditor/ckeditor.js"></script>
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/ng-ckeditor/dist/ng-ckeditor.js"></script>
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/angular-ui-tree/dist/angular-ui-tree.js"></script>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.0/angular-sanitize.js"></script>
     <!--end::embed angularJs-->
     <!--Begin::embed app module-->
     <script src="${pageContext.request.contextPath }/Client_app/shared/modules/eshop-common.js"></script>
