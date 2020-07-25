@@ -5,7 +5,7 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider.state('product-list', {
-            url: "/san-pham",
+            url: "/san-pham?search=:key",
             parent: 'app',
             templateUrl: "./Client_app/components/product/product-list-view.html",
             controller: "product-list-controller"

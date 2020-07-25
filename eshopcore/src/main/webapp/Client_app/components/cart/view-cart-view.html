@@ -44,15 +44,17 @@
                                 </td>
 
                                 <td data-title="Quantity" class="product-quantity">
-                                    <div class="quantity buttons_added"><input type="button" class="minus" value="-">
+                                    <div class="quantity buttons_added">
+                                        <input ng-disabled="item.Quantity<=1" ng-click="addToCart(item.ProductVerion.ProductVersion.ID,-1)" type="button" class="minus" value="-">
                                         <label>Quantity:</label>
-                                        <input type="number"  size="4" class="input-text qty text" title="Qty" value="{{item.Quantity}}" name="cart[92f54963fc39a9d87c2253186808ea61][qty]" max="29" min="0" step="1">
-                                        <input type="button" class="plus" value="+">
+                                        <input type="number"  readonly size="4" class="input-text qty text"  value="{{item.Quantity}}"  min="1" step="1">
+                                        <button ng-click="addToCart(item.ProductVerion.ProductVersion.ID,1)" type="button" class="plus">+</button>
                                     </div>
                                 </td>
 
                                 <td data-title="Total" class="product-subtotal">
-                                    <span class="amount">{{item.Quantity*item.ProductVerion.ProductVersion.PromotionPrice}}</span>
+                                    <span class="amount">{{item.Quantity*item.Price| currency:"":0}}</span>
+
                                 </td>
                             </tr>
 
