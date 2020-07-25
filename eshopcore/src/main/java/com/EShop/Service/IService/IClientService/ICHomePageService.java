@@ -11,6 +11,7 @@ import java.util.List;
 public interface ICHomePageService {
     public List<Product> GetHotProducts() throws SQLException;
     public List<ProductDetailViewModel> GetNewProducts() throws SQLException;
+    public List<ProductDetailViewModel> GetBestSaleProducts() throws SQLException;
     public List<Slide> GetSlide() throws SQLException;
     public List<Content> GetNewBlog() throws SQLException;
 

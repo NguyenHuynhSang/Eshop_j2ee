@@ -51,6 +51,12 @@ public class HomePageApi extends HttpServlet {
                     break;
                 }
 
+                case "getBestSaleProduct": {
+                    List<ProductDetailViewModel> productViewModels = new ArrayList<ProductDetailViewModel>();
+                    productViewModels = homeService.GetBestSaleProducts();
+                    printWriter.print(gson.toJson(productViewModels));
+                    break;
+                }
 
             }
 

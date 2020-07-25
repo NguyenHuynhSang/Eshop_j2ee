@@ -13,7 +13,8 @@
         $rootScope.bodyClass='single-product full-width';
         $scope.addToCart=addToCart;
 
-
+        $scope.bestSaleProducts=[];
+        $scope.GetListbestSaleProducts = GetListbestSaleProducts;
 
         function addToCart(id)
         {
@@ -101,8 +102,29 @@
 
 
         }
-        $scope.GetListNewProducts();
+
+        function GetListbestSaleProducts(){
+            var config = {
+                params: {
+                    action: "getBestSaleProduct", //VỚI GET CONFIG LUÔN TRUYỀN ACTION VÀO ĐỂ HÀM DOGET XỬ LÝ TỪNG CASE
+                }
+            }
+            /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
+            apiService.get('/eshopcore_war/api/homePage', config, function (result) {
+                $scope.bestSaleProducts = result.data;
+                if (result.data.length == 0) {
+                    notificationService.displayWarning("Không tìm thấy slides nào");
+                } else {
+                    notificationService.displaySuccess("[DEV]Tìm đước slides");
+                }
+            }, function () {
+                notificationService.displayError("Không lấy được dữ liệu từ server");
+            });
+
+        }
         $scope.GetListSlides();
+        $scope.GetListNewProducts();
+        $scope.GetListbestSaleProducts();
     }
 
 
@@ -198,7 +220,7 @@
             transclude: true,
             replace: true,
             scope: {},
-            template: '<button class="add-to-cart btn btn-primary" type="button" ng-transclude></button>'
+            template: '<button class="add-to-cart" type="button" ng-transclude></button>'
         };
     });
 
