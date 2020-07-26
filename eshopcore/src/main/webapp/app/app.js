@@ -37,7 +37,7 @@
         // });
 
         //bắt lỗi 404 điều hướng tại đây
-         $urlRouterProvider.otherwise('/home');
+         $urlRouterProvider.otherwise('/login');
     }
 
 })();
