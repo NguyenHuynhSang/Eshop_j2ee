@@ -16,16 +16,6 @@ public class Product {
     private Date ModifiedDate;
     private String Name;
     private double OriginalPrice;
-
-    public com.EShop.Model.ProductCatalog getProductCatalog() {
-        return ProductCatalog;
-    }
-
-    public void setProductCatalog(com.EShop.Model.ProductCatalog productCatalog) {
-        ProductCatalog = productCatalog;
-    }
-
-    private ProductCatalog ProductCatalog;
     private String SEODescription;
     private String SEOTitle;
     private String SEOUrl;

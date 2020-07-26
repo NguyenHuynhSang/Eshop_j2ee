@@ -5,11 +5,13 @@
  */
 package com.EShop.Service;
 
-import com.EShop.Service.IService.IFooterService;
+import com.EShop.IService.IFooterService;
 import com.EShop.Mapper.FooterMapper;
 import com.EShop.Model.Footer;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 public class FooterService extends DbConnection<Footer> implements IFooterService{
     Connection conn = DbConnection.getJDBCConnection();

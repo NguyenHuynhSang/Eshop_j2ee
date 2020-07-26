@@ -1,6 +1,6 @@
 package com.EShop.Service;
 
-import com.EShop.Service.IService.ICatalogService;
+import com.EShop.IService.ICatalogService;
 import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.ViewModel.CatalogTreeModel;
 import com.EShop.Model.ViewModel.CatalogViewModel;

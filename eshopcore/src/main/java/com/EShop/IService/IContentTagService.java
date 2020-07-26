@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.EShop.Service.IService;
+package com.EShop.IService;
 
 import com.EShop.Model.Content;
 import com.EShop.Model.ContentTag;
