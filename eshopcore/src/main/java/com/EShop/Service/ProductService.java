@@ -30,6 +30,74 @@ public class ProductService implements IProductService, ICProductService {
     public List<Product> GetProductAllVersionPaging() throws SQLException {
         return null;
     }
+    @Override
+    public List<ProductVersion> GetProductAllVersionList() throws SQLException {
+        Statement stmt;
+        stmt = conn.createStatement();
+        List<ProductVersion> productVersionList = new ArrayList<>();
+        String sqlQuery = "select ver.ID as verID,ver.Barcode as verBarcode,ver.Description as verDescription,\n" +
+                "ver.Image as verImage,ver.Price as verPrice,ver.PromotionPrice as verPromotionPrice,\n" +
+                "ver.Quantum as verQuantum,ver.RemainingAmount as verRemainingAmount,\n" +
+                "p.ID as pID,p.ApplyPromotion as pAppyPromotion,p.Content as pContent,\n" +
+                "p.CreatedBy as pCreatedBy,p.CreatedDate as pCreatedDate,p.Deliver as pDeliver,\n" +
+                "p.Description as pDescription,p.ModifiedBy as pModifiedBy, p.ModifiedDate as pModifiedDate,\n" +
+                "p.Name as pName,p.OriginalPrice as pOriginalPrice,p.SEODescription as pSEODescription,\n" +
+                "p.SEOTitle as pSEOTitle,p.Url as pUrl, p.Weight as pWeight,p.SEOUrl as pSeoURL,\n" +
+                "c.ID as cID, c.Name as cName,c.ParentID as cParentID\n" +
+                "from ProductVersions ver\n" +
+                "join Product p\n" +
+                "on ver.ProductID=p.ID\n" +
+                "left join Catalog c\n" +
+                "on p.CatalogID =c.ID\n" +
+                "where 1=1\n" +
+                "order by p.CreatedDate asc\n";
+
+        ResultSet rs = stmt.executeQuery(sqlQuery);
+        while (rs.next()) {
+            ProductVersion productVersion = new ProductVersion();
+            productVersion.setBarcode(rs.getString("verBarcode"));
+            productVersion.setDescription(rs.getString("verDescription"));
+            productVersion.setID(rs.getInt("verID"));
+            productVersion.setImage(rs.getString("verImage"));
+            productVersion.setPrice(rs.getBigDecimal("verPrice"));
+            productVersion.setPromotionPrice(rs.getBigDecimal("verPromotionPrice"));
+            productVersion.setQuantum(rs.getInt("verQuantum"));
+            productVersion.setRemainingAmount(rs.getInt("verRemainingAmount"));
+
+            Product product = new Product();
+            product.setID(rs.getInt("pID"));
+            product.setApplyPromotion(rs.getBoolean("pAppyPromotion"));
+            product.setContent(rs.getString("pContent"));
+            product.setCreatedBy(rs.getString("pCreatedBy"));
+            product.setCreateDate(rs.getDate("pCreatedDate"));
+            product.setDeliver(rs.getBoolean("pDeliver"));
+            product.setDescription(rs.getString("pDescription"));
+            product.setModifiedBy(rs.getString("pModifiedBy"));
+            product.setModifiedDate(rs.getDate("pModifiedDate"));
+            product.setName(rs.getString("pName"));
+            product.setOriginalPrice(rs.getInt("pOriginalPrice"));
+            product.setSEODescription(rs.getString("pSEODescription"));
+            product.setSEOTitle(rs.getString("pSEOTitle"));
+            product.setSEOUrl(rs.getString("pUrl"));
+            product.setWeight(rs.getInt("pWeight"));
+
+            ProductCatalog productCatalog = new ProductCatalog();
+
+            productCatalog.setID(rs.getInt("cID"));
+            productCatalog.setName(rs.getString("cName"));
+            productCatalog.setParentID(rs.getInt("cParentID"));
+
+            product.setProductCatalog(productCatalog);
+            productVersion.setProduct(product);
+            productVersionList.add(productVersion);
+        }
+
+
+        rs.close();
+        stmt.close();
+        conn.close();
+        return productVersionList;
+    }
 
     @Override
     public void InsertProduct(ProductInput product) throws SQLException {

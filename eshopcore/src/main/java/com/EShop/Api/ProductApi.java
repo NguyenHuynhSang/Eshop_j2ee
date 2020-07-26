@@ -4,6 +4,7 @@ import com.EShop.Model.InputModel.ProductInput;
 import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.JSon;
 import com.EShop.Model.Product;
+import com.EShop.Model.ProductVersion;
 import com.EShop.Model.ViewModel.CatalogTreeModel;
 import com.EShop.Model.ViewModel.CatalogViewModel;
 import com.EShop.Service.CatalogService;
@@ -38,6 +39,7 @@ public class ProductApi extends HttpServlet {
         String ID = req.getParameter("ID");
         Gson gson = new Gson();
         PrintWriter printWriter = resp.getWriter();
+        ProductService productService=new ProductService();
         JSon js = null;
         try {
             List<ProductVersion> productVersions = new ArrayList<ProductVersion>();
