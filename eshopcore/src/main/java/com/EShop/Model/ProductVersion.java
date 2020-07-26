@@ -7,16 +7,6 @@ public class ProductVersion {
     private String Description ;
     private Number Price ;
     private String SEODescription;
-
-    public com.EShop.Model.Product getProduct() {
-        return Product;
-    }
-
-    public void setProduct(com.EShop.Model.Product product) {
-        Product = product;
-    }
-    
-    private Product Product;
     private String SEOTitle;
     private String SEOUrl;
     private String Image;

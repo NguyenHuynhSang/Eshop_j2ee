@@ -4,7 +4,6 @@ import com.EShop.Model.InputModel.ProductInput;
 import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.JSon;
 import com.EShop.Model.Product;
-import com.EShop.Model.ProductVersion;
 import com.EShop.Model.ViewModel.CatalogTreeModel;
 import com.EShop.Model.ViewModel.CatalogViewModel;
 import com.EShop.Service.CatalogService;
@@ -33,7 +32,7 @@ public class ProductApi extends HttpServlet {
         req.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        ProductService productService = new ProductService();
+        CatalogService catalogService = new CatalogService();
         String keyword = req.getParameter("keyword");
         String action = req.getParameter("action");
         String ID = req.getParameter("ID");
@@ -41,32 +40,56 @@ public class ProductApi extends HttpServlet {
         PrintWriter printWriter = resp.getWriter();
         JSon js = null;
         try {
-            List<ProductVersion> productVersions = new ArrayList<ProductVersion>();
-            productVersions = productService.GetProductAllVersionList();
-            printWriter.print(gson.toJson(productVersions));
+            switch (action) {
+                case "getAll":
+                    List<CatalogViewModel> catalogs = new ArrayList<CatalogViewModel>();
+                    catalogs = catalogService.GetCatalogs();
+                    printWriter.print(gson.toJson(catalogs));
+                    break;
+                case "getTree":
+                    List<CatalogTreeModel> catalogTree = new ArrayList<CatalogTreeModel>();
+                    catalogTree = catalogService.GetCatalogsTree();
+                    printWriter.print(gson.toJson(catalogTree));
+                    break;
+                case "getChild":
+                    List<ProductCatalog> childCatalogs = new ArrayList<ProductCatalog>();
+                    childCatalogs = catalogService.GetChildCatalogs();
+                    printWriter.print(gson.toJson(childCatalogs));
+                    break;
+                case "getParents":
+                    List<ProductCatalog> parentCatalogs = new ArrayList<ProductCatalog>();
+                    parentCatalogs = catalogService.GetParentCatalogs();
+                    printWriter.print(gson.toJson(parentCatalogs));
+                    break;
+                case "getByID":
+                    break;
+
+
+            }
+
         } catch (SQLException ex) {
             log(ex.toString());
         }
+
 
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
         req.setCharacterEncoding("UTF-8"); //lay du lieu tieng viet
         resp.setContentType("application/json"); //set kiểu dữ liệu trả về từ server là chuỗi json
 
-        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
-        PrintWriter printWriter = resp.getWriter();
+        Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
         ProductService service = new ProductService();
 
         String js = HttpUtil.of(req.getReader());
 
-        ProductInput product = gson.fromJson(js, ProductInput.class);
+        ProductInput product=gson.fromJson(js, ProductInput.class);
 
         try {
             service.InsertProduct(product);
-            printWriter.print(js);
         } catch (SQLException ex) {
             System.out.print(ex.getMessage());
         }

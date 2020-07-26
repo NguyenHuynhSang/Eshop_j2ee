@@ -4,7 +4,6 @@
     headerController.$inject = ['$scope', 'api-service', 'notification-service','$rootScope'];
     function headerController($scope, apiService, notificationService,$rootScope) {
         $rootScope.keyword='';
-        $rootScope.bodyClass='single-product full-width';
         $rootScope.shareOrder={};
         $rootScope.shareGetCart=getCart;
 
