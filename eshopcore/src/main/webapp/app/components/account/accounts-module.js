@@ -12,7 +12,7 @@
         }).state('account-list', {
             url: "/account-list",
             parent:'app',
-            templateUrl: "./app/components/account/statistic-list-view.html",
+            templateUrl: "./app/components/account/account-list-view.html",
             controller: "account-list-controller"
         }).state('account-create', {
             url: "/account-create",
