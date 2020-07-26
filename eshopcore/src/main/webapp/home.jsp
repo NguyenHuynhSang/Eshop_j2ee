@@ -256,8 +256,6 @@
 
     </div><!-- #page -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/tether.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/bootstrap.min.js"></script>

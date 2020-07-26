@@ -1,17 +1,18 @@
 (function (app) {
     app.controller('content-single-controller', contentSingleController)
-    contentSingleController.$inject = ['api-service','$scope', 'notification-service','$state','$stateParams','$rootScope'];
+    contentSingleController.$inject = ['api-service','$scope', 'notification-service','$state','$stateParams'];
 
-    function contentSingleController(apiService,$scope,notificationService,$state,$stateParams,$rootScope) {
-            $rootScope.bodyClass='right-sidebar blog-grid';
-            $scope.jsonEntity = {};
+    function contentSingleController(apiService,$scope,notificationService,$state,$stateParams) {
+        $scope.jsonEntity = {};
 
-            $scope.contentcategoryList = [];
-            $scope.getListcontentcategory = getListContentCategory;
+        $scope.contentcategoryList = [];
+        $scope.getListcontentcategory = getListContentCategory;
 
-            $scope.tagList = [];
-            $scope.getListtag = getListTag;
+        $scope.tagList = [];
+        $scope.getListtag = getListTag;
 
+        $scope.detail ="";
+        $scope.myText = "My name is: <h1>John Doe</h1>";
         function LoadContentByID() {
             var config = {
                 params: {
@@ -22,6 +23,7 @@
             }
             apiService.get('/eshopcore_war/API-Content', config, function (result) {
                 $scope.jsonEntity = result.data[0];
+                $scope.detail = result.data[0].content.Detail;
             }, function () {
                 console.log('Load content api failed.');
                 notificationService.displayError("Không lấy được dữ liệu từ server");
@@ -33,7 +35,7 @@
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
             var config = {
                 params: {
-                    keyword: "",
+                    keyword: $scope.keyWord,
                     action: "getAll",
                 }
             }
@@ -61,7 +63,7 @@
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
             var config = {
                 params: {
-                    keyword: "",
+                    keyword: $scope.keyWord,
                     action: "getAll",
                 }
             }
