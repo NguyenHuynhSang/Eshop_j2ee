@@ -9,9 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import com.EShop.Model.JSon;
-import com.EShop.IService.IJSonService;
-
-import javax.json.Json;
+import com.EShop.Service.IService.IJSonService;
 
 /**
  * @author nhatminh

@@ -11,7 +11,6 @@
         CKEDITOR.on('instanceCreated', function (event) {
             var editor = event.editor,
                 element = editor.element;
-
             if (element.getAttribute('class') == 'simpleEditor') {
                 editor.on('configLoaded', function () {
                     editor.config.removePlugins = 'colorbutton,find,flash,font, forms,iframe,image,newpage,removeformat, smiley,specialchar,stylescombo,templates';

@@ -6,6 +6,7 @@
     //chú ý thứ tự
     function productListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.productList = [];
+        $scope.advanceSearch=false;
         $scope.getListProduct = getListProduct;
         $scope.productFilter = {};
         $scope.keyWord = '';
@@ -16,6 +17,7 @@
         }
 
         $scope.delProduct = delProduct;
+
 
 
         function search() {
@@ -51,7 +53,7 @@ b
                 }
             }
 
-            apiService.get('/eshopcore_war/api/Product/GetAll', config, function (result) {
+            apiService.get('/eshopcore_war/api/Product', null, function (result) {
                 $scope.productList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
