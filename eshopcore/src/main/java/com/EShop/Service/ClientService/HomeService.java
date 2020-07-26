@@ -1,9 +1,10 @@
 package com.EShop.Service.ClientService;
 
-import com.EShop.Service.IService.IClientService.ICHomePageService;
+import com.EShop.IService.IClientService.ICHomePageService;
 import com.EShop.Model.*;
 import com.EShop.Model.ViewModel.CatalogViewModel;
 import com.EShop.Model.ViewModel.ProductDetailViewModel;
+import com.EShop.Model.ViewModel.ProductViewModel;
 import com.EShop.Service.DbConnection;
 
 import java.sql.Connection;

@@ -1,4 +1,4 @@
-package com.EShop.Service.IService;
+package com.EShop.IService;
 
 import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.ViewModel.CatalogTreeModel;

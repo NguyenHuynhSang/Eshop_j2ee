@@ -5,13 +5,15 @@
  */
 package com.EShop.Service;
 
-import com.EShop.Service.IService.IContentTagService;
+import com.EShop.IService.IContentTagService;
 import com.EShop.Mapper.ContentTagMapper;
 import com.EShop.Model.Content;
 import com.EShop.Model.ContentTag;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**

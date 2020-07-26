@@ -1,6 +1,6 @@
 package com.EShop.Service;
 
-import com.EShop.Service.IService.IDbConnection;
+import com.EShop.IService.IDbConnection;
 import com.EShop.Mapper.RowMapper;
 import java.sql.Connection;
 import java.sql.Date;
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class DbConnection<T> implements IDbConnection<T>{
     public static Connection getJDBCConnection()
     {
-        String url = "jdbc:jtds:sqlserver://LAPTOP-6KVMDIF8:1433/EShop;instance=";
+        String url = "jdbc:jtds:sqlserver://DESKTOP-0B8181F:1433/EShop;instance=SQLEXPRESS";
         String driver = "net.sourceforge.jtds.jdbc.Driver";
         String userName = "sa";
         String password = "123";

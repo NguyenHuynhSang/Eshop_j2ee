@@ -5,13 +5,15 @@
  */
 package com.EShop.Service;
 
-import com.EShop.Service.IService.IContentCategoryService;
+import com.EShop.IService.IContentCategoryService;
 import com.EShop.Mapper.ContentCategoryViewModelMapper;
 import com.EShop.Model.ContentCategory;
 import com.EShop.ViewModel.ContentCategoryViewModel;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public class ContentCategoryService extends DbConnection<ContentCategoryViewModel> implements IContentCategoryService {

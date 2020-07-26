@@ -1,13 +1,10 @@
 (function (app) {
     app.controller('view-cart-controller', viewCartController)
     //inject các service cần dùng
-    viewCartController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox','$rootScope'];
+    viewCartController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
 
     //chú ý thứ tự
-    function viewCartController($scope, apiService, notificationService, $ngBootbox,$rootScope) {
-
-
-        $scope.removeProduct=removeProduct;
+    function viewCartController($scope, apiService, notificationService, $ngBootbox) {
 
 
         $scope.cart={};

@@ -1,13 +1,14 @@
 package com.EShop.Service;
 
-import com.EShop.Service.IService.IClientService.ICProductService;
-import com.EShop.Service.IService.IProductService;
+import com.EShop.IService.IClientService.ICProductService;
+import com.EShop.IService.IProductService;
 import com.EShop.Model.InputModel.ProductInput;
 import com.EShop.Model.InputModel.ProductVersionInput;
 import com.EShop.Model.Product;
 import com.EShop.Model.ProductAttribute;
 import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.ProductVersion;
+import com.EShop.Model.ViewModel.CatalogViewModel;
 import com.EShop.Model.ViewModel.ProductDetailViewModel;
 import com.EShop.Model.ViewModel.ProductViewModel;
 
@@ -26,72 +27,8 @@ public class ProductService implements IProductService, ICProductService {
     }
 
     @Override
-    public List<ProductVersion> GetProductAllVersionList() throws SQLException {
-        Statement stmt;
-        stmt = conn.createStatement();
-        List<ProductVersion> productVersionList = new ArrayList<>();
-        String sqlQuery = "select ver.ID as verID,ver.Barcode as verBarcode,ver.Description as verDescription,\n" +
-                "ver.Image as verImage,ver.Price as verPrice,ver.PromotionPrice as verPromotionPrice,\n" +
-                "ver.Quantum as verQuantum,ver.RemainingAmount as verRemainingAmount,\n" +
-                "p.ID as pID,p.ApplyPromotion as pAppyPromotion,p.Content as pContent,\n" +
-                "p.CreatedBy as pCreatedBy,p.CreatedDate as pCreatedDate,p.Deliver as pDeliver,\n" +
-                "p.Description as pDescription,p.ModifiedBy as pModifiedBy, p.ModifiedDate as pModifiedDate,\n" +
-                "p.Name as pName,p.OriginalPrice as pOriginalPrice,p.SEODescription as pSEODescription,\n" +
-                "p.SEOTitle as pSEOTitle,p.Url as pUrl, p.Weight as pWeight,p.SEOUrl as pSeoURL,\n" +
-                "c.ID as cID, c.Name as cName,c.ParentID as cParentID\n" +
-                "from ProductVersions ver\n" +
-                "join Product p\n" +
-                "on ver.ProductID=p.ID\n" +
-                "left join Catalog c\n" +
-                "on p.CatalogID =c.ID\n" +
-                "where 1=1\n" +
-                "order by p.CreatedDate asc\n";
-
-        ResultSet rs = stmt.executeQuery(sqlQuery);
-        while (rs.next()) {
-            ProductVersion productVersion = new ProductVersion();
-            productVersion.setBarcode(rs.getString("verBarcode"));
-            productVersion.setDescription(rs.getString("verDescription"));
-            productVersion.setID(rs.getInt("verID"));
-            productVersion.setImage(rs.getString("verImage"));
-            productVersion.setPrice(rs.getBigDecimal("verPrice"));
-            productVersion.setPromotionPrice(rs.getBigDecimal("verPromotionPrice"));
-            productVersion.setQuantum(rs.getInt("verQuantum"));
-            productVersion.setRemainingAmount(rs.getInt("verRemainingAmount"));
-
-            Product product = new Product();
-            product.setID(rs.getInt("pID"));
-            product.setApplyPromotion(rs.getBoolean("pAppyPromotion"));
-            product.setContent(rs.getString("pContent"));
-            product.setCreatedBy(rs.getString("pCreatedBy"));
-            product.setCreateDate(rs.getDate("pCreatedDate"));
-            product.setDeliver(rs.getBoolean("pDeliver"));
-            product.setDescription(rs.getString("pDescription"));
-            product.setModifiedBy(rs.getString("pModifiedBy"));
-            product.setModifiedDate(rs.getDate("pModifiedDate"));
-            product.setName(rs.getString("pName"));
-            product.setOriginalPrice(rs.getInt("pOriginalPrice"));
-            product.setSEODescription(rs.getString("pSEODescription"));
-            product.setSEOTitle(rs.getString("pSEOTitle"));
-            product.setSEOUrl(rs.getString("pUrl"));
-            product.setWeight(rs.getInt("pWeight"));
-
-            ProductCatalog productCatalog = new ProductCatalog();
-
-            productCatalog.setID(rs.getInt("cID"));
-            productCatalog.setName(rs.getString("cName"));
-            productCatalog.setParentID(rs.getInt("cParentID"));
-
-            product.setProductCatalog(productCatalog);
-            productVersion.setProduct(product);
-            productVersionList.add(productVersion);
-        }
-
-
-        rs.close();
-        stmt.close();
-        conn.close();
-        return productVersionList;
+    public List<Product> GetProductAllVersionPaging() throws SQLException {
+        return null;
     }
 
     @Override
@@ -136,14 +73,15 @@ public class ProductService implements IProductService, ICProductService {
                 int productID = Integer.parseInt(rss.getObject(1).toString());
 
 
-                if (product.Versions != null) {
-                    for (ProductVersionInput ver :
+                if (product.Versions!=null)
+                {
+                    for (ProductVersionInput ver:
                             product.Versions) {
 
                         sqlQuery = "Insert into ProductVersions(ProductID,WareHouseID,Description,Price,PromotionPrice,Quantum,RemainingAmount,SKU,Barcode,Image) \n" +
                                 "values (?, ?, ?, ?,?,?,?,?,?,?)";
                         PreparedStatement verStatement = conn.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
-                        ver.ProductID = productID;
+                        ver.ProductID=productID;
                         verStatement.setObject(1, ver.ProductID);
                         verStatement.setObject(2, 0);
                         verStatement.setObject(3, ver.Description);
@@ -155,32 +93,38 @@ public class ProductService implements IProductService, ICProductService {
                         verStatement.setObject(9, ver.Barcode);
                         verStatement.setObject(10, ver.Image);
                         rowCount = verStatement.executeUpdate();
-                        ResultSet rs_ver = verStatement.getGeneratedKeys();
-                        if (rs_ver.next()) {
-                            int verId = Integer.parseInt(rs_ver.getObject(1).toString());
-                            for (ProductAttribute attribute :
-                                    ver.Attributes) {
+                        ResultSet rs_ver = verStatement .getGeneratedKeys();
+                       if (rs_ver.next())
+                       {
+                           int verId = Integer.parseInt(rs_ver.getObject(1).toString());
+                           for (ProductAttribute attribute:
+                                   ver.Attributes)
+                           {
 
-                                sqlQuery = "Insert into ProductAttribute(AttributeValueID,ProductVersionID) \n" +
-                                        "values (?, ?)";
-                                PreparedStatement attStament = conn.prepareStatement(sqlQuery);
+                               sqlQuery = "Insert into ProductAttribute(AttributeValueID,ProductVersionID) \n" +
+                                       "values (?, ?)";
+                               PreparedStatement attStament = conn.prepareStatement(sqlQuery);
 
-                                int attID = attribute.getAttributeValueID();
-                                attStament.setObject(1, attID);
-                                attStament.setObject(2, verId);
-                                int count = attStament.executeUpdate();
-                                attStament.close();
-                            }
+                               int attID=attribute.getAttributeValueID();
+                               attStament.setObject(1, attID);
+                               attStament.setObject(2, verId);
+                               int count = attStament.executeUpdate();
+                               attStament.close();
+                           }
 
 
-                        }
+
+
+                       }
 
                         verStatement.close();
-                        rs_ver.close();
+                       rs_ver.close();
                     }
 
 
                 }
+
+
 
 
             }
@@ -238,7 +182,7 @@ public class ProductService implements IProductService, ICProductService {
 
     @Override
     public ProductDetailViewModel GetProductVertionDetailByID(int Id) throws SQLException {
-        ProductDetailViewModel productViewModel = new ProductDetailViewModel();
+        ProductDetailViewModel productViewModel= new ProductDetailViewModel();
         Statement stmt;
         stmt = conn.createStatement();
         String sqlQuery = "select p.Name,p.SEOUrl,p.OriginalPrice,p.Content,p.Description\n" +
@@ -251,19 +195,19 @@ public class ProductService implements IProductService, ICProductService {
                 "on p.ID= ver.ProductID\n" +
                 "join Catalog c\n" +
                 "on c.ID=p.CatalogID\n" +
-                "where ver.ID=" + Id;
+                "where ver.ID="+Id;
         ResultSet rs = stmt.executeQuery(sqlQuery);
         while (rs.next()) {
-            productViewModel.Catalog = new ProductCatalog();
+            productViewModel.Catalog=new ProductCatalog();
             productViewModel.Catalog.setName(rs.getString("CatalogName"));
-            productViewModel.Product = new Product();
+            productViewModel.Product=new Product();
             productViewModel.Product.setSEOUrl(rs.getString("SEOUrl"));
             productViewModel.Product.setOriginalPrice(rs.getInt("OriginalPrice"));
             productViewModel.Product.setContent(rs.getString("Content"));
             productViewModel.Product.setDescription(rs.getString("Description"));
             productViewModel.Product.setName(rs.getString("Name"));
 
-            productViewModel.ProductVersion = new ProductVersion();
+            productViewModel.ProductVersion=new ProductVersion();
             productViewModel.ProductVersion.setID(rs.getInt("VerID"));
             productViewModel.ProductVersion.setImage(rs.getString("VerImage"));
             productViewModel.ProductVersion.setQuantum(rs.getInt("VerQuanTum"));

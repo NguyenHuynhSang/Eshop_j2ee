@@ -19,16 +19,12 @@
     <link rel="shortcut icon" href="${pageContext.request.contextPath }/Assets/client/images/fav-icon.png">
 </head>
 
-<body ng-app="eshop" class="{{bodyClass}}">
+<body ng-app="eshop" class="single-product full-width">
     <div id="page" class="hfeed site">
         <div ui-view="header">
 
         </div>
         <div ui-view="content">
-
-        </div>
-
-        <div ui-view="footer">
 
         </div>
         <section class="brands-carousel">
@@ -260,6 +256,8 @@
 
     </div><!-- #page -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/tether.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/bootstrap.min.js"></script>
@@ -269,7 +267,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/wow.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/jquery.waypoints.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/electro.js"></script>
+<%--    <script type="text/javascript" src="${pageContext.request.contextPath }/Assets/client/js/electro.js"></script>--%>
     <!--Begin::embed angularJs-->
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/angular/angular.js"></script>
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/angular-ui-router/release/angular-ui-router.js"></script>
@@ -302,7 +300,8 @@
     <script src="${pageContext.request.contextPath }/Client_app/components/cart/view-cart-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/cart/check-out-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/product/product-list-controller.js"></script>
-
+    <script src="${pageContext.request.contextPath }/Client_app/components/product/product-edit-controller.js"></script>
+    <script src="${pageContext.request.contextPath }/Client_app/components/product/product-create-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/product/product-single-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/order/order-list-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/catalog/catalog-list-controller.js"></script>

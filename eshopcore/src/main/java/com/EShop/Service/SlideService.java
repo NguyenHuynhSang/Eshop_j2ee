@@ -1,7 +1,7 @@
 
 package com.EShop.Service;
 
-import com.EShop.Service.IService.ISlideService;
+import com.EShop.IService.ISlideService;
 import com.EShop.Mapper.SlideMapper;
 import com.EShop.Model.Slide;
 import java.sql.Connection;

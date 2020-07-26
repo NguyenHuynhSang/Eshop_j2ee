@@ -11,7 +11,7 @@
             controller: "content-list-controller"
         }).state('content-single', {
             parent: 'app',
-            url: "/content-single/:meta-:id",
+            url: "/content-single/:id",
             templateUrl: "./Client_app/components/content/content-single-view.html",
             controller: "content-single-controller"
         });

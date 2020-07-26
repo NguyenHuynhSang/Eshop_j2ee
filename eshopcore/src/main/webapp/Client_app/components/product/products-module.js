@@ -13,7 +13,7 @@
             parent: 'app',
             url: "/product-single/:meta-:id",
             templateUrl: "./Client_app/components/product/product-single-view.html",
-            controller: "product-single-controller"
+            controller: "product-create-controller"
         });
 
     }

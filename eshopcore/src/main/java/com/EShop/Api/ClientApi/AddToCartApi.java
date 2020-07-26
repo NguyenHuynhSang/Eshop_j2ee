@@ -62,7 +62,7 @@ public class AddToCartApi extends HttpServlet {
 
                     }
                     //sp chưa có trong giỏ hàng
-                    if (check == false) {
+                    if (check = false) {
                         OrderDetail orderDetail = new OrderDetail();
                         orderDetail.setQuantity(quantity);
                         orderDetail.setProductVerion(product);
