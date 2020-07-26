@@ -34,6 +34,7 @@
     <!--begin::Page Vendors Styles(used by this page) -->
     <link href="${pageContext.request.contextPath }/Assets/admin/plugins/custom/fullcalendar/fullcalendar.bundle.css"
           rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath }/Assets/admin/css/pages/invoices/invoice-1.css" rel="stylesheet" type="text/css" />
 
     <!--end::Page Vendors Styles -->
     <!--begin::Global Theme Styles(used by all pages) -->
@@ -125,6 +126,7 @@
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/toastr/toastr.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/bootbox/bootbox.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/uibootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ngbootbox/dist/ngBootbox.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ckeditor/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ng-ckeditor/dist/ng-ckeditor.js"></script>
@@ -164,6 +166,8 @@
 <script src="${pageContext.request.contextPath }/app/components/product/product-edit-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/product/product-create-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/order/order-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/order/order-detail-controller.js"></script>
+
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalog-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalog-create-controller.js"></script>
 <!--end::embed app controller-->

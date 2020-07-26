@@ -1,10 +1,10 @@
 (function (app) {
-    app.controller('order-list-controller', orderListListController)
+    app.controller('order-detail-controller', orderDetailController)
     //inject các service cần dùng
-    orderListListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
+    orderDetailController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
 
 //chú ý thứ tự
-    function orderListListController($scope, apiService, notificationService, $ngBootbox) {
+    function orderDetailController($scope, apiService, notificationService, $ngBootbox) {
 
         $scope.ordersList=[];
         $scope.productFilter={};
@@ -35,11 +35,6 @@
         }
 
 
-
-
-
-
-        $scope.getListOrders();
 
 
 
