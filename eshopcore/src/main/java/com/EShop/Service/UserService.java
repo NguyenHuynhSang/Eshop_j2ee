@@ -48,28 +48,37 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public boolean Login(User user) throws SQLException {
-        List<Menu> menus = new ArrayList<>();
+    public User Login(User user) throws SQLException {
+        User userReturn=new User();
         Statement stmt;
         stmt = conn.createStatement();
         String sqlQuery = "select *\n" +
                 "from [User] u\n" +
-                "where  u.Name='"+user.getName()+"'" +
+                "where  u.Username='"+user.getUsername()+"'" +
                 "  AND\n" +
                 "u.Password='"+user.getPassword()+"'";
         ResultSet rs = stmt.executeQuery(sqlQuery);
-       if (rs!=null)
+       if (rs.next())
        {
+           user.setUsername(rs.getString("Username"));
+           user.setName(rs.getString("Name"));
+           user.setID(rs.getInt("ID"));
+           user.setAddress(rs.getString("Address"));
+           user.setEmail(rs.getString("Email"));
+           user.setLock(rs.getBoolean("IsLock"));
+           user.setPassword(rs.getString("Password"));
+           user.setPhone(rs.getString("Phone"));
+           user.setUserGroupID(rs.getInt("UserGroupID"));
            rs.close();
            stmt.close();
            conn.close();
-           return  true;
+           return  user;
 
        }
         rs.close();
         stmt.close();
         conn.close();
-        return false;
+        return null;
     }
 
     @Override

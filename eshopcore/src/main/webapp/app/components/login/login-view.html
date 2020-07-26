@@ -52,12 +52,20 @@
 
                         <!--begin::Form-->
                         <form class="kt-form" ng-submit="loginSummit()" role="form" method="post" novalidate="novalidate" id="kt_login_form">
-                            <div class="alert alert-bold alert-solid-danger alert-dismissible" role="alert">			<div class="alert-text">Sai tên đăng nhập hoặc mật khẩu</div>			<div class="alert-close">                <i class="flaticon2-cross kt-icon-sm" data-dismiss="alert"></i>            </div>		</div>
+
+                            <div ng-show="isWrongNameOrPass==true" class="alert alert-bold alert-solid-danger alert-dismissible" role="alert">			<div class="alert-text">Sai tên đăng nhập hoặc mật khẩu</div>			<div class="alert-close">                <i class="flaticon2-cross kt-icon-sm" data-dismiss="alert"></i>            </div>		</div>
+
+                            <div ng-show="isExist==true" class="alert alert-bold alert-solid-danger alert-dismissible" role="alert">			<div class="alert-text">Đã tồn tại người dùng đăng nhập trong hệ thống</div>			<div class="alert-close">                <i class="flaticon2-cross kt-icon-sm" data-dismiss="alert"></i>            </div>		</div>
+
+                            <div ng-show="isClient==true" class="alert alert-bold alert-solid-danger alert-dismissible" role="alert">			<div class="alert-text">Bạn không có quyền đăng nhập ở đây</div>			<div class="alert-close">                <i class="flaticon2-cross kt-icon-sm" data-dismiss="alert"></i>            </div>		</div>
+
+                            <div ng-show="isLocked==true" class="alert alert-bold alert-solid-danger alert-dismissible" role="alert">			<div class="alert-text">Tài khoản của bạn đã bị khóa vui lòng email người quản trị admin@email.com</div>			<div class="alert-close">                <i class="flaticon2-cross kt-icon-sm" data-dismiss="alert"></i>            </div>		</div>
+
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Username" name="username" autocomplete="off">
+                                <input ng-model="user.Username" class="form-control" type="text" placeholder="Username"  name="username" autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="password" placeholder="Password" name="password" autocomplete="off">
+                                <input ng-model="user.Password" class="form-control" type="password" placeholder="Password" name="password" autocomplete="off">
                             </div>
 
                             <!--begin::Action-->
@@ -84,7 +92,7 @@
 
                         <!--begin::Options-->
                         <div class="kt-login__options">
-                           
+
                         </div>
 
                         <!--end::Options-->

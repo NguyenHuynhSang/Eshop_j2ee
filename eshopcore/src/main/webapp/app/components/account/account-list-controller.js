@@ -11,6 +11,16 @@
         $scope.accountFilter = {};
         $scope.keyWord = '';
         $scope.search = search;
+        $scope.checkAuthen=checkAuthen();
+        function checkAuthen(){
+
+            apiService.get('/eshopcore_war/api/auth', null, function (result) {
+            }, function () {
+            });
+
+        }
+
+
         $scope.reset = function () {
             $scope.accountFilter = {};
             getListAccount();
