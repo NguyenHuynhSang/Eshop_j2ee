@@ -304,7 +304,7 @@
                                     <div class="col-2">
 														<span class="kt-switch kt-switch--info">
 															<label>
-																<input ng-model="advanceSearch" type="checkbox" checked="checked" name="">
+																<input ng-model="miniminePrice" type="checkbox" checked="checked" name="">
 																<span></span>
 															</label>
 														</span>
@@ -316,12 +316,12 @@
                                     <div class="col-2">
 														<span class="kt-switch kt-switch--info">
 															<label>
-																<input ng-model="advanceSearch" type="checkbox" checked="checked" name="">
+																<input ng-model="showAuditlog" type="checkbox" checked="checked" name="">
 																<span></span>
 															</label>
 														</span>
                                     </div>
-                                    <label class="col-10 col-form-label">Hiện biểu đồ sản phẩm bán chạy</label>
+                                    <label class="col-10 col-form-label">Hiện Audit log</label>
                                 </div>
 
                                 <div class="form-group row">
@@ -359,9 +359,15 @@
                                 <th>Mã sản phẩm</th>
                                 <th>Ảnh sản phẩm</th>
                                 <th>Tên sản phẩm</th>
-                                <th>Số phiên bản</th>
-                                <th>Giá sản phẩm</th>
+                                <th>Loại sản phẩm</th>
+                                <th ng-show="miniminePrice==true">Giá sản phẩm</th>
+                                <th ng-show="miniminePrice==false">Giá gốc</th>
+                                <th ng-show="miniminePrice==false">Giá bán</th>
+                                <th ng-show="miniminePrice==false">giá khuyến mãi</th>
+                                <th ng-show="showAuditlog==true">Ngày tạo</th>
+                                <th ng-show="showAuditlog==true">Tạo bởi</th>
                                 <th>Số lượng</th>
+                                <th>Hiển thị</th>
                                 <th>Hiển thị</th>
                                 <th>Tùy chọn</th>
                             </tr>
@@ -376,7 +382,8 @@
 
                                 </td>
                                 <td>{{item.Product.Name}}</td>
-                                <td>
+                                <td>item.Catalog.Name</td>
+                                <td ng-show="miniminePrice==true">
                                     <ul>
                                         <li>
                                             Giá gốc: <span class="kt-widget20__number kt-font-success">{{item.Product.OriginalPrice| currency:"":0}}</span>
@@ -393,6 +400,20 @@
                                         </li>
                                     </ul>
                                 </td>
+                                <td ng-show="miniminePrice==false">
+                                  <span class="kt-widget20__number kt-font-success">{{item.Product.OriginalPrice| currency:"":0}}</span>
+                                </td>
+                                <td ng-show="miniminePrice==false">
+                                 <span class="kt-widget20__number kt-font-hover-success">{{item.Price| currency:"":0}}</span>
+                                </td>
+                                <td ng-show="miniminePrice==false">
+                                    <span ng-show="item.PromotionPrice==0 ||item.PromotionPrice==null"
+                                          class="kt-widget20__number kt-font-danger">Sản phẩm không khuyến mãi</span>
+                                    <span ng-show="item.PromotionPrice!=0"
+                                          class="kt-widget20__number kt-font-danger">{{item.PromotionPrice| currency:"":0}}</span>
+                                </td>
+                                <td ng-show="showAuditlog==true">Ngày tạo</td>
+                                <td ng-show="showAuditlog==true">Tạo bởi</td>
                                 <td>
                                     Tồn kho:
                                     <span ng-show="item.RemainingAmount>0" class="kt-widget20__number kt-font-success"> {{item.RemainingAmount}}</span>

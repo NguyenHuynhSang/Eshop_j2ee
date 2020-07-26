@@ -7,10 +7,11 @@
     function accountListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.accountList = [];
         $scope.advanceSearch=false;
-        $scope.getListAccount = getListAccount;
+
         $scope.accountFilter = {};
         $scope.keyWord = '';
         $scope.search = search;
+        $scope.getListAccount = getListAccount;
         $scope.checkAuthen=checkAuthen();
         function checkAuthen(){
 
@@ -19,8 +20,6 @@
             });
 
         }
-
-
         $scope.reset = function () {
             $scope.accountFilter = {};
             getListAccount();

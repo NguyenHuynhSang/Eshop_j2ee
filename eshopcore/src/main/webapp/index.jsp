@@ -131,9 +131,12 @@
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ckeditor/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ng-ckeditor/dist/ng-ckeditor.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-ui-tree/dist/angular-ui-tree.js"></script>
-<!--end::embed angularJs  and module-->
-<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ckfinder/ckfinder/ckfinder.js"></script>
 
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/ckfinder/ckfinder/ckfinder.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/chart.js/dist/Chart.js"></script>
+<script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular-chart.js/dist/angular-chart.js"></script>
+
+<!--end::embed angularJs  and module-->
 
 
 
@@ -144,6 +147,7 @@
 <script src="${pageContext.request.contextPath }/app/components/order/orders-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalogs-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/account/accounts-module.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/statistic/statistic-module.js"></script>
 <!--end::embed app module-->
 <script src="${pageContext.request.contextPath }/app/components/contentcategory/contentcategory-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-module.js"></script>
@@ -172,8 +176,7 @@
 <script src="${pageContext.request.contextPath }/app/components/account/account-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/account/account-edit-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/account/account-create-controller.js"></script>
-
-
+<script src="${pageContext.request.contextPath }/app/components/statistic/statistic-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalog-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalog-create-controller.js"></script>
 <!--end::embed app controller-->
