@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class DbConnection<T> implements IDbConnection<T>{
     public static Connection getJDBCConnection()
     {
-        String url = "jdbc:jtds:sqlserver://DESKTOP-0B8181F:1433/Bt2;instance=SQLEXPRESS";
+        String url = "jdbc:jtds:sqlserver://DESKTOP-0B8181F:1433/EShop;instance=SQLEXPRESS";
         String driver = "net.sourceforge.jtds.jdbc.Driver";
         String userName = "sa";
         String password = "123";

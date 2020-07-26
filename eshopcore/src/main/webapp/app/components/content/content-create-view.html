@@ -168,8 +168,13 @@
                        placeholder="Meta title">
             </div>
             <div class="form-group">
-                <label for="description">Mô tả</label>
-                <ng-ckeditor height="500px" ng-model="contentEntity.Description" remove-buttons="Image"
+                <label for="description">Mô tả ngắn</label>
+                <input ng-model="contentEntity.Description" type="text" class="form-control" id="description"
+                       placeholder="Mô tả ngắn">
+            </div>
+            <div class="form-group">
+                <label for="description">Chi tiết</label>
+                <ng-ckeditor height="500px" ng-model="contentEntity.Detail" remove-buttons="Image"
                 remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
             </div>
             <div class="form-group">
@@ -187,6 +192,11 @@
                 <label for="metadescription">Meta description</label>
                 <input ng-model="contentEntity.MetaDescriptions" type="text" class="form-control" id="metadescription"
                        placeholder="Meta description">
+            </div>
+            <div class="form-group">
+                <label for="tag">Tag</label>
+                <input ng-model="contentEntity.Tags" type="text" class="form-control" id="tag"
+                       placeholder="Tag">
             </div>
             <div class="form-group">
                 <label for="status">Trạng thái</label>
