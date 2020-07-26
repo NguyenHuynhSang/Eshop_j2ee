@@ -14,6 +14,8 @@
         $scope.getMenu=getMenu;
 
 
+
+
         $scope.getTotalMoneyInCart=getTotalMoneyInCart;
 
         function getTotalMoneyInCart() {
@@ -42,7 +44,6 @@
         }
 
         function liveSearchProduct() {
-        var a= $scope.keyword;
 
         }
 

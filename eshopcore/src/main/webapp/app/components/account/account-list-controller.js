@@ -1,60 +1,57 @@
-﻿(function (app) {
-    app.controller('product-list-controller', productListController)
+(function (app) {
+    app.controller('account-list-controller', accountListController)
     //inject các service cần dùng
-    productListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
+    accountListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
 
     //chú ý thứ tự
-    function productListController($scope, apiService, notificationService, $ngBootbox) {
-        $scope.productList = [];
+    function accountListController($scope, apiService, notificationService, $ngBootbox) {
+        $scope.accountList = [];
         $scope.advanceSearch=false;
-        $scope.getListProduct = getListProduct;
-        $scope.productFilter = {};
+        $scope.getListAccount = getListAccount;
+        $scope.accountFilter = {};
         $scope.keyWord = '';
         $scope.search = search;
         $scope.reset = function () {
-            $scope.productFilter = {};
-            getListProduct();
+            $scope.accountFilter = {};
+            getListAccount();
         }
 
-        $scope.delProduct = delProduct;
-
-
-
+        $scope.delAccount = delAccount;
         function search() {
 
-            getListProduct();
+            getListAccount();
         }
 
-        function delProduct(id) {
+        function delAccount(id) {
             $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
                 var config = {
                     params: {
                         ID: id,
                     }
                 }
-                apiService.del('/eshopcore_war/api/Product/GetAll', config, function () {
+                apiService.del('/eshopcore_war/api/Account/GetAll', config, function () {
                     notificationService.displaySuccess("Xóa  thành công bản ghi");
-                    getListProduct();
+                    getListAccount();
                 }, function () {
 
                 });
                 notificationService.displaySuccess("Xóa  thành công bản ghi");
-                getListProduct();
+                getListAccount();
             });
-b
+            b
         }
 
-        function getListProduct() {
+        function getListAccount() {
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
 
             var config = {
                 params: {
-                    filterJson: angular.toJson($scope.productFilter)
+                    filterJson: angular.toJson($scope.accountFilter)
                 }
             }
 
-            apiService.get('/eshopcore_war/api/Product', null, function (result) {
-                $scope.productList = result.data;
+            apiService.get('/eshopcore_war/api/user', null, function (result) {
+                $scope.accountList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
                 } else {
@@ -64,12 +61,12 @@ b
 
 
             }, function () {
-                console.log('Load product api failed.');
+                console.log('Load account api failed.');
                 notificationService.displayError("Không lấy được dữ liệu từ server");
             });
 
         }
 
-        $scope.getListProduct();
+        $scope.getListAccount();
     }
-})(angular.module('eshop-product'));
+})(angular.module('eshop-account'));

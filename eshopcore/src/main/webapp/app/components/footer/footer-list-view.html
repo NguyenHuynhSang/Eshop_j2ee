@@ -261,7 +261,13 @@
                                 <tbody>
                                 <tr ng-repeat="item in footerList">
                                     <th scope="row">{{item.ID}}</th>
-                                    <td>{{item.Content}}</td>
+                                    <td>
+                                        <div ng-bind-html="item.Content">
+
+
+                                        </div>
+
+                                    </td>
                                     <td>{{item.IsShow}}</td>
                                     <td>
                                         <button ui-sref="footer-edit({id:item.ID})" class="btn btn-primary"><i class="fa fa-edit">edit</i></button>

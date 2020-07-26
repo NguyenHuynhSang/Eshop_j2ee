@@ -43,12 +43,12 @@ public class ProductApi extends HttpServlet {
         try {
             List<ProductVersion> productVersions = new ArrayList<ProductVersion>();
             productVersions = productService.GetProductAllVersionList();
+          //  resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+
             printWriter.print(gson.toJson(productVersions));
         } catch (SQLException ex) {
             log(ex.toString());
         }
-
-
     }
 
     @Override
@@ -72,13 +72,5 @@ public class ProductApi extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp);
-    }
 
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp);
-    }
 }

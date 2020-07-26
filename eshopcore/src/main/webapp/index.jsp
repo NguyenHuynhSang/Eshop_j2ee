@@ -110,16 +110,16 @@
 <!--begin::Page Vendors(used by this page) -->
 <script src="${pageContext.request.contextPath }/Assets/admin/plugins/custom/fullcalendar/fullcalendar.bundle.js"
         type="text/javascript"></script>
-@*
+
 <script src="//maps.google.com/maps/api/js?key=AIzaSyBTGnKT7dt597vo9QgeQ7BFhvSRP4eiMSM" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/plugins/custom/gmaps/gmaps.js"
         type="text/javascript"></script>
-*@
+
 <!--end::Page Vendors -->
 <!--begin::Page Scripts(used by this page) -->
-@*
+
 <script src="${pageContext.request.contextPath }/Assets/admin/js/pages/dashboard.js" type="text/javascript"></script>
-*@
+
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Spa/activeMenuItem.js"></script>
 <!--Begin::embed angularJs and module-->
 <script src="${pageContext.request.contextPath }/Assets/admin/libs/Plugins/angular/angular.js"></script>
@@ -143,6 +143,7 @@
 <script src="${pageContext.request.contextPath }/app/components/product/products-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/order/orders-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalogs-module.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/account/accounts-module.js"></script>
 <!--end::embed app module-->
 <script src="${pageContext.request.contextPath }/app/components/contentcategory/contentcategory-module.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/content/content-module.js"></script>
@@ -167,6 +168,11 @@
 <script src="${pageContext.request.contextPath }/app/components/product/product-create-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/order/order-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/order/order-detail-controller.js"></script>
+
+<script src="${pageContext.request.contextPath }/app/components/account/account-list-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/account/account-edit-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/account/account-create-controller.js"></script>
+
 
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalog-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/catalog/catalog-create-controller.js"></script>
