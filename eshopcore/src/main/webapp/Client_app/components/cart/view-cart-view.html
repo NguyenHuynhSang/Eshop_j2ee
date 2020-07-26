@@ -27,7 +27,7 @@
                             <tr class="cart_item" ng-repeat="item in cart.OrderDetails">
 
                                 <td class="product-remove">
-                                    <a class="remove" href="#">×</a>
+                                    <button class="remove"   target="_self" ng-click="removeProduct(item.ProductVerion.ProductVersion.ID)" >×</button>
                                 </td>
 
                                 <td class="product-thumbnail">

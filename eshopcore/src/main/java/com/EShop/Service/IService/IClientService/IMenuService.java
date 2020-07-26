@@ -1,7 +1,6 @@
-package com.EShop.IService.IClientService;
+package com.EShop.Service.IService.IClientService;
 
 import com.EShop.Model.Menu;
-import com.EShop.Model.ViewModel.ProductViewModel;
 
 import java.sql.SQLException;
 import java.util.List;

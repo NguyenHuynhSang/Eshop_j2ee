@@ -5,7 +5,7 @@
  */
 package com.EShop.Service;
 
-import com.EShop.IService.ITagService;
+import com.EShop.Service.IService.ITagService;
 import com.EShop.Mapper.TagMapper;
 import com.EShop.Model.Tag;
 import java.sql.Connection;

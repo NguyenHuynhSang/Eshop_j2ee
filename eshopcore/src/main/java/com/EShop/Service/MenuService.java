@@ -1,11 +1,8 @@
 package com.EShop.Service;
 
-import com.EShop.IService.IClientService.IMenuService;
+import com.EShop.Service.IService.IClientService.IMenuService;
 import com.EShop.Mapper.MenuMapper;
-import com.EShop.Mapper.SlideMapper;
-import com.EShop.Model.AttributeValue;
 import com.EShop.Model.Menu;
-import com.EShop.Model.Slide;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

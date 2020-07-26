@@ -1,6 +1,6 @@
 package com.EShop.Service;
 
-import com.EShop.IService.IAttributeValueService;
+import com.EShop.Service.IService.IAttributeValueService;
 import com.EShop.Model.AttributeValue;
 
 import java.sql.Connection;
