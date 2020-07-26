@@ -5,10 +5,12 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider.state('catalog-list', {
+            parent:'app',
             url: "/catalog-list",
             templateUrl: "./app/components/catalog/catalog-list-view.html",
             controller: "catalog-list-controller"
         }).state('catalog-create', {
+            parent:'app',
             url: "/catalog-create",
             templateUrl: "./app/components/catalog/catalog-create-view.html",
             controller: "catalog-create-controller"

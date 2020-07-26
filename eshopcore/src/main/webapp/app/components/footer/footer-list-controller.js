@@ -1,10 +1,10 @@
 (function (app) {
     app.controller('footer-list-controller', footerListController)
     //inject các service cần dùng
-    footerListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
+    footerListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox','$sce'];
 
 //chú ý thứ tự
-    function footerListController($scope, apiService, notificationService, $ngBootbox) {
+    function footerListController($scope, apiService, notificationService, $ngBootbox,$sce) {
         $scope.footerList = [];
         $scope.getListfooter = getListFooter;
         $scope.keyWord = '';
@@ -63,6 +63,10 @@
 
             apiService.get('/eshopcore_war/API-Footer', config, function (result) {
                 $scope.footerList = result.data;
+
+                $scope.footerList.forEach(element =>
+                    element = $sce.trustAsHtml(html));
+
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
                 } else {

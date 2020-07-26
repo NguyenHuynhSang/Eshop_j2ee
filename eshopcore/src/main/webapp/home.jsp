@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Electro &#8211; Electronics Ecommerce Theme</title>
+    <title>EShop</title>
 
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/Assets/client/css/bootstrap.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/Assets/client/css/font-awesome.min.css" media="all" />
@@ -277,6 +277,7 @@
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/ckeditor/ckeditor.js"></script>
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/ng-ckeditor/dist/ng-ckeditor.js"></script>
     <script src="${pageContext.request.contextPath }/Assets/client/libs/Plugins/angular-ui-tree/dist/angular-ui-tree.js"></script>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.0/angular-sanitize.js"></script>
     <!--end::embed angularJs-->
     <!--Begin::embed app module-->
     <script src="${pageContext.request.contextPath }/Client_app/shared/modules/eshop-common.js"></script>

@@ -9,6 +9,13 @@ public class Order implements Serializable {
     private List<OrderDetail> OrderDetails;
     private  int Status;
 
+    private  String Note;
+    private  String ShipName;
+    private  String ShipMobile;
+    private  String ShipAddress;
+    private  String ShipEmail;
+
+
     private String CreatedBy;
     private Date CreateDate;
     private String ModifiedBy;
@@ -73,5 +80,45 @@ public class Order implements Serializable {
 
     public void setModifiedDate(Date modifiedDate) {
         ModifiedDate = modifiedDate;
+    }
+
+    public String getNote() {
+        return Note;
+    }
+
+    public void setNote(String note) {
+        Note = note;
+    }
+
+    public String getShipName() {
+        return ShipName;
+    }
+
+    public void setShipName(String shipName) {
+        ShipName = shipName;
+    }
+
+    public String getShipMobile() {
+        return ShipMobile;
+    }
+
+    public void setShipMobile(String shipMobile) {
+        ShipMobile = shipMobile;
+    }
+
+    public String getShipAddress() {
+        return ShipAddress;
+    }
+
+    public void setShipAddress(String shipAddress) {
+        ShipAddress = shipAddress;
+    }
+
+    public String getShipEmail() {
+        return ShipEmail;
+    }
+
+    public void setShipEmail(String shipEmail) {
+        ShipEmail = shipEmail;
     }
 }

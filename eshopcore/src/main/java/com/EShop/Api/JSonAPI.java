@@ -48,7 +48,6 @@ public class JSonAPI extends HttpServlet {
 
 
         JSonService jsonservice = new JSonService();
-
         String keyword = request.getParameter("keyword");
         String action = request.getParameter("action");
         String ID= request.getParameter("ID");

@@ -9,7 +9,6 @@
         $stateProvider.state('app',
             {
                 views: {
-
                     'content': {
                         template: "<div ui-view></div>",
                     },

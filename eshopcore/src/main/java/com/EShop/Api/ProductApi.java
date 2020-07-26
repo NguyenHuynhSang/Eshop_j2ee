@@ -40,39 +40,14 @@ public class ProductApi extends HttpServlet {
         PrintWriter printWriter = resp.getWriter();
         JSon js = null;
         try {
-            switch (action) {
-                case "getAll":
-                    List<CatalogViewModel> catalogs = new ArrayList<CatalogViewModel>();
-                    catalogs = catalogService.GetCatalogs();
-                    printWriter.print(gson.toJson(catalogs));
-                    break;
-                case "getTree":
-                    List<CatalogTreeModel> catalogTree = new ArrayList<CatalogTreeModel>();
-                    catalogTree = catalogService.GetCatalogsTree();
-                    printWriter.print(gson.toJson(catalogTree));
-                    break;
-                case "getChild":
-                    List<ProductCatalog> childCatalogs = new ArrayList<ProductCatalog>();
-                    childCatalogs = catalogService.GetChildCatalogs();
-                    printWriter.print(gson.toJson(childCatalogs));
-                    break;
-                case "getParents":
-                    List<ProductCatalog> parentCatalogs = new ArrayList<ProductCatalog>();
-                    parentCatalogs = catalogService.GetParentCatalogs();
-                    printWriter.print(gson.toJson(parentCatalogs));
-                    break;
-                case "getByID":
-                    break;
+            List<ProductVersion> productVersions = new ArrayList<ProductVersion>();
+            productVersions = productService.GetProductAllVersionList();
+          //  resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 
-
-            }
-
+            printWriter.print(gson.toJson(productVersions));
         } catch (SQLException ex) {
             log(ex.toString());
         }
-
-
-
     }
 
     @Override
@@ -95,13 +70,5 @@ public class ProductApi extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp);
-    }
 
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp);
-    }
 }

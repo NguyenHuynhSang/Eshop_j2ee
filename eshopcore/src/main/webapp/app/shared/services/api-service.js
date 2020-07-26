@@ -5,8 +5,8 @@
 (function (app) {
     app.factory('api-service', apiService);
 
-    apiService.$inject = ['$http','notification-service'];
-    function apiService($http,notificationService)
+    apiService.$inject = ['$http','notification-service','$state'];
+    function apiService($http,notificationService,$state)
     {
         return {
             get:get,
@@ -20,6 +20,11 @@
             $http.get(url, params).then(function (result) {
                 success(result);
             },(function (error) {
+                if (error.status===401){
+                    console.log("Chưa đăng nhập");
+                    notificationService.displayError('Bạn chưa đăng nhập hoặc không có quyền!');
+                    $state.go("login")
+                }
                 failed(error);
             }));
 
@@ -30,9 +35,10 @@
 
                 success(result);
             },(function (error) {
-                if (error.status==='401'){
-
-                    notificationService.displayError('Yêu cầu đăng nhập');
+                if (error.status===401){
+                    console.log("Chưa đăng nhập");
+                    $state.go("login")
+                    notificationService.displayError('Bạn chưa đăng nhập hoặc không có quyền!');
                 }
                 notificationService.displayError(error);
                 failed(error);
@@ -46,7 +52,8 @@
             },(function (error) {
                 if (error.status===401){
 
-                    notificationService.displayError('Yêu cầu đăng nhập');
+                    notificationService.displayError('Bạn chưa đăng nhập hoặc không có quyền!');
+                    $state.go("login")
                 }
                 /// Server java không hỗ trợ delete???
              //   notificationService.displayError(error);
