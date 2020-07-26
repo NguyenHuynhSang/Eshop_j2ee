@@ -2411,9 +2411,12 @@
 
 <!-- end::Global Config -->
 <!--begin::Global Theme Bundle(used by all pages) -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/plugins/global/plugins.bundle.js"
         type="text/javascript"></script>
 <script src="${pageContext.request.contextPath }/Assets/admin/js/scripts.bundle.js" type="text/javascript"></script>
+
 
 <!--end::Global Theme Bundle -->
 <!--begin::Page Vendors(used by this page) -->

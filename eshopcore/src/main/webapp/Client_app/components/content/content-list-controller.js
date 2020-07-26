@@ -1,10 +1,11 @@
 (function (app) {
     app.controller('content-list-controller', contentListController)
     //inject các service cần dùng
-    contentListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox'];
+    contentListController.$inject = ['$scope', 'api-service', 'notification-service', '$ngBootbox','$rootScope'];
 
 //chú ý thứ tự
-    function contentListController($scope, apiService, notificationService, $ngBootbox) {
+    function contentListController($scope, apiService, notificationService, $ngBootbox,$rootScope) {
+        $rootScope.bodyClass='right-sidebar blog-grid';
         $scope.contentList = [];
         $scope.getListcontent = getListContent;
         $scope.keyWord = '';
