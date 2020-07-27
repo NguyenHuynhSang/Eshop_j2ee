@@ -162,7 +162,7 @@
                             <label>Tên sản phẩm</label>
                             <input ng-change="getSeoTitle()" name="productName" type="text" class="form-control"  ng-model="productInput.Name"
                                    placeholder="Nhập tên sản phẩm" required>
-                            <span ng-show="frmInputProduct.productName.$invalid" class="form-text text-muted">Tên sản phẩm không được để trống</span>
+                            <span ng-show="frmInputProduct.productName.$invalid" class="form-text text-muted ng-binding">Tên sản phẩm không được để trống</span>
 
                         </div>
 
@@ -177,6 +177,7 @@
                                            placeholder="Nhập giá sản phẩm" min="0"  required>
 
                                 </div>
+                                <span ng-show="productInput.OriginalPrice!=null" class="btn btn-label-success  btn-bold">{{productInput.OriginalPrice| currency:"":0}} VNĐ</span>
                             </div>
                             <div class="col-lg-6">
                                 <label>Có khuyến mãi</label>
@@ -199,7 +200,7 @@
                                          remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
 
 
-                            <span class="form-text text-muted">Mô tả ngắn về sản phẩm</span>
+                            <span class="btn btn-label-danger btn-bold">Mô tả ngắn về sản phẩm</span>
                         </div>
 
 
@@ -209,7 +210,7 @@
                                          remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
 
 
-                            <span class="form-text text-muted">Bài viết giới thiệu sản phẩm</span>
+                            <span class="btn btn-label-danger btn-bold">Bài viết giới thiệu sản phẩm</span>
                         </div>
                     </div>
                 </div>
@@ -271,7 +272,7 @@
                                                     <option selected disabled value="">---Chọn loại sản phẩm----
                                                     </option>
                                                 </select>
-                                                <span ng-show="frmInputProduct.selectCategory.$invalid" class="form-text text-muted">Tên sản phẩm không được để trống</span>
+                                                <span ng-show="frmInputProduct.selectCategory.$invalid" class="btn btn-label-danger btn-bold">Tên sản phẩm không được để trống</span>
 
                                             </div>
                                         </div>
@@ -426,8 +427,8 @@
                                             </div>
                                             <input ng-model="ver.Price" type="number" class="form-control"
                                                    placeholder="Nhập giá bán sản phẩm" value="0" min="0"  required>
-
                                         </div>
+                                        <span ng-show="ver.Price!=null" class="btn btn-label-success  btn-bold">{{ver.Price| currency:"":0}} VNĐ</span>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Giá khuyến mãi</label>
@@ -436,9 +437,10 @@
                                                                                    ><i>VNĐ</i></span>
                                             </div>
                                             <input ng-show="productInput.ApplyPromotion==true" ng-model="ver.PromotionPrice" max="{{ver.Price}}" type="number" class="form-control"
-                                                   placeholder="Nhập giá khuyến mãi" min="0" value="0" >
+                                                   placeholder="Nhập giá khuyến mãi"  min="0" value="0" >
 
                                         </div>
+                                        <span ng-show="ver.PromotionPrice!=null"  class="btn btn-label-success  btn-bold">{{ver.PromotionPrice| currency:"":0}}</span>
                                     </div>
 
                                 </div>

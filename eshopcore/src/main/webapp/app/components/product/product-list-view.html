@@ -185,17 +185,17 @@
                         <div class="row kt-margin-b-20">
                             <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
                                 <label>Mã:</label>
-                                <input type="number" ng-model="productFilter.id" class="form-control kt-input"
+                                <input type="number" ng-model="productFilter.ID" class="form-control kt-input"
                                        placeholder="Mã" data-col-index="0">
                             </div>
                             <div class="col-lg-4 kt-margin-b-10-tabl    et-and-mobile">
                                 <label>Tên sản phẩm:</label>
-                                <input type="text" ng-model="productFilter.name" class="form-control kt-input"
+                                <input type="text" ng-model="productFilter.Name" class="form-control kt-input"
                                        placeholder="Tên sản phẩm" data-col-index="1">
                             </div>
                             <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
                                 <label>Loại sản phẩm:</label>
-                                <select ng-model="productFilter.catalogID" class="form-control kt-input"
+                                <select ng-model="productFilter.CatalogID" class="form-control kt-input"
                                         data-col-index="2">
                                     <option value="">Select</option>
                                 </select>
@@ -209,27 +209,32 @@
                                     <div class="input-group-prepend"><span class="input-group-text"
                                                                            id="basic-addon2"><i>VNĐ</i></span></div>
                                     <input type="number" class="form-control kt-input" name="start" placeholder="từ"
-                                           data-col-index="5">
+                                         ng-model="productFilter.startOriginalPrice"  data-col-index="5">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
                                     </div>
                                     <input type="number" class="form-control kt-input" name="end" placeholder="đến"
-                                           data-col-index="5">
+                                           ng-model="productFilter.endOriginalPrice"   data-col-index="5">
                                 </div>
+
+                                <span ng-show="productFilter.startOriginalPrice!=null || productFilter.endOriginalPrice!=null "  class="btn btn-label-success  btn-bold">Từ {{productFilter.startOriginalPrice| currency:"":0}} đến  {{productFilter.endOriginalPrice| currency:"":0}}</span>
                             </div>
                             <div class="col-lg-6 kt-margin-b-10-tablet-and-mobile">
                                 <label>Giá bán:</label>
                                 <div class="input-daterange input-group" id="kt_datepicker">
                                     <div class="input-group-prepend"><span class="input-group-text"
                                                                            id="basic-addon2"><i>VNĐ</i></span></div>
-                                    <input type="number" class="form-control kt-input" name="start" placeholder="từ"
+                                    <input ng-model="productFilter.startPrice" type="number" class="form-control kt-input" name="start" placeholder="từ"
                                            data-col-index="5">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
                                     </div>
-                                    <input type="number" class="form-control kt-input" name="end" placeholder="đến"
-                                           data-col-index="5">
+                                    <input ng-model="productFilter.endPrice"  type="number" class="form-control kt-input" name="end" placeholder="đến"
+                                          " data-col-index="5">
                                 </div>
+
+
+                                <span ng-show="productFilter.startPrice!=null || productFilter.endPrice!=null "  class="btn btn-label-success  btn-bold">Từ {{productFilter.startPrice| currency:"":0}} đến  {{productFilter.endPrice| currency:"":0}}</span>
                             </div>
 
 
@@ -249,7 +254,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 kt-margin-b-10-tablet-and-mobile">
-                                <label>Số phiên bản:</label>
+                                <label>Số lượng:</label>
                                 <div class="input-daterange input-group" id="kt_datepicker">
                                     <input type="number" class="form-control kt-input" name="start" placeholder="từ"
                                            data-col-index="5">
@@ -382,7 +387,7 @@
 
                                 </td>
                                 <td>{{item.Product.Name}}</td>
-                                <td>item.Catalog.Name</td>
+                                <td>item.Product.ProductCatalog.Name</td>
                                 <td ng-show="miniminePrice==true">
                                     <ul>
                                         <li>

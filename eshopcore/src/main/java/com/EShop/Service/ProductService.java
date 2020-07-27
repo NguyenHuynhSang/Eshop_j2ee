@@ -1,5 +1,6 @@
 package com.EShop.Service;
 
+import com.EShop.Filter.ProductFilter;
 import com.EShop.Service.IService.IClientService.ICProductService;
 import com.EShop.Service.IService.IProductService;
 import com.EShop.Model.InputModel.ProductInput;
@@ -26,9 +27,48 @@ public class ProductService implements IProductService, ICProductService {
     }
 
     @Override
-    public List<ProductVersion> GetProductAllVersionList() throws SQLException {
+    public List<ProductVersion> GetProductAllVersionList(ProductFilter filter) throws SQLException {
         Statement stmt;
         stmt = conn.createStatement();
+
+        String qLilter="";
+        if (filter!=null)
+        {
+            if (filter.ID!=0)
+                qLilter="where ver.ID="+filter.ID;
+            if (filter.Name!=null){
+                qLilter="where p.Name LIKE '%"+filter.Name+"%'";
+            }
+            if (filter.startOriginalPrice!=0 && filter.endOriginalPrice==0)
+            {
+                qLilter="where p.OriginalPrice>="+filter.startOriginalPrice;
+            }
+            if (filter.startOriginalPrice==0 && filter.endOriginalPrice!=0){
+                qLilter="where p.OriginalPrice<="+filter.endOriginalPrice;
+            }
+            if (filter.startOriginalPrice!=0 && filter.endOriginalPrice!=0){
+                qLilter="where p.OriginalPrice>="+filter.startOriginalPrice+"and p.OriginalPrice<="+filter.endOriginalPrice;
+            }
+            if (filter.CatalogID!=0){
+                qLilter="where c.ID="+filter.CatalogID;
+            }
+
+            if (filter.startPrice!=0 && filter.endPrice==0)
+            {
+                qLilter="where ver.Price>="+filter.startPrice;
+            }
+            if (filter.startPrice==0 && filter.endPrice!=0){
+                qLilter="where ver.Price<="+filter.endPrice;
+            }
+            if (filter.startPrice!=0 && filter.startPrice!=0){
+                qLilter="where ver.Price>="+filter.startPrice +"and ver.Price<="+filter.endPrice;
+            }
+
+
+
+        }
+
+
         List<ProductVersion> productVersionList = new ArrayList<>();
         String sqlQuery = "select ver.ID as verID,ver.Barcode as verBarcode,ver.Description as verDescription,\n" +
                 "ver.Image as verImage,ver.Price as verPrice,ver.PromotionPrice as verPromotionPrice,\n" +
@@ -44,8 +84,8 @@ public class ProductService implements IProductService, ICProductService {
                 "on ver.ProductID=p.ID\n" +
                 "left join Catalog c\n" +
                 "on p.CatalogID =c.ID\n" +
-                "where 1=1\n" +
-                "order by p.CreatedDate asc\n";
+                "" +qLilter+
+                " order by p.CreatedDate asc\n";
 
         ResultSet rs = stmt.executeQuery(sqlQuery);
         while (rs.next()) {

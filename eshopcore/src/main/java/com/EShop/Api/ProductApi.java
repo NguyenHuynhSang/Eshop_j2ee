@@ -1,5 +1,6 @@
 package com.EShop.Api;
 
+import com.EShop.Filter.ProductFilter;
 import com.EShop.Model.InputModel.ProductInput;
 import com.EShop.Model.ProductCatalog;
 import com.EShop.Model.JSon;
@@ -34,15 +35,17 @@ public class ProductApi extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         ProductService productService = new ProductService();
-        String keyword = req.getParameter("keyword");
-        String action = req.getParameter("action");
-        String ID = req.getParameter("ID");
         Gson gson = new Gson();
+        String js = req.getParameter("filterJson");
+
+        ProductFilter filter = gson.fromJson(js, ProductFilter.class);
+
+
+
         PrintWriter printWriter = resp.getWriter();
-        JSon js = null;
         try {
             List<ProductVersion> productVersions = new ArrayList<ProductVersion>();
-            productVersions = productService.GetProductAllVersionList();
+            productVersions = productService.GetProductAllVersionList(filter);
           //  resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 
             printWriter.print(gson.toJson(productVersions));

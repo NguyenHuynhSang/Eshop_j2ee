@@ -6,21 +6,34 @@
     //chú ý thứ tự
     function productListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.productList = [];
-        $scope.advanceSearch=false;
-        $scope.miniminePrice=true;
-        $scope.showAuditlog=false;
+        $scope.advanceSearch = false;
+        $scope.miniminePrice = true;
+        $scope.showAuditlog = false;
         $scope.getListProduct = getListProduct;
-        $scope.productFilter = {};
+        $scope.productFilter = {
+            startPrice: null,
+            endPrice: null,
+            startOriginalPrice: null,
+            endOriginalPrice: null,
+            ID: null,
+            CatalogID: null,
+            Name: null,
+            startQuantity: null,
+            endQuantiy: null,
+
+        };
 
         $scope.keyWord = '';
         $scope.search = search;
-        $scope.reset = function () {
+        $scope.reset = resetFunct;
+
+
+        function resetFunct() {
             $scope.productFilter = {};
             getListProduct();
         }
 
         $scope.delProduct = delProduct;
-
 
 
         function search() {
@@ -44,7 +57,7 @@
                 notificationService.displaySuccess("Xóa  thành công bản ghi");
                 getListProduct();
             });
-b
+            b
         }
 
         function getListProduct() {
@@ -56,7 +69,7 @@ b
                 }
             }
 
-            apiService.get('/eshopcore_war/api/Product', null, function (result) {
+            apiService.get('/eshopcore_war/api/Product', config, function (result) {
                 $scope.productList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");
