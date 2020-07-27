@@ -99,7 +99,8 @@
         }
     };
 </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
 <!-- end::Global Config -->
 <!--begin::Global Theme Bundle(used by all pages) -->
 <script src="${pageContext.request.contextPath }/Assets/admin/plugins/global/plugins.bundle.js"

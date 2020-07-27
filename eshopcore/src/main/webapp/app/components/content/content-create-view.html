@@ -1,26 +1,4 @@
 
-    <script>
-        var count = 1;
-        $('#btnSelectImage').on('click', function (e) {
-            e.preventDefault();
-            var finder = new CKFinder();
-           
-            finder.selectActionFunction = function (url) {
-
-                if (count > 1) {
-                    return;
-                }
-                $('#txtImage').val(url).trigger('input');
-                $('#divImage').append('<img class="abc" src="' + url + '" />');
-
-                count++;
-            };
-            finder.popup();
-
-        })
-    
-    </script>
-
 
 <div class="kt-subheader   kt-grid__item" id="kt_subheader">
     <div class="kt-container  kt-container--fluid ">
@@ -163,30 +141,23 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="metatitle">Meta title</label>
-                <input ng-model="contentEntity.Metatitle" type="text" class="form-control" id="metatitle"
-                       placeholder="Meta title">
+                <label for="description">Mô tả ngắn</label>
+                <input ng-model="contentEntity.Description" type="text" class="form-control" id="description"
+                       placeholder="Mô tả ngắn">
             </div>
             <div class="form-group">
-                <label for="description">Mô tả</label>
-                <ng-ckeditor height="500px" ng-model="contentEntity.Description" remove-buttons="Image"
-                remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
+                <label for="detail">Mô tả</label>
+                <ng-ckeditor height="500px" ng-model="contentEntity.Detail"
+                             remove-plugins="iframe,flash,smiley" style="height:500px"></ng-ckeditor>
             </div>
             <div class="form-group">
                 <label for="image">Hình ảnh</label>
-                <input ng-change="imageInputChange()" ng-model="contentEntity.Image" ng-change="imageInputChange()" type="text" class="form-control" id="txtImage"
-                       placeholder="Hình ảnh">
-                 <a id="btnSelectImage"  href="#">Chọn ảnh</a>
+                <input id="txtImage" ng-model="contentEntity.Image" ng-change="imageInputChange()" >
+                <a id="btnSelectImagei" ng-click="ckFinderSelectImage()"  href="">Chọn ảnh</a>
             </div>
             <div class="form-group">
-                <label for="metakeyword">Meta Keywords</label>
-                <input ng-model="contentEntity.MetaKeyWords" type="text" class="form-control" id="metakeyword"
-                       placeholder="Meta Keywords">
-            </div>
-            <div class="form-group">
-                <label for="metadescription">Meta description</label>
-                <input ng-model="contentEntity.MetaDescriptions" type="text" class="form-control" id="metadescription"
-                       placeholder="Meta description">
+                <label for="Tag">Tag</label>
+                <input ng-model="jsonEntity.content.Tags" type="text" id="Tag" placeholder="Tag">
             </div>
             <div class="form-group">
                 <label for="status">Trạng thái</label>

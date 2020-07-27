@@ -112,42 +112,7 @@
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
     <!-- begin:: tabs -->
     <div class="kt-portlet">
-        <div class="kt-portlet__head">
-            <div class="row">
-
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link  active" data-toggle="tab" href="#kt_tabs_5_1">Tất cả đơn hàng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" >Đơn hàng mới</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" >Chưa giao hàng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" >Chưa thanh toán</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="kt-portlet__body">
-
-            <!--
-            <ul class="nav nav-pills nav-fill" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#kt_tabs_5_1">Tất cả đơn hàng</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_5_2">Đơn hàng mới</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_5_3">Chưa giao hàng</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_5_4">Chưa thanh toán</a>
-                </li>
-            </ul>-->
             <form class="kt-form kt-form--fit kt-margin-b-20">
                 <div class="row kt-margin-b-20">
                     <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
@@ -155,57 +120,8 @@
                         <input type="text" class="form-control kt-input" placeholder="Mã" data-col-index="0">
                     </div>
                     <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                        <label>Khách hàng:</label>
+                        <label>Tên tin tức:</label>
                         <input type="text" class="form-control kt-input" placeholder="Tên khách hàng" data-col-index="1">
-                    </div>
-                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                        <label>Country:</label>
-                        <select class="form-control kt-input" data-col-index="2">
-                            <option value="">Select</option>
-                            <option value="Argentina">Argentina</option>
-                            <option value="Austria">Austria</option>
-                            <option value="China">China</option>
-                            <option value="Colombia">Colombia</option>
-                            <option value="Croatia">Croatia</option>
-                            <option value="Indonesia">Indonesia</option>
-                            <option value="Thailand">Thailand</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                        <label>COD:</label>
-                        <input type="text" class="form-control kt-input" placeholder="COD" data-col-index="4">
-                    </div>
-                </div>
-                <div class="row kt-margin-b-20">
-                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                        <label>Ngày tạo:</label>
-                        <div class="input-daterange input-group" id="kt_datepicker">
-                            <input type="text" class="form-control kt-input" name="start" placeholder="From" data-col-index="5">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
-                            </div>
-                            <input type="text" class="form-control kt-input" name="end" placeholder="To" data-col-index="5">
-                        </div>
-                    </div>
-                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                        <label>Thanh toán:</label>
-                        <select class="form-control kt-input" data-col-index="6">
-                            <option value="">Select</option>
-                            <option value="1">Pending</option>
-                            <option value="2">Delivered</option>
-                            <option value="3">Canceled</option>
-                            <option value="5">Info</option>
-                            <option value="6">Danger</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                        <label>Giao hàng:</label>
-                        <select class="form-control kt-input" data-col-index="7">
-                            <option value="">Select</option>
-                            <option value="1">Online</option>
-                            <option value="2">Retail</option>
-                            <option value="3">Direct</option>
-                        </select>
                     </div>
                 </div>
                 <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
@@ -251,23 +167,16 @@
                         </div>
                         <div class="kt-portlet__body">
                             <!--begin: Datatable -->
-                            <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_1">
+                            <table ng-if="contentList.length>0"
+                                   class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_1">
                                 <thead>
                                 <tr>
                                     <th>Mã tin tức </th>
                                     <th>Tên tin tức</th>
-                                    <th>Meta title</th>
-                                    <th>Mô tả</th>
                                     <th>Hình ảnh</th>
+                                    <th>Mô tả</th>
                                     <th>Danh mục tin tức</th>
-                                    <th>Chi tiết</th>
                                     <th>Warranty</th>
-                                    <th>Ngày tạo</th>
-                                    <th>Người tạo</th>
-                                    <th>Ngày sửa</th>
-                                    <th>Người sửa</th>
-                                    <th>Meta keyword</th>
-                                    <th>Meta description</th>
                                     <th>Trạng thái</th>
                                     <th>Top hot</th>
                                     <th>Số lượt xem</th>
@@ -279,18 +188,10 @@
                                 <tr ng-repeat="item in contentList">
                                     <th scope="row">{{item.content.ID}}</th>
                                     <td>{{item.content.Name}}</td>
-                                    <td>{{item.content.MetaTitle}}</td>
-                                    <td>{{item.content.Description}}</td>
                                     <td><img src= {{item.content.Image}}  /></td>
+                                    <td>{{item.content.Description}}</td>
                                     <td>{{item.category.Name}}</td>
-                                    <td>{{item.content.Detail}}</td>
                                     <td>{{item.content.Warranty}}</td>
-                                    <td>{{item.content.CreateDate}}</td>
-                                    <td>{{item.content.CreateBy}}</td>
-                                    <td>{{item.content.ModifiedDate}}</td>
-                                    <td>{{item.content.ModifiedBy}}</td>
-                                    <td>{{item.content.MetaKeywords}}</td>
-                                    <td>{{item.content.MetaDescriptions}}</td>
                                     <td>{{item.content.Status}}</td>
                                     <td>{{item.content.TopHot}}</td>
                                     <td>{{item.content.ViewCount}}</td>
