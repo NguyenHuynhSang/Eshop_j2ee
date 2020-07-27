@@ -276,17 +276,14 @@
                 <h3 class="widget-title">Bộ lọc</h3>
                 <aside class="widget woocommerce widget_layered_nav">
                     <h3 class="widget-title">Loại sản phẩm</h3>
-                    <select  class="orderby" >
-                        <option value="1" selected>Mới nhất</option>
-                        <option value="2">Giá tăng dần</option>
-                        <option value="3">Giá giảm dần</option>
+                    <select  class="input-text" ng-model="productFilter.CatalogID" ng-options="x.Catalog.ID as x.Catalog.Name for x in catalogs" >
                     </select>
 
                 </aside>
 
                 <aside class="widget woocommerce widget_price_filter">
                     <h3 class="widget-title">Khoảng giá</h3>
-                    <form action="#">
+                    <form >
                         <div class="price_slider_wrapper">
                             <div style=""
                                  class="">
@@ -306,7 +303,7 @@
                                 <div style="" class="price_label">Giá:</div>
 
 
-                                <a href="#" class="button">Bộ lọc</a>
+                                <button ng-click="search()" class="button">Lọc</button>
 
 
 

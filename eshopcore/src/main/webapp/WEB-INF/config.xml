@@ -18,7 +18,7 @@
 	http://docs.cksource.com/CKFinder_2.x/Developers_Guide/Java/Configuration/baseURL_and_baseDir
 	-->
 	<baseURL>\ImageUpdate</baseURL>
-	<baseDir>D:\hoc\J2EE\Eshop_j2ee\Server\apache-tomcat-8.5.54\webapps\ImageUpdate</baseDir>
+	<baseDir>D:\Git\JavaWeb\Server\apache-tomcat-8.5.54\webapps\ImageUpdate</baseDir>
 	<licenseKey></licenseKey>
 	<licenseName></licenseName>
 	<!--

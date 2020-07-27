@@ -12,15 +12,15 @@
                         <div class="kt-invoice__items">
                             <div class="kt-invoice__item">
                                 <span class="kt-invoice__subtitle">Ngày</span>
-                                <span class="kt-invoice__text">Dec 12, 2017</span>
+                                <span class="kt-invoice__text">{{order.CreateDate}}</span>
                             </div>
                             <div class="kt-invoice__item">
                                 <span class="kt-invoice__subtitle">SỐ HÓA ĐƠN</span>
-                                <span class="kt-invoice__text">EHD 100</span>
+                                <span class="kt-invoice__text">EHD 10{{order.ID}}</span>
                             </div>
                             <div class="kt-invoice__item">
                                 <span class="kt-invoice__subtitle">ĐỊA CHỈ GIAO HÀNG</span>
-                                <span class="kt-invoice__text">Iris Watson, P.O. Box 283 8562 Fusce RD.<br>Fredrick Nebraska 20620</span>
+                                <span class="kt-invoice__text">{{order.ShipAddress}}<br></span>
                             </div>
                         </div>
                     </div>
@@ -38,24 +38,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Creative Design</td>
-                                    <td>80</td>
-                                    <td>$40.00</td>
-                                    <td>$3200.00</td>
+                                <tr ng-repeat="item in order.OrderDetails">
+                                    <td>{{item.ProductVerion.Product.Name}}</td>
+                                    <td>{{item.Quantity}}</td>
+                                    <td>{{item.Price| currency:"":0}}</td>
+                                    <td>{{item.Quantity*item.Price| currency:"":0}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Front-End Development</td>
-                                    <td>120</td>
-                                    <td>$40.00</td>
-                                    <td>$4800.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Back-End Development</td>
-                                    <td>210</td>
-                                    <td>$60.00</td>
-                                    <td>$12600.00</td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -67,21 +56,21 @@
                             <div class="kt-invoice__title">KHÁCH HÀNG</div>
                             <div class="kt-invoice__item">
                                 <span class="kt-invoice__label">TÊN:</span>
-                                <span class="kt-invoice__value">Barclays UK</span></span>
+                                <span class="kt-invoice__value">{{order.ShipName}}</span></span>
                             </div>
                             <div class="kt-invoice__item">
                                 <span class="kt-invoice__label">SỐ ĐIỆN THOẠI:</span>
-                                <span class="kt-invoice__value">1234567890934</span></span>
+                                <span class="kt-invoice__value">{{order.ShipMobile}}</span></span>
                             </div>
                             <div class="kt-invoice__item">
                                 <span class="kt-invoice__label">Ghi chú:</span>
-                                <span class="kt-invoice__value">BARC0032UK</span></span>
+                                <span class="kt-invoice__value">{{order.Note}}</span></span>
                             </div>
                         </div>
                         <div class="kt-invoice__total">
-                            <span class="kt-invoice__title">TOTAL AMOUNT</span>
-                            <span class="kt-invoice__price">$20.600.00</span>
-                            <span class="kt-invoice__notice">Taxes Included</span>
+                            <span class="kt-invoice__title">Tổng tiền</span>
+                            <span class="kt-invoice__price">{{getTotalMoneyInCart()}}</span>
+
                         </div>
                     </div>
                 </div>

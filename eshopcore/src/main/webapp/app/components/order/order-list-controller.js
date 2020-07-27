@@ -10,6 +10,10 @@
         $scope.search = search;
         $scope.reset = resetFunct;
         $scope.isReset=false;
+
+        $scope.acviveInvoice=acviveInvoice;
+
+
         $scope.orderFilter={
             ID:null,
             fromDate:null,
@@ -29,6 +33,24 @@
             $scope.orderFilter = {};
             getListOrders();
         }
+
+
+        function acviveInvoice(id,code) {
+            var config = {
+                params: {
+                    ID: id,
+                    Code:code,
+                }
+            }
+            apiService.get('/eshopcore_war/api/invoiceActive', config, function (result) {
+                notificationService.displaySuccess("Thành công");
+                    getListOrders();
+            }, function () {
+                console.log('Load product api failed.');
+                notificationService.displayError("Không lấy được dữ liệu từ server");
+            });
+        }
+
 
 
         function search() {
