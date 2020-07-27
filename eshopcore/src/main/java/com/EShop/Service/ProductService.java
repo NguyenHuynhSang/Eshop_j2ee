@@ -341,11 +341,11 @@ public class ProductService implements IProductService, ICProductService {
                 }
                 if (filter.orderBy==2)
                 {
-                    order="order by CASE WHEN ver.PromotionPrice!=0 THEN ver.PromotionPrice ELSE ver.Price END desc asc";
+                    order="order by CASE WHEN ver.PromotionPrice!=0 THEN ver.PromotionPrice ELSE ver.Price END  asc";
                 }
                 if (filter.orderBy==3)
                 {
-                    order="order by CASE WHEN ver.PromotionPrice!=0 THEN ver.PromotionPrice ELSE ver.Price END desc desc";
+                    order="order by CASE WHEN ver.PromotionPrice!=0 THEN ver.PromotionPrice ELSE ver.Price END desc ";
                 }
 
 

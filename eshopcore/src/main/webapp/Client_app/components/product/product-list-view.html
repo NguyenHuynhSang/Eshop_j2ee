@@ -28,7 +28,7 @@
                                 class="fa fa-th-list"></i></a></li>
                     </ul>
                     <form class="woocommerce-ordering" method="get">
-                        <select ng-model="productFilter.orderBy" ng-change="getProducts()" name="orderby" class="orderby" >
+                        <select ng-model="productFilter.orderBy"  ng-change="getProducts()" name="orderby" class="orderby" >
                             <option value="1" selected>Mới nhất</option>
                             <option value="2">Giá tăng dần</option>
                             <option value="3">Giá giảm dần</option>
@@ -275,27 +275,15 @@
             <aside class="widget widget_electro_products_filter">
                 <h3 class="widget-title">Bộ lọc</h3>
                 <aside class="widget woocommerce widget_layered_nav">
-                    <h3 class="widget-title">Brands</h3>
-                    <ul>
-                        <li style=""><a href="#">Apple</a> <span class="count">(4)</span></li>
-                        <li style=""><a href="#">Gionee</a> <span class="count">(2)</span></li>
-                        <li style=""><a href="#">HTC</a> <span class="count">(2)</span></li>
-                        <li style=""><a href="#">LG</a> <span class="count">(2)</span></li>
-                        <li style=""><a href="#">Micromax</a> <span class="count">(1)</span></li>
-                    </ul>
-                    <p class="maxlist-more"><a href="#">+ Show more</a></p>
+                    <h3 class="widget-title">Loại sản phẩm</h3>
+                    <select  class="orderby" >
+                        <option value="1" selected>Mới nhất</option>
+                        <option value="2">Giá tăng dần</option>
+                        <option value="3">Giá giảm dần</option>
+                    </select>
+
                 </aside>
-                <aside class="widget woocommerce widget_layered_nav">
-                    <h3 class="widget-title">Color</h3>
-                    <ul>
-                        <li style=""><a href="#">Black</a> <span class="count">(4)</span></li>
-                        <li style=""><a href="#">Black Leather</a> <span class="count">(2)</span></li>
-                        <li style=""><a href="#">Turquoise</a> <span class="count">(2)</span></li>
-                        <li style=""><a href="#">White</a> <span class="count">(4)</span></li>
-                        <li style=""><a href="#">Gold</a> <span class="count">(4)</span></li>
-                    </ul>
-                    <p class="maxlist-more"><a href="#">+ Show more</a></p>
-                </aside>
+
                 <aside class="widget woocommerce widget_price_filter">
                     <h3 class="widget-title">Khoảng giá</h3>
                     <form action="#">
@@ -305,10 +293,12 @@
                                 <div class="form-group">
                                     <label>Từ</label>
                                     <input ng-model="productFilter.startPrice" type="number" class="input-text ">
+                                    <span class="label label-warning">{{productFilter.startPrice | currency:"":0}}</span>
                                 </div>
                                 <div class="form-group">
                                     <label>Đến</label>
                                     <input ng-model="productFilter.endPrice" type="number" class="input-text ">
+                                    <span class="label label-warning">{{productFilter.endPrice | currency:"":0}}</span>
                                 </div>
 
                             </div>
@@ -327,49 +317,7 @@
             </aside>
 
 
-            <aside class="widget widget_text">
-                <div class="textwidget">
-                    <a href="#"><img src="./Assets/client/images/banner/ad-banner-sidebar.jpg" alt="Banner"></a>
-                </div>
-            </aside>
-            <aside class="widget widget_products">
-                <h3 class="widget-title">Latest Products</h3>
-                <ul class="product_list_widget">
-                    <li>
-                        <a href="single-product.html" title="Notebook Black Spire V Nitro  VN7-591G">
-                            <img width="180" height="180" src="./Assets/client/images/product-category/1.jpg"
-                                 class="wp-post-image" alt=""/><span class="product-title">Notebook Black Spire V Nitro  VN7-591G</span>
-                        </a>
-                        <span class="electro-price"><ins><span class="amount">&#36;1,999.00</span></ins> <del><span
-                                class="amount">&#36;2,299.00</span></del></span>
-                    </li>
 
-                    <li>
-                        <a href="single-product.html" title="Tablet Thin EliteBook  Revolve 810 G6">
-                            <img width="180" height="180" src="./Assets/client/images/product-category/2.jpg"
-                                 class="wp-post-image" alt=""/><span class="product-title">Tablet Thin EliteBook  Revolve 810 G6</span>
-                        </a>
-                        <span class="electro-price"><span class="amount">&#36;1,300.00</span></span>
-                    </li>
-
-                    <li>
-                        <a href="single-product.html" title="Notebook Widescreen Z51-70  40K6013UPB">
-                            <img width="180" height="180" src="./Assets/client/images/product-category/3.jpg"
-                                 class="wp-post-image" alt=""/><span class="product-title">Notebook Widescreen Z51-70  40K6013UPB</span>
-                        </a>
-                        <span class="electro-price"><span class="amount">&#36;1,100.00</span></span>
-                    </li>
-
-                    <li>
-                        <a href="single-product.html" title="Notebook Purple G952VX-T7008T">
-                            <img width="180" height="180" src="./Assets/client/images/product-category/4.jpg"
-                                 class="wp-post-image" alt=""/><span
-                                class="product-title">Notebook Purple G952VX-T7008T</span>
-                        </a>
-                        <span class="electro-price"><span class="amount">&#36;2,780.00</span></span>
-                    </li>
-                </ul>
-            </aside>
         </div>
 
     </div><!-- .container -->
