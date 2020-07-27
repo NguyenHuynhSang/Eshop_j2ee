@@ -55,7 +55,6 @@
                     notificationService.displaySuccess("Tìm thấy " + result.data.length + " bản ghi");
                 }
 
-
             }, function () {
                 console.log('Load content category api failed.');
                 notificationService.displayError("Không lấy được dữ liệu từ server");
