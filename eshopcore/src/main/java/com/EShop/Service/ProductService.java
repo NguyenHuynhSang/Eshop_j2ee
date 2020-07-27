@@ -1,5 +1,6 @@
 package com.EShop.Service;
 
+import com.EShop.Filter.ProductClientFilter;
 import com.EShop.Filter.ProductFilter;
 import com.EShop.Service.IService.IClientService.ICProductService;
 import com.EShop.Service.IService.IProductService;
@@ -302,6 +303,82 @@ public class ProductService implements IProductService, ICProductService {
             productViewModel.Product.setContent(rs.getString("Content"));
             productViewModel.Product.setDescription(rs.getString("Description"));
             productViewModel.Product.setName(rs.getString("Name"));
+            productViewModel.ProductVersion = new ProductVersion();
+            productViewModel.ProductVersion.setID(rs.getInt("VerID"));
+            productViewModel.ProductVersion.setImage(rs.getString("VerImage"));
+            productViewModel.ProductVersion.setQuantum(rs.getInt("VerQuanTum"));
+            productViewModel.ProductVersion.setPrice(rs.getInt("VerPrice"));
+            productViewModel.ProductVersion.setPromotionPrice(rs.getInt("VerPromotionPrice"));
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+        return productViewModel;
+    }
+
+    @Override
+    public List<ProductDetailViewModel> GetListProductsByFilter(ProductClientFilter filter) throws SQLException {
+        List<ProductDetailViewModel> productViewModels = new ArrayList<>();
+        Statement stmt;
+        stmt = conn.createStatement();
+
+
+        String order="order by p.CreatedDate desc";
+        String qfilter="";
+
+        if (filter!=null)
+        {
+            if (filter.Name!=null &&filter.Name.length()>3)
+            {
+                qfilter="where  p.Name LIKE '%"+filter.Name+"%'";
+
+            }
+            if (filter.orderBy!=0)
+            {
+                if (filter.orderBy==1)
+                {
+                    order="order by p.CreatedDate desc";
+                }
+                if (filter.orderBy==2)
+                {
+                    order="order by CASE WHEN ver.PromotionPrice!=0 THEN ver.PromotionPrice ELSE ver.Price END  asc";
+                }
+                if (filter.orderBy==3)
+                {
+                    order="order by CASE WHEN ver.PromotionPrice!=0 THEN ver.PromotionPrice ELSE ver.Price END desc ";
+                }
+
+
+
+
+            }
+
+        }
+
+
+
+        String sqlQuery = "select p.Name,p.CreatedDate,p.SEOUrl,p.OriginalPrice,p.Content,p.Description\n" +
+                "                                ,p.Deliver,p.ApplyPromotion,c.Name as CatalogName,c.ID as CatalogId\n" +
+                "                                ,ver.ID as VerID,ver.Quantum as VerQuanTum,ver.Price as VerPrice\n" +
+                "                                ,ver.PromotionPrice as VerPromotionPrice\n" +
+                "                                ,ver.Image as VerImage,ver.RemainingAmount\n" +
+                "                                from ProductVersions ver\n" +
+                "                                join Product p\n" +
+                "                                on p.ID= ver.ProductID\n" +
+                "                                join Catalog c\n" +
+                "                                on c.ID=p.CatalogID\n" +qfilter+
+                "                               "+order;
+        ResultSet rs = stmt.executeQuery(sqlQuery);
+        while (rs.next()) {
+            ProductDetailViewModel productViewModel = new ProductDetailViewModel();
+            productViewModel.Catalog = new ProductCatalog();
+            productViewModel.Catalog.setName(rs.getString("CatalogName"));
+            productViewModel.Product = new Product();
+            productViewModel.Product.setSEOUrl(rs.getString("SEOUrl"));
+            productViewModel.Product.setOriginalPrice(rs.getInt("OriginalPrice"));
+            productViewModel.Product.setContent(rs.getString("Content"));
+            productViewModel.Product.setDescription(rs.getString("Description"));
+            productViewModel.Product.setName(rs.getString("Name"));
 
             productViewModel.ProductVersion = new ProductVersion();
             productViewModel.ProductVersion.setID(rs.getInt("VerID"));
@@ -309,12 +386,18 @@ public class ProductService implements IProductService, ICProductService {
             productViewModel.ProductVersion.setQuantum(rs.getInt("VerQuanTum"));
             productViewModel.ProductVersion.setPrice(rs.getInt("VerPrice"));
             productViewModel.ProductVersion.setPromotionPrice(rs.getInt("VerPromotionPrice"));
-
-
+            productViewModel.ProductVersion.setRemainingAmount(rs.getInt("RemainingAmount"));
+            productViewModels.add(productViewModel);
         }
         rs.close();
         stmt.close();
         conn.close();
-        return productViewModel;
+        return productViewModels;
+
+
+
+
     }
+
+
 }

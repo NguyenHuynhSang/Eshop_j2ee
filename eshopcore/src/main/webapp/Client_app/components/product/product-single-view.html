@@ -4,12 +4,12 @@
         <nav class="woocommerce-breadcrumb">
             <a href="home.html">Home</a>
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>
-            <a href="product-category.html">Accessories</a>
+            <a href="product-category.html">Sản phẩm</a>
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>
-            <a href="product-category.html">Headphones</a>
+            <a href="product-category.html">{{product.Catalog.Name}}</a>
             <span class="delimiter">
                 <i class="fa fa-angle-right"></i>
-            </span>Ultra Wireless S50 Headphones S50 with Bluetooth
+            </span>{{product.Product.Name}}
         </nav><!-- /.woocommerce-breadcrumb -->
 
         <div id="primary" class="content-area">
@@ -19,64 +19,28 @@
                         <div class="product-images-wrapper">
                             <span class="onsale">Sale!</span>
                             <div class="images electro-gallery">
-                                <div class="thumbnails-single owl-carousel">
-                                    <a href="images/single-product/s1-1.jpg" class="zoom" title="" data-rel="prettyPhoto[product-gallery]"><img src="assets/images/blank.gif" data-echo="assets/images/single-product/s1-1.jpg" class="wp-post-image" alt=""></a>
-
-                                    <a href="images/single-product/s1.jpg" class="zoom" title="" data-rel="prettyPhoto[product-gallery]"><img src="assets/images/blank.gif" data-echo="assets/images/single-product/s1.jpg" class="wp-post-image" alt=""></a>
-
-                                    <a href="images/single-product/s2.jpg" class="zoom" title="" data-rel="prettyPhoto[product-gallery]"><img src="assets/images/blank.gif" data-echo="assets/images/single-product/s2.jpg" class="wp-post-image" alt=""></a>
-
-                                    <a href="images/single-product/s3.jpg" class="zoom" title="" data-rel="prettyPhoto[product-gallery]"><img src="assets/images/blank.gif" data-echo="assets/images/single-product/s3.jpg" class="wp-post-image" alt=""></a>
-
-                                    <a href="images/single-product/s4.jpg" class="zoom" title="" data-rel="prettyPhoto[product-gallery]"><img src="assets/images/blank.gif" data-echo="assets/images/single-product/s4.jpg" class="wp-post-image" alt=""></a>
-
-                                    <a href="images/single-product/s5.jpg" class="zoom" title="" data-rel="prettyPhoto[product-gallery]"><img src="assets/images/blank.gif" data-echo="assets/images/single-product/s5.jpg" class="wp-post-image" alt=""></a>
+                                <div class="">
+                                           <a href="{{product.ProductVersion.Image}}" class="zoom" title="" data-rel="prettyPhoto[product-gallery]"><img src="{{product.ProductVersion.Image}}" data-echo="{{product.ProductVersion.Image}}" class="wp-post-image" alt=""></a>
                                 </div><!-- .thumbnails-single -->
 
                                 <div class="thumbnails-all columns-5 owl-carousel">
-                                    <a href="images/single-product/single-thumb1.jpg" class="first" title=""><img src="assets/images/blank.gif" data-echo="assets/images/single-product/single-thumb1.jpg" class="wp-post-image" alt=""></a>
-
-                                    <a href="images/single-product/single-thumb2.jpg" class="" title=""><img src="assets/images/blank.gif" data-echo="assets/images/single-product/single-thumb2.jpg" class="wp-post-image" alt=""></a>
-
-                                    <a href="images/single-product/single-thumb3.jpg" class="" title=""><img src="assets/images/blank.gif" data-echo="assets/images/single-product/single-thumb3.jpg" class="wp-post-image" alt=""></a>
-
-                                    <a href="images/single-product/single-thumb4.jpg" class="" title=""><img src="assets/images/blank.gif" data-echo="assets/images/single-product/single-thumb4.jpg" class="wp-post-image" alt=""></a>
-
-                                    <a href="images/single-product/single-thumb5.jpg" class="last" title=""><img src="assets/images/blank.gif" data-echo="assets/images/single-product/single-thumb5.jpg" class="wp-post-image" alt=""></a>
-
-                                    <a href="images/single-product/single-thumb6.jpg" class="first" title=""><img src="assets/images/blank.gif" data-echo="assets/images/single-product/single-thumb6.jpg" class="wp-post-image" alt=""></a>
-                                </div><!-- .thumbnails-all -->
+                                    <a href="{{product.ProductVersion.Image}}" class="first" title=""><img src="{{product.ProductVersion.Image}}" data-echo="{{product.ProductVersion.Image}}" class="wp-post-image" alt=""></a>
+                               </div><!-- .thumbnails-all -->
                             </div><!-- .electro-gallery -->
                         </div><!-- /.product-images-wrapper -->
 
                         <div class="summary entry-summary">
 
                             <span class="loop-product-categories">
-                                <a href="product-category.html" rel="tag">Headphones</a>
+                                <a href="product-category.html" rel="tag">{{product.Catalog.Name}}</a>
                             </span><!-- /.loop-product-categories -->
 
-                            <h1 itemprop="name" class="product_title entry-title">Ultra Wireless S50 Headphones S50 with Bluetooth</h1>
+                            <h1 itemprop="name" class="product_title entry-title">{{product.Product.Name}}</h1>
 
-                            <div class="woocommerce-product-rating">
-                                <div class="star-rating" title="Rated 4.33 out of 5">
-                                    <span style="width:86.6%">
-                                        <strong itemprop="ratingValue" class="rating">4.33</strong>
-                                        out of <span itemprop="bestRating">5</span>				based on
-                                        <span itemprop="ratingCount" class="rating">3</span>
-                                        customer ratings
-                                    </span>
-                                </div>
 
-                                <a href="#reviews" class="woocommerce-review-link">(<span itemprop="reviewCount" class="count">3</span> customer reviews)</a>
-                            </div><!-- .woocommerce-product-rating -->
 
-                            <div class="brand">
-                                <a href="product-category.html">
-                                    <img src="assets/images/single-product/brand.png" alt="Gionee" />
-                                </a>
-                            </div><!-- .brand -->
 
-                            <div class="availability in-stock">Availablity: <span>In stock</span></div><!-- .availability -->
+                            <div class="availability in-stock">Số lượng: <span>{{product.ProductVersion.Quantum}}</span></div><!-- .availability -->
 
                             <hr class="single-product-title-divider" />
 
@@ -91,20 +55,15 @@
                             </div><!-- .action-buttons -->
 
                             <div itemprop="description">
-                                <ul>
-                                    <li>4.5 inch HD Touch Screen (1280 x 720)</li>
-                                    <li>Android 4.4 KitKat OS</li>
-                                    <li>1.4 GHz Quad Core™ Processor</li>
-                                    <li>20 MP front and 28 megapixel CMOS rear camera</li>
-                                </ul>
+                                <ul  ng-bind-html="product.Product.Description ">
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                                <p><strong>SKU</strong>: FW511948218</p>
+                                </ul>
+                                <p><strong>SKU</strong>: {{product.ProductVersion.SKU}}</p>
                             </div><!-- .description -->
 
                             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
-                                <p class="price"><span class="electro-price"><ins><span class="amount">&#36;1,215.00</span></ins> <del><span class="amount">&#36;2,299.00</span></del></span></p>
+                                <p class="price"><span class="electro-price"><ins><span class="amount">{{product.ProductVersion.PromotionPrice | currency:"":0}}</span></ins> <del><span class="amount">{{product.ProductVersion.Price | currency:"":0}}</span></del></span></p>
 
                                 <meta itemprop="price" content="1215" />
                                 <meta itemprop="priceCurrency" content="USD" />
@@ -134,14 +93,9 @@
                                 <div class="single_variation_wrap">
                                     <div class="woocommerce-variation single_variation"></div>
                                     <div class="woocommerce-variation-add-to-cart variations_button">
-                                        <div class="quantity">
-                                            <label>Quantity:</label>
-                                            <input type="number" name="quantity" value="1" title="Qty" class="input-text qty text" />
-                                        </div>
-                                        <button type="submit" class="single_add_to_cart_button button">Add to cart</button>
-                                        <input type="hidden" name="add-to-cart" value="2452" />
-                                        <input type="hidden" name="product_id" value="2452" />
-                                        <input type="hidden" name="variation_id" class="variation_id" value="0" />
+
+                                        <button type="submit" class="single_add_to_cart_button button" ng-click="addToCart(product.ProductVersion.ID)">Thêm vào vỏ hàng</button>
+
                                     </div>
                                 </div>
                             </form>
@@ -333,45 +287,10 @@
 
                             <div class="tab-pane active in panel entry-content wc-tab" id="tab-description">
                                 <div class="electro-description">
+                                    <div ng-bind-html="product.Product.Content">
 
-                                    <h3>Perfectly Done</h3>
-                                    <p>Praesent ornare, ex a interdum consectetur, lectus diam sodales elit, vitae egestas est enim ornare nisl. Nullam in lectus nec sem semper viverra. In lobortis egestas massa. Nam nec massa nisi. Suspendisse potenti. Quisque suscipit vulputate dui quis volutpat. Ut id elit facilisis, feugiat est in, tempus lacus. Ut ultrices dictum metus, a ultricies ex vulputate ac. Ut id cursus tellus, non tempor quam. Morbi porta diam nisi, id finibus nunc tincidunt eu.</p>
-                                    <table class="layout">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <h3>Wireless</h3>
-                                                    <p>Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.</p>
-                                                    <h3>Fresh Design</h3>
-                                                    <p>Integer bibendum aliquet ipsum, in ultrices enim sodales sed. Quisque ut urna vitae lacus laoreet malesuada eu at massa. Pellentesque nibh augue, pellentesque nec dictum vel, pretium a arcu. Duis eu urna suscipit, lobortis elit quis, ullamcorper massa.</p>
-                                                    <h3>Fabolous Sound</h3>
-                                                    <p>Cras rutrum, nibh a sodales accumsan, elit sapien ultrices sapien, eget semper lectus ex congue elit. Nullam dui elit, fermentum a varius at, iaculis non dolor. In hac habitasse platea dictumst.
-                                                </td>
+                                    </div>
 
-                                                <td>
-                                                    <img class="alignright" data-echo="assets/images/single-product/ForDescription.jpg" src="assets/images/blank.gif" alt="">
-
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <table class="layout">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <img class="alignnone" data-echo="assets/images/single-product/ForDescription-1.png" src="assets/images/blank.gif" alt="">
-                                                </td>
-
-                                                <td>
-                                                    <h3 style="text-align: right;">Inteligent Bass</h3>
-                                                    <p style="text-align: right;">Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.</p>
-                                                    <h3 style="text-align: right;">Battery Life</h3>
-                                                    <p style="text-align: right;">Integer bibendum aliquet ipsum, in ultrices enim sodales sed. Quisque ut urna vitae lacus laoreet malesuada eu at massa. Pellentesque nibh augue, pellentesque nec dictum vel, pretium a arcu. Duis eu urna suscipit, lobortis elit quis, ullamcorper massa.</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </div><!-- /.electro-description -->
 
                                 <div class="product_meta">
