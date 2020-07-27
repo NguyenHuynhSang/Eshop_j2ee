@@ -1,11 +1,14 @@
 package com.EShop.Api;
 
+import com.EShop.Filter.ProductFilter;
+import com.EShop.Filter.StatisticFilter;
 import com.EShop.Model.JSon;
 import com.EShop.Model.Statistic;
 import com.EShop.Model.User;
 import com.EShop.Service.StatisticService;
 import com.EShop.Service.UserService;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,15 +30,19 @@ public class StatisticApi extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         StatisticService service = new StatisticService();
 
-        String fromDate="";
-        String toDate="";
-        String ID = req.getParameter("ID");
-        Gson gson = new Gson();
+
+
+        Gson gson =new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
+
+        String js = req.getParameter("filterJson");
+
+        StatisticFilter filter = gson.fromJson(js, StatisticFilter.class);
+
+
         PrintWriter printWriter = resp.getWriter();
-        JSon js = null;
         try {
             List<Statistic> statistics = new ArrayList<Statistic>();
-            statistics = service.GetStatistics(fromDate,toDate);
+            statistics = service.GetStatistics(filter);
             printWriter.print(gson.toJson(statistics));
         } catch (SQLException ex) {
             log(ex.toString());
