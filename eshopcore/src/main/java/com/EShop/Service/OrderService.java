@@ -78,7 +78,7 @@ public class OrderService implements IOrderService {
                 "select o.ID,o.CreatedDate,o.Note,o.ShipName,o.ShipAddress,o.ShipEmail,o.ShipMobile,\n" +
                 "o.Status,a.total\n" +
                 "from [Order] o join\n" +
-                "(select o1.ID,SUM(od.Price) as total\n" +
+                "(select o1.ID,SUM(od.Price*od.Quantity) as total\n" +
                 "from [Order] o1\n" +
                 "join OrderDetail od\n" +
                 "on o1.ID =od.OrderID\n" +
