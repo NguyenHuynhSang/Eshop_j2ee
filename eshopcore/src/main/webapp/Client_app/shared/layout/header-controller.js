@@ -1,32 +1,32 @@
 (function (app) {
 
     app.controller('header-controller', headerController);
-    headerController.$inject = ['$scope', 'api-service', 'notification-service','$rootScope'];
-    function headerController($scope, apiService, notificationService,$rootScope) {
-        $rootScope.keyword='';
-        $rootScope.bodyClass='single-product full-width';
-        $rootScope.shareOrder={};
-        $rootScope.shareGetCart=getCart;
+    headerController.$inject = ['$scope', 'api-service', 'notification-service', '$rootScope'];
 
-        $scope.liveSearchProduct=liveSearchProduct;
+    function headerController($scope, apiService, notificationService, $rootScope) {
+        $rootScope.keyword = '';
+        $rootScope.bodyClass = 'single-product full-width';
+        $rootScope.shareOrder = {};
+        $rootScope.shareGetCart = getCart;
 
-        $scope.menus=[];
-        $scope.getMenu=getMenu;
+        $scope.liveSearchProduct = liveSearchProduct;
+
+        $scope.menus = [];
+        $scope.getMenu = getMenu;
 
 
-
-
-        $scope.getTotalMoneyInCart=getTotalMoneyInCart;
+        $scope.getTotalMoneyInCart = getTotalMoneyInCart;
 
         function getTotalMoneyInCart() {
-            if ( $rootScope.shareOrder!=null)
-            {
-                var totalMoney=0;
-                for(x in $rootScope.shareOrder.OrderDetail)
-                {
+            if ($rootScope.shareOrder != null) {
+                var totalMoney = 0;
 
+                for (i = 0; i < $rootScope.shareOrder.OrderDetails.length; i++) {
+                    totalMoney += $rootScope.shareOrder.OrderDetails[i].Price * $rootScope.shareOrder.OrderDetails[i].Quantity;
                 }
+                return totalMoney;
             }
+            return 0;
         }
 
         function getMenu() {
@@ -63,6 +63,7 @@
 
 
         }
+
         $rootScope.shareGetCart();
         $scope.getMenu();
     }

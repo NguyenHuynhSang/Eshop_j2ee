@@ -36,19 +36,18 @@ public class CheckOutApi extends HttpServlet {
 
         String js = HttpUtil.of(req.getReader()); //request.getReader() dùng để lấy dữ liệu từ server
         Order order = gson.fromJson(js, Order.class);
+
+        HttpSession session = req.getSession();
+        
+        session.setAttribute("order", order);
+
+
         try {
             service.CheckOut(order);
             printWriter.print(order);
         } catch (SQLException ex) {
             Logger.getLogger(JSonAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-
-
-
-
-
 
     }
 }

@@ -63,7 +63,19 @@
 
         }
 
+        $scope.getTotalMoneyInCart = getTotalMoneyInCart;
 
+        function getTotalMoneyInCart() {
+            if ($scope.cart != null) {
+                var totalMoney = 0;
+
+                for (i = 0; i < $scope.cart.OrderDetails.length; i++) {
+                    totalMoney += $scope.cart.OrderDetails[i].Price * $scope.cart.OrderDetails[i].Quantity;
+                }
+                return totalMoney;
+            }
+            return 0;
+        }
         function getCart() {
 
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/

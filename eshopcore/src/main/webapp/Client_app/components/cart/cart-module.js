@@ -14,6 +14,11 @@
             url: "/thanh-toan",
             templateUrl: "./Client_app/components/cart/check-out-view.html",
             controller: "check-out-controller"
+        }).state('complete', {
+            parent: 'app',
+            url: "/thanh-cong",
+            templateUrl: "./Client_app/components/cart/complete-view.html",
+            controller: "complete-controller"
         });
 
     }

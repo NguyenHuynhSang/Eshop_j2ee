@@ -301,6 +301,7 @@
     <script src="${pageContext.request.contextPath }/Client_app/components/home/home-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/cart/view-cart-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/cart/check-out-controller.js"></script>
+    <script src="${pageContext.request.contextPath }/Client_app/components/cart/complete-controller.js"></script>
     <script src="${pageContext.request.contextPath }/Client_app/components/product/product-list-controller.js"></script>
 
     <script src="${pageContext.request.contextPath }/Client_app/components/product/product-single-controller.js"></script>

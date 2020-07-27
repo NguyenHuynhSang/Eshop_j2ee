@@ -8,17 +8,36 @@
         $scope.getCart=getCart;
         $scope.cart={};
         $scope.checkOut=checkOut;
-        
-        function checkOut() {
-            apiService.post('/eshopcore_war/api/CheckOut', $scope.cart, function (result) {
-                notificationService.displaySuccess("Thêm mới bản ghi thành công");
 
-                $state.go('catalog-list');
+
+        $scope.disableCheckOut=false;
+        function checkOut() {
+            $scope.disableCheckOut=true;
+            apiService.post('/eshopcore_war/api/CheckOut', angular.toJson($scope.cart), function (result) {
+                notificationService.displaySuccess("Thêm mới bản ghi thành công");
+                $state.go('complete');
             }, function () {
+                $state.go('complete');
                 notificationService.displayError("Thêm mới bản ghi KHÔNG thành công");
             });
         }
-        
+
+
+        $scope.getTotalMoneyInCart = getTotalMoneyInCart;
+
+        function getTotalMoneyInCart() {
+            if ($scope.cart != null) {
+                var totalMoney = 0;
+
+                for (i = 0; i < $scope.cart.OrderDetails.length; i++) {
+                    totalMoney += $scope.cart.OrderDetails[i].Price * $scope.cart.OrderDetails[i].Quantity;
+                }
+                return totalMoney;
+            }
+            return 0;
+        }
+
+
         function getCart() {
 
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
