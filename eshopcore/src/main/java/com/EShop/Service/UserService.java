@@ -1,5 +1,6 @@
 package com.EShop.Service;
 
+import com.EShop.Filter.AccountFilter;
 import com.EShop.Model.Menu;
 import com.EShop.Model.User;
 import com.EShop.Model.UserGroup;
@@ -15,15 +16,43 @@ import java.util.List;
 public class UserService implements IUserService {
     Connection conn = DbConnection.getJDBCConnection();
     @Override
-    public List<User> GetListUser() throws SQLException {
+    public List<User> GetListUser(AccountFilter filter) throws SQLException {
         List<User> users = new ArrayList<>();
         Statement stmt;
+
+        String qfitler="";
+        if (filter!=null)
+        {
+            if (filter.ID!=0)
+            {
+                qfitler="where u.ID="+filter.ID;
+            }
+
+            if (filter.GroupUserID!=0)
+            {
+                qfitler="where u.UserGroupID="+filter.GroupUserID;
+            }
+            if (filter.Name!=null)
+            {
+                qfitler="where u.Name LIKE '%"+filter.Name+"%'";
+            }
+            if (filter.UserName!=null)
+            {
+                qfitler="where u.Username LIKE '%"+filter.UserName+"%'";
+            }
+
+        }
+
+
+
+
         stmt = conn.createStatement();
         String sqlQuery = "select u.ID,gr.ID as gID,u.Username,u.Password,u.Name,u.Sex,u.Address,u.Phone,u.Email,u.IsLock,gr.GroupName\n" +
                 "from [User] u\n" +
                 "join UserGroup gr\n" +
                 "on u.UserGroupID=gr.ID\n" +
-                "\n";
+                " "+qfitler+
+                " \n";
         ResultSet rs = stmt.executeQuery(sqlQuery);
         while (rs.next()) {
             User user = new User();

@@ -1,5 +1,7 @@
 package com.EShop.Api;
 
+import com.EShop.Filter.AccountFilter;
+import com.EShop.Filter.ProductFilter;
 import com.EShop.Model.JSon;
 import com.EShop.Model.ProductVersion;
 import com.EShop.Model.User;
@@ -26,14 +28,16 @@ public class UserApi extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         UserService service = new UserService();
-
-        String ID = req.getParameter("ID");
         Gson gson = new Gson();
+        String js = req.getParameter("filterJson");
+
+        AccountFilter filter = gson.fromJson(js, AccountFilter.class);
+        String ID = req.getParameter("ID");
+
         PrintWriter printWriter = resp.getWriter();
-        JSon js = null;
         try {
             List<User> users = new ArrayList<User>();
-            users = service.GetListUser();
+            users = service.GetListUser(filter);
             printWriter.print(gson.toJson(users));
         } catch (SQLException ex) {
             log(ex.toString());

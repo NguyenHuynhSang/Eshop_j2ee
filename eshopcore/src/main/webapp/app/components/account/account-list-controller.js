@@ -8,17 +8,21 @@
         $scope.accountList = [];
         $scope.advanceSearch=false;
 
-        $scope.accountFilter = {};
-        $scope.keyWord = '';
+        $scope.accountFilter = {
+                ID:null,
+                Name:null,
+                UserName:null,
+                GroupUserID:null
+
+        };
+      
         $scope.search = search;
         $scope.getListAccount = getListAccount;
         $scope.checkAuthen=checkAuthen();
         function checkAuthen(){
-
             apiService.get('/eshopcore_war/api/auth', null, function (result) {
             }, function () {
             });
-
         }
         $scope.reset = function () {
             $scope.accountFilter = {};
@@ -59,7 +63,7 @@
                 }
             }
 
-            apiService.get('/eshopcore_war/api/user', null, function (result) {
+            apiService.get('/eshopcore_war/api/user', config, function (result) {
                 $scope.accountList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

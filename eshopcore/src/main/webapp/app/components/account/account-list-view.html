@@ -184,85 +184,28 @@
                     <div class="col-lg-8">
                         <div class="row kt-margin-b-20">
                             <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
-                                <label>Mã:</label>
-                                <input type="number" ng-model="accountFilter.id" class="form-control kt-input"
+                                <label>Tên đăng nhập:</label>
+                                <input ng-model="accountFilter.UserName"  ng-model="accountFilter.id" class="form-control kt-input"
                                        placeholder="Mã" data-col-index="0">
                             </div>
                             <div class="col-lg-4 kt-margin-b-10-tabl    et-and-mobile">
-                                <label>Tên sản phẩm:</label>
-                                <input type="text" ng-model="accountFilter.name" class="form-control kt-input"
-                                       placeholder="Tên sản phẩm" data-col-index="1">
+                                <label>Tên người dùng:</label>
+                                <input type="text" ng-model="accountFilter.Name" class="form-control kt-input"
+                                       placeholder="Tên người dùng" data-col-index="1">
                             </div>
                             <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
-                                <label>Loại sản phẩm:</label>
-                                <select ng-model="accountFilter.catalogID" class="form-control kt-input"
+                                <label>Nhóm người dùng:</label>
+                                <select  ng-model="accountFilter.GroupUserID" class="form-control kt-input"
                                         data-col-index="2">
-                                    <option value="">Select</option>
+                                  <option value="" selected disabled>---select----</option>
+                                    <option value="1">ADMIN_GROUP</option>
+                                    <option value="2">CLIENT_GROUP</option>
                                 </select>
                             </div>
-
                         </div>
-                        <div ng-show="advanceSearch" class="row kt-margin-b-20">
-                            <div class="col-lg-6 kt-margin-b-10-tablet-and-mobile">
-                                <label>Giá gốc:</label>
-                                <div class="input-daterange input-group" id="kt_datepicker">
-                                    <div class="input-group-prepend"><span class="input-group-text"
-                                                                           id="basic-addon2"><i>VNĐ</i></span></div>
-                                    <input type="number" class="form-control kt-input" name="start" placeholder="từ"
-                                           data-col-index="5">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
-                                    </div>
-                                    <input type="number" class="form-control kt-input" name="end" placeholder="đến"
-                                           data-col-index="5">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 kt-margin-b-10-tablet-and-mobile">
-                                <label>Giá bán:</label>
-                                <div class="input-daterange input-group" id="kt_datepicker">
-                                    <div class="input-group-prepend"><span class="input-group-text"
-                                                                           id="basic-addon2"><i>VNĐ</i></span></div>
-                                    <input type="number" class="form-control kt-input" name="start" placeholder="từ"
-                                           data-col-index="5">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
-                                    </div>
-                                    <input type="number" class="form-control kt-input" name="end" placeholder="đến"
-                                           data-col-index="5">
-                                </div>
-                            </div>
+                    
 
-
-                        </div>
-
-                        <div ng-show="advanceSearch" class="row kt-margin-b-20">
-                            <div class="col-lg-6 kt-margin-b-10-tablet-and-mobile">
-                                <label>Trọng lượng:</label>
-                                <div class="input-daterange input-group" id="kt_datepicker">
-                                    <input type="number" class="form-control kt-input" name="start" placeholder="từ"
-                                           data-col-index="5">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
-                                    </div>
-                                    <input type="number" class="form-control kt-input" name="end" placeholder="đến"
-                                           data-col-index="5">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 kt-margin-b-10-tablet-and-mobile">
-                                <label>Số phiên bản:</label>
-                                <div class="input-daterange input-group" id="kt_datepicker">
-                                    <input type="number" class="form-control kt-input" name="start" placeholder="từ"
-                                           data-col-index="5">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
-                                    </div>
-                                    <input type="number" class="form-control kt-input" name="end" placeholder="đến"
-                                           data-col-index="5">
-                                </div>
-                            </div>
-
-
-                        </div>
+                       
                         <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
                         <div class="row">
                             <div class="col-lg-8">

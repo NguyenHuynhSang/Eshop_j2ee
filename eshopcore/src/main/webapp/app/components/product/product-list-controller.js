@@ -10,6 +10,7 @@
         $scope.miniminePrice = true;
         $scope.showAuditlog = false;
         $scope.getListProduct = getListProduct;
+        $scope.isReset=false;
         $scope.productFilter = {
             startPrice: null,
             endPrice: null,
@@ -29,6 +30,7 @@
 
 
         function resetFunct() {
+            $scope.isReset=true;
             $scope.productFilter = {};
             getListProduct();
         }

@@ -387,7 +387,7 @@
 
                                 </td>
                                 <td>{{item.Product.Name}}</td>
-                                <td>item.Product.ProductCatalog.Name</td>
+                                <td>{{item.Product.ProductCatalog.Name}}</td>
                                 <td ng-show="miniminePrice==true">
                                     <ul>
                                         <li>
@@ -513,7 +513,7 @@
 <!-- end:: Content -->
 <!--begin::Page Scripts(used by this page) -->
 
-<script ng-if="productList.length>0" src="./Assets/admin/js/pages/crud/datatables/basic/basic.js"
+<script ng-if="productList.length>0 && isReset==false" src="./Assets/admin/js/pages/crud/datatables/basic/basic.js"
         type="text/javascript"></script>
 
 <script src="./Assets/admin/plugins/custom/datatables/datatables.bundle.js" type="text/javascript"></script>

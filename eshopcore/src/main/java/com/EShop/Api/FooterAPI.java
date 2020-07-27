@@ -32,10 +32,7 @@ public class FooterAPI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-
         FooterService jsonservice = new FooterService();
-
         String keyword = request.getParameter("keyword");
         String action = request.getParameter("action");
         String ID= request.getParameter("ID");
