@@ -13,6 +13,30 @@
 
         $scope.menus = [];
         $scope.getMenu = getMenu;
+        $scope.catalogs=[];
+        $scope.getListCatalog = getListCatalog;
+
+        function getListCatalog() {
+            var config = {
+                params: {
+                    action: "getParents", //VỚI GET CONFIG LUÔN TRUYỀN ACTION VÀO ĐỂ HÀM DOGET XỬ LÝ TỪNG CASE
+                }
+            }
+            /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
+            apiService.get('/eshopcore_war/api/Catalog', config, function (result) {
+                $scope.catalogs=result.data;
+
+                if (result.data.length == 0) {
+                    notificationService.displayWarning("Không tìm thấy slides nào");
+                } else {
+                    notificationService.displaySuccess("[DEV]Tìm đước slides");
+                }
+            }, function () {
+                notificationService.displayError("Không lấy được dữ liệu từ server");
+            });
+
+        }
+
 
 
         $scope.getTotalMoneyInCart = getTotalMoneyInCart;
@@ -66,6 +90,7 @@
 
         $rootScope.shareGetCart();
         $scope.getMenu();
+        $scope.getListCatalog();
     }
 
 })(angular.module('eshop'));

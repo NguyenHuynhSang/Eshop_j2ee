@@ -16,6 +16,18 @@
                 orderBy: 1,
                 Name: null,
             }
+            $scope.init=init;
+
+        function init(){
+            var cataID=$stateParams.catalogID;
+            if (cataID!=null)
+            {
+                $scope.productFilter.CatalogID=cataID;
+            }
+
+        }
+
+
         $scope.getProducts = getProducts;
         $scope.catalogs = [];
 
@@ -98,6 +110,7 @@
 
         }
 
+        $scope.init();
         $scope.getProducts();
         $scope.getListCatalog();
 

@@ -20,12 +20,19 @@
                             <span class="onsale">Sale!</span>
                             <div class="images electro-gallery">
                                 <div class="">
-                                           <a href="{{product.ProductVersion.Image}}" class="zoom" title="" data-rel="prettyPhoto[product-gallery]"><img src="{{product.ProductVersion.Image}}" data-echo="{{product.ProductVersion.Image}}" class="wp-post-image" alt=""></a>
+                                    <a href="{{product.ProductVersion.Image}}" class="zoom" title=""
+                                       data-rel="prettyPhoto[product-gallery]"><img
+                                            src="{{product.ProductVersion.Image}}"
+                                            data-echo="{{product.ProductVersion.Image}}" class="wp-post-image"
+                                            alt=""></a>
                                 </div><!-- .thumbnails-single -->
 
                                 <div class="thumbnails-all columns-5 owl-carousel">
-                                    <a href="{{product.ProductVersion.Image}}" class="first" title=""><img src="{{product.ProductVersion.Image}}" data-echo="{{product.ProductVersion.Image}}" class="wp-post-image" alt=""></a>
-                               </div><!-- .thumbnails-all -->
+                                    <a href="{{product.ProductVersion.Image}}" class="first" title=""><img
+                                            src="{{product.ProductVersion.Image}}"
+                                            data-echo="{{product.ProductVersion.Image}}" class="wp-post-image"
+                                            alt=""></a>
+                                </div><!-- .thumbnails-all -->
                             </div><!-- .electro-gallery -->
                         </div><!-- /.product-images-wrapper -->
 
@@ -38,24 +45,18 @@
                             <h1 itemprop="name" class="product_title entry-title">{{product.Product.Name}}</h1>
 
 
+                            <div class="availability in-stock">Số lượng: <span>{{product.ProductVersion.Quantum}}</span>
+                            </div><!-- .availability -->
 
-
-                            <div class="availability in-stock">Số lượng: <span>{{product.ProductVersion.Quantum}}</span></div><!-- .availability -->
-
-                            <hr class="single-product-title-divider" />
+                            <hr class="single-product-title-divider"/>
 
                             <div class="action-buttons">
 
-                                <a href="#" class="add_to_wishlist">
-                                    Wishlist
-                                </a>
 
-
-                                <a href="#" class="add-to-compare-link" data-product_id="2452">Compare</a>
                             </div><!-- .action-buttons -->
 
                             <div itemprop="description">
-                                <ul  ng-bind-html="product.Product.Description ">
+                                <ul ng-bind-html="product.Product.Description ">
 
                                 </ul>
                                 <p><strong>SKU</strong>: {{product.ProductVersion.SKU}}</p>
@@ -63,30 +64,20 @@
 
                             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
-                                <p class="price"><span class="electro-price"><ins><span class="amount">{{product.ProductVersion.PromotionPrice | currency:"":0}}</span></ins> <del><span class="amount">{{product.ProductVersion.Price | currency:"":0}}</span></del></span></p>
+                                <p class="price"><span class="electro-price"><ins><span class="amount">{{product.ProductVersion.PromotionPrice | currency:"":0}}</span></ins> <del><span
+                                        class="amount">{{product.ProductVersion.Price | currency:"":0}}</span></del></span>
+                                </p>
 
-                                <meta itemprop="price" content="1215" />
-                                <meta itemprop="priceCurrency" content="USD" />
-                                <link itemprop="availability" href="http://schema.org/InStock" />
+                                <meta itemprop="price" content="1215"/>
+                                <meta itemprop="priceCurrency" content="USD"/>
+                                <link itemprop="availability" href="http://schema.org/InStock"/>
 
                             </div><!-- /itemprop -->
 
                             <form class="variations_form cart" method="post">
 
                                 <table class="variations">
-                                    <tbody>
-                                        <tr>
-                                            <td class="label"><label>Color</label></td>
-                                            <td class="value">
-                                                <select class="" name="attribute_pa_color">
-                                                    <option value="">Choose an option</option>
-                                                    <option value="black-with-red">Black with Red</option>
-                                                    <option value="white-with-gold" selected='selected'>White with Gold</option>
-                                                </select>
-                                                <a class="reset_variations" href="#">Clear</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+
                                 </table>
 
 
@@ -94,7 +85,9 @@
                                     <div class="woocommerce-variation single_variation"></div>
                                     <div class="woocommerce-variation-add-to-cart variations_button">
 
-                                        <button type="submit" class="single_add_to_cart_button button" ng-click="addToCart(product.ProductVersion.ID)">Thêm vào vỏ hàng</button>
+                                        <button type="submit" class="single_add_to_cart_button button"
+                                                ng-click="addToCart(product.ProductVersion.ID)">Thêm vào vỏ hàng
+                                        </button>
 
                                     </div>
                                 </div>
@@ -111,7 +104,8 @@
                             </li>
 
                             <li class="nav-item description_tab">
-                                <a href="#tab-description" target="_self" class="active" data-toggle="tab">Description</a>
+                                <a href="#tab-description" target="_self" class="active"
+                                   data-toggle="tab">Description</a>
                             </li>
 
                             <li class="nav-item specification_tab">
@@ -136,12 +130,15 @@
                                                 <li class="product first">
                                                     <div class="product-outer">
                                                         <div class="product-inner">
-                                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Smartphones</a></span>
                                                             <a href="single-product.html">
-                                                                <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
+                                                                <h3>Notebook Black Spire V Nitro VN7-591G</h3>
                                                                 <div class="product-thumbnail">
 
-                                                                    <img data-echo="assets/images/products/4.jpg" src="assets/images/blank.gif" alt="">
+                                                                    <img data-echo="assets/images/products/4.jpg"
+                                                                         src="assets/images/blank.gif" alt="">
 
                                                                 </div>
                                                             </a>
@@ -153,7 +150,8 @@
                                                                         <del><span class="amount">&#036;2,299.00</span></del>
                                                                     </span>
                                                                 </span>
-                                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                                <a rel="nofollow" href="single-product.html"
+                                                                   class="button add_to_cart_button">Add to cart</a>
                                                             </div><!-- /.price-add-to-cart -->
 
                                                             <div class="hover-area">
@@ -168,11 +166,14 @@
                                                 <li class="product ">
                                                     <div class="product-outer">
                                                         <div class="product-inner">
-                                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Smartphones</a></span>
                                                             <a href="single-product.html">
-                                                                <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
+                                                                <h3>Notebook Black Spire V Nitro VN7-591G</h3>
                                                                 <div class="product-thumbnail">
-                                                                    <img data-echo="assets/images/products/3.jpg" src="assets/images/blank.gif" alt="">
+                                                                    <img data-echo="assets/images/products/3.jpg"
+                                                                         src="assets/images/blank.gif" alt="">
                                                                 </div>
                                                             </a>
 
@@ -183,7 +184,8 @@
                                                                         <del><span class="amount">&#036;2,299.00</span></del>
                                                                     </span>
                                                                 </span>
-                                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                                <a rel="nofollow" href="single-product.html"
+                                                                   class="button add_to_cart_button">Add to cart</a>
                                                             </div><!-- /.price-add-to-cart -->
 
                                                             <div class="hover-area">
@@ -198,11 +200,14 @@
                                                 <li class="product last">
                                                     <div class="product-outer">
                                                         <div class="product-inner">
-                                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Smartphones</a></span>
                                                             <a href="single-product.html">
-                                                                <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
+                                                                <h3>Notebook Black Spire V Nitro VN7-591G</h3>
                                                                 <div class="product-thumbnail">
-                                                                    <img data-echo="assets/images/products/5.jpg" src="assets/images/blank.gif" alt="">
+                                                                    <img data-echo="assets/images/products/5.jpg"
+                                                                         src="assets/images/blank.gif" alt="">
                                                                 </div>
                                                             </a>
 
@@ -213,7 +218,8 @@
                                                                         <del><span class="amount">&#036;2,299.00</span></del>
                                                                     </span>
                                                                 </span>
-                                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                                <a rel="nofollow" href="single-product.html"
+                                                                   class="button add_to_cart_button">Add to cart</a>
                                                             </div><!-- /.price-add-to-cart -->
 
                                                             <div class="hover-area">
@@ -277,7 +283,9 @@
                                             </div><!-- /.total-price -->
 
                                             <div class="accessories-add-all-to-cart">
-                                                <button type="button" class="button btn btn-primary add-all-to-cart">Add all to cart</button>
+                                                <button type="button" class="button btn btn-primary add-all-to-cart">Add
+                                                    all to cart
+                                                </button>
                                             </div><!-- /.accessories-add-all-to-cart -->
                                         </div><!-- /.col -->
                                     </div><!-- /.row -->
@@ -294,7 +302,8 @@
                                 </div><!-- /.electro-description -->
 
                                 <div class="product_meta">
-                                    <span class="sku_wrapper">SKU: <span class="sku" itemprop="sku">FW511948218</span></span>
+                                    <span class="sku_wrapper">SKU: <span class="sku"
+                                                                         itemprop="sku">FW511948218</span></span>
 
 
                                     <span class="posted_in">
@@ -305,7 +314,8 @@
                                     <span class="tagged_as">
                                         Tags:
                                         <a href="product-category.html" rel="tag">Fast</a>,
-                                        <a href="product-category.html" rel="tag">Gaming</a>, <a href="product-category.html" rel="tag">Strong</a>
+                                        <a href="product-category.html" rel="tag">Gaming</a>, <a
+                                            href="product-category.html" rel="tag">Strong</a>
                                     </span>
 
                                 </div><!-- /.product_meta -->
@@ -315,78 +325,78 @@
                                 <h3>Technical Specifications</h3>
                                 <table class="table">
                                     <tbody>
-                                        <tr>
-                                            <td>Brand</td>
-                                            <td>Apple</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item Height</td>
-                                            <td>18 Millimeters</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item Width</td>
-                                            <td>31.4 Centimeters</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Screen Size</td>
-                                            <td>13 Inches</td>
-                                        </tr>
-                                        <tr class="size-weight">
-                                            <td>Item Weight</td>
-                                            <td>1.6 Kg</td>
-                                        </tr>
-                                        <tr class="size-weight">
-                                            <td>Product Dimensions</td>
-                                            <td>21.9 x 31.4 x 1.8 cm</td>
-                                        </tr>
-                                        <tr class="item-model-number">
-                                            <td>Item model number</td>
-                                            <td>MF841HN/A</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Processor Brand</td>
-                                            <td>Intel</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Processor Type</td>
-                                            <td>Core i5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Processor Speed</td>
-                                            <td>2.9 GHz</td>
-                                        </tr>
-                                        <tr>
-                                            <td>RAM Size</td>
-                                            <td>8 GB</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hard Drive Size</td>
-                                            <td>512 GB</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hard Disk Technology</td>
-                                            <td>Solid State Drive</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Graphics Coprocessor</td>
-                                            <td>Intel Integrated Graphics</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Graphics Card Description</td>
-                                            <td>Integrated Graphics Card</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hardware Platform</td>
-                                            <td>Mac</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Operating System</td>
-                                            <td>Mac OS</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Average Battery Life (in hours)</td>
-                                            <td>9</td>
-                                        </tr>
+                                    <tr>
+                                        <td>Brand</td>
+                                        <td>Apple</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Item Height</td>
+                                        <td>18 Millimeters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Item Width</td>
+                                        <td>31.4 Centimeters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Screen Size</td>
+                                        <td>13 Inches</td>
+                                    </tr>
+                                    <tr class="size-weight">
+                                        <td>Item Weight</td>
+                                        <td>1.6 Kg</td>
+                                    </tr>
+                                    <tr class="size-weight">
+                                        <td>Product Dimensions</td>
+                                        <td>21.9 x 31.4 x 1.8 cm</td>
+                                    </tr>
+                                    <tr class="item-model-number">
+                                        <td>Item model number</td>
+                                        <td>MF841HN/A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Processor Brand</td>
+                                        <td>Intel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Processor Type</td>
+                                        <td>Core i5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Processor Speed</td>
+                                        <td>2.9 GHz</td>
+                                    </tr>
+                                    <tr>
+                                        <td>RAM Size</td>
+                                        <td>8 GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hard Drive Size</td>
+                                        <td>512 GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hard Disk Technology</td>
+                                        <td>Solid State Drive</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Graphics Coprocessor</td>
+                                        <td>Intel Integrated Graphics</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Graphics Card Description</td>
+                                        <td>Integrated Graphics Card</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hardware Platform</td>
+                                        <td>Mac</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Operating System</td>
+                                        <td>Mac OS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Average Battery Life (in hours)</td>
+                                        <td>9</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div><!-- /.panel -->
@@ -462,11 +472,13 @@
                                                         <h3 id="reply-title" class="comment-reply-title">
                                                             Add a review
                                                             <small>
-                                                                <a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel reply</a>
+                                                                <a rel="nofollow" id="cancel-comment-reply-link"
+                                                                   href="#" style="display:none;">Cancel reply</a>
                                                             </small>
                                                         </h3>
 
-                                                        <form action="#" method="post" id="commentform" class="comment-form">
+                                                        <form action="#" method="post" id="commentform"
+                                                              class="comment-form">
                                                             <p class="comment-form-rating">
                                                                 <label>Your Rating</label>
                                                             </p>
@@ -483,17 +495,28 @@
 
                                                             <p class="comment-form-comment">
                                                                 <label for="comment">Your Review</label>
-                                                                <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                                                                <textarea id="comment" name="comment" cols="45" rows="8"
+                                                                          aria-required="true"></textarea>
                                                             </p>
 
                                                             <p class="form-submit">
-                                                                <input name="submit" type="submit" id="submit" class="submit" value="Add Review" />
-                                                                <input type='hidden' name='comment_post_ID' value='2452' id='comment_post_ID' />
-                                                                <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+                                                                <input name="submit" type="submit" id="submit"
+                                                                       class="submit" value="Add Review"/>
+                                                                <input type='hidden' name='comment_post_ID' value='2452'
+                                                                       id='comment_post_ID'/>
+                                                                <input type='hidden' name='comment_parent'
+                                                                       id='comment_parent' value='0'/>
                                                             </p>
 
-                                                            <input type="hidden" id="_wp_unfiltered_html_comment_disabled" name="_wp_unfiltered_html_comment_disabled" value="c7106f1f46" />
-                                                            <script>(function () { if (window === window.parent) { document.getElementById('_wp_unfiltered_html_comment_disabled').name = '_wp_unfiltered_html_comment'; } })();</script>
+                                                            <input type="hidden"
+                                                                   id="_wp_unfiltered_html_comment_disabled"
+                                                                   name="_wp_unfiltered_html_comment_disabled"
+                                                                   value="c7106f1f46"/>
+                                                            <script>(function () {
+                                                                if (window === window.parent) {
+                                                                    document.getElementById('_wp_unfiltered_html_comment_disabled').name = '_wp_unfiltered_html_comment';
+                                                                }
+                                                            })();</script>
                                                         </form><!-- form -->
                                                     </div><!-- #respond -->
                                                 </div>
@@ -509,30 +532,40 @@
 
                                                 <div id="comment-390" class="comment_container">
 
-                                                    <img alt='' src="assets/images/blog/avatar.jpg" class="avatar" height='60' width='60' />
+                                                    <img alt='' src="assets/images/blog/avatar.jpg" class="avatar"
+                                                         height='60' width='60'/>
                                                     <div class="comment-text">
 
                                                         <div class="star-rating" title="Rated 4 out of 5">
-                                                            <span style="width:80%"><strong itemprop="ratingValue">4</strong> out of 5</span>
+                                                            <span style="width:80%"><strong
+                                                                    itemprop="ratingValue">4</strong> out of 5</span>
                                                         </div>
 
 
                                                         <p class="meta">
                                                             <strong>John Doe</strong> &ndash;
-                                                            <time itemprop="datePublished" datetime="2016-03-03T14:13:48+00:00">March 3, 2016</time>:
+                                                            <time itemprop="datePublished"
+                                                                  datetime="2016-03-03T14:13:48+00:00">March 3, 2016
+                                                            </time>
+                                                            :
                                                         </p>
-
 
 
                                                         <div itemprop="description" class="description">
                                                             <p>
-                                                                Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.
+                                                                Fusce vitae nibh mi. Integer posuere, libero et
+                                                                ullamcorper facilisis, enim eros tincidunt orci, eget
+                                                                vestibulum sapien nisi ut leo. Cras finibus vel est ut
+                                                                mollis. Donec luctus condimentum ante et euismod.
                                                             </p>
                                                         </div>
 
 
                                                         <p class="meta">
-                                                            <strong itemprop="author">John Doe</strong> &ndash; <time itemprop="datePublished" datetime="2016-03-03T14:13:48+00:00">March 3, 2016</time>
+                                                            <strong itemprop="author">John Doe</strong> &ndash;
+                                                            <time itemprop="datePublished"
+                                                                  datetime="2016-03-03T14:13:48+00:00">March 3, 2016
+                                                            </time>
                                                         </p>
 
 
@@ -544,27 +577,41 @@
 
                                                 <div class="comment_container">
 
-                                                    <img alt='' src="assets/images/blog/avatar.jpg" class="avatar" height='60' width='60' />
+                                                    <img alt='' src="assets/images/blog/avatar.jpg" class="avatar"
+                                                         height='60' width='60'/>
                                                     <div class="comment-text">
 
-                                                        <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="Rated 5 out of 5">
-                                                            <span style="width:100%"><strong itemprop="ratingValue">5</strong> out of 5</span>
+                                                        <div itemprop="reviewRating" itemscope
+                                                             itemtype="http://schema.org/Rating" class="star-rating"
+                                                             title="Rated 5 out of 5">
+                                                            <span style="width:100%"><strong
+                                                                    itemprop="ratingValue">5</strong> out of 5</span>
                                                         </div>
 
                                                         <p class="meta">
                                                             <strong>Anna Kowalsky</strong> &ndash;
-                                                            <time itemprop="datePublished" datetime="2016-03-03T14:14:47+00:00">March 3, 2016</time>:
+                                                            <time itemprop="datePublished"
+                                                                  datetime="2016-03-03T14:14:47+00:00">March 3, 2016
+                                                            </time>
+                                                            :
                                                         </p>
 
 
                                                         <div itemprop="description" class="description">
                                                             <p>
-                                                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse eget facilisis odio. Duis sodales augue eu tincidunt faucibus. Etiam justo ligula, placerat ac augue id, volutpat porta dui.
+                                                                Pellentesque habitant morbi tristique senectus et netus
+                                                                et malesuada fames ac turpis egestas. Suspendisse eget
+                                                                facilisis odio. Duis sodales augue eu tincidunt
+                                                                faucibus. Etiam justo ligula, placerat ac augue id,
+                                                                volutpat porta dui.
                                                             </p>
                                                         </div>
 
                                                         <p class="meta">
-                                                            <strong itemprop="author">Anna Kowalsky</strong> &ndash; <time itemprop="datePublished" datetime="2016-03-03T14:14:47+00:00">March 3, 2016</time>
+                                                            <strong itemprop="author">Anna Kowalsky</strong> &ndash;
+                                                            <time itemprop="datePublished"
+                                                                  datetime="2016-03-03T14:14:47+00:00">March 3, 2016
+                                                            </time>
                                                         </p>
 
                                                     </div>
@@ -575,27 +622,40 @@
 
                                                 <div class="comment_container">
 
-                                                    <img alt='' src="assets/images/blog/avatar.jpg" class="avatar" height='60' width='60' />
+                                                    <img alt='' src="assets/images/blog/avatar.jpg" class="avatar"
+                                                         height='60' width='60'/>
                                                     <div class="comment-text">
 
-                                                        <div itemprop="reviewRating" class="star-rating" title="Rated 5 out of 5">
-                                                            <span style="width:100%"><strong itemprop="ratingValue">5</strong> out of 5</span>
+                                                        <div itemprop="reviewRating" class="star-rating"
+                                                             title="Rated 5 out of 5">
+                                                            <span style="width:100%"><strong
+                                                                    itemprop="ratingValue">5</strong> out of 5</span>
                                                         </div>
 
                                                         <p class="meta">
                                                             <strong>Anna Kowalsky</strong> &ndash;
-                                                            <time itemprop="datePublished" datetime="2016-03-03T14:14:47+00:00">March 3, 2016</time>:
+                                                            <time itemprop="datePublished"
+                                                                  datetime="2016-03-03T14:14:47+00:00">March 3, 2016
+                                                            </time>
+                                                            :
                                                         </p>
 
 
                                                         <div itemprop="description" class="description">
                                                             <p>
-                                                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse eget facilisis odio. Duis sodales augue eu tincidunt faucibus. Etiam justo ligula, placerat ac augue id, volutpat porta dui.
+                                                                Pellentesque habitant morbi tristique senectus et netus
+                                                                et malesuada fames ac turpis egestas. Suspendisse eget
+                                                                facilisis odio. Duis sodales augue eu tincidunt
+                                                                faucibus. Etiam justo ligula, placerat ac augue id,
+                                                                volutpat porta dui.
                                                             </p>
                                                         </div>
 
                                                         <p class="meta">
-                                                            <strong itemprop="author">Anna Kowalsky</strong> &ndash; <time itemprop="datePublished" datetime="2016-03-03T14:14:47+00:00">March 3, 2016</time>
+                                                            <strong itemprop="author">Anna Kowalsky</strong> &ndash;
+                                                            <time itemprop="datePublished"
+                                                                  datetime="2016-03-03T14:14:47+00:00">March 3, 2016
+                                                            </time>
                                                         </p>
 
                                                     </div>
@@ -622,9 +682,10 @@
                                     <div class="product-inner">
                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
                                         <a href="single-product.html">
-                                            <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
+                                            <h3>Notebook Black Spire V Nitro VN7-591G</h3>
                                             <div class="product-thumbnail">
-                                                <img data-echo="assets/images/products/1.jpg" src="assets/images/blank.gif" alt="">
+                                                <img data-echo="assets/images/products/1.jpg"
+                                                     src="assets/images/blank.gif" alt="">
                                             </div>
                                         </a>
 
@@ -634,13 +695,12 @@
                                                     <ins><span class="amount">&#036;1,999.00</span></ins>
                                                 </span>
                                             </span>
-                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                            <a rel="nofollow" href="single-product.html"
+                                               class="button add_to_cart_button">Add to cart</a>
                                         </div><!-- /.price-add-to-cart -->
 
                                         <div class="hover-area">
                                             <div class="action-buttons">
-                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-                                                <a href="#" class="add-to-compare-link">Compare</a>
                                             </div>
                                         </div>
                                     </div><!-- /.product-inner -->
@@ -652,9 +712,10 @@
                                     <div class="product-inner">
                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
                                         <a href="single-product.html">
-                                            <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
+                                            <h3>Notebook Black Spire V Nitro VN7-591G</h3>
                                             <div class="product-thumbnail">
-                                                <img data-echo="assets/images/products/2.jpg" src="assets/images/blank.gif" alt="">
+                                                <img data-echo="assets/images/products/2.jpg"
+                                                     src="assets/images/blank.gif" alt="">
                                             </div>
                                         </a>
 
@@ -664,13 +725,12 @@
                                                     <ins><span class="amount">&#036;1,999.00</span></ins>
                                                 </span>
                                             </span>
-                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                            <a rel="nofollow" href="single-product.html"
+                                               class="button add_to_cart_button">Add to cart</a>
                                         </div><!-- /.price-add-to-cart -->
 
                                         <div class="hover-area">
                                             <div class="action-buttons">
-                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-                                                <a href="#" class="add-to-compare-link">Compare</a>
                                             </div>
                                         </div>
                                     </div><!-- /.product-inner -->
@@ -682,9 +742,10 @@
                                     <div class="product-inner">
                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
                                         <a href="single-product.html">
-                                            <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
+                                            <h3>Notebook Black Spire V Nitro VN7-591G</h3>
                                             <div class="product-thumbnail">
-                                                <img data-echo="assets/images/products/3.jpg" src="assets/images/blank.gif" alt="">
+                                                <img data-echo="assets/images/products/3.jpg"
+                                                     src="assets/images/blank.gif" alt="">
                                             </div>
                                         </a>
 
@@ -694,13 +755,12 @@
                                                     <ins><span class="amount">&#036;1,999.00</span></ins>
                                                 </span>
                                             </span>
-                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                            <a rel="nofollow" href="single-product.html"
+                                               class="button add_to_cart_button">Add to cart</a>
                                         </div><!-- /.price-add-to-cart -->
 
                                         <div class="hover-area">
                                             <div class="action-buttons">
-                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-                                                <a href="#" class="add-to-compare-link">Compare</a>
                                             </div>
                                         </div>
                                     </div><!-- /.product-inner -->
@@ -712,9 +772,10 @@
                                     <div class="product-inner">
                                         <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
                                         <a href="single-product.html">
-                                            <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
+                                            <h3>Notebook Black Spire V Nitro VN7-591G</h3>
                                             <div class="product-thumbnail">
-                                                <img data-echo="assets/images/products/4.jpg" src="assets/images/blank.gif" alt="">
+                                                <img data-echo="assets/images/products/4.jpg"
+                                                     src="assets/images/blank.gif" alt="">
                                             </div>
                                         </a>
 
@@ -724,13 +785,12 @@
                                                     <ins><span class="amount">&#036;1,999.00</span></ins>
                                                 </span>
                                             </span>
-                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                            <a rel="nofollow" href="single-product.html"
+                                               class="button add_to_cart_button">Add to cart</a>
                                         </div><!-- /.price-add-to-cart -->
 
                                         <div class="hover-area">
                                             <div class="action-buttons">
-                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-                                                <a href="#" class="add-to-compare-link">Compare</a>
                                             </div>
                                         </div>
                                     </div><!-- /.product-inner -->

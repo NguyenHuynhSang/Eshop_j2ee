@@ -16,6 +16,11 @@
         $scope.bestSaleProducts=[];
         $scope.GetListbestSaleProducts = GetListbestSaleProducts;
 
+
+        $scope.catalogs = [];
+
+
+
         function addToCart(id)
         {
             var config = {
@@ -125,6 +130,7 @@
         $scope.GetListSlides();
         $scope.GetListNewProducts();
         $scope.GetListbestSaleProducts();
+
     }
 
 
