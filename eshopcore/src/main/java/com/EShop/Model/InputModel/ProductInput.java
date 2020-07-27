@@ -6,6 +6,7 @@ import net.sourceforge.jtds.jdbc.DateTime;
 import java.util.Date;
 import java.util.List;
 public class ProductInput {
+    public int ID;
     public long CatalogID ;
     public String Url ;
     public String Name ;
@@ -35,7 +36,7 @@ public class ProductInput {
 
     public String SEODescription ;
 
-    public String ApplyPromotion ;
+    public boolean ApplyPromotion ;
     public List<ProductVersionInput> Versions ;
 
 

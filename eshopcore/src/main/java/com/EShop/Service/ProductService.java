@@ -32,39 +32,35 @@ public class ProductService implements IProductService, ICProductService {
         Statement stmt;
         stmt = conn.createStatement();
 
-        String qLilter="";
-        if (filter!=null)
-        {
-            if (filter.ID!=0)
-                qLilter="where ver.ID="+filter.ID;
-            if (filter.Name!=null){
-                qLilter="where p.Name LIKE '%"+filter.Name+"%'";
+        String qLilter = "";
+        if (filter != null) {
+            if (filter.ID != 0)
+                qLilter = "where ver.ID=" + filter.ID;
+            if (filter.Name != null) {
+                qLilter = "where p.Name LIKE '%" + filter.Name + "%'";
             }
-            if (filter.startOriginalPrice!=0 && filter.endOriginalPrice==0)
-            {
-                qLilter="where p.OriginalPrice>="+filter.startOriginalPrice;
+            if (filter.startOriginalPrice != 0 && filter.endOriginalPrice == 0) {
+                qLilter = "where p.OriginalPrice>=" + filter.startOriginalPrice;
             }
-            if (filter.startOriginalPrice==0 && filter.endOriginalPrice!=0){
-                qLilter="where p.OriginalPrice<="+filter.endOriginalPrice;
+            if (filter.startOriginalPrice == 0 && filter.endOriginalPrice != 0) {
+                qLilter = "where p.OriginalPrice<=" + filter.endOriginalPrice;
             }
-            if (filter.startOriginalPrice!=0 && filter.endOriginalPrice!=0){
-                qLilter="where p.OriginalPrice>="+filter.startOriginalPrice+"and p.OriginalPrice<="+filter.endOriginalPrice;
+            if (filter.startOriginalPrice != 0 && filter.endOriginalPrice != 0) {
+                qLilter = "where p.OriginalPrice>=" + filter.startOriginalPrice + "and p.OriginalPrice<=" + filter.endOriginalPrice;
             }
-            if (filter.CatalogID!=0){
-                qLilter="where c.ID="+filter.CatalogID;
+            if (filter.CatalogID != 0) {
+                qLilter = "where c.ID=" + filter.CatalogID;
             }
 
-            if (filter.startPrice!=0 && filter.endPrice==0)
-            {
-                qLilter="where ver.Price>="+filter.startPrice;
+            if (filter.startPrice != 0 && filter.endPrice == 0) {
+                qLilter = "where ver.Price>=" + filter.startPrice;
             }
-            if (filter.startPrice==0 && filter.endPrice!=0){
-                qLilter="where ver.Price<="+filter.endPrice;
+            if (filter.startPrice == 0 && filter.endPrice != 0) {
+                qLilter = "where ver.Price<=" + filter.endPrice;
             }
-            if (filter.startPrice!=0 && filter.startPrice!=0){
-                qLilter="where ver.Price>="+filter.startPrice +"and ver.Price<="+filter.endPrice;
+            if (filter.startPrice != 0 && filter.startPrice != 0) {
+                qLilter = "where ver.Price>=" + filter.startPrice + "and ver.Price<=" + filter.endPrice;
             }
-
 
 
         }
@@ -85,7 +81,7 @@ public class ProductService implements IProductService, ICProductService {
                 "on ver.ProductID=p.ID\n" +
                 "left join Catalog c\n" +
                 "on p.CatalogID =c.ID\n" +
-                "" +qLilter+
+                "" + qLilter +
                 " order by p.CreatedDate asc\n";
 
         ResultSet rs = stmt.executeQuery(sqlQuery);
@@ -133,6 +129,54 @@ public class ProductService implements IProductService, ICProductService {
         stmt.close();
         conn.close();
         return productVersionList;
+    }
+
+
+    @Override
+    public void UpdateProduct(ProductInput product) throws SQLException {
+
+
+        String sqlQuery="Update Product\n" +
+                "Set CatalogID=?,Url=?,Name=?,Description=?,Content=?,Weight=?,OriginalPrice=?,\n" +
+                "Deliver=?,SEOTitle=?,SEOUrl=?,SEODescription=?,ApplyPromotion=?\n" +
+                "Where ID=?";
+        PreparedStatement pStatement = conn.prepareStatement(sqlQuery);
+        //statement = conn.prepareStatement(sqlQuery);
+        pStatement.setObject(1, product.CatalogID);
+        pStatement.setObject(2, product.Url);
+        pStatement.setObject(3, product.Name);
+        pStatement.setObject(4, product.Description);
+        pStatement.setObject(5, product.Content);
+        pStatement.setObject(6, product.Weight);
+        pStatement.setObject(7, product.OriginalPrice);
+        pStatement.setObject(8, true);
+        pStatement.setObject(9, product.SEOTitle);
+        pStatement.setObject(10, product.SEOUrl);
+        pStatement.setObject(11, product.SEODescription);
+        pStatement.setObject(12, product.ApplyPromotion);
+        pStatement.setObject(13, product.ID);
+        int rowCount = pStatement.executeUpdate();
+        for (ProductVersionInput ver :
+                product.Versions) {
+            sqlQuery="Update ProductVersions\n" +
+                    "Set ProductID=?,WareHouseID=?,Description=?,Price=?,PromotionPrice=?,Quantum=?,RemainingAmount=?,\n" +
+                    "SKU=?,Barcode=?,Image=?\n" +
+                    "Where ID=?";
+            PreparedStatement verStatement = conn.prepareStatement(sqlQuery);
+            ver.ProductID = product.ID;
+            verStatement.setObject(1, ver.ProductID);
+            verStatement.setObject(2, 0);
+            verStatement.setObject(3, ver.Description);
+            verStatement.setObject(4, ver.Price);
+            verStatement.setObject(5, ver.PromotionPrice);
+            verStatement.setObject(6, ver.Quantum);
+            verStatement.setObject(7, ver.RemainingAmount);
+            verStatement.setObject(8, ver.SKU);
+            verStatement.setObject(9, ver.Barcode);
+            verStatement.setObject(10, ver.Image);
+            verStatement.setObject(11, ver.ID);
+            rowCount = verStatement.executeUpdate();
+        }
     }
 
     @Override
@@ -237,6 +281,82 @@ public class ProductService implements IProductService, ICProductService {
     }
 
     @Override
+    public ProductInput GetProductInputForEdit(int id) throws SQLException {
+        ProductInput input = new ProductInput();
+        Statement stmt = conn.createStatement();
+        String sqlQuery = "select * \n" +
+                "from Product p\n" +
+                "where p.ID="+id;
+        ResultSet rs = stmt.executeQuery(sqlQuery);
+        if (rs.next()) {
+            input.Name=rs.getString("Name");
+            input.CatalogID=rs.getInt("CatalogID");
+            input.Description=rs.getString("Description");
+            input.Content=rs.getString("Content");
+            input.Weight=rs.getInt("Weight");
+            input.OriginalPrice=rs.getInt("OriginalPrice");
+            input.ApplyPromotion=rs.getBoolean("ApplyPromotion");
+            input.SEOTitle=rs.getString("SEOTitle");
+            input.SEOUrl=rs.getString("SEOUrl");
+            input.SEODescription=rs.getString("SEODescription");
+            input.Url=rs.getString("Url");
+            input.ID=rs.getInt("ID");
+            input.Versions=new ArrayList<>();
+                sqlQuery="select *\n" +
+                        "from ProductVersions v\n" +
+                        "where v.ProductID="+input.ID;
+            Statement vsmt = conn.createStatement();
+            ResultSet vrs = vsmt.executeQuery(sqlQuery);
+
+            while (vrs.next())
+            {
+                ProductVersionInput vInput=new ProductVersionInput();
+                vInput.ProductID=input.ID;
+                vInput.ID=vrs.getInt("ID");;
+                vInput.Description=vrs.getString("Description");
+                vInput.Price=vrs.getInt("Price");
+                vInput.Quantum=vrs.getInt("Quantum");
+                vInput.RemainingAmount=vrs.getInt("RemainingAmount");
+                vInput.SKU=vrs.getString("SKU");
+                vInput.Barcode=vrs.getString("Barcode");
+                vInput.PromotionPrice=vrs.getInt("PromotionPrice");
+                vInput.Image=vrs.getString("Image");
+                vInput.Attributes=new ArrayList<>();
+                sqlQuery="select * \n" +
+                        "from ProductAttribute pa\n" +
+                        "where pa.ProductVersionID="+vInput.ID;
+                Statement asmt = conn.createStatement();
+                ResultSet ars = asmt.executeQuery(sqlQuery);
+
+                while (ars.next())
+                {
+                    ProductAttribute attribute=new ProductAttribute();
+                    attribute.setID(ars.getInt("ID"));
+                    attribute.setAttributeValueID(ars.getInt("AttributeValueID"));
+                    attribute.setProductVersionID(ars.getInt("ProductVersionID"));
+                    vInput.Attributes.add(attribute);
+                }
+                ars.close();
+                asmt.close();
+
+                input.Versions.add(vInput);
+            }
+
+            vrs.close();
+            vsmt.close();
+
+
+
+
+        }
+        rs.close();
+        stmt.close();
+        return input;
+
+    }
+
+
+    @Override
     public void UpdateProduct(Product product) throws SQLException {
 
     }
@@ -323,69 +443,59 @@ public class ProductService implements IProductService, ICProductService {
         stmt = conn.createStatement();
 
 
-        String order="order by p.CreatedDate desc";
-        String qfilter="";
+        String order = "order by p.CreatedDate desc";
+        String qfilter = "";
 
-        if (filter!=null)
-        {
-            if (filter.Name!=null &&filter.Name.length()>3)
-            {
-                qfilter="where  p.Name LIKE '%"+filter.Name+"%'";
+        if (filter != null) {
+            if (filter.Name != null && filter.Name.length() > 3) {
+                qfilter = "where  p.Name LIKE '%" + filter.Name + "%'";
 
             }
 
-            if (filter.startPrice!=0 &&filter.endPrice==0)
-            {
+            if (filter.startPrice != 0 && filter.endPrice == 0) {
 
-                qfilter="where  ver.PromotionPrice>="+filter.startPrice;
-
-            }
-
-            if (filter.endPrice!=0 &&filter.startPrice==0)
-            {
-
-                qfilter="where  ver.PromotionPrice<="+filter.endPrice;
+                qfilter = "where  ver.PromotionPrice>=" + filter.startPrice;
 
             }
 
-            if (filter.endPrice!=0 &&filter.startPrice!=0)
-            {
+            if (filter.endPrice != 0 && filter.startPrice == 0) {
 
-                qfilter="where  ver.PromotionPrice>="+filter.startPrice+" and ver.PromotionPrice<="+filter.endPrice;
+                qfilter = "where  ver.PromotionPrice<=" + filter.endPrice;
+
+            }
+
+            if (filter.endPrice != 0 && filter.startPrice != 0) {
+
+                qfilter = "where  ver.PromotionPrice>=" + filter.startPrice + " and ver.PromotionPrice<=" + filter.endPrice;
             }
 
 
-            if (filter.CatalogID!=0)
-            {
-                String query="select *\n" +
+            if (filter.CatalogID != 0) {
+                String query = "select *\n" +
                         "from Catalog\n" +
-                        "where ID="+filter.CatalogID;
-                Statement cst=conn.createStatement();
+                        "where ID=" + filter.CatalogID;
+                Statement cst = conn.createStatement();
 
-                ResultSet child=cst.executeQuery(query);
-                if (child.next())
-                {
-                    int parentID=child.getInt("ParentID");
-                    if (parentID==0)
-                    {
+                ResultSet child = cst.executeQuery(query);
+                if (child.next()) {
+                    int parentID = child.getInt("ParentID");
+                    if (parentID == 0) {
 
-                        if (qfilter!="")
-                        {
-                            qfilter+=" and  c.ParentID="+filter.CatalogID;
+                        if (qfilter != "") {
+                            qfilter += " and  c.ParentID=" + filter.CatalogID;
 
-                        }else  {
-                            qfilter="where  c.ParentID="+filter.CatalogID;
+                        } else {
+                            qfilter = "where  c.ParentID=" + filter.CatalogID;
                         }
 
 
-                    }else  {
+                    } else {
 
-                        if (qfilter!="")
-                        {
-                            qfilter+=" and  c.ID="+filter.CatalogID;
+                        if (qfilter != "") {
+                            qfilter += " and  c.ID=" + filter.CatalogID;
 
-                        }else  {
-                            qfilter="where  c.ID="+filter.CatalogID;
+                        } else {
+                            qfilter = "where  c.ID=" + filter.CatalogID;
                         }
 
                     }
@@ -399,30 +509,21 @@ public class ProductService implements IProductService, ICProductService {
             }
 
 
-
-
-            if (filter.orderBy!=0)
-            {
-                if (filter.orderBy==1)
-                {
-                    order="order by p.CreatedDate desc";
+            if (filter.orderBy != 0) {
+                if (filter.orderBy == 1) {
+                    order = "order by p.CreatedDate desc";
                 }
-                if (filter.orderBy==2)
-                {
-                    order="order by CASE WHEN ver.PromotionPrice!=0 THEN ver.PromotionPrice ELSE ver.Price END  asc";
+                if (filter.orderBy == 2) {
+                    order = "order by CASE WHEN ver.PromotionPrice!=0 THEN ver.PromotionPrice ELSE ver.Price END  asc";
                 }
-                if (filter.orderBy==3)
-                {
-                    order="order by CASE WHEN ver.PromotionPrice!=0 THEN ver.PromotionPrice ELSE ver.Price END desc ";
+                if (filter.orderBy == 3) {
+                    order = "order by CASE WHEN ver.PromotionPrice!=0 THEN ver.PromotionPrice ELSE ver.Price END desc ";
                 }
-
-
 
 
             }
 
         }
-
 
 
         String sqlQuery = "select p.Name,p.CreatedDate,p.SEOUrl,p.OriginalPrice,p.Content,p.Description\n" +
@@ -434,8 +535,8 @@ public class ProductService implements IProductService, ICProductService {
                 "                                join Product p\n" +
                 "                                on p.ID= ver.ProductID\n" +
                 "                                join Catalog c\n" +
-                "                                on c.ID=p.CatalogID\n" +qfilter+
-                "                               "+order;
+                "                                on c.ID=p.CatalogID\n" + qfilter +
+                "                               " + order;
         ResultSet rs = stmt.executeQuery(sqlQuery);
         while (rs.next()) {
             ProductDetailViewModel productViewModel = new ProductDetailViewModel();
@@ -461,8 +562,6 @@ public class ProductService implements IProductService, ICProductService {
         stmt.close();
         conn.close();
         return productViewModels;
-
-
 
 
     }
