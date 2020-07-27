@@ -6,7 +6,7 @@
     //chú ý thứ tự
     function viewCartController($scope, apiService, notificationService, $ngBootbox,$rootScope) {
 
-
+        $rootScope.bodyClass='single-product full-width';
         $scope.removeProduct=removeProduct;
 
 

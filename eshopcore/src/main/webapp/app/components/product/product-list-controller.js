@@ -39,7 +39,7 @@
 
 
         function search() {
-            $scope.isReset=true;
+
             getListProduct();
         }
 

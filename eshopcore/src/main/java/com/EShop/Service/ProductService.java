@@ -333,6 +333,74 @@ public class ProductService implements IProductService, ICProductService {
                 qfilter="where  p.Name LIKE '%"+filter.Name+"%'";
 
             }
+
+            if (filter.startPrice!=0 &&filter.endPrice==0)
+            {
+
+                qfilter="where  ver.PromotionPrice>="+filter.startPrice;
+
+            }
+
+            if (filter.endPrice!=0 &&filter.startPrice==0)
+            {
+
+                qfilter="where  ver.PromotionPrice<="+filter.endPrice;
+
+            }
+
+            if (filter.endPrice!=0 &&filter.startPrice!=0)
+            {
+
+                qfilter="where  ver.PromotionPrice>="+filter.startPrice+" and ver.PromotionPrice<="+filter.endPrice;
+            }
+
+
+            if (filter.CatalogID!=0)
+            {
+                String query="select *\n" +
+                        "from Catalog\n" +
+                        "where ID="+filter.CatalogID;
+                Statement cst=conn.createStatement();
+
+                ResultSet child=cst.executeQuery(query);
+                if (child.next())
+                {
+                    int parentID=child.getInt("ParentID");
+                    if (parentID==0)
+                    {
+
+                        if (qfilter!="")
+                        {
+                            qfilter+=" and  c.ParentID="+filter.CatalogID;
+
+                        }else  {
+                            qfilter="where  c.ParentID="+filter.CatalogID;
+                        }
+
+
+                    }else  {
+
+                        if (qfilter!="")
+                        {
+                            qfilter+=" and  c.ID="+filter.CatalogID;
+
+                        }else  {
+                            qfilter="where  c.ID="+filter.CatalogID;
+                        }
+
+                    }
+
+                }
+
+                cst.close();
+                child.close();
+
+
+            }
+
+
+
+
             if (filter.orderBy!=0)
             {
                 if (filter.orderBy==1)
