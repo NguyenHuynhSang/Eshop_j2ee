@@ -7,17 +7,43 @@
     function orderListListController($scope, apiService, notificationService, $ngBootbox) {
 
         $scope.ordersList=[];
-        $scope.productFilter={};
+        $scope.search = search;
+        $scope.reset = resetFunct;
+        $scope.isReset=false;
+        $scope.orderFilter={
+            ID:null,
+            fromDate:null,
+            toDate:null,
+            customerName:null,
+            customerPhone:null,
+            fromPrice:null,
+            toPrice:null,
+            fromQuantity:null,
+            toQuantity:null,
+            Status:null,
+            email:null,
+        };
 
+        function resetFunct() {
+            $scope.isReset=true;
+            $scope.orderFilter = {};
+            getListOrders();
+        }
+
+
+        function search() {
+            $scope.isReset=true;
+            getListOrders();
+        }
         $scope.getListOrders=getListOrders;
         function getListOrders() {
             /*Cấu trúc config cho doget để get ra parameter chú ý các tên action*/
             var config = {
                 params: {
-                    filterJson: angular.toJson($scope.productFilter)
+                    filterJson: angular.toJson($scope.orderFilter)
                 }
             }
-            apiService.get('/eshopcore_war/api/invoice', null, function (result) {
+            apiService.get('/eshopcore_war/api/invoice', config, function (result) {
                 $scope.ordersList = result.data;
                 if (result.data.length == 0) {
                     notificationService.displayWarning("Không tìm thấy bản ghi nào");

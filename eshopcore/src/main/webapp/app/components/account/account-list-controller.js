@@ -7,7 +7,7 @@
     function accountListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.accountList = [];
         $scope.advanceSearch=false;
-
+        $scope.isReset=false;
         $scope.accountFilter = {
                 ID:null,
                 Name:null,
@@ -25,13 +25,14 @@
             });
         }
         $scope.reset = function () {
+            $scope.isReset=true;
             $scope.accountFilter = {};
             getListAccount();
         }
 
         $scope.delAccount = delAccount;
         function search() {
-
+            $scope.isReset=true;
             getListAccount();
         }
 
