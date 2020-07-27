@@ -11,7 +11,7 @@
             controller: "order-list-controller"
         }).state('order-detail', {
             parent:'app',
-            url: "/order-detail",
+            url: "/order-detail/:id",
             templateUrl: "./app/components/order/order-detail-view.html",
             controller: "order-detail-controller"
         });
