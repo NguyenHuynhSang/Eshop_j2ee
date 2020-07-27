@@ -1,6 +1,9 @@
 package com.EShop.Service;
 
 import com.EShop.Filter.AccountFilter;
+import com.EShop.Mapper.SlideMapper;
+import com.EShop.Mapper.UserMapper;
+import com.EShop.Model.Footer;
 import com.EShop.Model.Menu;
 import com.EShop.Model.User;
 import com.EShop.Model.UserGroup;
@@ -13,7 +16,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserService implements IUserService {
+public class UserService extends DbConnection<User>  implements IUserService {
     Connection conn = DbConnection.getJDBCConnection();
     @Override
     public List<User> GetListUser(AccountFilter filter) throws SQLException {
@@ -111,8 +114,29 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User CreateUser(User user) throws SQLException {
-        return null;
+    public void CreateUser(User user) throws SQLException {
+        String sqlQuery="INSERT INTO [User] (Username,Password,Name,Sex,Address,Email,Phone,UserGroupID,IsLock) VALUES (?,?,?,?,?,?,?,?,?)";
+        Update(sqlQuery,user.getUsername(),user.getPassword(),user.getName(),user.getSex(),user.getAddress(),user.getEmail(),user.getPhone(),user.getUserGroupID(),false);
+    }
+
+    public List<User> CheckUserName(String user)
+    {
+        String sql = "SELECT * FROM [EShop].[dbo].[User] where Username = ?";
+        return query(sql,new UserMapper(), user);
+    }
+
+    public List<User> GetUserByID(int ID)
+    {
+        String sql = "SELECT * FROM [EShop].[dbo].[User] where ID = ?";
+        return query(sql,new UserMapper(), ID);
+    }
+
+    @Override
+    public void UpdateUser(User user) throws SQLException
+    {
+        String sqlQuery="UPDATE [User] SET Username = ?, Password = ?, Name = ?, Sex = ?, Address = ? , Email = ?" +
+                ",Phone = ?, UserGroupID = ?, IsLock = ? WHERE ID = ?";
+        Update(sqlQuery,user.getUsername(),user.getPassword(),user.getName(),user.getSex(),user.getAddress(),user.getEmail(),user.getPhone(),user.getUserGroupID(),false,user.getID());
     }
 
     @Override
