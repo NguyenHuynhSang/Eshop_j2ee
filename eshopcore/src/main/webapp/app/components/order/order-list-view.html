@@ -192,14 +192,14 @@
                             </div>
                             <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
                                 <label>Trạng thái:</label>
-                                <select ng-model="orderFilter.Status"  class="form-control kt-input"
+                                <select ng-model="orderFilter.Status" class="form-control kt-input"
                                         data-col-index="2">
                                     <option value="" selected disabled>---Chọn---</option>
-                                    <option value="1"  >Chờ xác nhận</option>
-                                    <option value="2"  >Đã xác nhận</option>
-                                    <option value="3"  >Đang giao hàng</option>
-                                    <option value="4"  >Giao thành công</option>
-                                    <option value="99"  >Bị hủy</option>
+                                    <option value="1">Chờ xác nhận</option>
+                                    <option value="2">Đã xác nhận</option>
+                                    <option value="3">Đang giao hàng</option>
+                                    <option value="4">Giao thành công</option>
+                                    <option value="99">Bị hủy</option>
                                 </select>
                             </div>
 
@@ -222,12 +222,14 @@
                             <div class="col-lg-6 kt-margin-b-10-tablet-and-mobile">
                                 <label>Từ ngày:</label>
                                 <div class="input-daterange input-group" id="kt_datepicker">
-                                    <input type="date" ng-model="orderFilter.fromDate" class="form-control kt-input" name="start" placeholder="từ"
+                                    <input type="date" ng-model="orderFilter.fromDate" class="form-control kt-input"
+                                           name="start" placeholder="từ"
                                            data-col-index="5">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
                                     </div>
-                                    <input type="date"  ng-model="orderFilter.toDate" class="form-control kt-input" name="end" placeholder="đến"
+                                    <input type="date" ng-model="orderFilter.toDate" class="form-control kt-input"
+                                           name="end" placeholder="đến"
                                            data-col-index="5">
                                 </div>
                             </div>
@@ -236,16 +238,19 @@
                                 <div class="input-daterange input-group" id="kt_datepicker">
                                     <div class="input-group-prepend"><span class="input-group-text"
                                                                            id="basic-addon2"><i>VNĐ</i></span></div>
-                                    <input type="number" ng-model="orderFilter.fromPrice" class="form-control kt-input" name="start" placeholder="từ"
+                                    <input type="number" ng-model="orderFilter.fromPrice" class="form-control kt-input"
+                                           name="start" placeholder="từ"
                                            data-col-index="5">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
                                     </div>
-                                    <input type="number" ng-model="orderFilter.toPrice" class="form-control kt-input" name="end" placeholder="đến"
+                                    <input type="number" ng-model="orderFilter.toPrice" class="form-control kt-input"
+                                           name="end" placeholder="đến"
                                            data-col-index="5">
                                 </div>
 
-                                <span ng-show="orderFilter.fromPrice!=null || orderFilter.toPrice!=null "  class="btn btn-label-success  btn-bold">Từ {{orderFilter.fromPrice| currency:"":0}} đến  {{orderFilter.toPrice| currency:"":0}}</span>
+                                <span ng-show="orderFilter.fromPrice!=null || orderFilter.toPrice!=null "
+                                      class="btn btn-label-success  btn-bold">Từ {{orderFilter.fromPrice| currency:"":0}} đến  {{orderFilter.toPrice| currency:"":0}}</span>
 
                             </div>
 
@@ -284,7 +289,8 @@
                                     <div class="col-2">
 														<span class="kt-switch kt-switch--info">
 															<label>
-																<input ng-model="advanceSearch" type="checkbox" checked="checked" name="">
+																<input ng-model="advanceSearch" type="checkbox"
+                                                                       checked="checked" name="">
 																<span></span>
 															</label>
 														</span>
@@ -296,7 +302,6 @@
 
 
                             </form>
-
 
 
                         </div>
@@ -343,31 +348,35 @@
                                 <td class="text-success">
                                     {{item.ShipMobile}}
                                 </td>
-                                <td>  {{item.Note}}</td>
-                                <td>  {{item.Total| currency:"":0}}</td>
+                                <td> {{item.Note}}</td>
+                                <td> {{item.Total| currency:"":0}}</td>
                                 <td>
                                     <span ng-show="item.Status==1">CHƯA DUYỆT ĐƠN</span>
+                                    <span ng-show="item.Status==2">Đã duyệt</span>
+                                    <span ng-show="item.Status==3">Đang vận chuyển</span>
+                                    <span ng-show="item.Status==4">Thành công</span>
+                                    <span ng-show="item.Status==99">Bị hủy</span>
                                 </td>
                                 <td>
                                         <span class="dtr-data">
                                             <span class="dropdown">
-                                                <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md"
-                                                   title="Edit">
-                                                    <i class="la la-edit"></i>
-                                                </a>
-                                                <a  ui-sref="order-detail({id:item.ID})" class="btn btn-sm btn-clean btn-icon btn-icon-md"
+
+                                                <a ui-sref="order-detail({id:item.ID})"
+                                                   class="btn btn-sm btn-clean btn-icon btn-icon-md"
                                                    title="View">
                                                     <i class="la la-eye"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md"
-                                                   data-toggle="dropdown" aria-expanded="true">
-                                                    <i class="la la-ellipsis-h"></i>
+
+                                             <a href="#"  target="_self" class="btn btn-sm btn-clean btn-icon btn-icon-md"
+                                                data-toggle="dropdown" aria-expanded="true">
+                                                    <i class="la la-ellipsis-h">Duyệt</i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item"><i class="la la-edit"></i> Edit Details</a>
-                                                    <a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>
-                                                    <a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>
-                                                </div>
+                                                    <button ng-click="acviveInvoice(item.ID,2)" class="dropdown-item"><i class="la la-edit"></i> Xác nhận</button>
+                                                    <button ng-click="acviveInvoice(item.ID,3)" class="dropdown-item" href="#"><i class="la la-leaf"></i> Đang vận chuyển</button>
+                                                    <button ng-click="acviveInvoice(item.ID,4)" class="dropdown-item" href="#"><i class="la la-print"></i> Thành công</button>
+                                                    <button ng-click="acviveInvoice(item.ID,99)" class="dropdown-item" href="#"><i class="la la-print"></i> Bị hũy</button>
+                                            </div>
                                             </span>
 
                                         </span>

@@ -11,10 +11,7 @@ import com.EShop.Model.ViewModel.ProductViewModel;
 import com.EShop.Service.IService.IOrderService;
 import com.EShop.dto.admin.OrderListDto;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -159,5 +156,19 @@ public class OrderService implements IOrderService {
         stmt.close();
         conn.close();
         return order;
+    }
+
+    @Override
+    public void AcviteOrder(int id, int code) throws SQLException {
+
+        String q = "update [Order] SET Status=? \n" +
+                "where ID=?6";
+        PreparedStatement preparedStatement = conn.prepareStatement(q);
+
+        preparedStatement.setInt(1, code);
+        preparedStatement.setInt(2, id);
+        int row = preparedStatement.executeUpdate();
+        preparedStatement.close();
+        conn.close();
     }
 }

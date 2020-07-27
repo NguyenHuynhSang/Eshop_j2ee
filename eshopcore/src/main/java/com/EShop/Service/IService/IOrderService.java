@@ -13,6 +13,6 @@ import java.util.List;
 public interface IOrderService {
     public List<OrderListDto> GetOrderListDto(InvoiceFilter filter) throws SQLException;
     public Order GetOrderDetail(int id) throws SQLException;
-
+    public void AcviteOrder(int id,int code) throws SQLException;
 
 }
