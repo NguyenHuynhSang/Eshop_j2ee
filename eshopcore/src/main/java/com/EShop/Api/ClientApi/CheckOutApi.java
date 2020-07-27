@@ -38,7 +38,7 @@ public class CheckOutApi extends HttpServlet {
         Order order = gson.fromJson(js, Order.class);
 
         HttpSession session = req.getSession();
-        
+
         session.setAttribute("order", order);
 
 
