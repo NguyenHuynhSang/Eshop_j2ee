@@ -173,6 +173,7 @@
 <script src="${pageContext.request.contextPath }/app/components/product/product-create-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/order/order-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/order/order-detail-controller.js"></script>
+<script src="${pageContext.request.contextPath }/app/components/order/order-edit-controller.js"></script>
 
 <script src="${pageContext.request.contextPath }/app/components/account/account-list-controller.js"></script>
 <script src="${pageContext.request.contextPath }/app/components/account/account-edit-controller.js"></script>

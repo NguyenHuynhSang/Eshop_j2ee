@@ -14,6 +14,11 @@
             url: "/order-detail/:id",
             templateUrl: "./app/components/order/order-detail-view.html",
             controller: "order-detail-controller"
+        }).state('order-edit', {
+            parent:'app',
+            url: "/order-edit/:id",
+            templateUrl: "./app/components/order/order-edit-view.html",
+            controller: "order-edit-controller"
         });
 
     }

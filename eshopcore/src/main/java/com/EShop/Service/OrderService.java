@@ -9,6 +9,7 @@ import com.EShop.Model.UserModel.OrderDetail;
 import com.EShop.Model.ViewModel.ProductDetailViewModel;
 import com.EShop.Model.ViewModel.ProductViewModel;
 import com.EShop.Service.IService.IOrderService;
+import com.EShop.dto.admin.OrderInputDto;
 import com.EShop.dto.admin.OrderListDto;
 
 import java.sql.*;
@@ -162,7 +163,7 @@ public class OrderService implements IOrderService {
     public void AcviteOrder(int id, int code) throws SQLException {
 
         String q = "update [Order] SET Status=? \n" +
-                "where ID=?6";
+                "where ID=?";
         PreparedStatement preparedStatement = conn.prepareStatement(q);
 
         preparedStatement.setInt(1, code);
@@ -170,5 +171,66 @@ public class OrderService implements IOrderService {
         int row = preparedStatement.executeUpdate();
         preparedStatement.close();
         conn.close();
+    }
+
+    @Override
+    public void UpdateOrder(OrderInputDto inputDto) throws SQLException {
+        String q = "update [Order] SET ShipName=?,ShipEmail=?,ShipAddress=?,ShipMobile=?\n" +
+                ",Status=?,Note=?\n" +
+                "where ID=?";
+        PreparedStatement preparedStatement = conn.prepareStatement(q);
+
+        preparedStatement.setObject(1, inputDto.ShipName);
+        preparedStatement.setObject(2, inputDto.ShipEmail);
+        preparedStatement.setObject(3, inputDto.ShipAddress);
+        preparedStatement.setObject(4, inputDto.ShipMobile);
+        preparedStatement.setObject(5, inputDto.Status);
+        preparedStatement.setObject(6, inputDto.Note);
+        preparedStatement.setObject(7, inputDto.ID);
+        int row = preparedStatement.executeUpdate();
+        preparedStatement.close();
+        conn.close();
+    }
+
+    @Override
+    public OrderInputDto GetOrderByID(int ID) throws SQLException {
+        OrderInputDto order = new OrderInputDto();
+
+        Statement stmt;
+        stmt = conn.createStatement();
+
+        String sqlQuery = "select *\n" +
+                "from [Order] o\n" +
+                "where o.ID=" + ID;
+        ResultSet rs = stmt.executeQuery(sqlQuery);
+        if (rs.next())
+        {
+
+            order.ID=(rs.getInt("ID"));
+            order.CreateDate=(rs.getDate("CreatedDate"));
+            order.Status=(rs.getInt("Status"));
+            order.ShipAddress=(rs.getString("ShipAddress"));
+            order.ShipEmail=(rs.getString("ShipEmail"));
+            order.ShipMobile=(rs.getString("ShipMobile"));
+            order.ShipName=(rs.getString("ShipName"));
+            order.Note=(rs.getString("Note"));
+        }
+
+        return order;
+    }
+
+    @Override
+    public void DeleteOrderDetail(int ID) throws SQLException {
+
+    }
+
+    @Override
+    public void UpdateOrderQuantity(int quantity) throws SQLException {
+
+    }
+
+    @Override
+    public void AddOrderDetail() throws SQLException {
+
     }
 }
